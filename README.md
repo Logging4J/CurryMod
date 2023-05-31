@@ -1,0 +1,2 @@
+# CurryMod
+crazy hack
