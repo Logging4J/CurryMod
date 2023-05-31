@@ -27,19 +27,16 @@ public class Sprint extends Hack {
                 mc.player.setSprinting(true);
             }
             if (mode.isMode("Omni")) {
-                if (mc.options.forwardKey.isPressed()) {
-                    mc.player.setSprinting(true);
-                }
-                if (mc.options.leftKey.isPressed()) {
-                    mc.player.setSprinting(true);
-                }
-                if (mc.options.rightKey.isPressed()) {
-                    mc.player.setSprinting(true);
-                }
-                if (mc.options.backKey.isPressed()) {
+                if (mc.options.forwardKey.isPressed() || mc.options.leftKey.isPressed() || mc.options.rightKey.isPressed() || mc.options.backKey.isPressed()) {
                     mc.player.setSprinting(true);
                 }
             }
         }
     }
+
+    @Override
+    public String getContent() {
+        return "["+mode.getMode()+"]";
+    }
+
 }

@@ -13,7 +13,7 @@ import java.util.function.IntPredicate;
 import java.util.function.Predicate;
 import java.util.stream.IntStream;
 
-public class HEEDIInventoryUtils {
+public class InventoryUtils {
 
     private static final MinecraftClient mc = MinecraftClient.getInstance();
 

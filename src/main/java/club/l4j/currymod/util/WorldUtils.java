@@ -1,6 +1,5 @@
 package club.l4j.currymod.util;
 
-import club.l4j.currymod.util.InventoryUtil;
 import com.google.common.collect.Sets;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
@@ -145,7 +144,7 @@ public class WorldUtils {
             }
 
             int prevSlot = mc.player.getInventory().selectedSlot;
-            Hand hand = HEEDIInventoryUtils.selectSlot(slot);
+            Hand hand = InventoryUtils.selectSlot(slot);
 
             if (hand == null) {
                 return false;

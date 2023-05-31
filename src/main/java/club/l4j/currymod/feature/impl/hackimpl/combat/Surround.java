@@ -4,7 +4,7 @@ import club.l4j.currymod.event.events.TickEvent;
 import club.l4j.currymod.feature.core.Hack;
 import club.l4j.currymod.feature.options.impl.OptionBoolean;
 import club.l4j.currymod.feature.options.impl.OptionMode;
-import club.l4j.currymod.util.Center;
+import club.l4j.currymod.util.MovementUtils;
 import club.l4j.currymod.util.WorldUtils;
 import demo.knight.demobus.event.DemoListen;
 import net.minecraft.item.Items;
@@ -28,7 +28,7 @@ public class Surround extends Hack {
     @Override
     public void onEnable() {
         if (mc.player.isOnGround()) {
-            Center.centerPlayer();
+            MovementUtils.centerPlayer();
         }
     }
 
@@ -38,7 +38,7 @@ public class Surround extends Hack {
         oldSlot = mc.player.getInventory().selectedSlot;
         obiSlot = -1;
         if (!mc.player.isOnGround()) {
-            onDisable(mc.player.getWorld() != null ? true : false);
+            toggle();
             return;
         }
         for (int i = 0; i <9; i++) {
