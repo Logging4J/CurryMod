@@ -6,6 +6,8 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.item.Item;
+import net.minecraft.item.Items;
 import net.minecraft.network.packet.c2s.play.ClientCommandC2SPacket;
 import net.minecraft.network.packet.c2s.play.ClientCommandC2SPacket.Mode;
 import net.minecraft.network.packet.c2s.play.HandSwingC2SPacket;
@@ -58,7 +60,12 @@ public class WorldUtils {
             Blocks.SPRUCE_WALL_SIGN, Blocks.CRIMSON_SIGN, Blocks.CRIMSON_WALL_SIGN,
             Blocks.WARPED_SIGN, Blocks.WARPED_WALL_SIGN, Blocks.BLAST_FURNACE, Blocks.SMOKER,
             Blocks.CARTOGRAPHY_TABLE, Blocks.GRINDSTONE, Blocks.LECTERN, Blocks.LOOM,
-            Blocks.STONECUTTER, Blocks.SMITHING_TABLE);
+            Blocks.STONECUTTER, Blocks.SMITHING_TABLE
+    );
+
+    public static final Set<Item> THROWABLES = Sets.newHashSet(
+            Items.SNOWBALL, Items.EXPERIENCE_BOTTLE, Items.EGG, Items.SPLASH_POTION
+    );
 
     public static List<WorldChunk> getLoadedChunks() {
         List<WorldChunk> chunks = new ArrayList<>();
