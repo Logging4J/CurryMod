@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "currymod",
+  "version": "${version}",
+  "name": "Currymod",
+  "description": "Crazy hack straight out of Mumbai India",
+  "authors": [
+    "Logging4J, SwavyMan69, heedii"
+  ],
+  "contact": {},
+  "license": "All-Rights-Reserved",
+  "icon": "assets/currymod/logo.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "club.l4j.currymod.CurryMod"
+    ]
+  },
+  "mixins": [
+    "currymod.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.17",
+    "fabric": "*",
+    "minecraft": "1.19.4"
+  }
+}

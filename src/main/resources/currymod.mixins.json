@@ -1,0 +1,35 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "club.l4j.currymod.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+  ],
+  "client": [
+    "minecraft.MixinMinecraftClient",
+    "minecraft.MixinKeyboard",
+    "minecraft.MixinInGameHud",
+    "minecraft.MixinClientPlayNetworkHandler",
+    "minecraft.MixinTitleScreen",
+    "minecraft.MixinClientPlayerEntity",
+    "minecraft.MixinBossBarHud",
+    "minecraft.MixinLightMapTextureManager",
+    "minecraft.MixinCamera",
+    "minecraft.MixinClientConnection",
+    "minecraft.MixinClientInteractionManager",
+    "minecraft.MixinInGameOverlayRenderer",
+    "minecraft.MixinMultiPlayerScreen",
+    "minecraft.MixinRenderTickCounter",
+    "minecraft.MixinGameRenderer",
+    "minecraft.MixinBackgroundRenderer",
+    "minecraft.MixinConfirmScreen",
+    "minecraft.IPlayerMoveC2SPacket",
+    "minecraft.IExplosionS2CPacket",
+    "minecraft.IEntityVelocityUpdateS2CPacket",
+    "minecraft.IMinecraftClient",
+    "minecraft.ICustomPayloadC2SPacket"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
