@@ -23,6 +23,7 @@
     "minecraft.MixinGameRenderer",
     "minecraft.MixinBackgroundRenderer",
     "minecraft.MixinConfirmScreen",
+    "minecraft.MixinParticleManager",
     "minecraft.IPlayerMoveC2SPacket",
     "minecraft.IExplosionS2CPacket",
     "minecraft.IEntityVelocityUpdateS2CPacket",
