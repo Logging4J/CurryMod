@@ -1,8 +1,11 @@
 package club.l4j.currymod.feature.impl.hackimpl.combat;
 
+import club.l4j.currymod.event.events.TickEvent;
 import club.l4j.currymod.feature.core.Hack;
 import club.l4j.currymod.feature.options.impl.OptionBoolean;
 import club.l4j.currymod.feature.options.impl.OptionMode;
+import club.l4j.currymod.feature.options.impl.OptionSlider;
+import club.l4j.currymod.util.MovementUtils;
 import demo.knight.demobus.event.DemoListen;
 import net.minecraft.item.Items;
 import net.minecraft.util.Hand;
@@ -18,9 +21,12 @@ public class Surround extends Hack {
 
     OptionMode mode = new OptionMode("Mode", "Obsidian", "Obsidian", "Bedrock", "Cobblestone");
     OptionBoolean center = new OptionBoolean("Center", true);
+    OptionBoolean autodisable = new OptionBoolean("AutoDisable", false);
+    OptionBoolean disableychange = new OptionBoolean("DisableYChange", true);
+    //OptionSlider delay = new OptionSlider("Delay")
 
     public Surround() {
-        addOptions(mode, center);
+        addOptions(mode, center, autodisable, disableychange);
     }
 
     int obiSlot;
@@ -28,7 +34,7 @@ public class Surround extends Hack {
 
 
     @DemoListen
-    public void onTick() {
+    public void onTick(TickEvent e) {
         if (mc.player == null) return;
         oldSlot = mc.player.getInventory().selectedSlot;
         obiSlot = -1;
@@ -68,6 +74,20 @@ public class Surround extends Hack {
                 }
             }
         }
-        toggle();
+        if(autodisable.isEnabled()) {
+            toggle();
+        }
+
+        if(disableychange.isEnabled() && !mc.player.isOnGround()) {
+            toggle();
+        }
+    }
+
+    @Override
+    public void onEnable() {
+        if(center.isEnabled()) {
+            MovementUtils.centerPlayer();
+        }
+        super.onEnable();
     }
 }
