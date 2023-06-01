@@ -1,40 +1,23 @@
 package club.l4j.currymod.util;
 
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.network.packet.c2s.play.UpdateSelectedSlotC2SPacket;
+import net.minecraft.screen.slot.Slot;
 import net.minecraft.screen.slot.SlotActionType;
 import net.minecraft.util.Hand;
 
+import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.List;
 import java.util.function.IntPredicate;
-import java.util.function.Predicate;
 import java.util.stream.IntStream;
 
 public class InventoryUtils {
 
     private static final MinecraftClient mc = MinecraftClient.getInstance();
-
-    // AIDS UTIL
-    public static boolean selectItemFromHotbar(Predicate<Item> item) {
-        final PlayerInventory inv = mc.player.getInventory();
-
-        for (int i = 0; i < 9; i++) {
-            final ItemStack itemStack = inv.getStack(i);
-            if (!item.test(itemStack.getItem()))
-                continue;
-            inv.selectedSlot = i;
-            return true;
-        }
-
-        return false;
-    }
-    // AIDS UTIL
-    public static boolean selectItemFromHotbar(Item item) {
-        return selectItemFromHotbar(i -> i == item);
-    }
 
     /** Returns the slot with the <b>lowest</b> comparator value **/
     public static int getSlot(boolean offhand, boolean reverse, Comparator<Integer> comparator) {

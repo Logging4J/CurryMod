@@ -14,7 +14,7 @@ public class MixinParticleManager {
 
     @Inject(method = "addParticle(Lnet/minecraft/client/particle/Particle;)V", at = @At("HEAD"), cancellable = true)
     public void addParticle(Particle particle, CallbackInfo ci) {
-        if(CurryMod.featureManager.getHack("NoParticles").isEnabled() && NoRender.getInstance.particles.isEnabled()) {
+        if(CurryMod.featureManager.getHack("NoRender").isEnabled() && NoRender.getInstance.particles.isEnabled()) {
             ci.cancel();
         }
     }
