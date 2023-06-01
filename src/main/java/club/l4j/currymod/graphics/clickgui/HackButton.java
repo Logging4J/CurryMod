@@ -12,6 +12,8 @@ import net.minecraft.client.util.math.MatrixStack;
 import java.util.ArrayList;
 import java.util.List;
 
+import static club.l4j.currymod.CurryMod.mc;
+
 public class HackButton {
 
     TextRenderer tr = MinecraftClient.getInstance().textRenderer;
@@ -57,7 +59,10 @@ public class HackButton {
                 comp.render(matrices, mouseX, mouseY, delta);
             }
         }
-
+        if (hovered(window.x,window.y  + yOffset, Constants.WIDTH, Constants.HEIGHT, mouseX, mouseY)) {
+            DrawableHelper.fill(matrices, 0, mc.getWindow().getScaledHeight(), tr.getWidth(hack.getDesc()) + 1, mc.getWindow().getScaledHeight() - tr.fontHeight - 1, Constants.BACKGROUND_COLOR);
+            tr.drawWithShadow(matrices, hack.getDesc(), 0, mc.getWindow().getScaledHeight() - tr.fontHeight,  -1);
+        }
     }
 
     public void mouseClicked(double mouseX, double mouseY, int button) {

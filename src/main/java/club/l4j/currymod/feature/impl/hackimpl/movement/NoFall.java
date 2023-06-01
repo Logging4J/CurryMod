@@ -12,7 +12,7 @@ public class NoFall extends Hack {
     @DemoListen
     public void onPacketSend(PacketSendEvent e) {
         if(e.getPacket() instanceof PlayerMoveC2SPacket packet){
-            if(!((PlayerMoveC2SPacket) packet).isOnGround()) {
+            if(!packet.isOnGround()) {
                 ((IPlayerMoveC2SPacket) packet).setOnGround(true);
             }
         }

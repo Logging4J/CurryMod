@@ -56,6 +56,7 @@ public class FeatureManager {
         addHack(new SilentSneak());
         addHack(new AutoRespawn());
         addHack(new Surround());
+        addHack(new AutoWalk());
 
         //Commands
         addCommand(new VClip());
