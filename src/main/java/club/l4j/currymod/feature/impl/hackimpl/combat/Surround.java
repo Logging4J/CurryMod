@@ -4,7 +4,6 @@ import club.l4j.currymod.event.events.TickEvent;
 import club.l4j.currymod.feature.core.Command;
 import club.l4j.currymod.feature.core.Hack;
 import club.l4j.currymod.feature.options.impl.OptionBoolean;
-import club.l4j.currymod.feature.options.impl.OptionMode;
 import club.l4j.currymod.util.MovementUtils;
 import demo.knight.demobus.event.DemoListen;
 import net.minecraft.item.Items;
@@ -29,7 +28,6 @@ public class Surround extends Hack {
 
     int obiSlot;
     int oldSlot;
-
 
     @DemoListen
     public void onTick(TickEvent e) {

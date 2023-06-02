@@ -10,7 +10,7 @@ import org.apache.logging.log4j.Logger;
 
 public class CurryMod implements ClientModInitializer {
 
-    public static final String MOD_NAME = "currymod.club";
+    public static final String MOD_NAME = "CurryMod.Club";
     public static final String MOD_ID = "currymod";
     public static final String VERSION = "0.0.3";
     public static final DemoBus EVENT_BUS = new DemoBus();

@@ -1,7 +1,9 @@
 package club.l4j.currymod.util;
 
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.entity.Entity;
 import net.minecraft.network.packet.c2s.play.PlayerMoveC2SPacket;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 
 public class MovementUtils {
@@ -37,7 +39,7 @@ public class MovementUtils {
     public static double lookDir() {
         float forward = 1F;
         float rotationYaw = mc.player.getYaw();
-        if (mc.player.input.movementForward < 0F){ rotationYaw += 180F;}
+        if (mc.player.input.movementForward < 0F){rotationYaw += 180F;}
         if (mc.player.input.movementForward < 0F) forward = -0.5F;
         else if (mc.player.input.movementForward > 0F) forward = 0.5F;
         if (mc.player.input.movementSideways > 0F) rotationYaw -= 90F * forward;
@@ -50,5 +52,21 @@ public class MovementUtils {
         double z = MathHelper.floor(mc.player.getZ()) + 0.5;
         mc.player.setPosition(x, mc.player.getY(), z);
         mc.player.networkHandler.sendPacket(new PlayerMoveC2SPacket.PositionAndOnGround(mc.player.getX(), mc.player.getY(), mc.player.getZ(), mc.player.isOnGround()));
+    }
+
+    public static float[] getRotationsToEntity(Entity e) {
+        double deltaX = e.getX() + (e.getX() - e.prevX) - mc.player.getX();
+        double deltaY = e.getY() - 3.5 + e.getEyeHeight(e.getPose()) - mc.player.getY() + mc.player.getEyeHeight(e.getPose());
+        double deltaZ = e.getZ() + (e.getZ() - e.prevZ) - mc.player.getZ();
+        double distance = Math.sqrt(Math.pow(deltaX, 2) + Math.pow(deltaZ, 2));
+        float yaw = (float) Math.toDegrees(-Math.atan(deltaX / deltaZ));
+        float pitch = (float) -Math.toDegrees(Math.atan(deltaY / distance));
+        double v = Math.toDegrees(Math.atan(deltaZ / deltaX));
+        if (deltaX < 0 && deltaZ < 0) {
+            yaw = (float) (90 + v);
+        } else if (deltaX > 0 && deltaZ < 0) {
+            yaw = (float) (-90 + v);
+        }
+        return new float[] {yaw, pitch};
     }
 }

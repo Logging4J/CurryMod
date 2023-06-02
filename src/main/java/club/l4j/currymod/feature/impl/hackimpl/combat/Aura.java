@@ -5,6 +5,7 @@ import club.l4j.currymod.event.events.TickEvent;
 import club.l4j.currymod.feature.core.Hack;
 import club.l4j.currymod.feature.options.impl.OptionSlider;
 import club.l4j.currymod.mixin.minecraft.IPlayerMoveC2SPacket;
+import club.l4j.currymod.util.MovementUtils;
 import demo.knight.demobus.event.DemoListen;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -37,29 +38,13 @@ public class Aura extends Hack {
                 closestPlayer.sort(Comparator.comparingDouble(player -> player.distanceTo(mc.player)));
                 if(!closestPlayer.isEmpty()) {
                     PlayerEntity p = closestPlayer.get(0);
-                    yaw = getRotations(p)[0];
-                    pitch = getRotations(p)[1];
+                    yaw = MovementUtils.getRotationsToEntity(p)[0];
+                    pitch = MovementUtils.getRotationsToEntity(p)[1];
                     mc.interactionManager.attackEntity(mc.player, p);
                     mc.player.swingHand(Hand.MAIN_HAND);
                 }
             }
         }
-    }
-
-    public float[] getRotations(Entity e) {
-        double deltaX = e.getX() + (e.getX() - e.prevX) - mc.player.getX();
-        double deltaY = e.getY() - 3.5 + e.getEyeHeight(e.getPose()) - mc.player.getY() + mc.player.getEyeHeight(e.getPose());
-        double deltaZ = e.getZ() + (e.getZ() - e.prevZ) - mc.player.getZ();
-        double distance = Math.sqrt(Math.pow(deltaX, 2) + Math.pow(deltaZ, 2));
-        float yaw = (float) Math.toDegrees(-Math.atan(deltaX / deltaZ));
-        float pitch = (float) -Math.toDegrees(Math.atan(deltaY / distance));
-        double v = Math.toDegrees(Math.atan(deltaZ / deltaX));
-        if (deltaX < 0 && deltaZ < 0) {
-            yaw = (float) (90 + v);
-        } else if (deltaX > 0 && deltaZ < 0) {
-            yaw = (float) (-90 + v);
-        }
-        return new float[] {yaw, pitch};
     }
 
     @DemoListen
