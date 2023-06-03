@@ -41,7 +41,7 @@ public class HUD extends Hack {
             mc.textRenderer.drawWithShadow(e.getMatrixStack(), TextUtil.AQUA + CurryMod.MOD_NAME + TextUtil.WHITE +"b" + CurryMod.VERSION,-1,1,-1);
         }
         if(logo.isEnabled()) {
-            RenderUtils.drawImage(e.getMatrixStack(), 1, 1, 50, 50, null, "logo.png");
+            RenderUtils.drawImage(e.getMatrixStack(), 1, 1, 50, 50, null, "textures/curry.png");
         }
         if(welcome.isEnabled()) {
             String text = TextUtil.AQUA + "Welcome" + TextUtil.WHITE + mc.player.getGameProfile().getName();

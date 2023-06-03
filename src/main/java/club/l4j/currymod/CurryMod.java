@@ -14,7 +14,6 @@ public class CurryMod implements ClientModInitializer {
     public static final String MOD_ID = "currymod";
     public static final String VERSION = "0.0.3";
     public static final DemoBus EVENT_BUS = new DemoBus();
-    public static final LaunchType LAUNCH_TYPE = LaunchType.DEVELOPER;
     public static final Logger LOGGER = LogManager.getLogger(MOD_NAME);
 
     public static CurryMod getInstance = new CurryMod();
@@ -34,11 +33,5 @@ public class CurryMod implements ClientModInitializer {
 
     public void log(String message){
         LOGGER.info( "["+MOD_NAME+"] " + message);
-    }
-
-    public enum LaunchType{
-        DEVELOPER,
-        TUCO,
-        USER
     }
 }
