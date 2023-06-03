@@ -3,6 +3,7 @@ package club.l4j.currymod.feature.impl.hackimpl.combat;
 import club.l4j.currymod.event.events.PacketReceiveEvent;
 import club.l4j.currymod.event.events.TickEvent;
 import club.l4j.currymod.feature.core.Hack;
+import club.l4j.currymod.feature.options.impl.OptionBoolean;
 import club.l4j.currymod.feature.options.impl.OptionMode;
 import club.l4j.currymod.feature.options.impl.OptionSlider;
 import club.l4j.currymod.mixin.minecraft.IEntityVelocityUpdateS2CPacket;
@@ -18,9 +19,12 @@ public class Velocity extends Hack {
     public OptionMode mode = new OptionMode("Mode","Cancel","Cancel", "Modify","GrimReduce");
     public OptionSlider horizontalVal =  new OptionSlider("ModifyH",1,100,1,100);
     public OptionSlider verticalVal =  new OptionSlider("ModifyV",1,100,1,100);
+    public OptionBoolean noPush = new OptionBoolean("NoPush", true);
+
+    public static Velocity getInstance = new Velocity();
 
     public Velocity(){
-        addOptions(mode, horizontalVal, verticalVal);
+        addOptions(mode, horizontalVal, verticalVal, noPush);
     }
 
     @DemoListen
