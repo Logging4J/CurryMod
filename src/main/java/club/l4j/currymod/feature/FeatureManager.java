@@ -5,10 +5,7 @@ import club.l4j.currymod.feature.core.Hack;
 import club.l4j.currymod.feature.impl.commandimpl.*;
 import club.l4j.currymod.feature.impl.hackimpl.client.ClickGuiMod;
 import club.l4j.currymod.feature.impl.hackimpl.client.HUD;
-import club.l4j.currymod.feature.impl.hackimpl.combat.Aura;
-import club.l4j.currymod.feature.impl.hackimpl.combat.RayTraceBypass;
-import club.l4j.currymod.feature.impl.hackimpl.combat.Surround;
-import club.l4j.currymod.feature.impl.hackimpl.combat.Velocity;
+import club.l4j.currymod.feature.impl.hackimpl.combat.*;
 import club.l4j.currymod.feature.impl.hackimpl.exploit.*;
 import club.l4j.currymod.feature.impl.hackimpl.misc.SexChat;
 import club.l4j.currymod.feature.impl.hackimpl.misc.ChatEdits;
@@ -57,6 +54,7 @@ public class FeatureManager {
         addHack(new AutoRespawn());
         addHack(new Surround());
         addHack(new AutoWalk());
+        addHack(new AutoTotem());
 
         //Commands
         addCommand(new VClip());
