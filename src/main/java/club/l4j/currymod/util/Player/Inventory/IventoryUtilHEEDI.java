@@ -8,7 +8,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Predicate;
 import java.util.stream.IntStream;
 
-import dev.hypnotic.utils.mixin.IClientPlayerInteractionManager;
+import club.l4j.currymod.util.IClientPlayerInteractionManager;
 import net.minecraft.block.BlockState;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

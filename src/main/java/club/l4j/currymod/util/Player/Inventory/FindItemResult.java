@@ -2,6 +2,8 @@ package club.l4j.currymod.util.Player.Inventory;
 
 import net.minecraft.util.Hand;
 
+import static club.l4j.currymod.util.InstanceUtils.mc;
+
 public class FindItemResult {
     private final int slot, count;
 
