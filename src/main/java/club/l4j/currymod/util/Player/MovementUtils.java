@@ -1,4 +1,4 @@
-package club.l4j.currymod.util;
+package club.l4j.currymod.util.Player;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.Entity;

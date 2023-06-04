@@ -3,9 +3,8 @@ package club.l4j.currymod.feature.impl.hackimpl.movement;
 import club.l4j.currymod.event.events.TickEvent;
 import club.l4j.currymod.feature.core.Hack;
 import club.l4j.currymod.feature.options.impl.OptionMode;
-import club.l4j.currymod.util.MovementUtils;
+import club.l4j.currymod.util.Player.MovementUtils;
 import demo.knight.demobus.event.DemoListen;
-import org.lwjgl.glfw.GLFW;
 
 @Hack.Construct(name = "Speed", description = "The speed of light", category = Hack.Category.MOVEMENT)
 public class Speed extends Hack {
