@@ -1,12 +1,12 @@
 package club.l4j.currymod.util.player;
 
+import club.l4j.currymod.util.IGlobals;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.Entity;
 import net.minecraft.network.packet.c2s.play.PlayerMoveC2SPacket;
 import net.minecraft.util.math.MathHelper;
 
-public class MovementUtils {
-    public static MinecraftClient mc = MinecraftClient.getInstance();
+public class MovementUtils implements IGlobals {
 
     public static boolean isMoving() {
         return mc.player.input.movementForward != 0F || mc.player.input.movementSideways != 0F;
@@ -20,14 +20,14 @@ public class MovementUtils {
         strafe(getSpeed());
     }
 
-    public static void strafe(final float speed) {
+    public static void strafe(float speed) {
         if (isMoving()) {
             final double yaw = lookDir();
             mc.player.setVelocity(-MathHelper.sin((float) yaw) * speed, mc.player.getVelocity().y, MathHelper.cos((float) yaw) * speed);
         }
     }
 
-    public static void strafe(final double speed) {
+    public static void strafe(double speed) {
         if (isMoving()) {
             final double yaw = lookDir();
             mc.player.setVelocity(-MathHelper.sin((float) yaw) * speed, mc.player.getVelocity().y, MathHelper.cos((float) yaw) * speed);
