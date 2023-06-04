@@ -25,6 +25,7 @@
     "minecraft.MixinConfirmScreen",
     "minecraft.MixinParticleManager",
     "minecraft.MixinEntity",
+    "minecraft.MixinFluidSate",
     "minecraft.IPlayerMoveC2SPacket",
     "minecraft.IExplosionS2CPacket",
     "minecraft.IEntityVelocityUpdateS2CPacket",

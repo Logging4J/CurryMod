@@ -20,11 +20,12 @@ public class Velocity extends Hack {
     public OptionSlider horizontalVal =  new OptionSlider("ModifyH",1,100,1,100);
     public OptionSlider verticalVal =  new OptionSlider("ModifyV",1,100,1,100);
     public OptionBoolean noPush = new OptionBoolean("NoPush", true);
+    public OptionBoolean noWaterVel = new OptionBoolean("NoWaterVel", true);
 
     public static Velocity getInstance = new Velocity();
 
     public Velocity(){
-        addOptions(mode, horizontalVal, verticalVal, noPush);
+        addOptions(mode, horizontalVal, verticalVal, noPush, noWaterVel);
     }
 
     @DemoListen

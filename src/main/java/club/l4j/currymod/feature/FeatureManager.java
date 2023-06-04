@@ -47,7 +47,6 @@ public class FeatureManager {
         addHack(new ChatEdits());
         addHack(new Aura());
         addHack(new Parkour());
-        addHack(new RayTraceBypass());
         addHack(new AutoSwim());
         addHack(new SilentSneak());
         addHack(new AutoRespawn());
