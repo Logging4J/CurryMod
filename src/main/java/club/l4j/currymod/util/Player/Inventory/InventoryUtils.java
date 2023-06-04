@@ -1,21 +1,16 @@
-package club.l4j.currymod.util.Player;
+package club.l4j.currymod.util.Player.Inventory;
 
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.Items;
 import net.minecraft.network.packet.c2s.play.UpdateSelectedSlotC2SPacket;
-import net.minecraft.screen.slot.Slot;
 import net.minecraft.screen.slot.SlotActionType;
 import net.minecraft.util.Hand;
 
-import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.List;
 import java.util.function.IntPredicate;
 import java.util.stream.IntStream;
 
 public class InventoryUtils {
+
 
     private static final MinecraftClient mc = MinecraftClient.getInstance();
 
