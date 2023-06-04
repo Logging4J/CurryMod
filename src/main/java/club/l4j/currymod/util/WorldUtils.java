@@ -27,8 +27,6 @@ import java.util.Set;
 
 public class WorldUtils {
 
-    protected static final MinecraftClient mc = MinecraftClient.getInstance();
-
     public static final Set<Item> THROWABLES = Sets.newHashSet(
             Items.SNOWBALL, Items.EXPERIENCE_BOTTLE, Items.EGG, Items.SPLASH_POTION
     );

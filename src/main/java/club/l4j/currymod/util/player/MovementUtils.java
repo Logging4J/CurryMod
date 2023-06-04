@@ -1,9 +1,8 @@
-package club.l4j.currymod.util.Player;
+package club.l4j.currymod.util.player;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.Entity;
 import net.minecraft.network.packet.c2s.play.PlayerMoveC2SPacket;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 
 public class MovementUtils {

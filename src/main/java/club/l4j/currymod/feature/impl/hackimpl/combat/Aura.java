@@ -5,7 +5,7 @@ import club.l4j.currymod.event.events.TickEvent;
 import club.l4j.currymod.feature.core.Hack;
 import club.l4j.currymod.feature.options.impl.OptionSlider;
 import club.l4j.currymod.mixin.minecraft.IPlayerMoveC2SPacket;
-import club.l4j.currymod.util.Player.MovementUtils;
+import club.l4j.currymod.util.player.MovementUtils;
 import demo.knight.demobus.event.DemoListen;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.network.packet.c2s.play.PlayerMoveC2SPacket;

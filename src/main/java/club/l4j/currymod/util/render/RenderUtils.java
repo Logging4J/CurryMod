@@ -11,12 +11,6 @@ import java.awt.*;
 
 public class RenderUtils {
 
-    public static MinecraftClient mc  = MinecraftClient.getInstance();
-
-    public static boolean isHovered(int x ,int y ,int width, int height,int mouseX ,int mouseY ) {
-        return mouseX > x  && mouseX< x  + width && mouseY > y && mouseY < y + height;
-    }
-
     public static void drawImage(MatrixStack stack, int x, int y, int w, int h, Color color, String location) {
         Identifier i = new CurryIdentifier(location);
         if(color == null) {

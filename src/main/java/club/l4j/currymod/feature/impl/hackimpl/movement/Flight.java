@@ -50,8 +50,8 @@ public class Flight extends Hack {
     public void onDisable() {
         if(!mc.player.isCreative()) {
             mc.player.getAbilities().allowFlying = false;
-            mc.player.getAbilities().flying = false;
         }
+        mc.player.getAbilities().flying = false;
         mc.player.getAbilities().setFlySpeed(0.05f);
         super.onDisable();
     }

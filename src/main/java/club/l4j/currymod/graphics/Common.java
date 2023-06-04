@@ -2,7 +2,7 @@ package club.l4j.currymod.graphics;
 
 import java.awt.*;
 
-public class Constants {
+public class Common {
 
     public static final int WIDTH = 100;
     public static final int HEIGHT = 12;

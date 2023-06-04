@@ -1,5 +1,6 @@
 package club.l4j.currymod.feature.core;
 
+import club.l4j.currymod.util.IGlobals;
 import club.l4j.currymod.util.TextUtil;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.text.Text;
@@ -9,10 +10,9 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-public class Command {
+public class Command implements IGlobals {
 
     private Construct c = getClass().getAnnotation(Construct.class);
-    public static MinecraftClient mc = MinecraftClient.getInstance();
     private String description = c.description();
     private String[] alias = c.alias();
     private String name = c.name();

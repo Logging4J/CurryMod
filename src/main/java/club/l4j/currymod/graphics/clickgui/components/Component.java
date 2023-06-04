@@ -1,15 +1,14 @@
 package club.l4j.currymod.graphics.clickgui.components;
 
-import club.l4j.currymod.graphics.Constants;
+import club.l4j.currymod.graphics.Common;
 import club.l4j.currymod.graphics.clickgui.HackButton;
 import club.l4j.currymod.feature.options.Option;
+import club.l4j.currymod.util.IGlobals;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 
-public class Component {
-
-    TextRenderer tr = MinecraftClient.getInstance().textRenderer;
+public class Component implements IGlobals {
 
     public Option option;
     public HackButton hackButton;
@@ -32,6 +31,6 @@ public class Component {
 
 
     public boolean hovered(int mouseX ,int mouseY ) {
-        return mouseX > hackButton.window.x && mouseX < hackButton.window.x + Constants.WIDTH && mouseY > hackButton.window.y+ hackButton.yOffset + yOffset && mouseY < hackButton.window.y + hackButton.yOffset + yOffset + Constants.HEIGHT;
+        return mouseX > hackButton.window.x && mouseX < hackButton.window.x + Common.WIDTH && mouseY > hackButton.window.y+ hackButton.yOffset + yOffset && mouseY < hackButton.window.y + hackButton.yOffset + yOffset + Common.HEIGHT;
     }
 }

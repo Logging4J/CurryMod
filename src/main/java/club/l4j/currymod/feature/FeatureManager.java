@@ -22,7 +22,6 @@ import java.util.List;
 
 public class FeatureManager {
 
-    protected MinecraftClient mc = MinecraftClient.getInstance();
     public List<Hack> hacks = new ArrayList<>();
     public List<Command> commands = new ArrayList<>();
     public String prefix = "@";
@@ -54,7 +53,6 @@ public class FeatureManager {
         addHack(new AutoRespawn());
         addHack(new Surround());
         addHack(new AutoWalk());
-        addHack(new AutoTotem());
 
         //Commands
         addCommand(new VClip());

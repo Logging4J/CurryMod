@@ -3,6 +3,7 @@ package club.l4j.currymod.feature.core;
 import club.l4j.currymod.CurryMod;
 import club.l4j.currymod.feature.options.Option;
 
+import club.l4j.currymod.util.IGlobals;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.network.packet.Packet;
 
@@ -14,10 +15,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Hack {
+public class Hack implements IGlobals {
 
     private Construct construct = getClass().getAnnotation(Construct.class);
-    protected MinecraftClient mc = MinecraftClient.getInstance();
     private List<Option> options = new ArrayList<>();
     private String name = construct.name();
     private String desc = construct.description();

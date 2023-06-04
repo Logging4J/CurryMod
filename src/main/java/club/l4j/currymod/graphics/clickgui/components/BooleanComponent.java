@@ -1,6 +1,6 @@
 package club.l4j.currymod.graphics.clickgui.components;
 
-import club.l4j.currymod.graphics.Constants;
+import club.l4j.currymod.graphics.Common;
 import club.l4j.currymod.graphics.clickgui.HackButton;
 import club.l4j.currymod.feature.options.Option;
 import club.l4j.currymod.feature.options.impl.OptionBoolean;
@@ -16,7 +16,7 @@ public class BooleanComponent extends Component{
 
     @Override
     public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {
-        DrawableHelper.fill(matrices,hackButton.window.x, hackButton.window.y + hackButton.yOffset + yOffset,hackButton.window.x + Constants.WIDTH,hackButton.window.y + hackButton.yOffset + yOffset + Constants.HEIGHT, Constants.BACKGROUND_COLOR);
+        DrawableHelper.fill(matrices,hackButton.window.x, hackButton.window.y + hackButton.yOffset + yOffset,hackButton.window.x + Common.WIDTH,hackButton.window.y + hackButton.yOffset + yOffset + Common.HEIGHT, Common.BACKGROUND_COLOR);
         tr.drawWithShadow(matrices,((OptionBoolean) option).isEnabled() ? TextUtil.GREEN + ((OptionBoolean) option).getName() : TextUtil.RED + ((OptionBoolean) option).getName(),hackButton.window.x + 1, hackButton.window.y + hackButton.yOffset + yOffset + 1, -1);
 
     }

@@ -1,9 +1,10 @@
 package club.l4j.currymod.graphics.clickgui;
 
 import club.l4j.currymod.CurryMod;
-import club.l4j.currymod.graphics.Constants;
+import club.l4j.currymod.graphics.Common;
 import club.l4j.currymod.graphics.clickgui.components.Component;
 import club.l4j.currymod.feature.core.Hack;
+import club.l4j.currymod.util.IGlobals;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.gui.DrawableHelper;
@@ -12,14 +13,12 @@ import net.minecraft.client.util.math.MatrixStack;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Window {
+public class Window implements IGlobals {
 
     List<HackButton> modules;
     Hack.Category category;
     public int x,y,dragX,dragY;
     public boolean visible, dragging;
-
-    TextRenderer tr = MinecraftClient.getInstance().textRenderer;
 
     public Window(Hack.Category category, int x, int y){
         this.category = category;
@@ -30,18 +29,18 @@ public class Window {
         visible = true;
         dragging = false;
 
-        int offset = Constants.HEIGHT;
+        int offset = Common.HEIGHT;
 
         for(Hack h : CurryMod.featureManager.getHackFeaturesInCategory(category)){
             modules.add(new HackButton(this,h,offset));
-            offset += Constants.HEIGHT;
+            offset += Common.HEIGHT;
         }
     }
 
     public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {
-        DrawableHelper.fill(matrices,x,y,x + Constants.WIDTH,y + Constants.HEIGHT, Constants.COLOR);
+        DrawableHelper.fill(matrices,x,y,x + Common.WIDTH,y + Common.HEIGHT, Common.COLOR);
         tr.drawWithShadow(matrices,category.getName(),x + 1, y + 1, -1);
-        tr.drawWithShadow(matrices,visible ? "∨" : "∧",x  + Constants.WIDTH - 8, y + 1, -1);
+        tr.drawWithShadow(matrices,visible ? "∨" : "∧",x  + Common.WIDTH - 8, y + 1, -1);
 
 
         if(visible){
@@ -57,7 +56,7 @@ public class Window {
                 moduleButton.mouseClicked(mouseX,mouseY,button);
             }
         }
-        if(hovered(x,y,  Constants.WIDTH,  Constants.HEIGHT, (int) mouseX, (int) mouseY)) {
+        if(hovered(x,y,  Common.WIDTH,  Common.HEIGHT, (int) mouseX, (int) mouseY)) {
             if(button == 0){
                 dragging = true;
                 dragX = (int) (mouseX - x);
@@ -91,14 +90,14 @@ public class Window {
     }
 
     public void updateButtons() {
-        int offset = Constants.HEIGHT;
+        int offset = Common.HEIGHT;
 
         for(HackButton button : modules) {
             button.yOffset = offset;
-            offset += Constants.HEIGHT;
+            offset += Common.HEIGHT;
             if(button.visible) {
                 for(Component comp : button.options) {
-                    offset+= Constants.HEIGHT;
+                    offset+= Common.HEIGHT;
                 }
             }
         }
