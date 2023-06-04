@@ -7,7 +7,7 @@ import net.minecraft.network.packet.Packet;
 @Hack.Construct(name = "Criticals", description = "CRITZZ", category = Hack.Category.COMBAT)
 public class Criticals extends Hack {
 
-    
+
     public void onSendPacket(Packet<?> packet) {
         //if (packet instanceof )
     }
