@@ -37,7 +37,7 @@ import net.minecraft.screen.StonecutterScreenHandler;
 import net.minecraft.screen.slot.SlotActionType;
 import net.minecraft.util.Hand;
 
-public class InventoryUtils {
+public class IventoryUtilHEEDI {
     private static final Action ACTION = new Action();
     public static int previousSlot = -1;
     public static final int HOTBAR_START = 0;
@@ -291,23 +291,23 @@ public class InventoryUtils {
         }
 
         public Action from(int index) {
-            return fromId(InventoryUtils.indexToId(index));
+            return fromId(IventoryUtilHEEDI.indexToId(index));
         }
 
         public Action fromHotbar(int i) {
-            return from(InventoryUtils.HOTBAR_START + i);
+            return from(IventoryUtilHEEDI.HOTBAR_START + i);
         }
 
         public Action fromOffhand() {
-            return from(InventoryUtils.OFFHAND);
+            return from(IventoryUtilHEEDI.OFFHAND);
         }
 
         public Action fromMain(int i) {
-            return from(InventoryUtils.MAIN_START + i);
+            return from(IventoryUtilHEEDI.MAIN_START + i);
         }
 
         public Action fromArmor(int i) {
-            return from(InventoryUtils.ARMOR_START + (3 - i));
+            return from(IventoryUtilHEEDI.ARMOR_START + (3 - i));
         }
 
         public void toId(int id) {
@@ -316,23 +316,23 @@ public class InventoryUtils {
         }
 
         public void to(int index) {
-            toId(InventoryUtils.indexToId(index));
+            toId(IventoryUtilHEEDI.indexToId(index));
         }
 
         public void toHotbar(int i) {
-            to(InventoryUtils.HOTBAR_START + i);
+            to(IventoryUtilHEEDI.HOTBAR_START + i);
         }
 
         public void toOffhand() {
-            to(InventoryUtils.OFFHAND);
+            to(IventoryUtilHEEDI.OFFHAND);
         }
 
         public void toMain(int i) {
-            to(InventoryUtils.MAIN_START + i);
+            to(IventoryUtilHEEDI.MAIN_START + i);
         }
 
         public void toArmor(int i) {
-            to(InventoryUtils.ARMOR_START + (3 - i));
+            to(IventoryUtilHEEDI.ARMOR_START + (3 - i));
         }
 
         // Slot
@@ -343,23 +343,23 @@ public class InventoryUtils {
         }
 
         public void slot(int index) {
-            slotId(InventoryUtils.indexToId(index));
+            slotId(IventoryUtilHEEDI.indexToId(index));
         }
 
         public void slotHotbar(int i) {
-            slot(InventoryUtils.HOTBAR_START + i);
+            slot(IventoryUtilHEEDI.HOTBAR_START + i);
         }
 
         public void slotOffhand() {
-            slot(InventoryUtils.OFFHAND);
+            slot(IventoryUtilHEEDI.OFFHAND);
         }
 
         public void slotMain(int i) {
-            slot(InventoryUtils.MAIN_START + i);
+            slot(IventoryUtilHEEDI.MAIN_START + i);
         }
 
         public void slotArmor(int i) {
-            slot(InventoryUtils.ARMOR_START + (3 - i));
+            slot(IventoryUtilHEEDI.ARMOR_START + (3 - i));
         }
 
         // Other
@@ -385,7 +385,7 @@ public class InventoryUtils {
 
             if (!isRecursive && hadEmptyCursor && preType == SlotActionType.PICKUP && preTwo && (preFrom != -1 && preTo != -1) && !mc.player.currentScreenHandler.getCursorStack().isEmpty()) {
                 isRecursive = true;
-                InventoryUtils.click().slotId(preFrom);
+                IventoryUtilHEEDI.click().slotId(preFrom);
                 isRecursive = false;
             }
         }

@@ -1,7 +1,5 @@
 package club.l4j.currymod.util.Player.Inventory;
 
-import club.l4j.currymod.util.InstanceUtils;
-
 import net.minecraft.util.Hand;
 
 public class FindItemResult {
@@ -25,7 +23,7 @@ public class FindItemResult {
     }
 
     public Hand getHand() {
-        if (slot == InventoryUtils.OFFHAND) return Hand.OFF_HAND;
+        if (slot == IventoryUtilHEEDI.OFFHAND) return Hand.OFF_HAND;
         else if (slot == mc.player.getInventory().selectedSlot) return Hand.MAIN_HAND;
         return null;
     }
@@ -39,14 +37,14 @@ public class FindItemResult {
     }
 
     public boolean isHotbar() {
-        return slot >= InventoryUtils.HOTBAR_START && slot <= InventoryUtils.HOTBAR_END;
+        return slot >= IventoryUtilHEEDI.HOTBAR_START && slot <= IventoryUtilHEEDI.HOTBAR_END;
     }
 
     public boolean isMain() {
-        return slot >= InventoryUtils.MAIN_START && slot <= InventoryUtils.MAIN_END;
+        return slot >= IventoryUtilHEEDI.MAIN_START && slot <= IventoryUtilHEEDI.MAIN_END;
     }
 
     public boolean isArmor() {
-        return slot >= InventoryUtils.ARMOR_START && slot <= InventoryUtils.ARMOR_END;
+        return slot >= IventoryUtilHEEDI.ARMOR_START && slot <= IventoryUtilHEEDI.ARMOR_END;
     }
 }
