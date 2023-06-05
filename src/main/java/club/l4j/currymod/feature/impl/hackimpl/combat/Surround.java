@@ -7,6 +7,7 @@ import club.l4j.currymod.feature.options.impl.OptionBoolean;
 import club.l4j.currymod.util.player.MovementUtils;
 import demo.knight.demobus.event.DemoListen;
 import net.minecraft.item.Items;
+import net.minecraft.network.packet.c2s.play.PlayerInteractBlockC2SPacket;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
@@ -63,7 +64,7 @@ public class Surround extends Hack {
             }
         }
         if (obiSlot == -1) {
-            Command.sendMsg("No More Blocks");
+            sendWarningMsg("No More Blocks");
             toggle();
             return;
         }
@@ -72,7 +73,7 @@ public class Surround extends Hack {
             for (Direction direction : Direction.values()) {
                 if (!mc.world.getBlockState(pos.offset(direction)).getMaterial().isReplaceable()) {
                     mc.player.getInventory().selectedSlot = obiSlot;
-                    mc.interactionManager.interactBlock(mc.player, Hand.MAIN_HAND, new BlockHitResult(Vec3d.of(pos), direction, pos, false));
+                    sendPacket(new PlayerInteractBlockC2SPacket(Hand.MAIN_HAND, new BlockHitResult(Vec3d.of(pos), direction, pos, false), 1));
                     mc.player.getInventory().selectedSlot = oldSlot;
                 }
             }

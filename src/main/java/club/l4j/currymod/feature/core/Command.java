@@ -43,10 +43,6 @@ public class Command implements IGlobals {
         this.alias = alias;
     }
 
-    public static void sendMsg(String s){
-        mc.player.sendMessage(Text.of(TextUtil.WHITE + "["+ TextUtil.AQUA +"CurryMod.Club"+TextUtil.WHITE+"] "+ s));
-    }
-
     @Retention(RetentionPolicy.RUNTIME)
     @Target(ElementType.TYPE)
     public @interface Construct {

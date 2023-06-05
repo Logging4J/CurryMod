@@ -24,9 +24,9 @@ public class BindComponent extends Component {
         String bindName = GLFW.glfwGetKeyName(hackButton.hack.getKey(),scanCode);
 
         if(scanCode != -1) {
-            tr.drawWithShadow(matrices, "Bind: " + (binding ? "..." : bindName), hackButton.window.x + 1, hackButton.window.y + hackButton.yOffset + yOffset + 1, -1);
+            mc.textRenderer.drawWithShadow(matrices, "Bind: " + (binding ? "..." : bindName), hackButton.window.x + 1, hackButton.window.y + hackButton.yOffset + yOffset + 1, -1);
         }else {
-            tr.drawWithShadow(matrices, "Bind: NONE", hackButton.window.x + 1, hackButton.window.y + hackButton.yOffset + yOffset + 1, -1);
+            mc.textRenderer.drawWithShadow(matrices, "Bind: NONE", hackButton.window.x + 1, hackButton.window.y + hackButton.yOffset + yOffset + 1, -1);
         }
     }
 

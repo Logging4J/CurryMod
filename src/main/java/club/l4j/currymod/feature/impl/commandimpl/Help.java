@@ -11,10 +11,10 @@ public class Help extends Command {
     @Override
     public void onTrigger(String arguments) {
         for(Command c : CurryMod.featureManager.commands){
-            Command.sendMsg("Name: " + c.getName());
-            Command.sendMsg("Description: " + c.getDescription());
-            Command.sendMsg("Alias: " + Arrays.toString(c.getAlias()));
-            Command.sendMsg(" ");
+            sendMsg("Name: " + c.getName());
+            sendMsg("Description: " + c.getDescription());
+            sendMsg("Alias: " + Arrays.toString(c.getAlias()));
+            sendMsg(" ");
         }
         super.onTrigger(arguments);
     }

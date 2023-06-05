@@ -15,12 +15,13 @@ import club.l4j.currymod.feature.impl.hackimpl.visual.CameraClip;
 import club.l4j.currymod.feature.impl.hackimpl.visual.FullBright;
 import club.l4j.currymod.feature.impl.hackimpl.visual.NoRender;
 
+import club.l4j.currymod.util.IGlobals;
 import net.minecraft.client.MinecraftClient;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class FeatureManager {
+public class FeatureManager implements IGlobals {
 
     public List<Hack> hacks = new ArrayList<>();
     public List<Command> commands = new ArrayList<>();
@@ -75,7 +76,7 @@ public class FeatureManager {
             }
         }
         if (!found) {
-            Command.sendMsg("Unknown command");
+            sendMsg("Unknown command");
         }
     }
 

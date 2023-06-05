@@ -39,8 +39,8 @@ public class Window implements IGlobals {
 
     public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {
         DrawableHelper.fill(matrices,x,y,x + Common.WIDTH,y + Common.HEIGHT, Common.COLOR);
-        tr.drawWithShadow(matrices,category.getName(),x + 1, y + 1, -1);
-        tr.drawWithShadow(matrices,visible ? "∨" : "∧",x  + Common.WIDTH - 8, y + 1, -1);
+        mc.textRenderer.drawWithShadow(matrices,category.getName(),x + 1, y + 1, -1);
+        mc.textRenderer.drawWithShadow(matrices,visible ? "∨" : "∧",x  + Common.WIDTH - 8, y + 1, -1);
 
 
         if(visible){

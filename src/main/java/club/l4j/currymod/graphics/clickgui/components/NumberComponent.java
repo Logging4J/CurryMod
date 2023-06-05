@@ -39,7 +39,7 @@ public class NumberComponent extends Component{
 
         DrawableHelper.fill(matrices,hackButton.window.x, hackButton.window.y + hackButton.yOffset + yOffset + Common.HEIGHT - 1,hackButton.window.x + renderWidth,hackButton.window.y + hackButton.yOffset + yOffset + Common.HEIGHT, Common.COLOR);
 
-        tr.drawWithShadow(matrices, ((OptionSlider) option).getName() + " : " + roundToPlace(((OptionSlider) option).getValue(),1),hackButton.window.x + 1, hackButton.window.y + hackButton.yOffset + yOffset + 1, -1);
+        mc.textRenderer.drawWithShadow(matrices, ((OptionSlider) option).getName() + " : " + roundToPlace(((OptionSlider) option).getValue(),1),hackButton.window.x + 1, hackButton.window.y + hackButton.yOffset + yOffset + 1, -1);
 
 
     }
