@@ -1,3 +1,5 @@
+# WHOS TERMED ????
+
 # CurryMod.Club
 [![Discord](https://img.shields.io/discord/1113106989837455550?label=Discord)](https://discord.gg/JPT5F2n6yr)
 <br>
@@ -17,3 +19,5 @@ featuring - qq rat and the boat dupe
 
 - Changed location of button for `ResourcePackBypass` to the resource pack confirm screen 
 - Added WaterMark option in `HUD`
+
+# WHOS TERMED ????
