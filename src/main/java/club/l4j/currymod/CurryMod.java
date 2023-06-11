@@ -20,9 +20,9 @@ public class CurryMod implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
+        featureManager = new FeatureManager();
         log("CurryMod Initializing");
         EVENT_BUS.register(new Events());
-        featureManager = new FeatureManager();
     }
 
     public void onClose(){

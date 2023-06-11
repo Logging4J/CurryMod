@@ -4,8 +4,7 @@ import club.l4j.currymod.graphics.clickgui.HackButton;
 import club.l4j.currymod.feature.options.Option;
 import club.l4j.currymod.feature.options.impl.OptionSlider;
 import club.l4j.currymod.graphics.Common;
-import net.minecraft.client.gui.DrawableHelper;
-import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.client.gui.DrawContext;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -20,8 +19,8 @@ public class NumberComponent extends Component{
 
 
     @Override
-    public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {
-        DrawableHelper.fill(matrices,hackButton.window.x, hackButton.window.y + hackButton.yOffset + yOffset,hackButton.window.x + Common.WIDTH,hackButton.window.y + hackButton.yOffset + yOffset + Common.HEIGHT, Common.BACKGROUND_COLOR);
+    public void render(DrawContext context, int mouseX, int mouseY, float delta) {
+        context.fill(hackButton.window.x, hackButton.window.y + hackButton.yOffset + yOffset,hackButton.window.x + Common.WIDTH,hackButton.window.y + hackButton.yOffset + yOffset + Common.HEIGHT, Common.BACKGROUND_COLOR);
 
         double diff = Math.min(Common.WIDTH,Math.max(0,mouseX - hackButton.window.x));
         int renderWidth = (int) (Common.WIDTH * (((OptionSlider) option).getValue() - ((OptionSlider) option).getMin()) / (((OptionSlider) option).getMax() - ((OptionSlider) option).getMin()));
@@ -35,11 +34,11 @@ public class NumberComponent extends Component{
             }
         }
 
-        DrawableHelper.fill(matrices,hackButton.window.x, hackButton.window.y + hackButton.yOffset + yOffset + Common.HEIGHT - 1,hackButton.window.x + Common.WIDTH,hackButton.window.y + hackButton.yOffset + yOffset + Common.HEIGHT, Common.COLOR);
+        context.fill(hackButton.window.x, hackButton.window.y + hackButton.yOffset + yOffset + Common.HEIGHT - 1,hackButton.window.x + Common.WIDTH,hackButton.window.y + hackButton.yOffset + yOffset + Common.HEIGHT, Common.COLOR);
 
-        DrawableHelper.fill(matrices,hackButton.window.x, hackButton.window.y + hackButton.yOffset + yOffset + Common.HEIGHT - 1,hackButton.window.x + renderWidth,hackButton.window.y + hackButton.yOffset + yOffset + Common.HEIGHT, Common.COLOR);
+        context.fill(hackButton.window.x, hackButton.window.y + hackButton.yOffset + yOffset + Common.HEIGHT - 1,hackButton.window.x + renderWidth,hackButton.window.y + hackButton.yOffset + yOffset + Common.HEIGHT, Common.COLOR);
 
-        mc.textRenderer.drawWithShadow(matrices, ((OptionSlider) option).getName() + " : " + roundToPlace(((OptionSlider) option).getValue(),1),hackButton.window.x + 1, hackButton.window.y + hackButton.yOffset + yOffset + 1, -1);
+        context.drawTextWithShadow(mc.textRenderer, option.getName() + " : " + roundToPlace(((OptionSlider) option).getValue(),1),hackButton.window.x + 1, hackButton.window.y + hackButton.yOffset + yOffset + 1, -1);
 
 
     }

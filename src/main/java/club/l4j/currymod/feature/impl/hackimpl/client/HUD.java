@@ -38,23 +38,23 @@ public class HUD extends Hack {
         int height = mc.getWindow().getScaledHeight();
         //ty SwavyMan69 fo logo
         if(watermark.isEnabled()){
-            mc.textRenderer.drawWithShadow(e.getMatrixStack(), TextUtil.AQUA + CurryMod.MOD_NAME + TextUtil.WHITE +"b" + CurryMod.VERSION,-1,1,-1);
+            e.getDrawContext().drawTextWithShadow(mc.textRenderer, TextUtil.AQUA + CurryMod.MOD_NAME + TextUtil.WHITE +"b" + CurryMod.VERSION,-1,1,-1);
         }
         if(logo.isEnabled()) {
-            RenderUtils.drawImage(e.getMatrixStack(), 1, 1, 50, 50, null, "textures/curry.png");
+            RenderUtils.drawImage(e.getDrawContext(), 1, 0, 50, 50, null, "textures/curry.png");
         }
         if(welcome.isEnabled()) {
             String text = TextUtil.AQUA + "Welcome" + TextUtil.WHITE + mc.player.getGameProfile().getName();
-            mc.textRenderer.drawWithShadow(e.getMatrixStack(), text, width / 2 - (mc.textRenderer.getWidth(text) / 2), 1, -1);
+            e.getDrawContext().drawTextWithShadow(mc.textRenderer, text, width / 2 - (mc.textRenderer.getWidth(text) / 2), 1, -1);
         }
         if(fps.isEnabled()) {
-            mc.textRenderer.drawWithShadow(e.getMatrixStack(), TextUtil.AQUA + "FPS:" + TextUtil.WHITE + mc.getCurrentFps(), 0, height - (mc.textRenderer.fontHeight * 3), -1);
+            e.getDrawContext().drawTextWithShadow(mc.textRenderer, TextUtil.AQUA + "FPS:" + TextUtil.WHITE + mc.getCurrentFps(), 0, height - (mc.textRenderer.fontHeight * 3), -1);
         }
         if(ping.isEnabled()) {
-            mc.textRenderer.drawWithShadow(e.getMatrixStack(), TextUtil.AQUA + "Ping:" + TextUtil.WHITE + (mc.player.networkHandler.getPlayerListEntry(mc.player.getGameProfile().getId()) == null ? 0 : mc.player.networkHandler.getPlayerListEntry(mc.player.getGameProfile().getId()).getLatency()), 0, height - (mc.textRenderer.fontHeight * 2), -1);
+            e.getDrawContext().drawTextWithShadow(mc.textRenderer, TextUtil.AQUA + "Ping:" + TextUtil.WHITE + (mc.player.networkHandler.getPlayerListEntry(mc.player.getGameProfile().getId()) == null ? 0 : mc.player.networkHandler.getPlayerListEntry(mc.player.getGameProfile().getId()).getLatency()), 0, height - (mc.textRenderer.fontHeight * 2), -1);
         }
         if(coords.isEnabled()) {
-            mc.textRenderer.drawWithShadow(e.getMatrixStack(), TextUtil.AQUA + "XYZ:" + TextUtil.WHITE + Math.round(mc.player.getX() * 100.0) / 100.0 + " ," + Math.round(mc.player.getY() * 100.0) / 100.0 + " ," + Math.round(mc.player.getZ() * 100.0) / 100.0, 0, height - mc.textRenderer.fontHeight, -1);
+            e.getDrawContext().drawTextWithShadow(mc.textRenderer, TextUtil.AQUA + "XYZ:" + TextUtil.WHITE + Math.round(mc.player.getX() * 100.0) / 100.0 + " ," + Math.round(mc.player.getY() * 100.0) / 100.0 + " ," + Math.round(mc.player.getZ() * 100.0) / 100.0, 0, height - mc.textRenderer.fontHeight, -1);
         }
         if(hackList.isEnabled()) {
             ArrayList<String> list = new ArrayList<>();
@@ -65,7 +65,7 @@ public class HUD extends Hack {
             Collections.reverse(list);
             int y = 2;
             for (final String name : list) {
-                mc.textRenderer.drawWithShadow(e.getMatrixStack(), name, (width - mc.textRenderer.getWidth(name)) - 3, y + 2, -1);
+                e.getDrawContext().drawTextWithShadow(mc.textRenderer, name, (width - mc.textRenderer.getWidth(name)) - 3, y + 2, -1);
                 y += 10;
             }
         }

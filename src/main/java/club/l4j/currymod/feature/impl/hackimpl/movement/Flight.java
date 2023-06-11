@@ -73,7 +73,7 @@ public class Flight extends Hack {
 
     @DemoListen
     public void onPacketSend(PacketSendEvent e) {
-        if(antiKick.isEnabled() && e.getPacket() instanceof PlayerMoveC2SPacket packet){
+        if(antiKick.isEnabled() && !mode.isMode("VerusHop") && e.getPacket() instanceof PlayerMoveC2SPacket packet){
             long time = System.currentTimeMillis();
             double y = packet.getY(Double.MAX_VALUE);
             if (y != Double.MAX_VALUE) {

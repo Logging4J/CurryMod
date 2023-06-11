@@ -7,7 +7,7 @@ import club.l4j.currymod.feature.impl.hackimpl.client.ClickGuiMod;
 import club.l4j.currymod.feature.impl.hackimpl.client.HUD;
 import club.l4j.currymod.feature.impl.hackimpl.combat.*;
 import club.l4j.currymod.feature.impl.hackimpl.exploit.*;
-import club.l4j.currymod.feature.impl.hackimpl.misc.SexChat;
+import club.l4j.currymod.feature.impl.hackimpl.misc.AutoLog;
 import club.l4j.currymod.feature.impl.hackimpl.misc.ChatEdits;
 import club.l4j.currymod.feature.impl.hackimpl.misc.FastUse;
 import club.l4j.currymod.feature.impl.hackimpl.movement.*;
@@ -16,7 +16,6 @@ import club.l4j.currymod.feature.impl.hackimpl.visual.FullBright;
 import club.l4j.currymod.feature.impl.hackimpl.visual.NoRender;
 
 import club.l4j.currymod.util.IGlobals;
-import net.minecraft.client.MinecraftClient;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,8 +28,7 @@ public class FeatureManager implements IGlobals {
 
     public FeatureManager() {
         //Hacks
-        addHack(new SexChat());
-        addHack(new AutoJQQ());
+        addHack(new AutoLog());
         addHack(new BoatExecutor());
         addHack(new CameraClip());
         addHack(new ClickGuiMod());
@@ -48,10 +46,6 @@ public class FeatureManager implements IGlobals {
         addHack(new ChatEdits());
         addHack(new Aura());
         addHack(new Parkour());
-        addHack(new AutoSwim());
-        addHack(new SilentSneak());
-        addHack(new AutoRespawn());
-        addHack(new Surround());
         addHack(new AutoWalk());
 
         //Commands

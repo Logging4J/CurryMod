@@ -1,13 +1,12 @@
 package club.l4j.currymod.graphics.spoofgui;
 
-import club.l4j.currymod.CurryMod;
 import club.l4j.currymod.util.TextUtil;
+import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.TitleScreen;
 import net.minecraft.client.gui.screen.multiplayer.MultiplayerScreen;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.gui.widget.TextFieldWidget;
-import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.text.Text;
 
 public class SpoofScreen extends Screen {
@@ -55,12 +54,12 @@ public class SpoofScreen extends Screen {
 
 
     @Override
-    public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {
-        renderBackground(matrices);
+    public void render(DrawContext context, int mouseX, int mouseY, float delta) {
+        renderBackground(context);
         dataString = data.getText();
         channelString = channel.getText();
-        client.textRenderer.drawWithShadow(matrices, Text.of("Channel:"), width/2 - (92 + client.textRenderer.getWidth(Text.of("Channel:"))),height/2 - 20, -1);
-        client.textRenderer.drawWithShadow(matrices, Text.of("Data:"), width/2 - (92 + client.textRenderer.getWidth(Text.of("Data:"))),height/2 + 5, -1);
-        super.render(matrices, mouseX, mouseY, delta);
+        context.drawTextWithShadow(client.textRenderer, Text.of("Channel:"), width/2 - (92 + client.textRenderer.getWidth(Text.of("Channel:"))),height/2 - 20, -1);
+        context.drawTextWithShadow(client.textRenderer, Text.of("Data:"), width/2 - (92 + client.textRenderer.getWidth(Text.of("Data:"))),height/2 + 5, -1);
+        super.render(context, mouseX, mouseY, delta);
     }
 }

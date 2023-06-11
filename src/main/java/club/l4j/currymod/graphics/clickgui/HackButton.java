@@ -5,8 +5,7 @@ import club.l4j.currymod.graphics.Common;
 import club.l4j.currymod.graphics.clickgui.components.*;
 import club.l4j.currymod.feature.options.Option;
 import club.l4j.currymod.util.IGlobals;
-import net.minecraft.client.gui.DrawableHelper;
-import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.client.gui.DrawContext;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,18 +45,18 @@ public class HackButton implements IGlobals {
 
     }
 
-    public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {
-        DrawableHelper.fill(matrices,window.x,window.y + yOffset,window.x + Common.WIDTH,window.y + yOffset + Common.HEIGHT, Common.BACKGROUND_COLOR);
-        mc.textRenderer.drawWithShadow(matrices,hack.getName(), window.x + 1, window.y + yOffset + 1,  hack.isEnabled() ? Common.COLOR : -1);
-        mc.textRenderer.drawWithShadow(matrices, visible ? "-" : "+", window.x +  Common.WIDTH - 8, window.y + yOffset + 1, -1);
+    public void render(DrawContext context, int mouseX, int mouseY, float delta) {
+        context.fill(window.x,window.y + yOffset,window.x + Common.WIDTH,window.y + yOffset + Common.HEIGHT, Common.BACKGROUND_COLOR);
+        context.drawTextWithShadow(mc.textRenderer, hack.getName(), window.x + 1, window.y + yOffset + 1,  hack.isEnabled() ? Common.COLOR : -1);
+        context.drawTextWithShadow(mc.textRenderer, visible ? "-" : "+", window.x +  Common.WIDTH - 8, window.y + yOffset + 1, -1);
         if(visible) {
             for (Component comp : options) {
-                comp.render(matrices, mouseX, mouseY, delta);
+                comp.render(context, mouseX, mouseY, delta);
             }
         }
         if (hovered(window.x,window.y  + yOffset, Common.WIDTH, Common.HEIGHT, mouseX, mouseY)) {
-            DrawableHelper.fill(matrices, 0, mc.getWindow().getScaledHeight(), mc.textRenderer.getWidth(hack.getDesc()) + 1, mc.getWindow().getScaledHeight() - mc.textRenderer.fontHeight - 1, Common.BACKGROUND_COLOR);
-            mc.textRenderer.drawWithShadow(matrices, hack.getDesc(), 0, mc.getWindow().getScaledHeight() - mc.textRenderer.fontHeight,  -1);
+            context.fill(0, mc.getWindow().getScaledHeight(), mc.textRenderer.getWidth(hack.getDesc()) + 1, mc.getWindow().getScaledHeight() - mc.textRenderer.fontHeight - 1, Common.BACKGROUND_COLOR);
+            context.drawTextWithShadow(mc.textRenderer, hack.getDesc(), 0, mc.getWindow().getScaledHeight() - mc.textRenderer.fontHeight,  -1);
         }
     }
 

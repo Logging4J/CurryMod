@@ -4,7 +4,7 @@ import club.l4j.currymod.graphics.clickgui.HackButton;
 import club.l4j.currymod.feature.options.Option;
 import club.l4j.currymod.feature.options.impl.OptionMode;
 import club.l4j.currymod.graphics.Common;
-import net.minecraft.client.gui.DrawableHelper;
+import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.util.math.MatrixStack;
 
 public class ModeComponent extends Component{
@@ -14,9 +14,9 @@ public class ModeComponent extends Component{
 
 
     @Override
-    public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {
-        DrawableHelper.fill(matrices,hackButton.window.x, hackButton.window.y + hackButton.yOffset + yOffset,hackButton.window.x + Common.WIDTH,hackButton.window.y + hackButton.yOffset + yOffset + Common.HEIGHT, Common.BACKGROUND_COLOR);
-        mc.textRenderer.drawWithShadow(matrices, ((OptionMode) option).getName() + " : " + ((OptionMode) option).getMode(),hackButton.window.x + 1, hackButton.window.y + hackButton.yOffset + yOffset + 1, -1);
+    public void render(DrawContext context, int mouseX, int mouseY, float delta) {
+        context.fill(hackButton.window.x, hackButton.window.y + hackButton.yOffset + yOffset,hackButton.window.x + Common.WIDTH,hackButton.window.y + hackButton.yOffset + yOffset + Common.HEIGHT, Common.BACKGROUND_COLOR);
+        context.drawTextWithShadow(mc.textRenderer, ((OptionMode) option).getName() + " : " + ((OptionMode) option).getMode(),hackButton.window.x + 1, hackButton.window.y + hackButton.yOffset + yOffset + 1, -1);
 
     }
 

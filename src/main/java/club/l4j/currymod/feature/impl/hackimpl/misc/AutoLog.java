@@ -1,4 +1,4 @@
-package club.l4j.currymod.feature.impl.hackimpl.exploit;
+package club.l4j.currymod.feature.impl.hackimpl.misc;
 
 import club.l4j.currymod.event.events.TickEvent;
 import club.l4j.currymod.feature.core.Hack;
@@ -6,16 +6,14 @@ import club.l4j.currymod.feature.options.impl.OptionSlider;
 import demo.knight.demobus.event.DemoListen;
 import net.minecraft.text.Text;
 
-//Crypto Told me to add >:D
-@Hack.Construct(name = "AutoJQQ", description = "AutoLog", category = Hack.Category.EXPLOITS)
-public class AutoJQQ extends Hack {
+@Hack.Construct(name = "AutoLog", description = "only faggots log", category = Hack.Category.EXPLOITS)
+public class AutoLog extends Hack {
 
     OptionSlider health = new OptionSlider("Health",1,20,1,4);
 
-    public AutoJQQ(){
+    public AutoLog(){
         addOptions(health);
     }
-
 
     @DemoListen
     public void onTick(TickEvent e) {

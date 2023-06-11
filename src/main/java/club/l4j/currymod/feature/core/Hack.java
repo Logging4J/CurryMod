@@ -101,7 +101,6 @@ public class Hack implements IGlobals {
         mc.getNetworkHandler().sendPacket(packet);
     }
 
-
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
         if(enabled){

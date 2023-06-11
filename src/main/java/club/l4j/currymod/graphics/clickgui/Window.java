@@ -5,10 +5,7 @@ import club.l4j.currymod.graphics.Common;
 import club.l4j.currymod.graphics.clickgui.components.Component;
 import club.l4j.currymod.feature.core.Hack;
 import club.l4j.currymod.util.IGlobals;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.font.TextRenderer;
-import net.minecraft.client.gui.DrawableHelper;
-import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.client.gui.DrawContext;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,15 +34,15 @@ public class Window implements IGlobals {
         }
     }
 
-    public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {
-        DrawableHelper.fill(matrices,x,y,x + Common.WIDTH,y + Common.HEIGHT, Common.COLOR);
-        mc.textRenderer.drawWithShadow(matrices,category.getName(),x + 1, y + 1, -1);
-        mc.textRenderer.drawWithShadow(matrices,visible ? "∨" : "∧",x  + Common.WIDTH - 8, y + 1, -1);
+    public void render(DrawContext context, int mouseX, int mouseY, float delta) {
+        context.fill(x,y,x + Common.WIDTH,y + Common.HEIGHT, Common.COLOR);
+        context.drawTextWithShadow(mc.textRenderer, category.getName(),x + 1, y + 1, -1);
+        context.drawTextWithShadow(mc.textRenderer, visible ? "∨" : "∧",x  + Common.WIDTH - 8, y + 1, -1);
 
 
         if(visible){
             for (HackButton moduleButton : modules) {
-                moduleButton.render(matrices,mouseX,mouseY,delta);
+                moduleButton.render(context,mouseX,mouseY,delta);
             }
         }
     }

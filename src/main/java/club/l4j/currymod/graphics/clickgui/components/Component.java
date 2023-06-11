@@ -6,6 +6,7 @@ import club.l4j.currymod.feature.options.Option;
 import club.l4j.currymod.util.IGlobals;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.font.TextRenderer;
+import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.util.math.MatrixStack;
 
 public class Component implements IGlobals {
@@ -21,7 +22,7 @@ public class Component implements IGlobals {
     }
 
 
-    public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {}
+    public void render(DrawContext context, int mouseX, int mouseY, float delta) {}
 
     public void mouseClicked(double mouseX, double mouseY, int button) {}
 

@@ -3,8 +3,9 @@ package club.l4j.currymod.graphics.clickgui;
 import club.l4j.currymod.CurryMod;
 import club.l4j.currymod.feature.core.Hack;
 import club.l4j.currymod.graphics.Common;
+import club.l4j.currymod.util.render.RenderUtils;
+import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.text.Text;
 
 import java.util.ArrayList;
@@ -25,10 +26,9 @@ public class ClickGuiScreen extends Screen {
     }
 
     @Override
-    public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {
-        //RenderUtils.drawImage(matrices, 0,0,width, height, null, "textures/back.png");
+    public void render(DrawContext context, int mouseX, int mouseY, float delta) {
         for (Window w : windows){
-            w.render(matrices,mouseX,mouseY,delta);
+            w.render(context,mouseX,mouseY,delta);
             w.updatePosition(mouseX,mouseY);
         }
     }

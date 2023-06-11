@@ -17,8 +17,10 @@ public class NoRender extends Hack {
     public OptionBoolean pumpkin = new OptionBoolean("NoPumpkin", true);
     public OptionBoolean fog = new OptionBoolean("NoFog", true);
     public OptionBoolean particles = new OptionBoolean("NoParticles", true);
+    public OptionBoolean background = new OptionBoolean("NoGuiBack", true);
+
 
     public NoRender(){
-        addOptions(noBossBar, fire, liquid, portal, snow, hurt, pumpkin, fog, particles);
+        addOptions(noBossBar, fire, liquid, portal, snow, hurt, pumpkin, fog, particles, background);
     }
 }

@@ -23,9 +23,6 @@ public class MixinMultiPlayerScreen extends Screen {
 
     @Inject(method = "init", at = @At("TAIL"))
     protected void init(CallbackInfo ci) {
-        ButtonWidget rpBypass = ButtonWidget.builder(Text.of("RP Bypass: " + (enabled ? TextUtil.GREEN + "True" : TextUtil.RED + "False")), (button) -> {
-            button.setMessage(Text.of("RP Bypass: " + (enabled ? TextUtil.GREEN + "True" : TextUtil.RED + "False")));
-        }).position(width - 165, height - 55).build();
         ButtonWidget vanSpoof = ButtonWidget.builder(Text.of("ClientSpoofer"), (button) -> {
             client.setScreen(new SpoofScreen());
         }).position(1, height - (client.textRenderer.fontHeight * 4)).build();

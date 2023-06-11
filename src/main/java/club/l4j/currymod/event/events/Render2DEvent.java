@@ -1,20 +1,20 @@
 package club.l4j.currymod.event.events;
 
 import club.l4j.currymod.event.Event;
-import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.client.gui.DrawContext;
 
 public class Render2DEvent extends Event {
 
-    private MatrixStack matrixStack;
+    private DrawContext context;
     private float tickDelta;
 
-    public Render2DEvent(MatrixStack matrixStack, float tickDelta) {
-        this.matrixStack = matrixStack;
+    public Render2DEvent(DrawContext context, float tickDelta) {
+        this.context = context;
         this.tickDelta = tickDelta;
     }
 
-    public MatrixStack getMatrixStack() {
-        return matrixStack;
+    public DrawContext getDrawContext() {
+        return context;
     }
 
     public float getTickDelta() {
