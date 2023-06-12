@@ -48,6 +48,7 @@ public class FeatureManager implements IGlobals {
         addHack(new Parkour());
         addHack(new AutoWalk());
         addHack(new HitBoxDesync());
+        addHack(new FakeGamemode());
 
         //Commands
         addCommand(new VClip());
@@ -56,7 +57,6 @@ public class FeatureManager implements IGlobals {
         addCommand(new Shrug());
         addCommand(new Help());
         addCommand(new FakePlayer());
-        addCommand(new GameModes());
     }
 
     public void runCommand(String args) {
