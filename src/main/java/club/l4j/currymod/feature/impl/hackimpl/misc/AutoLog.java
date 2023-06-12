@@ -6,7 +6,7 @@ import club.l4j.currymod.feature.options.impl.OptionSlider;
 import demo.knight.demobus.event.DemoListen;
 import net.minecraft.text.Text;
 
-@Hack.Construct(name = "AutoLog", description = "only faggots log", category = Hack.Category.EXPLOITS)
+@Hack.Construct(name = "AutoLog", description = "only faggots log", category = Hack.Category.MISC)
 public class AutoLog extends Hack {
 
     OptionSlider health = new OptionSlider("Health",1,20,1,4);

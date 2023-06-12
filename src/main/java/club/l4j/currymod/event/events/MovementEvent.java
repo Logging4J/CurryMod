@@ -1,16 +1,15 @@
 package club.l4j.currymod.event.events;
 
 import club.l4j.currymod.event.Event;
-import demo.knight.demobus.event.DemoListen;
 import net.minecraft.entity.MovementType;
 import net.minecraft.util.math.Vec3d;
 
-public class PlayerMovmentEvent extends Event {
+public class MovementEvent extends Event {
 
     private MovementType type;
     private Vec3d vec;
 
-    public PlayerMovmentEvent(MovementType type, Vec3d vec) {
+    public MovementEvent(MovementType type, Vec3d vec) {
         this.type = type;
         this.vec = vec;
     }
@@ -19,7 +18,15 @@ public class PlayerMovmentEvent extends Event {
         return type;
     }
 
+    public void setType(MovementType type) {
+        this.type = type;
+    }
+
     public Vec3d getVec() {
         return vec;
+    }
+
+    public void setVec(Vec3d vec) {
+        this.vec = vec;
     }
 }

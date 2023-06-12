@@ -16,8 +16,8 @@ import org.lwjgl.glfw.GLFW;
 public class Flight extends Hack {
 
     public OptionBoolean antiKick = new OptionBoolean("AntiKick", true);
-    public OptionMode mode = new OptionMode("Mode", "Creative", "Creative", "JetPack", "VerusHop");
-    OptionSlider speed = new OptionSlider("Speed", 1f, 10f, 1f, 5f);
+    public OptionMode mode = new OptionMode("Mode", "Creative", "Creative", "JetPack", "AirHop");
+    public OptionSlider speed = new OptionSlider("Speed", 1f, 10f, 1f, 5f);
 
     //VerusHop
     double startY = 0;
@@ -73,7 +73,7 @@ public class Flight extends Hack {
 
     @DemoListen
     public void onPacketSend(PacketSendEvent e) {
-        if(antiKick.isEnabled() && !mode.isMode("VerusHop") && e.getPacket() instanceof PlayerMoveC2SPacket packet){
+        if(antiKick.isEnabled() && !mode.isMode("AirHop") && e.getPacket() instanceof PlayerMoveC2SPacket packet){
             long time = System.currentTimeMillis();
             double y = packet.getY(Double.MAX_VALUE);
             if (y != Double.MAX_VALUE) {

@@ -9,7 +9,7 @@ import net.minecraft.item.Items;
 
 import java.util.Set;
 
-public class ItemUtil implements IGlobals {
+public class InvUtil implements IGlobals {
 
     public static final Set<Item> THROWABLES = Sets.newHashSet(
             Items.SNOWBALL, Items.EXPERIENCE_BOTTLE, Items.EGG, Items.SPLASH_POTION, Items.ENDER_PEARL
@@ -20,7 +20,7 @@ public class ItemUtil implements IGlobals {
             Blocks.EMERALD_ORE, Blocks.REDSTONE_ORE, Blocks.COPPER_ORE, Blocks.DEEPSLATE_COAL_ORE,
             Blocks.DEEPSLATE_IRON_ORE, Blocks.DEEPSLATE_GOLD_ORE, Blocks.DEEPSLATE_LAPIS_ORE,
             Blocks.DEEPSLATE_DIAMOND_ORE, Blocks.DEEPSLATE_EMERALD_ORE, Blocks.DEEPSLATE_REDSTONE_ORE,
-            Blocks.DEEPSLATE_COPPER_ORE
+            Blocks.DEEPSLATE_COPPER_ORE, Blocks.NETHER_QUARTZ_ORE, Blocks.ANCIENT_DEBRIS
     );
 
 }

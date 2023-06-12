@@ -3,10 +3,12 @@ package club.l4j.currymod.feature.impl.hackimpl.combat;
 import club.l4j.currymod.event.events.PacketSendEvent;
 import club.l4j.currymod.event.events.TickEvent;
 import club.l4j.currymod.feature.core.Hack;
+import club.l4j.currymod.feature.options.impl.OptionBoolean;
 import club.l4j.currymod.feature.options.impl.OptionSlider;
 import club.l4j.currymod.mixin.minecraft.IPlayerMoveC2SPacket;
 import club.l4j.currymod.util.player.MovementUtils;
 import demo.knight.demobus.event.DemoListen;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.network.packet.c2s.play.PlayerMoveC2SPacket;
 import net.minecraft.util.Hand;
@@ -18,10 +20,11 @@ import java.util.stream.Collectors;
 @Hack.Construct(name = "Aura", description = "attacks ppl fo u", category = Hack.Category.COMBAT)
 public class Aura extends Hack {
 
-    OptionSlider range = new OptionSlider("Range",1,6,1,6);
+    public OptionSlider range = new OptionSlider("Range",1,6,1,6);
+    public OptionBoolean rotate = new OptionBoolean("Rotations",true);
 
     public Aura(){
-        addOptions(range);
+        addOptions(range, rotate);
     }
 
     float yaw, pitch;
@@ -49,7 +52,7 @@ public class Aura extends Hack {
     @DemoListen
     public void onPacketSend(PacketSendEvent e) {
         if (nullCheck()) {return;}
-        if (e.getPacket() instanceof PlayerMoveC2SPacket p) {
+        if (e.getPacket() instanceof PlayerMoveC2SPacket p && rotate.isEnabled()) {
             ((IPlayerMoveC2SPacket) p).setYaw(yaw);
             ((IPlayerMoveC2SPacket) p).setPitch(pitch);
         }

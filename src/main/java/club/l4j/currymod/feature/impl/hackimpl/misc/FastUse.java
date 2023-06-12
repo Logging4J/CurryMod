@@ -4,7 +4,7 @@ import club.l4j.currymod.event.events.TickEvent;
 import club.l4j.currymod.feature.core.Hack;
 import club.l4j.currymod.feature.options.impl.OptionBoolean;
 import club.l4j.currymod.mixin.minecraft.IMinecraftClient;
-import club.l4j.currymod.util.player.ItemUtil;
+import club.l4j.currymod.util.player.InvUtil;
 import demo.knight.demobus.event.DemoListen;
 import net.minecraft.item.BlockItem;
 
@@ -24,7 +24,7 @@ public class FastUse extends Hack {
         if(mc.player.getInventory().getMainHandStack().getItem() instanceof BlockItem && blocks.isEnabled()){
             ((IMinecraftClient) mc).setItemUseCooldown(0);
         }
-        if(ItemUtil.THROWABLES.contains(mc.player.getInventory().getMainHandStack().getItem()) && throwable.isEnabled()){
+        if(InvUtil.THROWABLES.contains(mc.player.getInventory().getMainHandStack().getItem()) && throwable.isEnabled()){
             ((IMinecraftClient) mc).setItemUseCooldown(0);
         }
     }
