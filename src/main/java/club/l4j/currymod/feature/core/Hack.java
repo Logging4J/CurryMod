@@ -4,6 +4,8 @@ import club.l4j.currymod.CurryMod;
 import club.l4j.currymod.feature.options.Option;
 
 import club.l4j.currymod.util.IGlobals;
+import lombok.Getter;
+import lombok.Setter;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.network.packet.Packet;
 
@@ -18,13 +20,25 @@ import java.util.List;
 public class Hack implements IGlobals {
 
     private Construct construct = getClass().getAnnotation(Construct.class);
+
     private List<Option> options = new ArrayList<>();
+
+    @Getter @Setter
     private String name = construct.name();
+
+    @Getter @Setter
     private String desc = construct.description();
+
+    @Getter @Setter
     private Category category = construct.category();
-    private boolean enabled;
+
+    @Getter @Setter
     private int key;
+
+    @Getter @Setter
     private boolean drawn;
+
+    private boolean enabled;
 
     public List<Option> getOptions(){
         return options;
@@ -33,6 +47,11 @@ public class Hack implements IGlobals {
     public void addOptions(Option... options){
         this.options.addAll(Arrays.asList(options));
     }
+
+    public String getContent(){
+        return null;
+    }
+
 
     public void toggle(){
         enabled = !enabled;
@@ -43,54 +62,17 @@ public class Hack implements IGlobals {
         }
     }
 
-    public void onEnable(){
-        CurryMod.EVENT_BUS.register(this);
-    }
-    public void onDisable(){
-        CurryMod.EVENT_BUS.unregister(this);
-    }
-
-    public String getContent(){
-        return null;
-    }
-
-    public String getName() {
-        return name;
-    }
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDesc() {
-        return desc;
-    }
-
-    public void setDesc(String desc) {
-        this.desc = desc;
-    }
-
-    public int getKey() {
-        return key;
-    }
-
-    public void setKey(int key) {
-        this.key = key;
-    }
-
-    public boolean isDrawn() {
-        return drawn;
-    }
-
-    public void setDrawn(boolean drawn) {
-        this.drawn = drawn;
-    }
-
-    public Category getCategory() {
-        return category;
-    }
-
     public boolean isEnabled() {
         return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+        if(enabled){
+            onEnable();
+        }else {
+            onDisable();
+        }
     }
 
     public boolean nullCheck() {
@@ -101,13 +83,11 @@ public class Hack implements IGlobals {
         mc.getNetworkHandler().sendPacket(packet);
     }
 
-    public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
-        if(enabled){
-            onEnable();
-        }else {
-            onDisable();
-        }
+    public void onEnable(){
+        CurryMod.EVENT_BUS.register(this);
+    }
+    public void onDisable(){
+        CurryMod.EVENT_BUS.unregister(this);
     }
 
     public enum Category {

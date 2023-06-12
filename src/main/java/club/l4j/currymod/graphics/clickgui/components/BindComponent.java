@@ -1,6 +1,6 @@
 package club.l4j.currymod.graphics.clickgui.components;
 
-import club.l4j.currymod.graphics.Common;
+import club.l4j.currymod.graphics.Constants;
 import club.l4j.currymod.graphics.clickgui.HackButton;
 import club.l4j.currymod.feature.options.Option;
 import net.minecraft.client.gui.DrawContext;
@@ -17,7 +17,7 @@ public class BindComponent extends Component {
 
     @Override
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
-        context.fill(hackButton.window.x, hackButton.window.y + hackButton.yOffset + yOffset,hackButton.window.x + Common.WIDTH,hackButton.window.y + hackButton.yOffset + yOffset + Common.HEIGHT, Common.BACKGROUND_COLOR);
+        context.fill(hackButton.window.x, hackButton.window.y + hackButton.yOffset + yOffset,hackButton.window.x + Constants.WIDTH,hackButton.window.y + hackButton.yOffset + yOffset + Constants.HEIGHT, Constants.BACKGROUND_COLOR);
 
         int scanCode = GLFW.glfwGetKeyScancode(hackButton.hack.getKey());
         String bindName = GLFW.glfwGetKeyName(hackButton.hack.getKey(),scanCode);

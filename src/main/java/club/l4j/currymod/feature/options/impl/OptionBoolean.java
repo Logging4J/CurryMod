@@ -1,9 +1,12 @@
 package club.l4j.currymod.feature.options.impl;
 
 import club.l4j.currymod.feature.options.Option;
+import lombok.Getter;
+import lombok.Setter;
 
 public class OptionBoolean extends Option {
 
+    @Getter @Setter
     private boolean enabled;
 
     public OptionBoolean(String name, boolean defVal){
@@ -13,13 +16,5 @@ public class OptionBoolean extends Option {
 
     public void toggle(){
         enabled = !enabled;
-    }
-
-    public boolean isEnabled() {
-        return enabled;
-    }
-
-    public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
     }
 }

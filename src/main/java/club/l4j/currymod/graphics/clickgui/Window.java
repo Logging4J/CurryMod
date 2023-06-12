@@ -1,7 +1,7 @@
 package club.l4j.currymod.graphics.clickgui;
 
 import club.l4j.currymod.CurryMod;
-import club.l4j.currymod.graphics.Common;
+import club.l4j.currymod.graphics.Constants;
 import club.l4j.currymod.graphics.clickgui.components.Component;
 import club.l4j.currymod.feature.core.Hack;
 import club.l4j.currymod.util.IGlobals;
@@ -26,18 +26,18 @@ public class Window implements IGlobals {
         visible = true;
         dragging = false;
 
-        int offset = Common.HEIGHT;
+        int offset = Constants.HEIGHT;
 
         for(Hack h : CurryMod.featureManager.getHackFeaturesInCategory(category)){
             modules.add(new HackButton(this,h,offset));
-            offset += Common.HEIGHT;
+            offset += Constants.HEIGHT;
         }
     }
 
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
-        context.fill(x,y,x + Common.WIDTH,y + Common.HEIGHT, Common.COLOR);
+        context.fill(x,y,x + Constants.WIDTH,y + Constants.HEIGHT, Constants.COLOR);
         context.drawTextWithShadow(mc.textRenderer, category.getName(),x + 1, y + 1, -1);
-        context.drawTextWithShadow(mc.textRenderer, visible ? "∨" : "∧",x  + Common.WIDTH - 8, y + 1, -1);
+        context.drawTextWithShadow(mc.textRenderer, visible ? "∨" : "∧",x  + Constants.WIDTH - 8, y + 1, -1);
 
 
         if(visible){
@@ -53,7 +53,7 @@ public class Window implements IGlobals {
                 moduleButton.mouseClicked(mouseX,mouseY,button);
             }
         }
-        if(hovered(x,y,  Common.WIDTH,  Common.HEIGHT, (int) mouseX, (int) mouseY)) {
+        if(hovered(x,y,  Constants.WIDTH,  Constants.HEIGHT, (int) mouseX, (int) mouseY)) {
             if(button == 0){
                 dragging = true;
                 dragX = (int) (mouseX - x);
@@ -87,14 +87,14 @@ public class Window implements IGlobals {
     }
 
     public void updateButtons() {
-        int offset = Common.HEIGHT;
+        int offset = Constants.HEIGHT;
 
         for(HackButton button : modules) {
             button.yOffset = offset;
-            offset += Common.HEIGHT;
+            offset += Constants.HEIGHT;
             if(button.visible) {
                 for(Component comp : button.options) {
-                    offset+= Common.HEIGHT;
+                    offset+= Constants.HEIGHT;
                 }
             }
         }

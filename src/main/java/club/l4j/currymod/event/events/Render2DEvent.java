@@ -1,8 +1,10 @@
 package club.l4j.currymod.event.events;
 
 import club.l4j.currymod.event.Event;
+import lombok.Getter;
 import net.minecraft.client.gui.DrawContext;
 
+@Getter
 public class Render2DEvent extends Event {
 
     private DrawContext context;
@@ -11,13 +13,5 @@ public class Render2DEvent extends Event {
     public Render2DEvent(DrawContext context, float tickDelta) {
         this.context = context;
         this.tickDelta = tickDelta;
-    }
-
-    public DrawContext getDrawContext() {
-        return context;
-    }
-
-    public float getTickDelta() {
-        return tickDelta;
     }
 }

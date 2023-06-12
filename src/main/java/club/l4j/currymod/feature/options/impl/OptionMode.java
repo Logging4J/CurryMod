@@ -1,14 +1,20 @@
 package club.l4j.currymod.feature.options.impl;
 
 import club.l4j.currymod.feature.options.Option;
+import lombok.Getter;
 
 import java.util.Arrays;
 import java.util.List;
 
 public class OptionMode extends Option {
 
+    @Getter
     private String mode;
+
+    @Getter
     private List<String> modes;
+
+    @Getter
     private int index;
 
     public OptionMode(String name, String defVal, String... modes) {
@@ -18,21 +24,9 @@ public class OptionMode extends Option {
         index = this.modes.indexOf(defVal);
     }
 
-    public String getMode(){
-        return mode;
-    }
-
-    public List<String> getModes() {
-        return modes;
-    }
-
     public void setMode(String mode) {
         this.mode = mode;
         index = modes.indexOf(mode);
-    }
-
-    public int getIndex() {
-        return index;
     }
 
     public void setIndex(int index) {

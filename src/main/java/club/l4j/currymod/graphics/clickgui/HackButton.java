@@ -1,7 +1,7 @@
 package club.l4j.currymod.graphics.clickgui;
 
 import club.l4j.currymod.feature.core.Hack;
-import club.l4j.currymod.graphics.Common;
+import club.l4j.currymod.graphics.Constants;
 import club.l4j.currymod.graphics.clickgui.components.*;
 import club.l4j.currymod.feature.options.Option;
 import club.l4j.currymod.util.IGlobals;
@@ -27,7 +27,7 @@ public class HackButton implements IGlobals {
 
         options = new ArrayList<>();
 
-        int settingOffset = Common.HEIGHT;
+        int settingOffset = Constants.HEIGHT;
         for(Option s : hack.getOptions()){
             if(s.isBoolean(s)){
                 options.add(new BooleanComponent(s,this,settingOffset));
@@ -38,7 +38,7 @@ public class HackButton implements IGlobals {
             else if(s.isMode(s)){
                 options.add(new ModeComponent(s,this,settingOffset));
             }
-            settingOffset += Common.HEIGHT;
+            settingOffset += Constants.HEIGHT;
         }
 
         options.add(new BindComponent(null,this,settingOffset));
@@ -46,16 +46,16 @@ public class HackButton implements IGlobals {
     }
 
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
-        context.fill(window.x,window.y + yOffset,window.x + Common.WIDTH,window.y + yOffset + Common.HEIGHT, Common.BACKGROUND_COLOR);
-        context.drawTextWithShadow(mc.textRenderer, hack.getName(), window.x + 1, window.y + yOffset + 1,  hack.isEnabled() ? Common.COLOR : -1);
-        context.drawTextWithShadow(mc.textRenderer, visible ? "-" : "+", window.x +  Common.WIDTH - 8, window.y + yOffset + 1, -1);
+        context.fill(window.x,window.y + yOffset,window.x + Constants.WIDTH,window.y + yOffset + Constants.HEIGHT, Constants.BACKGROUND_COLOR);
+        context.drawTextWithShadow(mc.textRenderer, hack.getName(), window.x + 1, window.y + yOffset + 1,  hack.isEnabled() ? Constants.COLOR : -1);
+        context.drawTextWithShadow(mc.textRenderer, visible ? "-" : "+", window.x +  Constants.WIDTH - 8, window.y + yOffset + 1, -1);
         if(visible) {
             for (Component comp : options) {
                 comp.render(context, mouseX, mouseY, delta);
             }
         }
-        if (hovered(window.x,window.y  + yOffset, Common.WIDTH, Common.HEIGHT, mouseX, mouseY)) {
-            context.fill(0, mc.getWindow().getScaledHeight(), mc.textRenderer.getWidth(hack.getDesc()) + 1, mc.getWindow().getScaledHeight() - mc.textRenderer.fontHeight - 1, Common.BACKGROUND_COLOR);
+        if (hovered(window.x,window.y  + yOffset, Constants.WIDTH, Constants.HEIGHT, mouseX, mouseY)) {
+            context.fill(0, mc.getWindow().getScaledHeight(), mc.textRenderer.getWidth(hack.getDesc()) + 1, mc.getWindow().getScaledHeight() - mc.textRenderer.fontHeight - 1, Constants.BACKGROUND_COLOR);
             context.drawTextWithShadow(mc.textRenderer, hack.getDesc(), 0, mc.getWindow().getScaledHeight() - mc.textRenderer.fontHeight,  -1);
         }
     }
@@ -66,7 +66,7 @@ public class HackButton implements IGlobals {
                 comp.mouseClicked(mouseX,mouseY,button);
             }
         }
-        if(hovered(window.x,window.y  + yOffset, Common.WIDTH, Common.HEIGHT, (int) mouseX, (int) mouseY)){
+        if(hovered(window.x,window.y  + yOffset, Constants.WIDTH, Constants.HEIGHT, (int) mouseX, (int) mouseY)){
             if(button == 0){
                 hack.toggle();
             }else {

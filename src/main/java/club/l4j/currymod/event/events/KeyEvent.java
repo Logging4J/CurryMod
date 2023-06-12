@@ -1,7 +1,9 @@
 package club.l4j.currymod.event.events;
 
 import club.l4j.currymod.event.Event;
+import lombok.Getter;
 
+@Getter
 public class KeyEvent extends Event {
 
     private int key;
@@ -10,13 +12,5 @@ public class KeyEvent extends Event {
     public KeyEvent(int key, int action) {
         this.key = key;
         this.action = action;
-    }
-
-    public int getKey() {
-        return key;
-    }
-
-    public int getAction() {
-        return action;
     }
 }

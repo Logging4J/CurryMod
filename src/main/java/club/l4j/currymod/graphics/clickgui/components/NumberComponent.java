@@ -3,7 +3,7 @@ package club.l4j.currymod.graphics.clickgui.components;
 import club.l4j.currymod.graphics.clickgui.HackButton;
 import club.l4j.currymod.feature.options.Option;
 import club.l4j.currymod.feature.options.impl.OptionSlider;
-import club.l4j.currymod.graphics.Common;
+import club.l4j.currymod.graphics.Constants;
 import net.minecraft.client.gui.DrawContext;
 
 import java.math.BigDecimal;
@@ -20,23 +20,23 @@ public class NumberComponent extends Component{
 
     @Override
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
-        context.fill(hackButton.window.x, hackButton.window.y + hackButton.yOffset + yOffset,hackButton.window.x + Common.WIDTH,hackButton.window.y + hackButton.yOffset + yOffset + Common.HEIGHT, Common.BACKGROUND_COLOR);
+        context.fill(hackButton.window.x, hackButton.window.y + hackButton.yOffset + yOffset,hackButton.window.x + Constants.WIDTH,hackButton.window.y + hackButton.yOffset + yOffset + Constants.HEIGHT, Constants.BACKGROUND_COLOR);
 
-        double diff = Math.min(Common.WIDTH,Math.max(0,mouseX - hackButton.window.x));
-        int renderWidth = (int) (Common.WIDTH * (((OptionSlider) option).getValue() - ((OptionSlider) option).getMin()) / (((OptionSlider) option).getMax() - ((OptionSlider) option).getMin()));
+        double diff = Math.min(Constants.WIDTH,Math.max(0,mouseX - hackButton.window.x));
+        int renderWidth = (int) (Constants.WIDTH * (((OptionSlider) option).getValue() - ((OptionSlider) option).getMin()) / (((OptionSlider) option).getMax() - ((OptionSlider) option).getMin()));
 
 
         if(sliding){
             if(diff == 0){
                 ((OptionSlider) option).setValue(((OptionSlider) option).getMin());
             }else{
-                ((OptionSlider) option).setValue(roundToPlace(((diff/ Common.WIDTH) * (((OptionSlider)option).getMax() - ((OptionSlider) option).getMin()) + ((OptionSlider) option).getMin()), 1));
+                ((OptionSlider) option).setValue(roundToPlace(((diff/ Constants.WIDTH) * (((OptionSlider)option).getMax() - ((OptionSlider) option).getMin()) + ((OptionSlider) option).getMin()), 1));
             }
         }
 
-        context.fill(hackButton.window.x, hackButton.window.y + hackButton.yOffset + yOffset + Common.HEIGHT - 1,hackButton.window.x + Common.WIDTH,hackButton.window.y + hackButton.yOffset + yOffset + Common.HEIGHT, Common.COLOR);
+        context.fill(hackButton.window.x, hackButton.window.y + hackButton.yOffset + yOffset + Constants.HEIGHT - 1,hackButton.window.x + Constants.WIDTH,hackButton.window.y + hackButton.yOffset + yOffset + Constants.HEIGHT, Constants.COLOR);
 
-        context.fill(hackButton.window.x, hackButton.window.y + hackButton.yOffset + yOffset + Common.HEIGHT - 1,hackButton.window.x + renderWidth,hackButton.window.y + hackButton.yOffset + yOffset + Common.HEIGHT, Common.COLOR);
+        context.fill(hackButton.window.x, hackButton.window.y + hackButton.yOffset + yOffset + Constants.HEIGHT - 1,hackButton.window.x + renderWidth,hackButton.window.y + hackButton.yOffset + yOffset + Constants.HEIGHT, Constants.COLOR);
 
         context.drawTextWithShadow(mc.textRenderer, option.getName() + " : " + roundToPlace(((OptionSlider) option).getValue(),1),hackButton.window.x + 1, hackButton.window.y + hackButton.yOffset + yOffset + 1, -1);
 

@@ -3,9 +3,8 @@ package club.l4j.currymod.graphics.clickgui.components;
 import club.l4j.currymod.graphics.clickgui.HackButton;
 import club.l4j.currymod.feature.options.Option;
 import club.l4j.currymod.feature.options.impl.OptionMode;
-import club.l4j.currymod.graphics.Common;
+import club.l4j.currymod.graphics.Constants;
 import net.minecraft.client.gui.DrawContext;
-import net.minecraft.client.util.math.MatrixStack;
 
 public class ModeComponent extends Component{
     public ModeComponent(Option option, HackButton hackButton, int yOffset) {
@@ -15,7 +14,7 @@ public class ModeComponent extends Component{
 
     @Override
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
-        context.fill(hackButton.window.x, hackButton.window.y + hackButton.yOffset + yOffset,hackButton.window.x + Common.WIDTH,hackButton.window.y + hackButton.yOffset + yOffset + Common.HEIGHT, Common.BACKGROUND_COLOR);
+        context.fill(hackButton.window.x, hackButton.window.y + hackButton.yOffset + yOffset,hackButton.window.x + Constants.WIDTH,hackButton.window.y + hackButton.yOffset + yOffset + Constants.HEIGHT, Constants.BACKGROUND_COLOR);
         context.drawTextWithShadow(mc.textRenderer, ((OptionMode) option).getName() + " : " + ((OptionMode) option).getMode(),hackButton.window.x + 1, hackButton.window.y + hackButton.yOffset + yOffset + 1, -1);
 
     }

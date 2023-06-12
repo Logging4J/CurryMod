@@ -1,11 +1,12 @@
 package club.l4j.currymod.feature.options.impl;
 
 import club.l4j.currymod.feature.options.Option;
+import lombok.Getter;
 
 public class OptionSlider extends Option {
 
-    private double min, max, increment;
-    private double value;
+    @Getter
+    private double min, max, increment, value;
 
     public OptionSlider(String name, double min, double max, double increment, double defVal) {
         super(name);
@@ -21,11 +22,6 @@ public class OptionSlider extends Option {
         return value;
     }
 
-
-    public double getValue(){
-        return value;
-    }
-
     public float getFloatValue(){
         return (float) value;
     }
@@ -36,10 +32,6 @@ public class OptionSlider extends Option {
 
     public long getLongValue(){
         return (long) value;
-    }
-
-    public double getIncrement() {
-        return increment;
     }
 
     public void setValue(double value){
@@ -54,13 +46,5 @@ public class OptionSlider extends Option {
         }else {
             setValue(getValue() - getIncrement());
         }
-    }
-
-    public double getMin() {
-        return min;
-    }
-
-    public double getMax() {
-        return max;
     }
 }

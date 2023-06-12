@@ -2,8 +2,7 @@ package club.l4j.currymod.graphics.clickgui;
 
 import club.l4j.currymod.CurryMod;
 import club.l4j.currymod.feature.core.Hack;
-import club.l4j.currymod.graphics.Common;
-import club.l4j.currymod.util.render.RenderUtils;
+import club.l4j.currymod.graphics.Constants;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.text.Text;
@@ -20,7 +19,7 @@ public class ClickGuiScreen extends Screen {
         int xOffset = 10;
         for(Hack.Category c : Hack.Category.values()){
             windows.add(new Window(c,xOffset,10));
-            xOffset += Common.WIDTH + 2;
+            xOffset += Constants.WIDTH + 2;
         }
 
     }

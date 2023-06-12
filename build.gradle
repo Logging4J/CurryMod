@@ -1,4 +1,5 @@
 plugins {
+    id "io.freefair.lombok" version "8.0.1"
     id 'fabric-loom' version '1.2-SNAPSHOT'
     id 'maven-publish'
 }
@@ -44,6 +45,7 @@ java {
     archivesBaseName = project.archives_base_name
     withSourcesJar()
 }
+
 
 jar {
     from("LICENSE") {
