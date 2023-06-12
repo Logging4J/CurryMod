@@ -13,6 +13,6 @@ featuring - qq rat and the boat dupe
 
 ### Major changes
 
--Removed `FakeGamemode` command for `FakeGameMode` Hack
+-Removed `FakeGamemode` Command for `FakeGameMode` Hack
 
 ### Changed features
