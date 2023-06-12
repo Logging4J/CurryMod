@@ -9,15 +9,10 @@ featuring - qq rat and the boat dupe
 
 ---
 
-## ChangeLog- 6-11-2023
+## ChangeLog- 6-11-2023 0.05 BETA
 
 ### Major changes
 
-- Client Updated to `1.20`
-- Added `GameMode` Command
-- Added `FakePlayer` Coomad
-- Added `HitboxDesync` Hack
+-Removed `FakeGamemode` command for `FakeGameMode` Hack
 
 ### Changed features
-
-- Added `Rotation` option to `Aura`
