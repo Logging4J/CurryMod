@@ -33,17 +33,13 @@ public class Aura extends Hack {
     @DemoListen
     public void onTick(TickEvent e){
         if(nullCheck()){return;}
-        if(mc.player.getAttackCooldownProgress(0) == 1){
+        if (mc.player.getAttackCooldownProgress(0) == 1) {
             delay++;
-            if(delay >= 20){
-                List<PlayerEntity> closestPlayer = mc.world.getPlayers().stream().filter(player -> player.distanceTo(mc.player) < range.getIntValue() && player != mc.player && player.isAlive()).collect(Collectors.toList());
-                closestPlayer.sort(Comparator.comparingDouble(player -> player.distanceTo(mc.player)));
-                if(!closestPlayer.isEmpty()) {
-                    PlayerEntity p = closestPlayer.get(0);
-                    yaw = MovementUtils.getRotationsToEntity(p)[0];
-                    pitch = MovementUtils.getRotationsToEntity(p)[1];
-                    mc.interactionManager.attackEntity(mc.player, p);
-                    mc.player.swingHand(Hand.MAIN_HAND);
+            if (delay >= 20) {
+                List<PlayerEntity> closestPlayers = getClosestPlayers();
+                if (!closestPlayers.isEmpty()) {
+                    PlayerEntity target = closestPlayers.get(0);
+                    attackTarget(target);
                 }
             }
         }
@@ -56,5 +52,21 @@ public class Aura extends Hack {
             ((IPlayerMoveC2SPacket) p).setYaw(yaw);
             ((IPlayerMoveC2SPacket) p).setPitch(pitch);
         }
+    }
+
+    private List<PlayerEntity> getClosestPlayers() {
+        return mc.world.getPlayers().stream()
+                .filter(player -> player.distanceTo(mc.player) < range.getIntValue() && player != mc.player && player.isAlive())
+                .sorted(Comparator.comparingDouble(player -> player.distanceTo(mc.player)))
+                .collect(Collectors.toList());
+    }
+
+    private void attackTarget(PlayerEntity target) {
+        float[] rotations = MovementUtils.getRotationsToEntity(target);
+        yaw = rotations[0];
+        pitch = rotations[1];
+
+        mc.interactionManager.attackEntity(mc.player, target);
+        mc.player.swingHand(Hand.MAIN_HAND);
     }
 }

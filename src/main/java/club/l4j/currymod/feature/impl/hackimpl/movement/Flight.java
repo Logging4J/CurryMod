@@ -73,18 +73,19 @@ public class Flight extends Hack {
 
     @DemoListen
     public void onPacketSend(PacketSendEvent e) {
-        if(antiKick.isEnabled() && !mode.isMode("AirHop") && e.getPacket() instanceof PlayerMoveC2SPacket packet){
+        if (antiKick.isEnabled() && !mode.isMode("AirHop") && e.getPacket() instanceof PlayerMoveC2SPacket p) {
             long time = System.currentTimeMillis();
-            double y = packet.getY(Double.MAX_VALUE);
+            double y = p.getY(Double.MAX_VALUE);
             if (y != Double.MAX_VALUE) {
                 if (time - lastTime > 1000 && lastY != Double.MAX_VALUE && mc.world.getBlockState(mc.player.getBlockPos().down()).isAir()) {
-                    ((IPlayerMoveC2SPacket) packet).setY(lastY - 0.03130D);
+                    ((IPlayerMoveC2SPacket) p).setY(lastY - 0.03130D);
                     lastTime = time;
                 } else {
                     lastY = y;
                 }
             }
         }
+
     }
 
     @Override
