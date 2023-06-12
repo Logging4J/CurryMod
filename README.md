@@ -5,8 +5,8 @@
 
 A 1.20 Fabric Minecraft Hack
 
-
-
+## Current Release
+v0.0.4
 
 ## Authors
 
