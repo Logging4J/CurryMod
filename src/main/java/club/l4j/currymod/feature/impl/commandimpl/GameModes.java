@@ -10,23 +10,28 @@ public class GameModes extends Command {
 
     @Override
     public void onTrigger(String arguments) {
-        if(arguments.length() != 0){
+        if(arguments.isEmpty()){
             String[] split = arguments.split(" ");
-            String gm = split[0];
-            if(gm.equalsIgnoreCase("survival")){
-                mc.interactionManager.setGameMode(GameMode.SURVIVAL);
-                sendMsg("Set client side gamemode to survival");
-            } else if (gm.equalsIgnoreCase("creative")){
-                mc.interactionManager.setGameMode(GameMode.CREATIVE);
-                sendMsg("Set client side gamemode to creative");
-            } else if (gm.equalsIgnoreCase("spectator")){
-                mc.interactionManager.setGameMode(GameMode.SPECTATOR);
-                sendMsg("Set client side gamemode to spectator");
-            } else if (gm.equalsIgnoreCase("adventure")){
-                mc.interactionManager.setGameMode(GameMode.ADVENTURE);
-                sendMsg("Set client side gamemode to adventure");
-            } else {
-                sendMsg("Invalid gamemode");
+            String gm = split[0].toLowerCase();
+            switch (gm) {
+                case "survival":
+                    mc.interactionManager.setGameMode(GameMode.SURVIVAL);
+                    sendMsg("Set client-side gamemode to survival");
+                    break;
+                case "creative":
+                    mc.interactionManager.setGameMode(GameMode.CREATIVE);
+                    sendMsg("Set client-side gamemode to creative");
+                    break;
+                case "spectator":
+                    mc.interactionManager.setGameMode(GameMode.SPECTATOR);
+                    sendMsg("Set client-side gamemode to spectator");
+                    break;
+                case "adventure":
+                    mc.interactionManager.setGameMode(GameMode.ADVENTURE);
+                    sendMsg("Set client-side gamemode to adventure");
+                    break;
+                default:
+                    sendMsg("Invalid gamemode");
             }
         }else {
             sendMsg("Please specify a gamemode");
