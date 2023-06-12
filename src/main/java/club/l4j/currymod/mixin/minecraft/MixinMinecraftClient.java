@@ -12,16 +12,15 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.ModifyArg;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(MinecraftClient.class)
 public class MixinMinecraftClient {
 
-    @Shadow @Final private Window window;
-
-    @Inject(method = "<init>", at = @At("TAIL"))
-    public void init(RunArgs args, CallbackInfo ci){
-        window.setTitle(CurryMod.MOD_NAME + " b" + CurryMod.VERSION);
+    @ModifyArg(method = "updateWindowTitle", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/util/Window;setTitle(Ljava/lang/String;)V"))
+    public String updateWindowTitle(String title){
+        return CurryMod.MOD_NAME + " b" + CurryMod.VERSION;
     }
 
     @Inject(method = "tick", at = @At("HEAD"), cancellable = true)
