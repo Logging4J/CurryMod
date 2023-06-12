@@ -10,7 +10,7 @@ public class GameModes extends Command {
 
     @Override
     public void onTrigger(String arguments) {
-        if(arguments.isEmpty()){
+        if(!arguments.isEmpty()){
             String[] split = arguments.split(" ");
             String gm = split[0].toLowerCase();
             switch (gm) {

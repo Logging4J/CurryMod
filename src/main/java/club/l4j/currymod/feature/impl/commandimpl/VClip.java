@@ -8,10 +8,9 @@ public class VClip extends Command {
 
     @Override
     public void onTrigger(String arguments) {
-        if(arguments.length() != 0){
+        if(!arguments.isEmpty()){
             String[] split = arguments.split(" ");
-            String integer = split[0];
-            int value = Integer.parseInt(integer);
+            int value = Integer.parseInt(split[0]);
             for(int i = 0; i < 10; i++){
                 mc.player.networkHandler.sendPacket(new PlayerMoveC2SPacket.PositionAndOnGround(mc.player.getX(),mc.player.getY(),mc.player.getZ(),mc.player.isOnGround()));
             }
