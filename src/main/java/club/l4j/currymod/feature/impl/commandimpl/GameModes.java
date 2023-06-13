@@ -5,7 +5,7 @@ import net.minecraft.world.GameMode;
 
 import java.util.Locale;
 
-@Command.Construct(name = "gamemode", description = "Change your gamemode client side", alias = {"gamemode", "gm"})
+@Command.Construct(name = "gamemode", description = "Change your gamemode client side", alias = {"gamemode"}, usage = "gamemode <gamemode>")
 public class GameModes extends Command {
 
     @Override
@@ -34,7 +34,7 @@ public class GameModes extends Command {
                     sendMsg("Invalid gamemode");
             }
         }else {
-            sendMsg("Please specify a gamemode");
+            sendMsg("Usage: " + getUsage());
         }
         super.onTrigger(arguments);
     }

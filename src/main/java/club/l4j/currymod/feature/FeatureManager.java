@@ -52,11 +52,10 @@ public class FeatureManager implements IGlobals {
         //Commands
         addCommand(new VClip());
         addCommand(new SilentLeave());
-        addCommand(new Lenny());
-        addCommand(new Shrug());
         addCommand(new Help());
         addCommand(new FakePlayer());
         addCommand(new GameModes());
+        addCommand(new Emoji());
     }
 
     public void runCommand(String args) {

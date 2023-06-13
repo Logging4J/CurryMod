@@ -23,6 +23,9 @@ public class Command implements IGlobals {
     private String[] alias = c.alias();
 
     @Getter @Setter
+    public String usage = c.usage();
+
+    @Getter @Setter
     private String name = c.name();
 
     public void onTrigger(String arguments) {}
@@ -31,7 +34,8 @@ public class Command implements IGlobals {
     @Target(ElementType.TYPE)
     public @interface Construct {
         String name();
+        String usage();
+        String[] alias();
         String description();
-        String[] alias() default {};
     }
 }

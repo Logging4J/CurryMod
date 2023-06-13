@@ -5,7 +5,7 @@ import club.l4j.currymod.feature.core.Command;
 
 import java.util.Arrays;
 
-@Command.Construct(name = "Help", description = "Help command", alias = {"help"})
+@Command.Construct(name = "Help", description = "Help command", alias = {"help"}, usage = "help")
 public class Help extends Command {
 
     @Override

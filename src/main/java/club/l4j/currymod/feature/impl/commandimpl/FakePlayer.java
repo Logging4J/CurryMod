@@ -3,7 +3,7 @@ package club.l4j.currymod.feature.impl.commandimpl;
 import club.l4j.currymod.feature.core.Command;
 import club.l4j.currymod.util.world.SpawnableEntity;
 
-@Command.Construct(name = "FakePlayer", description = "Fake player", alias = {"fakeplayer"})
+@Command.Construct(name = "FakePlayer", description = "Fake player", alias = {"fakeplayer"}, usage = "fakeplayer")
 public class FakePlayer extends Command {
 
     @Override
