@@ -19,7 +19,7 @@ public class Flight extends Hack {
     public OptionMode mode = new OptionMode("Mode", "Creative", "Creative", "JetPack", "AirHop");
     public OptionSlider speed = new OptionSlider("Speed", 1f, 10f, 1f, 5f);
 
-    //VerusHop
+    //AirHop
     double startY = 0;
     int timeout = 0;
 
@@ -60,7 +60,7 @@ public class Flight extends Hack {
     public void onTick(TickEvent e){
         if(mode.isMode("JetPack") && mc.options.jumpKey.isPressed()){
             mc.player.jump();
-        } else if (mode.isMode("VerusHop")) {
+        } else if (mode.isMode("AirHop")) {
             timeout--;
             if(timeout < 0){
                 timeout = 0;
