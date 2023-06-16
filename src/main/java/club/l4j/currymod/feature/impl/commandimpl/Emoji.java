@@ -4,7 +4,7 @@ import club.l4j.currymod.feature.core.Command;
 import club.l4j.currymod.util.TextUtil;
 import net.minecraft.world.GameMode;
 
-@Command.Construct(name = "emoji", description = "Prints an emoji", alias = {"emoji"}, usage = "emoji <emoji>")
+@Command.Construct(name = "Emoji", description = "Prints an emoji", alias = {"emoji"}, usage = "emoji <emoji>")
 public class Emoji extends Command {
 
     @Override

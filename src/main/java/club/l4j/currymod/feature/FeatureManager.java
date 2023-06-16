@@ -57,6 +57,7 @@ public class FeatureManager implements IGlobals {
         addCommand(new FakePlayer());
         addCommand(new GameModes());
         addCommand(new Emoji());
+        addCommand(new NBT());
     }
 
     public void runCommand(String args) {
