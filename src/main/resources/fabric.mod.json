@@ -5,9 +5,13 @@
   "name": "Currymod",
   "description": "Crazy hack straight out of Mumbai India",
   "authors": [
-    "Logging4J, SwavyMan69, heedii, Scot"
+    "Logging4J, Scot"
   ],
-  "contact": {},
+  "contact": {
+    "homepage": "https://discord.gg/uWfXEYpq",
+    "sources": "https://github.com/Logging4J/CurryMod",
+    "issues": "https://github.com/Logging4J/CurryMod/issues"
+  },
   "license": "All-Rights-Reserved",
   "icon": "assets/currymod/logo.png",
   "environment": "client",

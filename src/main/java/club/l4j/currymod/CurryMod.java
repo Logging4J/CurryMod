@@ -16,17 +16,20 @@ public class CurryMod implements ClientModInitializer {
     public static final Logger LOGGER = LogManager.getLogger(MOD_NAME);
 
     public static CurryMod getInstance = new CurryMod();
+    public static Discord discord = new Discord();
     public static FeatureManager featureManager;
 
     @Override
     public void onInitializeClient() {
         featureManager = new FeatureManager();
         log("CurryMod Initializing");
+        discord.start();
         EVENT_BUS.register(new Events());
     }
 
     public void onClose(){
         log(MOD_NAME+" is Stopping");
+        discord.stop();
     }
 
     public void log(String message){
