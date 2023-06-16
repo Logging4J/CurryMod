@@ -22,6 +22,8 @@ import java.util.List;
 
 public class FeatureManager implements IGlobals {
 
+    public static final FeatureManager INSTANCE = new FeatureManager();
+
     public List<Hack> hacks = new ArrayList<>();
     public List<Command> commands = new ArrayList<>();
     public String prefix = "@";
