@@ -26,7 +26,7 @@ public class CurryMod implements ClientModInitializer {
         discord.start();
         EVENT_BUS.register(new Events());
     }
-
+// hi
     public void onClose(){
         log(MOD_NAME+" is Stopping");
         discord.stop();
