@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
 @Hack.Construct(name = "Aura", description = "attacks ppl fo u", category = Hack.Category.COMBAT)
 public class Aura extends Hack {
 
-    public OptionSlider range = new OptionSlider("Range",1,6,1,6);
+    public OptionSlider range = new OptionSlider("Range",1,6,1,4);
     public OptionBoolean rotate = new OptionBoolean("Rotations",true);
 
     public Aura(){
