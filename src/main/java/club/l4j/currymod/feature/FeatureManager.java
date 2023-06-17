@@ -49,6 +49,7 @@ public class FeatureManager implements IGlobals {
         addHack(new AutoWalk());
         addHack(new HitBoxDesync());
         addHack(new ConsoleSpammer());
+        addHack(new Step());
 
         //Commands
         addCommand(new VClip());
