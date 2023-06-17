@@ -27,7 +27,7 @@ featuring - qq rat and the boat dupe
 ## Installation
 
 Requirements:
-- A Brain
+- A Brain except baitpl he dont need a brain
 
 put in mods folder
 
@@ -36,6 +36,6 @@ put in mods folder
 ## Building
 
 Requirements:
-- Also a Brain
+- Also a Brain except baitpl he dont need a brain
 
 build like other projects :)
