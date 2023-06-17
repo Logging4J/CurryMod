@@ -21,6 +21,7 @@ featuring - qq rat and the boat dupe
 - [@Logging4J](https://www.github.com/Logging4J)
 - [@justletmehavethisusername](https://www.github.com/justletmehavethisusername)
 - [@heedii](https://www.github.com/heedii)
+- [@baitpl](https://www.github.com/baitpl)
 
 ---
 
