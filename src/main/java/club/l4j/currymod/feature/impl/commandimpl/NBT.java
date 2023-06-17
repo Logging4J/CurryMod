@@ -9,9 +9,9 @@ public class NBT extends Command {
     @Override
     public void onTrigger(String arguments) {
         if(!mc.player.getInventory().getStack(mc.player.getInventory().selectedSlot).isEmpty()){
-            NbtCompound tag = mc.player.getInventory().getStack(mc.player.getInventory().selectedSlot).getNbt();
-            String nbt = tag == null ? "No NBTData" : tag.asString();
-            sendMsg("NBT:  " + nbt);
+            NbtCompound compound = mc.player.getInventory().getStack(mc.player.getInventory().selectedSlot).getNbt();
+            String data = compound == null ? "No NBTData" : compound.asString();
+            sendMsg("NBT:  " + data);
         }else {
             sendMsg("Hold An Item");
             return;

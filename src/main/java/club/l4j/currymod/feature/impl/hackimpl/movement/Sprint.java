@@ -17,19 +17,12 @@ public class Sprint extends Hack {
 
     @DemoListen
     public void onTick(TickEvent e) {
-        if (nullCheck()) {
-            return;
-        }
+        if (nullCheck()) {return;}
         if (mode.isMode("Rage")) {
             mc.player.setSprinting(true);
-        } else {
-            if (MovementUtils.isMoving() && !mc.player.isSneaking()) {
+        } else if (mode.isMode("Omni")) {
+            if ((mc.options.forwardKey.isPressed() || mc.options.leftKey.isPressed() || mc.options.rightKey.isPressed() || mc.options.backKey.isPressed()) && !mc.player.isSneaking()) {
                 mc.player.setSprinting(true);
-            }
-            if (mode.isMode("Omni")) {
-                if (mc.options.forwardKey.isPressed() || mc.options.leftKey.isPressed() || mc.options.rightKey.isPressed() || mc.options.backKey.isPressed()) {
-                    mc.player.setSprinting(true);
-                }
             }
         }
     }

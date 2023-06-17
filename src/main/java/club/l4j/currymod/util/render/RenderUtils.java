@@ -10,7 +10,7 @@ import java.awt.*;
 public class RenderUtils {
 
     public static void drawImage(DrawContext context, int x, int y, int w, int h, Color color, String location) {
-        Identifier i = new CurryIdentifier(location);
+        CurryIdentifier i = new CurryIdentifier(location);
         if(color == null) {
             RenderSystem.setShaderColor(1, 1, 1, 1);
         }else {
