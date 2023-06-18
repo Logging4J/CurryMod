@@ -16,6 +16,7 @@ public class Step extends Hack {
 
     @DemoListen
     public void onTick(TickEvent e) {
+        if(nullCheck()){return;}
         mc.player.setStepHeight(height.getFloatValue());
         super.onEnable();
     }

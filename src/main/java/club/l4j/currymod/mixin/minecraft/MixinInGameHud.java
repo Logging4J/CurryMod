@@ -23,21 +23,21 @@ public class MixinInGameHud {
 
     @ModifyArgs(method = "render", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/hud/InGameHud;renderOverlay(Lnet/minecraft/client/gui/DrawContext;Lnet/minecraft/util/Identifier;F)V", ordinal = 0))
     private void onRenderPumpkinOverlay(Args args) {
-        if (CurryMod.featureManager.getHack("NoRender").isEnabled() && NoRender.getInstance.pumpkin.isEnabled()){
+        if (CurryMod.featureManager.getHack("NoRender").isEnabled() && NoRender.pumpkin.isEnabled()){
             args.set(2, 0f);
         }
     }
 
     @ModifyArgs(method = "render", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/hud/InGameHud;renderOverlay(Lnet/minecraft/client/gui/DrawContext;Lnet/minecraft/util/Identifier;F)V", ordinal = 1))
     private void onRenderPowderedSnowOverlay(Args args) {
-        if (CurryMod.featureManager.getHack("NoRender").isEnabled() && NoRender.getInstance.snow.isEnabled()) {
+        if (CurryMod.featureManager.getHack("NoRender").isEnabled() && NoRender.snow.isEnabled()) {
             args.set(2, 0f);
         }
     }
 
     @Inject(method = "renderPortalOverlay", at = @At("HEAD"), cancellable = true)
     private void onRenderPortalOverlay(DrawContext context, float f, CallbackInfo info) {
-        if (CurryMod.featureManager.getHack("NoRender").isEnabled() && NoRender.getInstance.portal.isEnabled()) {
+        if (CurryMod.featureManager.getHack("NoRender").isEnabled() && NoRender.portal.isEnabled()) {
             info.cancel();
         }
     }

@@ -13,7 +13,7 @@ public class MixinBossBarHud {
 
     @Inject(method = "render", at = @At("HEAD"), cancellable = true)
     public void render(CallbackInfo info) {
-        if (CurryMod.featureManager.getHack("NoRender").isEnabled() && NoRender.getInstance.noBossBar.isEnabled()) {
+        if (CurryMod.featureManager.getHack("NoRender").isEnabled() && NoRender.noBossBar.isEnabled()) {
             info.cancel();
         }
     }

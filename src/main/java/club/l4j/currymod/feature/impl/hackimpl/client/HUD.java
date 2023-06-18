@@ -29,9 +29,6 @@ public class HUD extends Hack {
         addOptions(logo, welcome, fps, ping, coords, hackList, watermark);
     }
 
-    public MinecraftClient mc = MinecraftClient.getInstance();
-
-
     @DemoListen
     public void onRender2D(Render2DEvent e){
         int width = mc.getWindow().getScaledWidth();

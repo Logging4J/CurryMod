@@ -19,7 +19,7 @@ public class MixinScreen {
 
     @Inject(method = "renderBackground", at = @At("HEAD"), cancellable = true)
     public void renderBackground(DrawContext context, CallbackInfo ci) {
-        if(CurryMod.featureManager.getHack("NoRender").isEnabled() && client.world != null && NoRender.getInstance.background.isEnabled()){
+        if(CurryMod.featureManager.getHack("NoRender").isEnabled() && client.world != null && NoRender.background.isEnabled()){
             ci.cancel();
         }
     }

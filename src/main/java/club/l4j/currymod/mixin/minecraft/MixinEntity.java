@@ -13,7 +13,7 @@ public class MixinEntity {
 
     @Inject(method = "pushAwayFrom", at = @At("HEAD"), cancellable = true)
     public void pushAwayFrom(Entity entity, CallbackInfo ci) {
-        if(CurryMod.featureManager.getHack("Velocity").isEnabled() && Velocity.getInstance.noPush.isEnabled()){
+        if(CurryMod.featureManager.getHack("Velocity").isEnabled() && Velocity.noPush.isEnabled()){
             ci.cancel();
         }
     }

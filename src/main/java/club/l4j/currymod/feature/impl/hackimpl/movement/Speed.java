@@ -11,8 +11,8 @@ import demo.knight.demobus.event.DemoListen;
 @Hack.Construct(name = "Speed", description = "The speed of light", category = Hack.Category.MOVEMENT)
 public class Speed extends Hack {
 
-    OptionBoolean jump = new OptionBoolean("Jump", true);
-    OptionSlider strafe = new OptionSlider("StrafeVal",0.01,1,0.01,0.5);
+    public OptionBoolean jump = new OptionBoolean("Jump", true);
+    public OptionSlider strafe = new OptionSlider("StrafeVal",0.01,1,0.01,0.5);
 
     public Speed(){
         addOptions(jump, strafe);

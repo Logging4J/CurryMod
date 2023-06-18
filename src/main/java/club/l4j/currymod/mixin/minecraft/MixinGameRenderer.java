@@ -14,7 +14,7 @@ public class MixinGameRenderer {
 
     @Inject(method = "tiltViewWhenHurt", at = @At("HEAD"), cancellable = true)
     private void tiltViewWhenHurt(MatrixStack matrices, float tickDelta, CallbackInfo ci) {
-        if (CurryMod.featureManager.getHack("NoRender").isEnabled() && NoRender.getInstance.hurt.isEnabled()) {
+        if (CurryMod.featureManager.getHack("NoRender").isEnabled() && NoRender.hurt.isEnabled()) {
             ci.cancel();
         }
     }

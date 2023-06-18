@@ -27,7 +27,6 @@ public class FastUse extends Hack {
         addOptions(blocks, throwable);
     }
 
-
     @DemoListen
     public void onTick(TickEvent e) {
         if(nullCheck()){return;}

@@ -9,7 +9,7 @@ import net.minecraft.text.Text;
 @Hack.Construct(name = "AutoLog", description = "only faggots log", category = Hack.Category.MISC)
 public class AutoLog extends Hack {
 
-    OptionSlider health = new OptionSlider("Health",1,20,1,4);
+    public OptionSlider health = new OptionSlider("Health",1,20,1,4);
 
     public AutoLog(){
         addOptions(health);

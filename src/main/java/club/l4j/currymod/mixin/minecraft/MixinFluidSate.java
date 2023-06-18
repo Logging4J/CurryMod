@@ -16,7 +16,7 @@ public class MixinFluidSate {
 
     @Inject(method = "getVelocity", at = @At("HEAD"), cancellable = true)
     public void getVelocity(BlockView world, BlockPos pos, CallbackInfoReturnable<Vec3d> cir) {
-        if(CurryMod.featureManager.getHack("Velocity").isEnabled() && Velocity.getInstance.noWaterVel.isEnabled()){
+        if(CurryMod.featureManager.getHack("Velocity").isEnabled() && Velocity.noWaterVel.isEnabled()){
             cir.setReturnValue(Vec3d.ZERO);
         }
     }

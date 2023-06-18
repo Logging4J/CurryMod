@@ -9,7 +9,7 @@ import demo.knight.demobus.event.DemoListen;
 @Hack.Construct(name = "Sprint", description = "sprint", category = Hack.Category.MOVEMENT)
 public class Sprint extends Hack {
 
-    OptionMode mode = new OptionMode("Mode", "Rage", "Rage", "Omni");
+    public OptionMode mode = new OptionMode("Mode", "Rage", "Rage", "Omni");
 
     public Sprint() {
         addOptions(mode);
