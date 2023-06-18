@@ -4,6 +4,7 @@ import club.l4j.currymod.feature.core.Command;
 import club.l4j.currymod.feature.core.Hack;
 import club.l4j.currymod.feature.impl.commandimpl.*;
 import club.l4j.currymod.feature.impl.hackimpl.client.ClickGuiMod;
+import club.l4j.currymod.feature.impl.hackimpl.client.Colors;
 import club.l4j.currymod.feature.impl.hackimpl.client.HUD;
 import club.l4j.currymod.feature.impl.hackimpl.combat.*;
 import club.l4j.currymod.feature.impl.hackimpl.exploit.*;
@@ -50,6 +51,8 @@ public class FeatureManager implements IGlobals {
         addHack(new HitBoxDesync());
         addHack(new ConsoleSpammer());
         addHack(new Step());
+        addHack(new Colors());
+        addHack(new MachineGun());
 
         //Commands
         addCommand(new VClip());

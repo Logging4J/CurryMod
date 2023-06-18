@@ -8,7 +8,7 @@ public class FakePlayer extends Command {
 
     @Override
     public void onTrigger(String arguments) {
-        SpawnableEntity e = new SpawnableEntity(mc.player);
+        SpawnableEntity e = new SpawnableEntity(mc.player, "Pakistan");
         e.spawn();
         super.onTrigger(arguments);
     }

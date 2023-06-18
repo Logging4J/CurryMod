@@ -9,8 +9,8 @@ import java.util.UUID;
 
 public class SpawnableEntity extends OtherClientPlayerEntity implements IGlobals {
 
-    public SpawnableEntity(Entity e) {
-        super(mc.world, new GameProfile(UUID.randomUUID(), mc.player.getGameProfile().getName()));
+    public SpawnableEntity(Entity e, String name) {
+        super(mc.world, new GameProfile(UUID.randomUUID(), name));
         copyPositionAndRotation(e);
         setPose(e.getPose());
     }

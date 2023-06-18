@@ -2,6 +2,7 @@ package club.l4j.currymod;
 
 import club.l4j.currymod.event.Events;
 import club.l4j.currymod.feature.FeatureManager;
+import club.l4j.currymod.util.UniColor;
 import demo.knight.demobus.DemoBus;
 import net.fabricmc.api.ClientModInitializer;
 import org.apache.logging.log4j.LogManager;
@@ -18,15 +19,17 @@ public class CurryMod implements ClientModInitializer {
     public static CurryMod getInstance = new CurryMod();
     public static Discord discord = new Discord();
     public static FeatureManager featureManager;
+    public static UniColor uniColor;
 
     @Override
     public void onInitializeClient() {
-        featureManager = new FeatureManager();
         log("CurryMod Initializing");
+        featureManager = new FeatureManager();
+        uniColor = new UniColor();
         discord.start();
         EVENT_BUS.register(new Events());
     }
-// hi
+
     public void onClose(){
         log(MOD_NAME+" is Stopping");
         discord.stop();

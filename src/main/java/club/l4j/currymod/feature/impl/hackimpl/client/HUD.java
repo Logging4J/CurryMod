@@ -17,13 +17,13 @@ import java.util.Comparator;
 @Hack.Construct(name = "HUD", description = "heads up display", category = Hack.Category.CLIENT)
 public class HUD extends Hack {
 
-    OptionBoolean logo = new OptionBoolean("Logo", false);
-    OptionBoolean watermark = new OptionBoolean("Watermark", true);
-    OptionBoolean welcome = new OptionBoolean("Welcomer", true);
-    OptionBoolean fps = new OptionBoolean("FPS", true);
-    OptionBoolean ping = new OptionBoolean("Ping", true);
-    OptionBoolean coords = new OptionBoolean("Coords", true);
-    OptionBoolean hackList = new OptionBoolean("HackList", true);
+    public OptionBoolean logo = new OptionBoolean("Logo", false);
+    public OptionBoolean watermark = new OptionBoolean("Watermark", true);
+    public OptionBoolean welcome = new OptionBoolean("Welcomer", true);
+    public OptionBoolean fps = new OptionBoolean("FPS", true);
+    public OptionBoolean ping = new OptionBoolean("Ping", true);
+    public OptionBoolean coords = new OptionBoolean("Coords", true);
+    public OptionBoolean hackList = new OptionBoolean("HackList", true);
 
     public HUD(){
         addOptions(logo, welcome, fps, ping, coords, hackList, watermark);
