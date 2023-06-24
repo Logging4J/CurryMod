@@ -6,8 +6,6 @@ import club.l4j.currymod.feature.options.Option;
 import club.l4j.currymod.util.IGlobals;
 import lombok.Getter;
 import lombok.Setter;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.network.packet.Packet;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -77,10 +75,6 @@ public class Hack implements IGlobals {
 
     public boolean nullCheck() {
         return mc.player == null || mc.world == null;
-    }
-
-    public void sendPacket(Packet<?> packet){
-        mc.getNetworkHandler().sendPacket(packet);
     }
 
     public void onEnable(){

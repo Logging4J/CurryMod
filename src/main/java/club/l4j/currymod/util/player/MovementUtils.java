@@ -1,7 +1,6 @@
 package club.l4j.currymod.util.player;
 
 import club.l4j.currymod.util.IGlobals;
-import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.Entity;
 import net.minecraft.network.packet.c2s.play.PlayerMoveC2SPacket;
 import net.minecraft.util.math.MathHelper;

@@ -22,7 +22,6 @@
     "minecraft.MixinRenderTickCounter",
     "minecraft.MixinGameRenderer",
     "minecraft.MixinBackgroundRenderer",
-    "minecraft.MixinConfirmScreen",
     "minecraft.MixinParticleManager",
     "minecraft.MixinEntity",
     "minecraft.MixinFluidSate",

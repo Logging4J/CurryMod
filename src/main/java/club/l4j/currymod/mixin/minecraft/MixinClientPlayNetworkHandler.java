@@ -18,14 +18,6 @@ public abstract class MixinClientPlayNetworkHandler {
 
     protected MinecraftClient mc = MinecraftClient.getInstance();
 
-    @Inject(at = @At("HEAD"), method = "onResourcePackSend", cancellable = true)
-    public void onResourcePackSend(ResourcePackSendS2CPacket packet, CallbackInfo ci) {
-        if (Events.bypassResourcePack && packet.isRequired()) {
-            mc.player.networkHandler.sendPacket(new ResourcePackStatusC2SPacket(ResourcePackStatusC2SPacket.Status.ACCEPTED));
-            ci.cancel();
-        }
-    }
-
 
     @Inject(method = "sendPacket", at = @At("HEAD"), cancellable = true)
     private void onSendPacket(Packet<?> packet, CallbackInfo ci){

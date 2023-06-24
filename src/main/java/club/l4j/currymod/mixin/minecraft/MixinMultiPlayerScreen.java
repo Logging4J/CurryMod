@@ -1,5 +1,6 @@
 package club.l4j.currymod.mixin.minecraft;
 
+import club.l4j.currymod.event.Events;
 import club.l4j.currymod.graphics.spoofgui.SpoofScreen;
 import club.l4j.currymod.util.TextUtil;
 import net.minecraft.client.gui.screen.Screen;
@@ -19,13 +20,19 @@ public class MixinMultiPlayerScreen extends Screen {
         super(title);
     }
 
-    public boolean enabled;
-
     @Inject(method = "init", at = @At("TAIL"))
     protected void init(CallbackInfo ci) {
         ButtonWidget vanSpoof = ButtonWidget.builder(Text.of("ClientSpoofer"), (button) -> {
             client.setScreen(new SpoofScreen());
         }).position(1, height - (client.textRenderer.fontHeight * 4)).build();
+
+        ButtonWidget rpb = ButtonWidget.builder(Text.of("RPB: " + (Events.bypassResourcePack ? TextUtil.GREEN+"True" : TextUtil.RED+"False")), (button) -> {
+            Events.bypassResourcePack = !Events.bypassResourcePack;
+            button.setMessage(Text.of("RPB: " + (Events.bypassResourcePack ? TextUtil.GREEN+"True" : TextUtil.RED+"False")));
+        }).position(width - 151, height - (client.textRenderer.fontHeight * 4)).build();
+
         this.addDrawableChild(vanSpoof);
+        this.addDrawableChild(rpb);
+
     }
 }

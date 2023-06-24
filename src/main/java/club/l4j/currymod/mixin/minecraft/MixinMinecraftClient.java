@@ -38,7 +38,6 @@ public class MixinMinecraftClient {
     @Redirect(method = "<init>", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/util/Window;setIcon(Lnet/minecraft/resource/ResourcePack;Lnet/minecraft/client/util/Icons;)V"))
     private void redirect_init(Window instance, ResourcePack resourcePack, Icons icons) {}
 
-
     @Inject(method = "<init>", at = @At("RETURN"))
     private void init1(RunArgs args, CallbackInfo ci) {
         try {

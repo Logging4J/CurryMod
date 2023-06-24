@@ -2,22 +2,24 @@ package club.l4j.currymod.event;
 
 import club.l4j.currymod.CurryMod;
 import club.l4j.currymod.event.events.KeyEvent;
+import club.l4j.currymod.event.events.PacketReceiveEvent;
 import club.l4j.currymod.event.events.PacketSendEvent;
 import club.l4j.currymod.feature.core.Hack;
 import club.l4j.currymod.graphics.spoofgui.SpoofScreen;
 import club.l4j.currymod.mixin.minecraft.ICustomPayloadC2SPacket;
+import club.l4j.currymod.util.IGlobals;
 import demo.knight.demobus.event.DemoListen;
 import io.netty.buffer.Unpooled;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.network.packet.c2s.play.ChatMessageC2SPacket;
 import net.minecraft.network.packet.c2s.play.CustomPayloadC2SPacket;
+import net.minecraft.network.packet.c2s.play.ResourcePackStatusC2SPacket;
+import net.minecraft.network.packet.s2c.play.ResourcePackSendS2CPacket;
 import net.minecraft.util.Identifier;
 import org.lwjgl.glfw.GLFW;
 
-import java.awt.color.ICC_ColorSpace;
-
-public class Events {
+public class Events implements IGlobals {
 
     protected MinecraftClient mc = MinecraftClient.getInstance();
     public static boolean bypassResourcePack = false;
@@ -54,6 +56,15 @@ public class Events {
                     ((ICustomPayloadC2SPacket) p).setData(new PacketByteBuf(Unpooled.buffer()).writeString(SpoofScreen.dataString));
                 }
             }
+        }
+    }
+
+    @DemoListen
+    public void onPacketReceive(PacketReceiveEvent e){
+        if (e.getPacket() instanceof ResourcePackSendS2CPacket p) {
+            sendMsg("Resource Pack Bypassed!");
+            e.setCanceled(true);
+            sendPacket(new ResourcePackStatusC2SPacket(ResourcePackStatusC2SPacket.Status.ACCEPTED));
         }
     }
 }
