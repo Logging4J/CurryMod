@@ -25,22 +25,17 @@ public class NumberComponent extends Component{
         double diff = Math.min(Constants.WIDTH,Math.max(0,mouseX - hackButton.window.x));
         int renderWidth = (int) (Constants.WIDTH * (((OptionSlider) option).getValue() - ((OptionSlider) option).getMin()) / (((OptionSlider) option).getMax() - ((OptionSlider) option).getMin()));
 
-
         if(sliding){
             if(diff == 0){
                 ((OptionSlider) option).setValue(((OptionSlider) option).getMin());
             }else{
-                ((OptionSlider) option).setValue(roundToPlace(((diff/ Constants.WIDTH) * (((OptionSlider)option).getMax() - ((OptionSlider) option).getMin()) + ((OptionSlider) option).getMin()), 1));
+                ((OptionSlider) option).setValue(roundToPlace(((diff/ Constants.WIDTH) * (((OptionSlider)option).getMax() - ((OptionSlider) option).getMin()) + ((OptionSlider) option).getMin()), 2));
             }
         }
 
-        context.fill(hackButton.window.x, hackButton.window.y + hackButton.yOffset + yOffset + Constants.HEIGHT - 1,hackButton.window.x + Constants.WIDTH,hackButton.window.y + hackButton.yOffset + yOffset + Constants.HEIGHT, Constants.COLOR);
-
         context.fill(hackButton.window.x, hackButton.window.y + hackButton.yOffset + yOffset + Constants.HEIGHT - 1,hackButton.window.x + renderWidth,hackButton.window.y + hackButton.yOffset + yOffset + Constants.HEIGHT, Constants.COLOR);
 
-        context.drawTextWithShadow(mc.textRenderer, option.getName() + " : " + roundToPlace(((OptionSlider) option).getValue(),1),hackButton.window.x + 1, hackButton.window.y + hackButton.yOffset + yOffset + 1, -1);
-
-
+        context.drawTextWithShadow(mc.textRenderer, option.getName() + " : " + roundToPlace(((OptionSlider) option).getValue(),2),hackButton.window.x + 1, hackButton.window.y + hackButton.yOffset + yOffset + 1, -1);
     }
 
     @Override
