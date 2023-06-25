@@ -10,6 +10,9 @@ public class Prefix extends Command {
             String[] split = arguments.split(" ");
             String prefix = split[0].toLowerCase();
             setPrefix(prefix);
+            sendMsg("Set Prefix to " + prefix);
+        }else{
+            sendMsg(getUsage());
         }
         super.onTrigger(arguments);
     }
