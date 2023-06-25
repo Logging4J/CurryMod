@@ -3,19 +3,12 @@ package club.l4j.currymod.feature;
 import club.l4j.currymod.feature.core.Command;
 import club.l4j.currymod.feature.core.Hack;
 import club.l4j.currymod.feature.impl.commandimpl.*;
-import club.l4j.currymod.feature.impl.hackimpl.client.ClickGuiMod;
-import club.l4j.currymod.feature.impl.hackimpl.client.Colors;
-import club.l4j.currymod.feature.impl.hackimpl.client.HUD;
+import club.l4j.currymod.feature.impl.hackimpl.client.*;
 import club.l4j.currymod.feature.impl.hackimpl.combat.*;
 import club.l4j.currymod.feature.impl.hackimpl.exploit.*;
-import club.l4j.currymod.feature.impl.hackimpl.misc.AutoLog;
-import club.l4j.currymod.feature.impl.hackimpl.misc.ChatEdits;
-import club.l4j.currymod.feature.impl.hackimpl.misc.FastUse;
+import club.l4j.currymod.feature.impl.hackimpl.misc.*;
 import club.l4j.currymod.feature.impl.hackimpl.movement.*;
-import club.l4j.currymod.feature.impl.hackimpl.visual.CameraClip;
-import club.l4j.currymod.feature.impl.hackimpl.visual.FullBright;
-import club.l4j.currymod.feature.impl.hackimpl.visual.NoRender;
-
+import club.l4j.currymod.feature.impl.hackimpl.visual.*;
 import club.l4j.currymod.util.IGlobals;
 
 import java.util.ArrayList;
