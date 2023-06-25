@@ -1,6 +1,7 @@
 package club.l4j.currymod.util;
 
 import club.l4j.currymod.CurryMod;
+import club.l4j.currymod.feature.core.Command;
 import club.l4j.currymod.feature.core.Hack;
 import club.l4j.currymod.feature.options.Option;
 import club.l4j.currymod.feature.options.impl.OptionBoolean;
@@ -24,12 +25,27 @@ public class Config extends Thread{
 
     public static void load(){
         loadHacks();
+        loadPrefix();
     }
 
 
     private static void loadHacks(){
         for(Hack h : CurryMod.featureManager.hacks){
             loadHack(h);
+        }
+    }
+
+    private static void loadPrefix(){
+        try{
+            Path path = Paths.get(mainFolder.getAbsolutePath(), "prefix.json");
+            if (!path.toFile().exists()) return;
+            String rawJson = loadFile(path.toFile());
+            JsonObject obj = JsonParser.parseString(rawJson).getAsJsonObject();
+            if(obj.get("Prefix") != null){
+                Command.setPrefix(obj.get("Prefix").getAsString());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -83,11 +99,26 @@ public class Config extends Thread{
             System.out.println("Failed to create modules folder");
         }
         saveHacks();
+        savePrefix();
     }
 
     private static void saveHacks(){
         for(Hack h : CurryMod.featureManager.hacks){
             saveHack(h);
+        }
+    }
+
+    private static void savePrefix(){
+        try{
+            Path path = Paths.get(mainFolder.getAbsolutePath(), "prefix.json");
+            createFile(path);
+            JsonObject obj = new JsonObject();
+            obj.add("Prefix", new JsonPrimitive(Command.getPrefix()));
+            Gson gson = new Gson();
+            Files.write(path, gson.toJson(JsonParser.parseString(obj.toString())).getBytes());
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

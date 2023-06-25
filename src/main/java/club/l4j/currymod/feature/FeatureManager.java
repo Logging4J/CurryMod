@@ -18,7 +18,6 @@ public class FeatureManager implements IGlobals {
 
     public List<Hack> hacks = new ArrayList<>();
     public List<Command> commands = new ArrayList<>();
-    public String prefix = "@";
 
     public FeatureManager() {
         //Hacks
@@ -55,6 +54,7 @@ public class FeatureManager implements IGlobals {
         addCommand(new GameModes());
         addCommand(new Emoji());
         addCommand(new NBT());
+        addCommand(new Prefix());
     }
 
     public void runCommand(String args) {
@@ -64,7 +64,7 @@ public class FeatureManager implements IGlobals {
         String arguments = args.substring(startCommand.length()).trim();
         for (Command command : commands) {
             for (String alias : command.getAlias()) {
-                if (startCommand.equals(prefix + alias)) {
+                if (startCommand.equals(command.getPrefix() + alias)) {
                     command.onTrigger(arguments);
                     found = true;
                 }

@@ -4,6 +4,7 @@ import club.l4j.currymod.CurryMod;
 import club.l4j.currymod.event.events.KeyEvent;
 import club.l4j.currymod.event.events.PacketReceiveEvent;
 import club.l4j.currymod.event.events.PacketSendEvent;
+import club.l4j.currymod.feature.core.Command;
 import club.l4j.currymod.feature.core.Hack;
 import club.l4j.currymod.graphics.spoofgui.SpoofScreen;
 import club.l4j.currymod.mixin.minecraft.ICustomPayloadC2SPacket;
@@ -40,7 +41,7 @@ public class Events implements IGlobals {
     @DemoListen
     public void onPacketSend(PacketSendEvent e){
         if(e.getPacket() instanceof ChatMessageC2SPacket p) {
-            if (p.chatMessage().startsWith(CurryMod.featureManager.prefix)) {
+            if (p.chatMessage().startsWith(Command.getPrefix())) {
                 e.setCanceled(true);
                 CurryMod.featureManager.runCommand(p.chatMessage());
             }

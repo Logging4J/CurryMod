@@ -14,6 +14,7 @@ public class Emoji extends Command {
             switch (emoji) {
                 case "shrug" -> mc.getNetworkHandler().sendChatMessage(TextUtil.SHRUG);
                 case "lenny" -> mc.getNetworkHandler().sendChatMessage(TextUtil.LENNY);
+                case "tableflip" -> mc.getNetworkHandler().sendChatMessage(TextUtil.TABLE_FLIP);
                 default -> sendMsg("Invalid emoji");
             }
         }else {

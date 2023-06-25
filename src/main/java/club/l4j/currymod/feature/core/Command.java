@@ -25,6 +25,9 @@ public class Command implements IGlobals {
     @Getter @Setter
     private String name = c.name();
 
+    @Getter @Setter
+    public static String prefix = "@";
+
     public void onTrigger(String arguments) {}
 
     @Retention(RetentionPolicy.RUNTIME)
