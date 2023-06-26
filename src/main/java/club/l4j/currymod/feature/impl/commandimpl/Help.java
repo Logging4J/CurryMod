@@ -13,6 +13,7 @@ public class Help extends Command {
         for(Command c : CurryMod.featureManager.commands){
             sendMsg("Name: " + c.getName());
             sendMsg("Description: " + c.getDescription());
+            sendMsg("Usage: " + c.getUsage());
             sendMsg("Alias: " + Arrays.toString(c.getAlias()));
             sendMsg(" ");
         }

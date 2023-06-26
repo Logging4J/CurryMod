@@ -17,7 +17,6 @@ public class NoRender extends Hack {
     public static OptionBoolean particles = new OptionBoolean("NoParticles", true);
     public static OptionBoolean background = new OptionBoolean("NoGuiBack", true);
 
-
     public NoRender(){
         addOptions(noBossBar, fire, liquid, portal, snow, hurt, pumpkin, fog, particles, background);
     }

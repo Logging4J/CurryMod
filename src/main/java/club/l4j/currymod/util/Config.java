@@ -18,7 +18,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-public class Config extends Thread{
+public class Config extends Thread {
 
     private static final File mainFolder = new File("CurryMod");
     private static final String hacksPath = mainFolder.getAbsolutePath() + "/hacks";
