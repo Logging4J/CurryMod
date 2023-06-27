@@ -36,6 +36,7 @@ public class Hack implements IGlobals {
     @Getter @Setter
     private boolean drawn;
 
+    @Getter
     private boolean enabled;
 
     public List<Option> getOptions(){
@@ -60,10 +61,6 @@ public class Hack implements IGlobals {
         }
     }
 
-    public boolean isEnabled() {
-        return enabled;
-    }
-
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
         if(enabled){
@@ -71,10 +68,6 @@ public class Hack implements IGlobals {
         }else {
             onDisable();
         }
-    }
-
-    public boolean nullCheck() {
-        return mc.player == null || mc.world == null;
     }
 
     public void onEnable(){

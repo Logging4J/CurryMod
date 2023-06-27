@@ -2,6 +2,7 @@ package club.l4j.currymod;
 
 import club.l4j.currymod.event.Events;
 import club.l4j.currymod.feature.FeatureManager;
+import club.l4j.currymod.graphics.hudeditor.element.HudManager;
 import club.l4j.currymod.util.Config;
 import club.l4j.currymod.util.UniColor;
 import demo.knight.demobus.DemoBus;
@@ -20,12 +21,14 @@ public class CurryMod implements ClientModInitializer {
     public static CurryMod getInstance = new CurryMod();
     public static Discord discord = new Discord();
     public static FeatureManager featureManager;
+    public static HudManager hudManager;
     public static UniColor uniColor;
 
     @Override
     public void onInitializeClient() {
         log("CurryMod Initializing");
         featureManager = new FeatureManager();
+        hudManager = new HudManager();
         uniColor = new UniColor();
         discord.start();
         Runtime.getRuntime().addShutdownHook(new Config());
@@ -42,4 +45,5 @@ public class CurryMod implements ClientModInitializer {
     public void log(String message){
         LOGGER.info( "["+MOD_NAME+"] " + message);
     }
+
 }

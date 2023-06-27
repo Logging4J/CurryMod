@@ -28,7 +28,6 @@ public class FeatureManager implements IGlobals {
         addHack(new FastUse());
         addHack(new Flight());
         addHack(new FullBright());
-        addHack(new HUD());
         addHack(new NoFall());
         addHack(new NoRender());
         addHack(new NoSlow());
@@ -46,6 +45,7 @@ public class FeatureManager implements IGlobals {
         addHack(new Colors());
         addHack(new MachineGun());
         addHack(new FreeLook());
+        addHack(new HudEditor());
 
         //Commands
         addCommand(new VClip());

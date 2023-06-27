@@ -12,6 +12,11 @@ public interface IGlobals {
         mc.player.sendMessage(Text.of(TextUtil.WHITE + "["+ TextUtil.AQUA +"CurryMod.Club"+TextUtil.WHITE+"] "+ s));
     }
 
+    default boolean nullCheck() {
+        return mc.player == null || mc.world == null;
+    }
+
+
     default void sendWarningMsg(String s){
         mc.player.sendMessage(Text.of(TextUtil.WHITE + "["+ TextUtil.AQUA +"CurryMod.Club"+TextUtil.WHITE+"][" + TextUtil.RED +"WARNING"+TextUtil.WHITE+"] "+ s));
     }

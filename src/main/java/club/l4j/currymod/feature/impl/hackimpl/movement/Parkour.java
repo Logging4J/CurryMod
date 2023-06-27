@@ -14,7 +14,7 @@ public class Parkour extends Hack {
 
     @DemoListen
     public void onTick(TickEvent e){
-        if(mc.player.isSneaking() || !mc.player.isOnGround()){return;}
+        if(nullCheck() || mc.player.isSneaking() || !mc.player.isOnGround()){return;}
         Box box = mc.player.getBoundingBox();
         Box loc =  box.offset(0, -0.5, 0).expand(-0.1, 0 , -0.1);
         Stream<VoxelShape> collisions = Streams.stream(mc.world.getCollisions(mc.player, loc));
