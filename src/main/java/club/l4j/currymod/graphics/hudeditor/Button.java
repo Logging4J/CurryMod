@@ -1,5 +1,6 @@
 package club.l4j.currymod.graphics.hudeditor;
 
+import club.l4j.currymod.CurryMod;
 import club.l4j.currymod.graphics.Constants;
 import club.l4j.currymod.graphics.hudeditor.element.HudElement;
 import club.l4j.currymod.util.IGlobals;
@@ -21,7 +22,7 @@ public class Button implements IGlobals {
 
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
         context.fill(window.x, window.y + yOffset, window.x + Constants.WIDTH, window.y + yOffset + Constants.HEIGHT, Constants.BACKGROUND_COLOR);
-        context.drawTextWithShadow(mc.textRenderer, element.getName(), window.x + 1, window.y + yOffset + 1, element.isEnabled() ? Constants.COLOR : -1);
+        context.drawTextWithShadow(mc.textRenderer, element.getName(), window.x + 1, window.y + yOffset + 1, element.isEnabled() ? CurryMod.uniColor.getRGBA() : -1);
         context.drawTextWithShadow(mc.textRenderer, visible ? "-" : "+", window.x + Constants.WIDTH - 8, window.y + yOffset + 1, -1);
     }
 

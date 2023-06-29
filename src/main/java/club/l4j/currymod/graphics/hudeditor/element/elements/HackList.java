@@ -21,13 +21,13 @@ public class HackList extends HudElement {
         if(nullCheck()){return;}
         ArrayList<String> list = new ArrayList<>();
         for (Hack hack : CurryMod.featureManager.getEnabledHackFeatures()) {
-            list.add(TextUtil.AQUA + hack.getName() + (hack.getContent() != null ? TextUtil.WHITE + hack.getContent() : ""));
+            list.add(hack.getName() + (hack.getContent() != null ? TextUtil.WHITE + hack.getContent() : ""));
         }
         list.sort(Comparator.comparingInt(mc.textRenderer::getWidth));
         Collections.reverse(list);
         int y = 2;
         for (final String name : list) {
-            e.getContext().drawTextWithShadow(mc.textRenderer, name, (mc.getWindow().getScaledWidth() - mc.textRenderer.getWidth(name)) - 3, y + 2, -1);
+            e.getContext().drawTextWithShadow(mc.textRenderer, name, (mc.getWindow().getScaledWidth() - mc.textRenderer.getWidth(name)) - 3, y + 2, CurryMod.uniColor.getRGBA());
             y += 10;
         }
     }

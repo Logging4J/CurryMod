@@ -3,7 +3,6 @@ package club.l4j.currymod.feature.impl.hackimpl.movement;
 import club.l4j.currymod.event.events.TickEvent;
 import club.l4j.currymod.feature.core.Hack;
 import club.l4j.currymod.feature.options.impl.OptionBoolean;
-import club.l4j.currymod.feature.options.impl.OptionMode;
 import club.l4j.currymod.feature.options.impl.OptionSlider;
 import club.l4j.currymod.util.player.MovementUtils;
 import demo.knight.demobus.event.DemoListen;
@@ -20,11 +19,10 @@ public class Speed extends Hack {
 
     @DemoListen
     public void onTick(TickEvent e) {
-        if(MovementUtils.isMoving()){
-            MovementUtils.strafe(strafe.getFloatValue());
-            if (mc.player.isOnGround() && jump.isEnabled()) {
-                mc.player.jump();
-            }
+        if(nullCheck() || !MovementUtils.isMoving()){return;}
+        MovementUtils.strafe(strafe.getFloatValue());
+        if (mc.player.isOnGround() && jump.isEnabled()) {
+            mc.player.jump();
         }
     }
 }

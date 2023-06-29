@@ -1,5 +1,6 @@
 package club.l4j.currymod.graphics.hudeditor.element.elements;
 
+import club.l4j.currymod.CurryMod;
 import club.l4j.currymod.event.events.Render2DEvent;
 import club.l4j.currymod.graphics.hudeditor.element.HudElement;
 import club.l4j.currymod.util.TextUtil;
@@ -13,6 +14,6 @@ public class FPS extends HudElement {
     @DemoListen
     public void onRender(Render2DEvent e){
         if(nullCheck()){return;}
-        e.getContext().drawTextWithShadow(mc.textRenderer, TextUtil.AQUA + "FPS:" + TextUtil.WHITE + mc.getCurrentFps(), 0, mc.getWindow().getScaledHeight() - (mc.textRenderer.fontHeight * 3), -1);
+        e.getContext().drawTextWithShadow(mc.textRenderer,"FPS:"+TextUtil.WHITE + mc.getCurrentFps(), 0, mc.getWindow().getScaledHeight() - (mc.textRenderer.fontHeight * 3), CurryMod.uniColor.getRGBA());
     }
 }

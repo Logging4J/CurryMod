@@ -15,7 +15,7 @@ public class Watermark extends HudElement {
     @DemoListen
     public void onRender(Render2DEvent e){
         if(nullCheck()){return;}
-        e.getContext().drawTextWithShadow(mc.textRenderer, TextUtil.AQUA + CurryMod.MOD_NAME + TextUtil.WHITE +"b" + CurryMod.VERSION, getX(), getY(),-1);
+        e.getContext().drawTextWithShadow(mc.textRenderer, CurryMod.MOD_NAME + TextUtil.WHITE +"b" + CurryMod.VERSION, 0, 1, CurryMod.uniColor.getRGBA());
     }
 
 }

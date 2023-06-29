@@ -35,7 +35,7 @@ public class Window implements IGlobals {
     }
 
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
-        context.fill(x,y,x + Constants.WIDTH,y + Constants.HEIGHT, Constants.COLOR);
+        context.fill(x,y,x + Constants.WIDTH,y + Constants.HEIGHT, CurryMod.uniColor.getRGBA());
         context.drawTextWithShadow(mc.textRenderer, category.getName(),x + 1, y + 1, -1);
         context.drawTextWithShadow(mc.textRenderer, visible ? "∨" : "∧",x  + Constants.WIDTH - 8, y + 1, -1);
 

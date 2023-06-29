@@ -1,5 +1,6 @@
 package club.l4j.currymod.graphics.clickgui.components;
 
+import club.l4j.currymod.CurryMod;
 import club.l4j.currymod.graphics.clickgui.HackButton;
 import club.l4j.currymod.feature.options.Option;
 import club.l4j.currymod.feature.options.impl.OptionSlider;
@@ -33,7 +34,7 @@ public class NumberComponent extends Component{
             }
         }
 
-        context.fill(hackButton.window.x, hackButton.window.y + hackButton.yOffset + yOffset + Constants.HEIGHT - 1,hackButton.window.x + renderWidth,hackButton.window.y + hackButton.yOffset + yOffset + Constants.HEIGHT, Constants.COLOR);
+        context.fill(hackButton.window.x, hackButton.window.y + hackButton.yOffset + yOffset + Constants.HEIGHT - 1,hackButton.window.x + renderWidth,hackButton.window.y + hackButton.yOffset + yOffset + Constants.HEIGHT, CurryMod.uniColor.getRGBA());
 
         context.drawTextWithShadow(mc.textRenderer, option.getName() + " : " + roundToPlace(((OptionSlider) option).getValue(),2),hackButton.window.x + 1, hackButton.window.y + hackButton.yOffset + yOffset + 1, -1);
     }

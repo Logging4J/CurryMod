@@ -1,5 +1,6 @@
 package club.l4j.currymod.graphics.clickgui;
 
+import club.l4j.currymod.CurryMod;
 import club.l4j.currymod.feature.core.Hack;
 import club.l4j.currymod.graphics.Constants;
 import club.l4j.currymod.graphics.clickgui.components.*;
@@ -47,7 +48,7 @@ public class HackButton implements IGlobals {
 
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
         context.fill(window.x,window.y + yOffset,window.x + Constants.WIDTH,window.y + yOffset + Constants.HEIGHT, Constants.BACKGROUND_COLOR);
-        context.drawTextWithShadow(mc.textRenderer, hack.getName(), window.x + 1, window.y + yOffset + 1,  hack.isEnabled() ? Constants.COLOR : -1);
+        context.drawTextWithShadow(mc.textRenderer, hack.getName(), window.x + 1, window.y + yOffset + 1,  hack.isEnabled() ? CurryMod.uniColor.getRGBA() : -1);
         context.drawTextWithShadow(mc.textRenderer, visible ? "-" : "+", window.x +  Constants.WIDTH - 8, window.y + yOffset + 1, -1);
         if(visible) {
             for (Component comp : options) {
