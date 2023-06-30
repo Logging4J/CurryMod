@@ -1,6 +1,5 @@
 package club.l4j.currymod.feature.impl.hackimpl.movement;
 
-import club.l4j.currymod.event.events.PacketReceiveEvent;
 import club.l4j.currymod.event.events.PacketSendEvent;
 import club.l4j.currymod.event.events.TickEvent;
 import club.l4j.currymod.feature.core.Hack;
@@ -10,7 +9,6 @@ import club.l4j.currymod.feature.options.impl.OptionSlider;
 import club.l4j.currymod.mixin.minecraft.IPlayerMoveC2SPacket;
 import demo.knight.demobus.event.DemoListen;
 import net.minecraft.network.packet.c2s.play.PlayerMoveC2SPacket;
-import org.lwjgl.glfw.GLFW;
 
 @Hack.Construct(name = "Flight", description = "fly hacky", category = Hack.Category.MOVEMENT)
 public class Flight extends Hack {

@@ -1,7 +1,6 @@
 package club.l4j.currymod.feature.impl.hackimpl.combat;
 
 import club.l4j.currymod.event.events.PacketReceiveEvent;
-import club.l4j.currymod.event.events.TickEvent;
 import club.l4j.currymod.feature.core.Hack;
 import club.l4j.currymod.feature.options.impl.OptionBoolean;
 import club.l4j.currymod.feature.options.impl.OptionMode;
@@ -9,7 +8,6 @@ import club.l4j.currymod.feature.options.impl.OptionSlider;
 import club.l4j.currymod.mixin.minecraft.IEntityVelocityUpdateS2CPacket;
 import club.l4j.currymod.mixin.minecraft.IExplosionS2CPacket;
 import demo.knight.demobus.event.DemoListen;
-import net.minecraft.network.packet.c2s.play.PlayPongC2SPacket;
 import net.minecraft.network.packet.s2c.play.EntityVelocityUpdateS2CPacket;
 import net.minecraft.network.packet.s2c.play.ExplosionS2CPacket;
 
@@ -28,6 +26,7 @@ public class Velocity extends Hack {
 
     @DemoListen
     public void onPacketReceive(PacketReceiveEvent e) {
+        if(nullCheck()){return;}
         if(e.getPacket() instanceof ExplosionS2CPacket packet){
             if(mode.isMode("Cancel")){
                 ((IExplosionS2CPacket) packet).setVelocityX(0.0f);
@@ -37,7 +36,6 @@ public class Velocity extends Hack {
                 ((IExplosionS2CPacket) packet).setVelocityX(packet.getPlayerVelocityX() * (horizontalVal.getIntValue() / 100.0f));
                 ((IExplosionS2CPacket) packet).setVelocityY(packet.getPlayerVelocityY() * (verticalVal.getIntValue() / 100.0f));
                 ((IExplosionS2CPacket) packet).setVelocityZ(packet.getPlayerVelocityZ() * (horizontalVal.getIntValue() / 100.0f));
-
             }
         } else if (e.getPacket() instanceof EntityVelocityUpdateS2CPacket packet && packet.getId() == mc.player.getId()) {
             if(mode.isMode("Cancel")){
