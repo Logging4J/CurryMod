@@ -5,7 +5,9 @@ import com.google.common.collect.Sets;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.screen.slot.SlotActionType;
 
 import java.util.Set;
 
@@ -23,5 +25,23 @@ public class PlayerUtil implements IGlobals {
             Blocks.DEEPSLATE_COPPER_ORE, Blocks.NETHER_QUARTZ_ORE, Blocks.ANCIENT_DEBRIS
     );
 
+    public static int findHotbarItem(Item item) {
+        for (int i = 0; i < 9; ++i) {
+            final ItemStack stack = mc.player.getInventory().getStack(i);
+            if (stack.getItem() == item) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public static void swap(int slot){
+        boolean inHand = !mc.player.getInventory().getMainHandStack().isEmpty();
+        mc.interactionManager.clickSlot(mc.player.currentScreenHandler.syncId, slot, 0, SlotActionType.PICKUP, mc.player);
+        mc.interactionManager.clickSlot(mc.player.currentScreenHandler.syncId, 36 + mc.player.getInventory().selectedSlot, 0, SlotActionType.PICKUP, mc.player);
+        if(inHand){
+            mc.interactionManager.clickSlot(mc.player.currentScreenHandler.syncId, slot, 0, SlotActionType.PICKUP, mc.player);
+        }
+    }
 
 }

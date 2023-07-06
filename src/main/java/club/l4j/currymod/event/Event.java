@@ -6,7 +6,6 @@ public class Event implements IDemoVent {
 
     private boolean canceled = false;
 
-
     public void setCanceled(boolean canceled) {
         this.canceled = canceled;
     }

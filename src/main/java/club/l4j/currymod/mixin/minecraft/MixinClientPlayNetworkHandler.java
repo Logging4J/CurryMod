@@ -1,13 +1,10 @@
 package club.l4j.currymod.mixin.minecraft;
 
 import club.l4j.currymod.CurryMod;
-import club.l4j.currymod.event.Events;
 import club.l4j.currymod.event.events.PacketSendEvent;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayNetworkHandler;
 import net.minecraft.network.packet.Packet;
-import net.minecraft.network.packet.c2s.play.ResourcePackStatusC2SPacket;
-import net.minecraft.network.packet.s2c.play.ResourcePackSendS2CPacket;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;

@@ -1,7 +1,7 @@
 package club.l4j.currymod.event;
 
 import club.l4j.currymod.CurryMod;
-import club.l4j.currymod.event.events.KeyEvent;
+import club.l4j.currymod.event.events.KeyPressEvent;
 import club.l4j.currymod.event.events.PacketReceiveEvent;
 import club.l4j.currymod.event.events.PacketSendEvent;
 import club.l4j.currymod.feature.core.Command;
@@ -26,7 +26,7 @@ public class Events implements IGlobals {
     public static boolean bypassResourcePack = false;
 
     @DemoListen
-    public void onKey(KeyEvent e){
+    public void onKey(KeyPressEvent e){
         if(mc.currentScreen == null) {
             if (e.getAction() == GLFW.GLFW_PRESS) {
                 for (Hack hack : CurryMod.featureManager.hacks) {

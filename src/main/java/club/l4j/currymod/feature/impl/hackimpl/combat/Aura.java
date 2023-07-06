@@ -19,13 +19,12 @@ import java.util.List;
 public class Aura extends Hack {
 
     public OptionSlider range = new OptionSlider("Range",1,6,1,4);
-    public OptionBoolean rotate = new OptionBoolean("Rotations",true);
     public OptionBoolean players = new OptionBoolean("Players",true);
     public OptionBoolean animals = new OptionBoolean("Animals",true);
     public OptionBoolean mobs = new OptionBoolean("Monsters",true);
 
     public Aura(){
-        addOptions(range, rotate,  players, animals, mobs);
+        addOptions(range,  players, animals, mobs);
     }
 
     @DemoListen

@@ -46,6 +46,8 @@ public class FeatureManager implements IGlobals {
         addHack(new MachineGun());
         addHack(new FreeLook());
         addHack(new HudEditor());
+        addHack(new MiddleClick());
+        addHack(new Atmosphere());
 
         //Commands
         addCommand(new VClip());
