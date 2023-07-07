@@ -1,9 +1,7 @@
 package club.l4j.currymod.util.render;
 
 import com.mojang.blaze3d.systems.RenderSystem;
-
 import net.minecraft.client.gui.DrawContext;
-import net.minecraft.util.Identifier;
 
 import java.awt.*;
 
