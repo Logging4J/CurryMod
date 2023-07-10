@@ -7,6 +7,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
+import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -35,13 +36,11 @@ public class PlayerUtil implements IGlobals {
         BlockState blockState = mc.world.getBlockState(p);
         int bestSlot = -1;
         double highestSpeed = 0.0;
-
         for (int i = 0; i < 9; ++i) {
             ItemStack itemStack = mc.player.getInventory().getStack(i);
             float miningSpeed = itemStack.getMiningSpeedMultiplier(blockState);
             int efficiencyLevel = EnchantmentHelper.getLevel(Enchantments.EFFICIENCY, itemStack);
             float modifiedSpeed = (float) (miningSpeed + ((efficiencyLevel > 0) ? (float) (Math.pow(efficiencyLevel, 2.0) + 1.0) : 0.0));
-
             if (!itemStack.isEmpty() && miningSpeed > 1.0f && modifiedSpeed > highestSpeed) {
                 highestSpeed = modifiedSpeed;
                 bestSlot = i;
@@ -71,6 +70,16 @@ public class PlayerUtil implements IGlobals {
             }
         }
         return list;
+    }
+
+    public static float[] getRotationToEntity(Entity target) {
+        double deltaX = target.getX() - mc.player.getX();
+        double deltaZ = target.getZ() - mc.player.getZ();
+        double deltaY = target.getY() - 3.5 + target.getEyeHeight(target.getPose()) - mc.player.getY() + mc.player.getEyeHeight(mc.player.getPose());
+        double distance = Math.sqrt(Math.pow(deltaX, 2) + Math.pow(deltaZ, 2));
+        float yaw = (float) (Math.toDegrees(Math.atan2(deltaZ, deltaX)) - 90);
+        float pitch = (float) -Math.toDegrees(Math.atan2(deltaY, distance));
+        return new float[]{yaw, pitch};
     }
 
 }

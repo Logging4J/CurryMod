@@ -4,11 +4,13 @@ import club.l4j.currymod.event.events.TickEvent;
 import club.l4j.currymod.feature.core.Hack;
 import club.l4j.currymod.feature.options.impl.OptionBoolean;
 import club.l4j.currymod.feature.options.impl.OptionSlider;
+import club.l4j.currymod.util.player.PlayerUtil;
 import demo.knight.demobus.event.DemoListen;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.mob.Monster;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.network.packet.c2s.play.PlayerMoveC2SPacket;
 import net.minecraft.util.Hand;
 
 import java.util.ArrayList;
@@ -22,9 +24,11 @@ public class Aura extends Hack {
     public OptionBoolean players = new OptionBoolean("Players",true);
     public OptionBoolean animals = new OptionBoolean("Animals",true);
     public OptionBoolean mobs = new OptionBoolean("Monsters",true);
+    public OptionBoolean rotate = new OptionBoolean("Rotations",true);
+
 
     public Aura(){
-        addOptions(range,  players, animals, mobs);
+        addOptions(range,  players, animals, mobs, rotate);
     }
 
     @DemoListen
@@ -35,6 +39,10 @@ public class Aura extends Hack {
                 .sorted(Comparator.comparingDouble(entity -> entity.distanceTo(mc.player))).toList();
         if(!targets.isEmpty()){
             if(mc.player.getAttackCooldownProgress(0) == 1) {
+                if(rotate.isEnabled()) {
+                    float[] rotations = PlayerUtil.getRotationToEntity(targets.get(0));
+                    sendPacket(new PlayerMoveC2SPacket.LookAndOnGround(rotations[0], rotations[1], mc.player.isOnGround()));
+                }
                 attack(targets.get(0));
             }
         }

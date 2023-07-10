@@ -16,6 +16,7 @@ public class Colors extends Hack {
 
     public Colors() {
         addOptions(red, green, blue, alpha);
+        setEnabled(true);
     }
 
     @DemoListen

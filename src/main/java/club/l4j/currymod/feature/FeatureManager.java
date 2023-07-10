@@ -48,7 +48,7 @@ public class FeatureManager implements IGlobals {
         addHack(new HudEditor());
         addHack(new MiddleClick());
         addHack(new Atmosphere());
-        addHack(new CrystalTriggerBot());
+        addHack(new CrystalTrigBot());
         addHack(new GuiBackground());
         addHack(new AntiReGear());
 

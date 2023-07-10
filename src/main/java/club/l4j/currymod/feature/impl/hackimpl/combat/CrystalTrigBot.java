@@ -9,8 +9,8 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
 
-@Hack.Construct(name = "CrystalTriggerBot", description = "Automatically attacks crystals if ur cursor is on it", category = Hack.Category.COMBAT)
-public class CrystalTriggerBot extends Hack {
+@Hack.Construct(name = "CrystalTrigBot", description = "Automatically attacks crystals if ur cursor is on it", category = Hack.Category.COMBAT)
+public class CrystalTrigBot extends Hack {
 
     @DemoListen
     public void onTick(TickEvent e){
