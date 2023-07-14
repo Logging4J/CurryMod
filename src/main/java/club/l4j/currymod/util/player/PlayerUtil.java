@@ -31,7 +31,6 @@ public class PlayerUtil implements IGlobals {
             Blocks.DEEPSLATE_COPPER_ORE, Blocks.NETHER_QUARTZ_ORE, Blocks.ANCIENT_DEBRIS
     );
 
-
     public static int getBestAvailableToolSlot(BlockPos p) {
         BlockState blockState = mc.world.getBlockState(p);
         int bestSlot = mc.player.getInventory().selectedSlot;

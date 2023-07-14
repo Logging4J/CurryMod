@@ -52,6 +52,7 @@ public class FeatureManager implements IGlobals {
         addHack(new GuiBackground());
         addHack(new AntiReGear());
         addHack(new AutoTool());
+        addHack(new Xray());
 
         //Commands
         addCommand(new VClip());
