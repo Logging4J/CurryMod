@@ -31,6 +31,7 @@
     "minecraft.MixinBlockModelRenderer",
     "minecraft.MixinTerrainRenderContext",
     "minecraft.MixinChunkOcclusionDataBuilder",
+    "minecraft.MixinChatHud",
     "minecraft.MixinAbstractBlockState",
     "minecraft.IPlayerMoveC2SPacket",
     "minecraft.IExplosionS2CPacket",

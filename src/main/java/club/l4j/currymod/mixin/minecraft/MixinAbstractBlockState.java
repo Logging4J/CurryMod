@@ -12,7 +12,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(AbstractBlock.AbstractBlockState.class)
 public abstract class MixinAbstractBlockState {
 
-
     @Inject(method = "getAmbientOcclusionLightLevel", at = @At("TAIL"), cancellable = true)
     public void getAmbientOcclusionLightLevel(BlockView world, BlockPos pos, CallbackInfoReturnable<Float> cir) {
         if(CurryMod.featureManager.getHack("Xray").isEnabled()){

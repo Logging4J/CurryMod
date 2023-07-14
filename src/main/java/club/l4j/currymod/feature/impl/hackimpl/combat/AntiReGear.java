@@ -2,6 +2,7 @@ package club.l4j.currymod.feature.impl.hackimpl.combat;
 
 import club.l4j.currymod.event.events.TickEvent;
 import club.l4j.currymod.feature.core.Hack;
+import club.l4j.currymod.feature.options.impl.OptionBoolean;
 import club.l4j.currymod.feature.options.impl.OptionSlider;
 import club.l4j.currymod.util.player.PlayerUtil;
 import demo.knight.demobus.event.DemoListen;
@@ -37,11 +38,14 @@ public class AntiReGear extends Hack {
 
         if(!targets.isEmpty()){
             for(BlockPos pos : targets){
-                mc.player.getInventory().selectedSlot = PlayerUtil.getBestAvailableToolSlot(pos);
-                sendPacket(new UpdateSelectedSlotC2SPacket(mc.player.getInventory().selectedSlot));
+                int best = PlayerUtil.getBestAvailableToolSlot(pos);
+                mc.player.getInventory().selectedSlot = best;
+                sendPacket(new UpdateSelectedSlotC2SPacket(best));
+
                 Direction direction = (mc.player.getY() > pos.getY()) ? Direction.UP : Direction.DOWN;
                 sendPacket(new PlayerActionC2SPacket(PlayerActionC2SPacket.Action.START_DESTROY_BLOCK, pos, direction));
                 sendPacket(new PlayerActionC2SPacket(PlayerActionC2SPacket.Action.STOP_DESTROY_BLOCK, pos, direction));
+
                 mc.player.swingHand(Hand.MAIN_HAND);
             }
         }
