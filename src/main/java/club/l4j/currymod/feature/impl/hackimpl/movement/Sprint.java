@@ -17,10 +17,9 @@ public class Sprint extends Hack {
 
     @DemoListen
     public void onTick(TickEvent e) {
-        if (nullCheck()) {return;}
+        if (nullCheck()) return;
         if (mode.isMode("Rage")) {
             mc.player.setSprinting(true);
-
         } else if (mode.isMode("Legit")) {
             if(MovementUtils.isMoving() && !mc.player.isSneaking()){
                 mc.player.setSprinting(true);

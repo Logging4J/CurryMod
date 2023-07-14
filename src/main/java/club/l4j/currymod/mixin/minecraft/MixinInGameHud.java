@@ -1,11 +1,10 @@
 package club.l4j.currymod.mixin.minecraft;
 
 import club.l4j.currymod.CurryMod;
-import club.l4j.currymod.event.events.Render2DEvent;
+import club.l4j.currymod.event.events.RenderHudEvent;
 import club.l4j.currymod.feature.impl.hackimpl.visual.NoRender;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.hud.InGameHud;
-import net.minecraft.client.util.math.MatrixStack;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -18,7 +17,7 @@ public class MixinInGameHud {
 
     @Inject(method = "render", at = @At("TAIL"))
     private void onRender(DrawContext context, float tickDelta, CallbackInfo info) {
-        CurryMod.EVENT_BUS.call(new Render2DEvent(context, tickDelta));
+        CurryMod.EVENT_BUS.call(new RenderHudEvent(context, tickDelta));
     }
 
     @ModifyArgs(method = "render", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/hud/InGameHud;renderOverlay(Lnet/minecraft/client/gui/DrawContext;Lnet/minecraft/util/Identifier;F)V", ordinal = 0))

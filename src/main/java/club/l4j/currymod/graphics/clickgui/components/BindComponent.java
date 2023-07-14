@@ -14,7 +14,6 @@ public class BindComponent extends Component {
         super(option, hackButton, yOffset);
     }
 
-
     @Override
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
         context.fill(hackButton.window.x, hackButton.window.y + hackButton.yOffset + yOffset,hackButton.window.x + Constants.WIDTH,hackButton.window.y + hackButton.yOffset + yOffset + Constants.HEIGHT, Constants.BACKGROUND_COLOR);
@@ -22,10 +21,10 @@ public class BindComponent extends Component {
         int scanCode = GLFW.glfwGetKeyScancode(hackButton.hack.getKey());
         String bindName = GLFW.glfwGetKeyName(hackButton.hack.getKey(),scanCode);
 
-        if(scanCode != -1) {
+        if(scanCode != 0) {
             context.drawTextWithShadow(mc.textRenderer, "Bind: " + (binding ? "..." : bindName), hackButton.window.x + 1, hackButton.window.y + hackButton.yOffset + yOffset + 1, -1);
         }else {
-            context.drawTextWithShadow(mc.textRenderer, "Bind: NONE", hackButton.window.x + 1, hackButton.window.y + hackButton.yOffset + yOffset + 1, -1);
+            context.drawTextWithShadow(mc.textRenderer, "Bind: " + (binding ? "..." : "NONE"), hackButton.window.x + 1, hackButton.window.y + hackButton.yOffset + yOffset + 1, -1);
         }
     }
 

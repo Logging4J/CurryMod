@@ -17,9 +17,9 @@ public class AutoLog extends Hack {
 
     @DemoListen
     public void onTick(TickEvent e) {
-        if(nullCheck()){return;}
+        if(nullCheck()) return;
         if(mc.player.getHealth() < health.getFloatValue()){
-            mc.player.networkHandler.getConnection().disconnect(Text.of("[AutoJQQ] Activated"));
+            mc.player.networkHandler.getConnection().disconnect(Text.of("[AutoLog] Activated"));
             toggle();
         }
     }

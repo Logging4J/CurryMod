@@ -39,7 +39,6 @@ public class AntiReGear extends Hack {
             for(BlockPos pos : targets){
                 mc.player.getInventory().selectedSlot = PlayerUtil.getBestAvailableToolSlot(pos);
                 sendPacket(new UpdateSelectedSlotC2SPacket(mc.player.getInventory().selectedSlot));
-
                 Direction direction = (mc.player.getY() > pos.getY()) ? Direction.UP : Direction.DOWN;
                 sendPacket(new PlayerActionC2SPacket(PlayerActionC2SPacket.Action.START_DESTROY_BLOCK, pos, direction));
                 sendPacket(new PlayerActionC2SPacket(PlayerActionC2SPacket.Action.STOP_DESTROY_BLOCK, pos, direction));

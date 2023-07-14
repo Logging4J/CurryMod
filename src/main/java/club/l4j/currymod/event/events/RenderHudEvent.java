@@ -7,7 +7,7 @@ import net.minecraft.client.gui.DrawContext;
 
 @Getter
 @AllArgsConstructor
-public class Render2DEvent extends Event {
+public class RenderHudEvent extends Event {
 
     private DrawContext context;
     private float tickDelta;

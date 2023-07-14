@@ -20,7 +20,7 @@ public class FastUse extends Hack {
 
     @DemoListen
     public void onTick(TickEvent e) {
-        if(nullCheck()){return;}
+        if(nullCheck()) return;
         if(mc.player.getInventory().getMainHandStack().getItem() instanceof BlockItem && blocks.isEnabled()){
             ((IMinecraftClient) mc).setItemUseCooldown(0);
         }

@@ -9,8 +9,7 @@ import org.lwjgl.glfw.GLFW;
 
 @Hack.Construct(name = "ClickGUI", description = "clickable GUI", category = Hack.Category.CLIENT)
 public class ClickGuiMod extends Hack {
-
-
+    
     public ClickGuiMod(){
         setKey(GLFW.GLFW_KEY_RIGHT_SHIFT);
     }

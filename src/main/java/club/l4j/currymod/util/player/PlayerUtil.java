@@ -34,7 +34,7 @@ public class PlayerUtil implements IGlobals {
 
     public static int getBestAvailableToolSlot(BlockPos p) {
         BlockState blockState = mc.world.getBlockState(p);
-        int bestSlot = -1;
+        int bestSlot = mc.player.getInventory().selectedSlot;
         double highestSpeed = 0.0;
         for (int i = 0; i < 9; ++i) {
             ItemStack itemStack = mc.player.getInventory().getStack(i);

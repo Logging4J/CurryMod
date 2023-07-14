@@ -26,14 +26,14 @@ public class Aura extends Hack {
     public OptionBoolean mobs = new OptionBoolean("Monsters",true);
     public OptionBoolean rotate = new OptionBoolean("Rotations",true);
 
-
     public Aura(){
         addOptions(range,  players, animals, mobs, rotate);
     }
 
+
     @DemoListen
     public void onTick(TickEvent e){
-        if(nullCheck()){return;}
+        if(nullCheck()) return;
         List<Entity> targets = getTargets().stream()
                 .filter(entity -> entity.squaredDistanceTo(mc.player) < Math.pow(range.getIntValue(), 2) && entity != mc.player && entity.isAlive())
                 .sorted(Comparator.comparingDouble(entity -> entity.distanceTo(mc.player))).toList();

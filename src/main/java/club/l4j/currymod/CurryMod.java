@@ -14,7 +14,7 @@ public class CurryMod implements ClientModInitializer {
 
     public static final String MOD_NAME = "CurryMod.Club";
     public static final String MOD_ID = "currymod";
-    public static final String VERSION = "0.0.6";
+    public static final String VERSION = "0.0.7";
     public static final DemoBus EVENT_BUS = new DemoBus();
     public static final Logger LOGGER = LogManager.getLogger(MOD_NAME);
 

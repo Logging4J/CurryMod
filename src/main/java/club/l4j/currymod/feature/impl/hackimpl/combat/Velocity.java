@@ -26,7 +26,7 @@ public class Velocity extends Hack {
 
     @DemoListen
     public void onPacketReceive(PacketReceiveEvent e) {
-        if(nullCheck()){return;}
+        if(nullCheck()) return;
         if(e.getPacket() instanceof ExplosionS2CPacket packet){
             if(mode.isMode("Cancel")){
                 ((IExplosionS2CPacket) packet).setVelocityX(0.0f);
