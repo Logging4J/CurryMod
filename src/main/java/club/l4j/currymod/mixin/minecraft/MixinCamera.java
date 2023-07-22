@@ -1,9 +1,9 @@
 package club.l4j.currymod.mixin.minecraft;
 
 import club.l4j.currymod.CurryMod;
-import club.l4j.currymod.feature.impl.hackimpl.visual.FreeLook;
-import club.l4j.currymod.feature.impl.hackimpl.visual.NoRender;
-import club.l4j.currymod.util.IGlobals;
+import club.l4j.currymod.impl.hacks.visual.FreeLook;
+import club.l4j.currymod.impl.hacks.visual.NoRender;
+import club.l4j.currymod.core.util.IGlobals;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.option.Perspective;
 import net.minecraft.client.render.Camera;
@@ -24,28 +24,28 @@ public abstract class MixinCamera implements IGlobals {
 
     @Inject(method = "clipToSpace", at = @At("HEAD"), cancellable = true)
     private void onClipToSpace(double desiredCameraDistance, CallbackInfoReturnable<Double> info) {
-        if (CurryMod.featureManager.getHack("CameraClip").isEnabled()) {
+        if (CurryMod.hackManager.getHack("CameraClip").isEnabled()) {
             info.setReturnValue(desiredCameraDistance);
         }
     }
 
     @Inject(method = "getSubmersionType", at = @At("HEAD"), cancellable = true)
     private void getSubmergedFluidState(CallbackInfoReturnable<CameraSubmersionType> ci) {
-        if (CurryMod.featureManager.getHack("NoRender").isEnabled() && NoRender.liquid.isEnabled()) {
+        if (CurryMod.hackManager.getHack("NoRender").isEnabled() && NoRender.liquid.isEnabled()) {
             ci.setReturnValue(CameraSubmersionType.NONE);
         }
     }
 
     @Inject(method = "update", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/render/Camera;setRotation(FF)V", ordinal = 0, shift = At.Shift.AFTER))
     public void update(BlockView area, Entity focusedEntity, boolean thirdPerson, boolean inverseView, float tickDelta, CallbackInfo ci) {
-        if (CurryMod.featureManager.getHack("FreeLook").isEnabled() && focusedEntity instanceof ClientPlayerEntity p) {
+        if (CurryMod.hackManager.getHack("FreeLook").isEnabled() && focusedEntity instanceof ClientPlayerEntity p) {
             setRotation(FreeLook.cameraYaw, FreeLook.cameraPitch);
         }
     }
 
     @Inject(method = "update", at = @At(value = "TAIL"))
     public void outOfBody(BlockView area, Entity focusedEntity, boolean thirdPerson, boolean inverseView, float tickDelta, CallbackInfo ci) {
-        if (CurryMod.featureManager.getHack("FreeLook").isEnabled() && focusedEntity instanceof ClientPlayerEntity) {
+        if (CurryMod.hackManager.getHack("FreeLook").isEnabled() && focusedEntity instanceof ClientPlayerEntity) {
             mc.options.setPerspective(Perspective.THIRD_PERSON_BACK);
         }
     }

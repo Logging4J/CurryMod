@@ -1,7 +1,7 @@
 package club.l4j.currymod.mixin.minecraft;
 
 import club.l4j.currymod.CurryMod;
-import club.l4j.currymod.util.player.PlayerUtil;
+import club.l4j.currymod.core.util.player.PlayerUtil;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.block.BlockModelRenderer;
@@ -20,7 +20,7 @@ public abstract class MixinBlockModelRenderer {
 
     @Inject(method = "renderSmooth", at = @At("HEAD"), cancellable = true)
     public void renderSmooth(BlockRenderView world, BakedModel model, BlockState state, BlockPos pos, MatrixStack matrices, VertexConsumer vertexConsumer, boolean cull, Random random, long seed, int overlay, CallbackInfo ci) {
-        if(CurryMod.featureManager.getHack("Xray").isEnabled()){
+        if(CurryMod.hackManager.getHack("Xray").isEnabled()){
             if(PlayerUtil.ORE_BLOCKS.contains(state.getBlock())){
                 ci.cancel();
                 return;

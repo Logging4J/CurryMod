@@ -1,7 +1,9 @@
 package club.l4j.currymod.mixin.minecraft;
 
 import club.l4j.currymod.CurryMod;
-import club.l4j.currymod.util.TextUtil;
+import club.l4j.currymod.core.util.TextUtil;
+import club.l4j.currymod.core.util.render.RenderUtils;
+import club.l4j.currymod.impl.hacks.client.Colors;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.TitleScreen;
@@ -20,6 +22,6 @@ public abstract class MixinTitleScreen extends Screen {
 
     @Inject(method = "render", at = @At("TAIL"))
     public void render(DrawContext context, int mouseX, int mouseY, float delta, CallbackInfo cl) {
-        context.drawTextWithShadow(client.textRenderer,CurryMod.MOD_NAME + TextUtil.WHITE + "b" + CurryMod.VERSION + " By Logging4J :^)", 0, 1, CurryMod.uniColor.getRGBA());
+        context.drawTextWithShadow(client.textRenderer,CurryMod.MOD_NAME + TextUtil.WHITE + "b" + CurryMod.VERSION + " By Logging4J :^)", 0, 1, Colors.rainbow.isEnabled() ? RenderUtils.rainbow(1, CurryMod.colorManager.getColor()) : CurryMod.colorManager.getRGBA());
     }
 }

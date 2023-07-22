@@ -1,7 +1,7 @@
 package club.l4j.currymod.mixin.minecraft;
 
 import club.l4j.currymod.CurryMod;
-import club.l4j.currymod.event.events.StopUsingItemEvent;
+import club.l4j.currymod.core.event.events.StopUsingItemEvent;
 import net.minecraft.client.network.ClientPlayerInteractionManager;
 import net.minecraft.entity.player.PlayerEntity;
 import org.spongepowered.asm.mixin.Mixin;

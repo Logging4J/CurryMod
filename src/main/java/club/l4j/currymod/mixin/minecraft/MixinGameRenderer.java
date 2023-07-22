@@ -1,7 +1,7 @@
 package club.l4j.currymod.mixin.minecraft;
 
 import club.l4j.currymod.CurryMod;
-import club.l4j.currymod.feature.impl.hackimpl.visual.NoRender;
+import club.l4j.currymod.impl.hacks.visual.NoRender;
 import net.minecraft.client.render.GameRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import org.spongepowered.asm.mixin.Mixin;
@@ -14,7 +14,7 @@ public class MixinGameRenderer {
 
     @Inject(method = "tiltViewWhenHurt", at = @At("HEAD"), cancellable = true)
     private void tiltViewWhenHurt(MatrixStack matrices, float tickDelta, CallbackInfo ci) {
-        if (CurryMod.featureManager.getHack("NoRender").isEnabled() && NoRender.hurt.isEnabled()) {
+        if (CurryMod.hackManager.getHack("NoRender").isEnabled() && NoRender.hurt.isEnabled()) {
             ci.cancel();
         }
     }

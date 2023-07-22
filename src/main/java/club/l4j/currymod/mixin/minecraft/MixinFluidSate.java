@@ -1,7 +1,7 @@
 package club.l4j.currymod.mixin.minecraft;
 
 import club.l4j.currymod.CurryMod;
-import club.l4j.currymod.feature.impl.hackimpl.combat.Velocity;
+import club.l4j.currymod.impl.hacks.combat.Velocity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
@@ -16,7 +16,7 @@ public class MixinFluidSate {
 
     @Inject(method = "getVelocity", at = @At("HEAD"), cancellable = true)
     public void getVelocity(BlockView world, BlockPos pos, CallbackInfoReturnable<Vec3d> cir) {
-        if(CurryMod.featureManager.getHack("Velocity").isEnabled() && Velocity.noWaterVel.isEnabled()){
+        if(CurryMod.hackManager.getHack("Velocity").isEnabled() && Velocity.noWaterVel.isEnabled()){
             cir.setReturnValue(Vec3d.ZERO);
         }
     }

@@ -1,7 +1,7 @@
 package club.l4j.currymod.mixin.minecraft;
 
 import club.l4j.currymod.CurryMod;
-import club.l4j.currymod.feature.impl.hackimpl.movement.Timer;
+import club.l4j.currymod.impl.hacks.movement.Timer;
 import net.minecraft.client.render.RenderTickCounter;
 import org.objectweb.asm.Opcodes;
 import org.spongepowered.asm.mixin.Mixin;
@@ -17,7 +17,7 @@ public class MixinRenderTickCounter {
 
     @Inject(method = "beginRenderTick", at = @At(value = "FIELD", target = "Lnet/minecraft/client/render/RenderTickCounter;prevTimeMillis:J", opcode = Opcodes.PUTFIELD))
     public void beginRenderTick(long timeMillis, CallbackInfoReturnable<Integer> ci) {
-        if(CurryMod.featureManager.getHack("Timer").isEnabled()) {
+        if(CurryMod.hackManager.getHack("Timer").isEnabled()) {
             lastFrameDuration *= Timer.speed.getFloatValue();
         }
     }

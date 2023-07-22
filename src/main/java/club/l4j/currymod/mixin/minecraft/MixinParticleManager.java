@@ -1,7 +1,7 @@
 package club.l4j.currymod.mixin.minecraft;
 
 import club.l4j.currymod.CurryMod;
-import club.l4j.currymod.feature.impl.hackimpl.visual.NoRender;
+import club.l4j.currymod.impl.hacks.visual.NoRender;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.client.particle.ParticleManager;
 import org.spongepowered.asm.mixin.Mixin;
@@ -14,7 +14,7 @@ public class MixinParticleManager {
 
     @Inject(method = "addParticle(Lnet/minecraft/client/particle/Particle;)V", at = @At("HEAD"), cancellable = true)
     public void addParticle(Particle particle, CallbackInfo ci) {
-        if(CurryMod.featureManager.getHack("NoRender").isEnabled() && NoRender.particles.isEnabled()) {
+        if(CurryMod.hackManager.getHack("NoRender").isEnabled() && NoRender.particles.isEnabled()) {
             ci.cancel();
         }
     }

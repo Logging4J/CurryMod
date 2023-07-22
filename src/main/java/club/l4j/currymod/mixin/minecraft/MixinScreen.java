@@ -1,7 +1,7 @@
 package club.l4j.currymod.mixin.minecraft;
 
 import club.l4j.currymod.CurryMod;
-import club.l4j.currymod.feature.impl.hackimpl.visual.NoRender;
+import club.l4j.currymod.impl.hacks.visual.NoRender;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
@@ -19,7 +19,7 @@ public class MixinScreen {
 
     @Inject(method = "renderBackground", at = @At("HEAD"), cancellable = true)
     public void renderBackground(DrawContext context, CallbackInfo ci) {
-        if(CurryMod.featureManager.getHack("NoRender").isEnabled() && client.world != null && NoRender.background.isEnabled()){
+        if(CurryMod.hackManager.getHack("NoRender").isEnabled() && client.world != null && NoRender.background.isEnabled()){
             ci.cancel();
         }
     }

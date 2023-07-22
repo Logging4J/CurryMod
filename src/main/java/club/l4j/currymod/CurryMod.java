@@ -1,10 +1,11 @@
 package club.l4j.currymod;
 
-import club.l4j.currymod.event.Events;
-import club.l4j.currymod.feature.FeatureManager;
-import club.l4j.currymod.graphics.hudeditor.element.HudManager;
-import club.l4j.currymod.util.Config;
-import club.l4j.currymod.util.UniColor;
+import club.l4j.currymod.core.event.Events;
+import club.l4j.currymod.core.manager.CommandManager;
+import club.l4j.currymod.core.manager.HackManager;
+import club.l4j.currymod.core.manager.HudManager;
+import club.l4j.currymod.core.util.Config;
+import club.l4j.currymod.core.manager.ColorManager;
 import demo.knight.demobus.DemoBus;
 import net.fabricmc.api.ClientModInitializer;
 import org.apache.logging.log4j.LogManager;
@@ -14,22 +15,23 @@ public class CurryMod implements ClientModInitializer {
 
     public static final String MOD_NAME = "CurryMod.Club";
     public static final String MOD_ID = "currymod";
-    public static final String VERSION = "0.0.7";
+    public static final String VERSION = "0.0.8";
     public static final DemoBus EVENT_BUS = new DemoBus();
     public static final Logger LOGGER = LogManager.getLogger(MOD_NAME);
 
     public static CurryMod getInstance = new CurryMod();
     public static Discord discord = new Discord();
-    public static FeatureManager featureManager;
+    public static HackManager hackManager;
+    public static CommandManager commandManager;
     public static HudManager hudManager;
-    public static UniColor uniColor;
-
+    public static ColorManager colorManager;
     @Override
     public void onInitializeClient() {
         log("CurryMod Initializing");
-        featureManager = new FeatureManager();
+        hackManager = new HackManager();
+        commandManager = new CommandManager();
         hudManager = new HudManager();
-        uniColor = new UniColor();
+        colorManager = new ColorManager();
         discord.start();
         Runtime.getRuntime().addShutdownHook(new Config());
         Config.load();

@@ -1,6 +1,6 @@
 package club.l4j.currymod.mixin.minecraft;
 
-import club.l4j.currymod.util.render.CurryIdentifier;
+import club.l4j.currymod.core.util.render.CurryIdentifier;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.util.Icons;
 import net.minecraft.resource.InputSupplier;

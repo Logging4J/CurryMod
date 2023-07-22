@@ -1,8 +1,8 @@
 package club.l4j.currymod.mixin.minecraft;
 
-import club.l4j.currymod.event.Events;
-import club.l4j.currymod.graphics.spoofgui.SpoofScreen;
-import club.l4j.currymod.util.TextUtil;
+import club.l4j.currymod.core.event.Events;
+import club.l4j.currymod.impl.gui.spoofgui.SpoofScreen;
+import club.l4j.currymod.core.util.TextUtil;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.multiplayer.MultiplayerScreen;
 import net.minecraft.client.gui.widget.ButtonWidget;

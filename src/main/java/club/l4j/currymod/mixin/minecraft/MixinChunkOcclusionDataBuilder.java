@@ -13,7 +13,7 @@ public class MixinChunkOcclusionDataBuilder {
 
     @Inject(method = "markClosed", at = @At("HEAD"), cancellable = true)
     public void markClosed(BlockPos pos, CallbackInfo ci) {
-        if(CurryMod.featureManager.getHack("Xray").isEnabled()){
+        if(CurryMod.hackManager.getHack("Xray").isEnabled()){
             ci.cancel();
         }
     }

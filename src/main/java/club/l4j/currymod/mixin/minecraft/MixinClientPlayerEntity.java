@@ -1,7 +1,7 @@
 package club.l4j.currymod.mixin.minecraft;
 
 import club.l4j.currymod.CurryMod;
-import club.l4j.currymod.event.events.MovementEvent;
+import club.l4j.currymod.core.event.events.MovementEvent;
 import com.mojang.authlib.GameProfile;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.client.network.ClientPlayerEntity;
@@ -40,7 +40,7 @@ public abstract class MixinClientPlayerEntity extends AbstractClientPlayerEntity
 
     @Redirect(method = "tickMovement", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/network/ClientPlayerEntity;isUsingItem()Z"))
     private boolean redirectUsingItem(ClientPlayerEntity player) {
-        if (CurryMod.featureManager.getHack("NoSlow").isEnabled()) {
+        if (CurryMod.hackManager.getHack("NoSlow").isEnabled()) {
             return false;
         }
         return player.isUsingItem();

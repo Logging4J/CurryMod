@@ -1,0 +1,54 @@
+package club.l4j.currymod.impl.gui.clickgui.components;
+
+import club.l4j.currymod.impl.gui.Constants;
+import club.l4j.currymod.impl.gui.clickgui.HackButton;
+import club.l4j.currymod.core.hack.options.Option;
+import net.minecraft.client.gui.DrawContext;
+import org.lwjgl.glfw.GLFW;
+
+public class BindComponent extends Component {
+
+    private boolean binding = false;
+
+    public BindComponent(Option option, HackButton hackButton, int yOffset) {
+        super(option, hackButton, yOffset);
+    }
+
+    @Override
+    public void render(DrawContext context, int mouseX, int mouseY, float delta) {
+        context.fill(hackButton.window.x, hackButton.window.y + hackButton.yOffset + yOffset,hackButton.window.x + Constants.WIDTH,hackButton.window.y + hackButton.yOffset + yOffset + Constants.HEIGHT, Constants.BACKGROUND_COLOR);
+        int scanCode = GLFW.glfwGetKeyScancode(hackButton.hack.getKey());
+        context.drawTextWithShadow(mc.textRenderer, "Bind: " + getBindName(scanCode), hackButton.window.x + 1, hackButton.window.y + hackButton.yOffset + yOffset + 1, -1);
+    }
+
+    @Override
+    public void mouseClicked(double mouseX, double mouseY, int button) {
+        if(hovered((int) mouseX, (int) mouseY)){
+            if(button == 0){
+                binding = !binding;
+            }
+        }
+    }
+
+
+    @Override
+    public void keyPressed(int keyCode, int scanCode, int modifiers) {
+        if(binding){
+            if (keyCode == GLFW.GLFW_KEY_DELETE || keyCode == GLFW.GLFW_KEY_ESCAPE || keyCode == GLFW.GLFW_KEY_BACKSPACE || keyCode == GLFW.GLFW_KEY_UNKNOWN) {
+                hackButton.hack.setKey(GLFW.GLFW_KEY_UNKNOWN);
+            }else{
+                hackButton.hack.setKey(keyCode);
+            }
+            binding = false;
+        }
+    }
+
+    public String getBindName(int code){
+        if(!binding) {
+            if (code == 0) return "NONE";
+            else return GLFW.glfwGetKeyName(hackButton.hack.getKey(), code);
+        }else {
+            return "...";
+        }
+    }
+}

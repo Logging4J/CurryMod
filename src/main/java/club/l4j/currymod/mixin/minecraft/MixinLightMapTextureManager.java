@@ -12,7 +12,7 @@ public class MixinLightMapTextureManager {
 
     @ModifyArgs(method = "update", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/texture/NativeImage;setColor(III)V"))
     private void update(Args args) {
-        if (CurryMod.featureManager.getHack("FullBright").isEnabled()) {
+        if (CurryMod.hackManager.getHack("FullBright").isEnabled()) {
             args.set(2, 0xFFFFFFFF);
         }
     }

@@ -1,7 +1,7 @@
 package club.l4j.currymod.mixin.minecraft;
 
 import club.l4j.currymod.CurryMod;
-import club.l4j.currymod.util.player.PlayerUtil;
+import club.l4j.currymod.core.util.player.PlayerUtil;
 import net.fabricmc.fabric.impl.client.indigo.renderer.render.TerrainRenderContext;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.render.model.BakedModel;
@@ -17,7 +17,7 @@ public class MixinTerrainRenderContext {
 
     @Inject(method = "tessellateBlock", at = @At("HEAD"), cancellable = true)
     public void tessellateBlock(BlockState blockState, BlockPos blockPos, BakedModel model, MatrixStack matrixStack, CallbackInfo ci) {
-        if(CurryMod.featureManager.getHack("Xray").isEnabled()){
+        if(CurryMod.hackManager.getHack("Xray").isEnabled()){
             if(!PlayerUtil.ORE_BLOCKS.contains(blockState.getBlock())){
                 ci.cancel();
                 return;
