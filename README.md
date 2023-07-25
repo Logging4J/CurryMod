@@ -39,3 +39,4 @@ Requirements:
 - Also a Brain except baitpl he dont need a brain
 
 build like other projects :)
+yes
