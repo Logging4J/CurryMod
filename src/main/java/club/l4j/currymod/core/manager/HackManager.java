@@ -53,6 +53,7 @@ public class HackManager implements IGlobals {
         addHack(new AutoTool());
         addHack(new Xray());
         addHack(new XCarry());
+        addHack(new Crits());
     }
 
     public List<Hack> getEnabledHackFeatures() {

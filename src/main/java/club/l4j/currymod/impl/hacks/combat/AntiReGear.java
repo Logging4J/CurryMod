@@ -38,6 +38,7 @@ public class AntiReGear extends Hack {
         if(!targets.isEmpty()){
             for(BlockPos pos : targets){
                 int best = PlayerUtil.getBestAvailableToolSlot(pos);
+
                 mc.player.getInventory().selectedSlot = best;
                 sendPacket(new UpdateSelectedSlotC2SPacket(best));
 
