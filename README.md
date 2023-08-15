@@ -7,7 +7,7 @@ A 1.20.1 Fabric Minecraft Sex Hack straight out of Mumbai India (TUCO APPROVED) 
 
 featuring - qq rat and the boat dupe
 
-#### Discord: https://discord.gg/uWfXEYpq
+(Currently rewriting)
 
 ---
 
