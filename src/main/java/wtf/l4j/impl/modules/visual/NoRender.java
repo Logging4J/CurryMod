@@ -46,7 +46,7 @@ public class NoRender extends Module implements EffectListener {
             if (dark.isEnabled() && potionEvent.getStatusEffect() == StatusEffects.DARKNESS) {
                 potionEvent.setCancelled(true);
             } else if (blind.isEnabled() && potionEvent.getStatusEffect() == StatusEffects.BLINDNESS) {
-                potionEvent.setCancelled();
+                potionEvent.setCancelled(true);
             }
         }
     }
