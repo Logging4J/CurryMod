@@ -1,6 +1,5 @@
 # Currymod.club
 
-[![Discord](https://img.shields.io/discord/1113106989837455550?label=Discord)](https://discord.gg/JPT5F2n6yr)
 [![Downloads](https://img.shields.io/github/downloads/Logging4J/Currymod/total)](https://github.com/Logging4J/CurryMod/releases/)
 
 A 1.20.1 Fabric Minecraft Sex Hack straight out of Mumbai India (TUCO APPROVED) (GONE SEXUAL AT 3AM) (GONE WRONG) (IN DA HOOD) (WITH THE BOYS)
