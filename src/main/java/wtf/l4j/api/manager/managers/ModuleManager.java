@@ -58,6 +58,7 @@ public class ModuleManager {
         modules.add(new CameraClip());
         modules.add(new ChatSuffix());
         modules.add(new GreenText());
+        modules.add(new AntiLevitation());
     }
 
     public Optional<Module> getModule(Class<?> module) {

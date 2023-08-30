@@ -24,6 +24,7 @@
     "mixins.MixinInGameOverlayRenderer",
     "mixins.MixinKeyboard",
     "mixins.MixinLightmapTextureManager",
+    "mixins.MixinLivingEntity",
     "mixins.MixinLogoDrawer",
     "mixins.MixinMinecraftClient",
     "mixins.MixinPlayerListHud",
