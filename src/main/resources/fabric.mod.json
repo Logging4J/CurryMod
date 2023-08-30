@@ -1,31 +1,34 @@
 {
-  "schemaVersion": 1,
-  "id": "currymod",
-  "version": "${version}",
-  "name": "Currymod",
-  "description": "Crazy hack straight out of Mumbai India",
-  "authors": [
-    "Logging4J, Scot"
-  ],
-  "contact": {
-    "homepage": "https://discord.gg/uWfXEYpq",
-    "sources": "https://github.com/Logging4J/CurryMod",
-    "issues": "https://github.com/Logging4J/CurryMod/issues"
-  },
-  "license": "All-Rights-Reserved",
-  "icon": "assets/currymod/logo.png",
-  "environment": "client",
-  "entrypoints": {
-    "client": [
-      "club.l4j.currymod.CurryMod"
-    ]
-  },
-  "mixins": [
-    "currymod.mixins.json"
-  ],
-  "depends": {
-    "fabricloader": ">=0.14.21",
-    "fabric": "*",
-    "minecraft": "1.20.1"
-  }
+	"schemaVersion": 1,
+	"id": "currymod",
+	"version": "0.0.8",
+	"name": "CurryMod",
+	"description": "A 1.20.1 Fabric Minecraft Sex Hack straight out of Mumbai India (TUCO APPROVED) (GONE SEXUAL AT 3AM) (GONE WRONG) (UP MY ASS) (WITH THE BOYS)",
+	"authors": [
+		"Logging4J"
+	],
+	"contact": {
+		"homepage": "https://pornhub.com/",
+		"sources": "https://bigrat.monster"
+	},
+	"license": "CC0-1.0",
+	"icon": "logo.jpg",
+	"environment": "*",
+	"entrypoints": {
+		"client": [
+          "wtf.l4j.CurryMod"
+		]
+	},
+	"mixins": [
+		"currymod.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.14.21",
+		"minecraft": "~1.20.1",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
 }
