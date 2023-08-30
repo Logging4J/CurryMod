@@ -8,7 +8,7 @@ import wtf.l4j.api.module.Category;
 import wtf.l4j.api.module.Module;
 import wtf.l4j.api.module.ModuleInfo;
 import wtf.l4j.api.module.option.options.OptionSlider;
-import wtf.l4j.api.newevent.GameTickListener;
+import wtf.l4j.api.event.GameTickListener;
 
 @ModuleInfo(name = "AutoJQQ", desc = "Log just like jqq >:)", category = Category.MISC)
 public class AutoJQQ extends Module implements GameTickListener {

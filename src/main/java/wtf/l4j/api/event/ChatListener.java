@@ -1,4 +1,4 @@
-package wtf.l4j.api.newevent;
+package wtf.l4j.api.event;
 
 import de.florianmichael.dietrichevents2.CancellableEvent;
 import lombok.Getter;

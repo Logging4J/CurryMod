@@ -5,7 +5,7 @@ import de.florianmichael.dietrichevents2.DietrichEvents2;
 import wtf.l4j.api.module.Category;
 import wtf.l4j.api.module.Module;
 import wtf.l4j.api.module.ModuleInfo;
-import wtf.l4j.api.newevent.ChatListener;
+import wtf.l4j.api.event.ChatListener;
 
 @ModuleInfo(name = "GreenText", desc = "send green chat messages on some servers", category = Category.MISC)
 public class GreenText extends Module implements ChatListener {

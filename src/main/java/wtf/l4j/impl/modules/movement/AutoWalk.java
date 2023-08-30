@@ -6,7 +6,7 @@ import wtf.l4j.api.module.Category;
 import wtf.l4j.api.module.Module;
 import wtf.l4j.api.module.ModuleInfo;
 import wtf.l4j.api.module.option.options.OptionMode;
-import wtf.l4j.api.newevent.GameTickListener;
+import wtf.l4j.api.event.GameTickListener;
 import wtf.l4j.api.utils.text.TextUtil;
 
 @ModuleInfo(name = "AutoWalk", desc = "Automatically Walks :)", category = Category.MOVEMENT)

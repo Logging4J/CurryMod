@@ -14,7 +14,7 @@ import wtf.l4j.api.module.Module;
 import wtf.l4j.api.module.ModuleInfo;
 import wtf.l4j.api.module.option.options.OptionBoolean;
 import wtf.l4j.api.module.option.options.OptionSlider;
-import wtf.l4j.api.newevent.GameTickListener;
+import wtf.l4j.api.event.GameTickListener;
 import wtf.l4j.api.utils.PlayerUtils;
 
 import java.util.ArrayList;

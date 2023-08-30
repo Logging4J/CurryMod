@@ -5,7 +5,6 @@ import lombok.Setter;
 
 import net.minecraft.network.packet.Packet;
 
-import wtf.l4j.api.event.Event;
 import wtf.l4j.api.module.option.Option;
 import wtf.l4j.api.utils.text.ChatHelper;
 import wtf.l4j.api.utils.IGlobals;
@@ -52,6 +51,5 @@ public class Module extends ChatHelper implements IGlobals {
 
     public void onEnable(){}
     public void onDisable(){}
-    public void onEvent(Event e){}
 
 }

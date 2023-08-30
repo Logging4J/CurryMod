@@ -22,12 +22,8 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import wtf.l4j.CurryMod;
-import wtf.l4j.api.event.Type;
-import wtf.l4j.api.event.events.GameTickEvent;
-import wtf.l4j.api.event.events.TickEvent;
 import wtf.l4j.api.manager.Managers;
-import wtf.l4j.api.newevent.GameTickListener;
-import wtf.l4j.api.newevent.PacketListener;
+import wtf.l4j.api.event.GameTickListener;
 import wtf.l4j.impl.modules.client.Colors;
 
 @Mixin(MinecraftClient.class)

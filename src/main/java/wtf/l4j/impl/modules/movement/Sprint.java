@@ -1,14 +1,12 @@
 package wtf.l4j.impl.modules.movement;
 
 import de.florianmichael.dietrichevents2.DietrichEvents2;
-import wtf.l4j.api.event.Event;
-import wtf.l4j.api.event.events.GameTickEvent;
-import wtf.l4j.api.event.events.TickEvent;
+
 import wtf.l4j.api.module.Category;
 import wtf.l4j.api.module.Module;
 import wtf.l4j.api.module.ModuleInfo;
 import wtf.l4j.api.module.option.options.OptionMode;
-import wtf.l4j.api.newevent.GameTickListener;
+import wtf.l4j.api.event.GameTickListener;
 import wtf.l4j.api.utils.MovementUtils;
 import wtf.l4j.api.utils.text.TextUtil;
 

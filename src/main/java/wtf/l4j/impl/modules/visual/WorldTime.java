@@ -8,9 +8,9 @@ import wtf.l4j.api.module.Category;
 import wtf.l4j.api.module.Module;
 import wtf.l4j.api.module.ModuleInfo;
 import wtf.l4j.api.module.option.options.OptionSlider;
-import wtf.l4j.api.newevent.GameTickListener;
-import wtf.l4j.api.newevent.PacketListener;
-import wtf.l4j.api.newevent.Type;
+import wtf.l4j.api.event.GameTickListener;
+import wtf.l4j.api.event.PacketListener;
+import wtf.l4j.api.event.Type;
 import wtf.l4j.api.utils.text.TextUtil;
 
 @ModuleInfo(name = "WorldTime", desc = "Change world time", category = Category.VISUAL)

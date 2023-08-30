@@ -1,8 +1,5 @@
 package wtf.l4j.impl.modules.movement;
 
-import wtf.l4j.api.event.Event;
-import wtf.l4j.api.event.events.GameTickEvent;
-import wtf.l4j.api.event.events.TickEvent;
 import wtf.l4j.api.module.Category;
 import wtf.l4j.api.module.Module;
 import wtf.l4j.api.module.ModuleInfo;

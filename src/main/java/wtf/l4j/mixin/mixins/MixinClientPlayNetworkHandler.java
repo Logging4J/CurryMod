@@ -17,9 +17,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import wtf.l4j.api.manager.managers.CommandManager;
 import wtf.l4j.api.manager.Managers;
-import wtf.l4j.api.newevent.ChatListener;
-import wtf.l4j.api.newevent.PacketListener;
-import wtf.l4j.api.newevent.Type;
+import wtf.l4j.api.event.ChatListener;
+import wtf.l4j.api.event.PacketListener;
+import wtf.l4j.api.event.Type;
 
 import static wtf.l4j.api.utils.text.TextUtil.*;
 

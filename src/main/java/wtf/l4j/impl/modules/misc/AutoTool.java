@@ -8,8 +8,8 @@ import net.minecraft.network.packet.c2s.play.UpdateSelectedSlotC2SPacket;
 import wtf.l4j.api.module.Category;
 import wtf.l4j.api.module.Module;
 import wtf.l4j.api.module.ModuleInfo;
-import wtf.l4j.api.newevent.PacketListener;
-import wtf.l4j.api.newevent.Type;
+import wtf.l4j.api.event.PacketListener;
+import wtf.l4j.api.event.Type;
 import wtf.l4j.api.utils.ItemUtils;
 
 @ModuleInfo(name = "AutoTool", desc = "Best tool for block being broken", category = Category.MISC)

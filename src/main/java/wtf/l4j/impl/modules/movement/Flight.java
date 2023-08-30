@@ -7,7 +7,7 @@ import wtf.l4j.api.module.Module;
 import wtf.l4j.api.module.ModuleInfo;
 import wtf.l4j.api.module.option.options.OptionMode;
 import wtf.l4j.api.module.option.options.OptionSlider;
-import wtf.l4j.api.newevent.GameTickListener;
+import wtf.l4j.api.event.GameTickListener;
 import wtf.l4j.api.utils.text.TextUtil;
 
 @ModuleInfo(name = "Flight", desc = "fly hacky", category = Category.MOVEMENT)

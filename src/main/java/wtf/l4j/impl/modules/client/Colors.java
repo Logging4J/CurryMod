@@ -1,9 +1,5 @@
 package wtf.l4j.impl.modules.client;
 
-import wtf.l4j.api.event.Event;
-import wtf.l4j.api.event.Type;
-import wtf.l4j.api.event.events.TickEvent;
-import wtf.l4j.api.manager.Managers;
 import wtf.l4j.api.module.Category;
 import wtf.l4j.api.module.Module;
 import wtf.l4j.api.module.ModuleInfo;
