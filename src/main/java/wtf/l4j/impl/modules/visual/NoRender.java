@@ -25,7 +25,7 @@ public class NoRender extends Module implements EffectListener {
 
 
     public NoRender(){
-        addOptions(fire, liquid, portal, snow, hurt, pumpkin, fog, potion, dark);
+        addOptions(fire, liquid, portal, snow, hurt, pumpkin, fog, potion, dark, blind);
     }
 
     @Override
