@@ -12,15 +12,16 @@ featuring - qq rat and the boat dupe
 ---
 
 ## Current Release
-- [v0.0.6](https://github.com/Logging4J/CurryMod/releases/)
+- [v0.0.8](https://github.com/Logging4J/CurryMod/releases/)
 
 ---
 
 ## Authors
 
-- [@Logging4J](https://www.github.com/Logging4J)
+- [@logging4J](https://www.github.com/Logging4J)
 - [@justletmehavethisusername](https://www.github.com/justletmehavethisusername)
 - [@baitpl](https://www.github.com/baitpl)
+- [@cixy](https://github.com/Mika1805)
 
 ---
 
