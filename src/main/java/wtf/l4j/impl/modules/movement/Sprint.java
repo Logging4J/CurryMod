@@ -21,13 +21,13 @@ public class Sprint extends Module implements GameTickListener {
 
     @Override
     public void onEnable() {
-        DietrichEvents2.global().subscribe(GameTickListener.GameTickEvent.ID, this);
+        DietrichEvents2.global().subscribe(GameTickEvent.ID, this);
         super.onEnable();
     }
 
     @Override
     public void onDisable() {
-        DietrichEvents2.global().unsubscribe(GameTickListener.GameTickEvent.ID, this);
+        DietrichEvents2.global().unsubscribe(GameTickEvent.ID, this);
         super.onDisable();
     }
 

@@ -21,11 +21,10 @@ public class NoRender extends Module implements EffectListener {
     public static OptionBoolean potion = new OptionBoolean("NoPotionHud", true);
     public static OptionBoolean dark = new OptionBoolean("NoDarkEffect", true);
     public static OptionBoolean blind = new OptionBoolean("NoBlindEffect", true);
-
-
+    public static OptionBoolean nausea = new OptionBoolean("NoNauseaEffect", true);
 
     public NoRender(){
-        addOptions(fire, liquid, portal, snow, hurt, pumpkin, fog, potion, dark, blind);
+        addOptions(fire, liquid, portal, snow, hurt, pumpkin, fog, potion, dark, blind, nausea);
     }
 
     @Override
@@ -46,6 +45,8 @@ public class NoRender extends Module implements EffectListener {
             if (dark.isEnabled() && potionEvent.getStatusEffect() == StatusEffects.DARKNESS) {
                 potionEvent.setCancelled(true);
             } else if (blind.isEnabled() && potionEvent.getStatusEffect() == StatusEffects.BLINDNESS) {
+                potionEvent.setCancelled(true);
+            } else if (nausea.isEnabled() && potionEvent.getStatusEffect() == StatusEffects.NAUSEA) {
                 potionEvent.setCancelled(true);
             }
         }

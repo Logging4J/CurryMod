@@ -3,7 +3,11 @@ package wtf.l4j.api.utils;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import lombok.experimental.UtilityClass;
+import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.entity.Entity;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.GameMode;
 
 import java.io.IOException;
 import java.io.InputStreamReader;

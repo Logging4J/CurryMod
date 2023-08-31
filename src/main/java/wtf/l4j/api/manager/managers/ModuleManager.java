@@ -12,10 +12,8 @@ import wtf.l4j.impl.modules.combat.PlayerModifier;
 import wtf.l4j.impl.modules.crash.IntChatCrash;
 import wtf.l4j.impl.modules.exploit.BoatExecute;
 import wtf.l4j.impl.modules.exploit.ConsoleSpammer;
-import wtf.l4j.impl.modules.misc.AutoJQQ;
-import wtf.l4j.impl.modules.misc.AutoTool;
-import wtf.l4j.impl.modules.misc.ChatSuffix;
-import wtf.l4j.impl.modules.misc.GreenText;
+import wtf.l4j.impl.modules.exploit.XCarry;
+import wtf.l4j.impl.modules.misc.*;
 import wtf.l4j.impl.modules.movement.*;
 import wtf.l4j.impl.modules.visual.*;
 
@@ -59,6 +57,9 @@ public class ModuleManager {
         modules.add(new ChatSuffix());
         modules.add(new GreenText());
         modules.add(new AntiLevitation());
+        modules.add(new AutoRespawn());
+        modules.add(new Spammer());
+        modules.add(new XCarry());
     }
 
     public Optional<Module> getModule(Class<?> module) {

@@ -9,6 +9,7 @@ import wtf.l4j.api.module.Module;
 import wtf.l4j.api.module.ModuleInfo;
 import wtf.l4j.api.module.option.options.OptionSlider;
 import wtf.l4j.api.event.GameTickListener;
+import wtf.l4j.api.utils.text.TextUtil;
 
 @ModuleInfo(name = "AutoJQQ", desc = "Log just like jqq >:)", category = Category.MISC)
 public class AutoJQQ extends Module implements GameTickListener {
@@ -21,13 +22,13 @@ public class AutoJQQ extends Module implements GameTickListener {
 
     @Override
     public void onEnable() {
-        DietrichEvents2.global().subscribe(GameTickListener.GameTickEvent.ID, this);
+        DietrichEvents2.global().subscribe(GameTickEvent.ID, this);
         super.onEnable();
     }
 
     @Override
     public void onDisable() {
-        DietrichEvents2.global().unsubscribe(GameTickListener.GameTickEvent.ID, this);
+        DietrichEvents2.global().unsubscribe(GameTickEvent.ID, this);
         super.onDisable();
     }
 
@@ -39,4 +40,10 @@ public class AutoJQQ extends Module implements GameTickListener {
             toggle();
         }
     }
+
+    @Override
+    public String getContent() {
+        return TextUtil.GRAY +"["+ TextUtil.WHITE +health.getIntValue()+TextUtil.GRAY+"]";
+    }
+
 }
