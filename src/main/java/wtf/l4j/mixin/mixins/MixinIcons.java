@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
-import wtf.l4j.api.utils.CurryIdentifier;
+import wtf.l4j.api.utils.render.CurryIdentifier;
 import wtf.l4j.api.utils.IGlobals;
 
 import java.io.InputStream;

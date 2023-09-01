@@ -60,6 +60,7 @@ public class ModuleManager {
         modules.add(new AutoRespawn());
         modules.add(new Spammer());
         modules.add(new XCarry());
+        modules.add(new StorageESP());
     }
 
     public Optional<Module> getModule(Class<?> module) {

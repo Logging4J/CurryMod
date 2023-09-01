@@ -1,4 +1,4 @@
-package wtf.l4j.api.utils;
+package wtf.l4j.api.utils.render;
 
 import net.minecraft.util.Identifier;
 

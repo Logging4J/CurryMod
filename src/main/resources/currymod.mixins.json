@@ -32,6 +32,7 @@
     "mixins.MixinScreen",
     "mixins.MixinSplashTextResourceSupplier",
     "mixins.MixinTerrainRenderContext",
-    "mixins.MixinTitleScreen"
+    "mixins.MixinTitleScreen",
+    "mixins.MixinWorldRenderer"
   ]
 }

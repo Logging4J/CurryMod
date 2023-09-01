@@ -6,8 +6,13 @@ import lombok.experimental.UtilityClass;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.world.chunk.WorldChunk;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @UtilityClass
 public class BlockUtils implements IGlobals{
@@ -21,4 +26,26 @@ public class BlockUtils implements IGlobals{
             Blocks.NETHER_GOLD_ORE, Blocks.RAW_IRON_BLOCK, Blocks.RAW_COPPER_BLOCK,
             Blocks.RAW_GOLD_BLOCK
     );
+
+    public static List<BlockEntity> getBlockEntities() {
+        return getLoadedChunks().stream()
+                .flatMap(chunk -> chunk.getBlockEntities().values().stream())
+                .collect(Collectors.toList());
+    }
+
+
+    public List<WorldChunk> getLoadedChunks() {
+        List<WorldChunk> chunks = new ArrayList<>();
+        int viewDist = mc.options.getViewDistance().getValue();
+        int playerChunkX = (int) mc.player.getX() / 16;
+        int playerChunkZ = (int) mc.player.getZ() / 16;
+        for (int x = -viewDist; x <= viewDist; x++) {
+            for (int z = -viewDist; z <= viewDist; z++) {
+                WorldChunk chunk = mc.world.getChunkManager().getWorldChunk(playerChunkX + x, playerChunkZ + z);
+                if (chunk != null) chunks.add(chunk);
+            }
+        }
+        return chunks;
+    }
+
 }
