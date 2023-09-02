@@ -4,8 +4,8 @@ import de.florianmichael.dietrichevents2.DietrichEvents2;
 
 import net.minecraft.block.entity.*;
 import net.minecraft.util.math.Box;
+
 import wtf.l4j.api.event.WorldRenderListener;
-import wtf.l4j.api.manager.Managers;
 import wtf.l4j.api.module.Category;
 import wtf.l4j.api.module.Module;
 import wtf.l4j.api.module.ModuleInfo;

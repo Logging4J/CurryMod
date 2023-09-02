@@ -1,3 +1,12 @@
+/*
+*
+* All these quotes for sex script were made in a discord vc the writers will stay anonymous for national security reasons
+*
+* Sincerely Audsis director of the Sex Script in CurryMod
+*https://www.youtube.com/channel/UCcsGAsrN8iAvjH6Y9FWy9XQ
+*
+*/
+
 package wtf.l4j.api.utils.text;
 
 import com.google.common.collect.Sets;
@@ -26,7 +35,8 @@ public class TextUtil {
             "If she a they/them you better leave/them",
             "If she got a dick you better forget about her being a chick",
             "If she a hoe she gota go",
-            "If she a bro that no"
+            "If she a bro that a no",
+            "If her name is Cheerios, you better jack to his videos"
     );
 
 }
