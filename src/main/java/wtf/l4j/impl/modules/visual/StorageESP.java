@@ -9,6 +9,7 @@ import wtf.l4j.api.event.WorldRenderListener;
 import wtf.l4j.api.module.Category;
 import wtf.l4j.api.module.Module;
 import wtf.l4j.api.module.ModuleInfo;
+import wtf.l4j.api.module.option.options.OptionBoolean;
 import wtf.l4j.api.utils.BlockUtils;
 import wtf.l4j.api.utils.render.RenderUtils;
 
@@ -16,6 +17,16 @@ import java.awt.*;
 
 @ModuleInfo(name = "StorageESP", desc = "Highlight storage blocks", category = Category.VISUAL)
 public class StorageESP extends Module implements WorldRenderListener {
+
+    public static OptionBoolean chest = new OptionBoolean("Chest", true);
+    public static OptionBoolean barrel = new OptionBoolean("Barrel", true);
+    public static OptionBoolean enderchest = new OptionBoolean("EnderChest", true);
+    public static OptionBoolean shulkerbox = new OptionBoolean("ShulkerBox", true);
+    public static OptionBoolean furnace = new OptionBoolean("Furnace", true);
+
+    public StorageESP(){
+        addOptions(chest, barrel, enderchest, shulkerbox, furnace);
+    }
 
     @Override
     public void onEnable() {
@@ -33,12 +44,17 @@ public class StorageESP extends Module implements WorldRenderListener {
     public void onRenderWorld(RenderWorldEvent event) {
         for(BlockEntity blockEntity : BlockUtils.getBlockEntities()){
             Box box = new Box(blockEntity.getPos());
-            if(blockEntity instanceof ChestBlockEntity || blockEntity instanceof BarrelBlockEntity){
+            if(blockEntity instanceof ChestBlockEntity && chest.isEnabled()){
                 RenderUtils.draw3DBox(event.getStack(), box, new Color(55, 255, 0, 255), 0.2f);
-            } else if (blockEntity instanceof EnderChestBlockEntity) {
+            } else if (blockEntity instanceof EnderChestBlockEntity && enderchest.isEnabled()) {
                 RenderUtils.draw3DBox(event.getStack(), box, new Color(123, 0, 255, 255), 0.2f);
-            }else if (blockEntity instanceof ShulkerBoxBlockEntity){
+            }else if (blockEntity instanceof ShulkerBoxBlockEntity && shulkerbox.isEnabled()){
+                RenderUtils.draw3DBox(event.getStack(), box, new Color(0, 225, 255, 255), 0.2f);}
+            else if (blockEntity instanceof BarrelBlockEntity && barrel.isEnabled()) {
                 RenderUtils.draw3DBox(event.getStack(), box, new Color(0, 225, 255, 255), 0.2f);
+            }
+            else if (blockEntity instanceof FurnaceBlockEntity && furnace.isEnabled()) {
+                RenderUtils.draw3DBox(event.getStack(), box, new Color(157, 203, 197, 255), 0.2f);
             }
         }
     }
