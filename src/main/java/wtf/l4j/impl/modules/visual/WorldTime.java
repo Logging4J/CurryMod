@@ -45,11 +45,6 @@ public class WorldTime extends Module implements GameTickListener, PacketListene
     }
 
     @Override
-    public String getContent() {
-        return TextUtil.GRAY +"["+ TextUtil.WHITE +time.getIntValue()+TextUtil.GRAY+"]";
-    }
-
-    @Override
     public void onPacket(PacketEvent packetEvent) {
         if(packetEvent.getType() == Type.INCOMING){
             if(packetEvent.getPacket() instanceof WorldTimeUpdateS2CPacket){
@@ -61,4 +56,10 @@ public class WorldTime extends Module implements GameTickListener, PacketListene
             }
         }
     }
+
+    @Override
+    public String getContent() {
+        return TextUtil.GRAY +"["+ TextUtil.WHITE +time.getIntValue()+TextUtil.GRAY+"]";
+    }
+
 }

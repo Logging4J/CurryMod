@@ -42,7 +42,7 @@ public abstract class MixinCamera {
     @Inject(method = "clipToSpace", at = @At("HEAD"), cancellable = true)
     private void onClipToSpace(double desiredCameraDistance, CallbackInfoReturnable<Double> info) {
         if (Managers.getModuleManager().getModule(CameraClip.class).get().isEnabled()) {
-            info.setReturnValue(desiredCameraDistance);
+            info.setReturnValue(CameraClip.distance.getValue());
         }
     }
 
