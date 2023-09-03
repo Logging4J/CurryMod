@@ -61,6 +61,7 @@ public class ModuleManager {
         modules.add(new Spammer());
         modules.add(new XCarry());
         modules.add(new StorageESP());
+        modules.add(new EntityControl());
     }
 
     public Optional<Module> getModule(Class<?> module) {

@@ -8,6 +8,7 @@
   "client": [
     "accessors.PlayerMoveC2SPacketAccessor",
     "mixins.MixinAbstractBlockState",
+    "mixins.MixinAbstractHorseEntity",
     "mixins.MixinBackgroundRenderer",
     "mixins.MixinBlock",
     "mixins.MixinBlockModelRenderer",
@@ -27,10 +28,12 @@
     "mixins.MixinLivingEntity",
     "mixins.MixinLogoDrawer",
     "mixins.MixinMinecraftClient",
+    "mixins.MixinPigEntity",
     "mixins.MixinPlayerListHud",
     "mixins.MixinRenderTickCounter",
     "mixins.MixinScreen",
     "mixins.MixinSplashTextResourceSupplier",
+    "mixins.MixinStriderEntity",
     "mixins.MixinTerrainRenderContext",
     "mixins.MixinTitleScreen",
     "mixins.MixinWorldRenderer"

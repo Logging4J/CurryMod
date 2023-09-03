@@ -2,8 +2,10 @@ package wtf.l4j.api.utils.render;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import lombok.experimental.UtilityClass;
+import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.render.*;
 import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
 import org.joml.Matrix4f;
@@ -20,9 +22,15 @@ public class RenderUtils implements IGlobals {
         GL11.glEnable(GL11.GL_LINE_SMOOTH);
         GL11.glEnable(GL11.GL_CULL_FACE);
         stack.push();
+        RenderSystem.enableBlend();
+        RenderSystem.disableDepthTest();
+
     }
 
     public void end(MatrixStack stack){
+        RenderSystem.enableDepthTest();
+        RenderSystem.disableBlend();
+        RenderSystem.setShaderColor(1, 1, 1, 1);
         stack.pop();
         GL11.glDisable(GL11.GL_LINE_SMOOTH);
     }
@@ -32,8 +40,6 @@ public class RenderUtils implements IGlobals {
         Vec3d camPos = mc.getBlockEntityRenderDispatcher().camera.getPos();
         stack.translate(-camPos.x, -camPos.y, -camPos.z);
         RenderSystem.setShaderColor(((float) color.getRed()), ((float) color.getGreen()), ((float) color.getBlue()), 1.0f);
-        RenderSystem.enableBlend();
-        RenderSystem.disableDepthTest();
 
         Matrix4f matrix = stack.peek().getPositionMatrix();
         Tessellator tessellator = RenderSystem.renderThreadTesselator();
@@ -115,10 +121,6 @@ public class RenderUtils implements IGlobals {
         bufferBuilder.vertex(matrix, (float) box.minX, (float) box.maxY, (float) box.maxZ).next();
         bufferBuilder.vertex(matrix, (float) box.minX, (float) box.maxY, (float) box.minZ).next();
         tessellator.draw();
-        RenderSystem.setShaderColor(1, 1, 1, 1);
-
-        RenderSystem.enableDepthTest();
-        RenderSystem.disableBlend();
         end(stack);
     }
 
