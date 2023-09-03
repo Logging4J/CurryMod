@@ -19,13 +19,13 @@ import wtf.l4j.api.utils.MovementUtils;
 @ModuleInfo(name = "PlayerModifier", desc = "Modify player", category = Category.COMBAT)
 public class PlayerModifier extends Module implements GameTickListener, PacketListener {
 
-    //Hit Velocity for 2b WIP
-    public OptionMode mode = new OptionMode("Mode", "Cancel", "Cancel","2b2t");
+    public static OptionBoolean hit = new OptionBoolean("HitVelo", true);
+    public static OptionBoolean explosion = new OptionBoolean("ExplosionVelo", true);
     public static OptionBoolean push = new OptionBoolean("NoPush", true);
     public static OptionBoolean fastStop = new OptionBoolean("FastStop", true);
 
     public PlayerModifier(){
-        addOptions(push, mode, fastStop);
+        addOptions(push, hit, explosion, fastStop);
     }
 
     @Override
@@ -45,21 +45,17 @@ public class PlayerModifier extends Module implements GameTickListener, PacketLi
     @Override
     public void onGameTick() {
         if(!MovementUtils.isMoving() && fastStop.isEnabled()){
-            mc.player.setVelocity(0, mc.player.getVelocity().y, 0);
+            mc.player.setVelocity(0,mc.player.getVelocity().y,0);
         }
     }
 
     @Override
     public void onPacket(PacketEvent packetEvent) {
         if(packetEvent.getType() == Type.INCOMING){
-            if (packetEvent.getPacket() instanceof ExplosionS2CPacket) {
-                if(mode.isMode("Cancel") || mode.isMode("2b2t")) {
-                    packetEvent.setCancelled(true);
-                }
-            } else if (packetEvent.getPacket() instanceof EntityVelocityUpdateS2CPacket) {
-                if(mode.isMode("Cancel")){
-                    packetEvent.setCancelled(true);
-                }
+            if (packetEvent.getPacket() instanceof ExplosionS2CPacket && explosion.isEnabled()) {
+                packetEvent.setCancelled(true);
+            } else if (packetEvent.getPacket() instanceof EntityVelocityUpdateS2CPacket p && p.getId() == mc.player.getId() && hit.isEnabled()) {
+                packetEvent.setCancelled(true);
             }
         }
     }
