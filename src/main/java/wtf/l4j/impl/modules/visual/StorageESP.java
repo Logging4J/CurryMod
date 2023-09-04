@@ -10,7 +10,7 @@ import wtf.l4j.api.module.Category;
 import wtf.l4j.api.module.Module;
 import wtf.l4j.api.module.ModuleInfo;
 import wtf.l4j.api.module.option.options.OptionBoolean;
-import wtf.l4j.api.utils.BlockUtils;
+import wtf.l4j.api.utils.world.BlockUtils;
 import wtf.l4j.api.utils.render.RenderUtils;
 
 import java.awt.*;
@@ -23,9 +23,11 @@ public class StorageESP extends Module implements WorldRenderListener {
     public static OptionBoolean enderchest = new OptionBoolean("EnderChest", true);
     public static OptionBoolean shulkerbox = new OptionBoolean("ShulkerBox", true);
     public static OptionBoolean furnace = new OptionBoolean("Furnace", true);
+    public static OptionBoolean hopper = new OptionBoolean("Hopper", true);
+
 
     public StorageESP(){
-        addOptions(chest, barrel, enderchest, shulkerbox, furnace);
+        addOptions(chest, barrel, enderchest, shulkerbox, furnace, hopper);
     }
 
     @Override
@@ -52,10 +54,12 @@ public class StorageESP extends Module implements WorldRenderListener {
                 RenderUtils.draw3DBox(event.getStack(), box, new Color(0, 225, 255, 255), 0.2f);}
             else if (blockEntity instanceof BarrelBlockEntity && barrel.isEnabled()) {
                 RenderUtils.draw3DBox(event.getStack(), box, new Color(0, 225, 255, 255), 0.2f);
-            }
-            else if (blockEntity instanceof FurnaceBlockEntity && furnace.isEnabled()) {
+            } else if (blockEntity instanceof FurnaceBlockEntity && furnace.isEnabled()) {
+                RenderUtils.draw3DBox(event.getStack(), box, new Color(157, 203, 197, 255), 0.2f);
+            } else if(blockEntity instanceof HopperBlockEntity && hopper.isEnabled()){
                 RenderUtils.draw3DBox(event.getStack(), box, new Color(157, 203, 197, 255), 0.2f);
             }
+
         }
     }
 }
