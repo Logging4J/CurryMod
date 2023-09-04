@@ -1,4 +1,4 @@
-package wtf.l4j.api.utils;
+package wtf.l4j.api.utils.world;
 
 import com.google.common.collect.Sets;
 
@@ -8,6 +8,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.world.chunk.WorldChunk;
+import wtf.l4j.api.utils.IGlobals;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +16,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 @UtilityClass
-public class BlockUtils implements IGlobals{
+public class BlockUtils implements IGlobals {
 
     public final Set<Block> ORE_BLOCKS = Sets.newHashSet(
             Blocks.COAL_ORE, Blocks.IRON_ORE, Blocks.GOLD_ORE, Blocks.LAPIS_ORE, Blocks.DIAMOND_ORE,
