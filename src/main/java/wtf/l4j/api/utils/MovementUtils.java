@@ -36,20 +36,17 @@ public class MovementUtils implements IGlobals{
     public static double lookDir() {
         float forward = 1F;
         float rotationYaw = mc.player.getYaw();
-
         if (mc.player.input.movementForward < 0F) {
             rotationYaw += 180F;
             forward = -0.5F;
         } else if (mc.player.input.movementForward > 0F) {
             forward = 0.5F;
         }
-
         if (mc.player.input.movementSideways > 0F) {
             rotationYaw -= 90F * forward;
         } else if (mc.player.input.movementSideways < 0F) {
             rotationYaw += 90F * forward;
         }
-
         return Math.toRadians(rotationYaw);
     }
 

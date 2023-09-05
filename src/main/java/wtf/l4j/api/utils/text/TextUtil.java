@@ -36,7 +36,8 @@ public class TextUtil {
             "If she got a dick you better forget about her being a chick",
             "If she a hoe she gota go",
             "If she a bro that a no",
-            "If her name is Cheerios, you better jack to his videos"
+            "If his name is Cheerios, you better jack to his videos",
+            "Fill the crack and never come back"
     );
 
 }

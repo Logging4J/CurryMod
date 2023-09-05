@@ -7,6 +7,7 @@ import lombok.experimental.UtilityClass;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.chunk.WorldChunk;
 import wtf.l4j.api.utils.IGlobals;
 
@@ -47,6 +48,29 @@ public class BlockUtils implements IGlobals {
             }
         }
         return chunks;
+    }
+
+
+    public BlockPos getPlayerPosFloored(){
+        return new BlockPos((int) Math.floor(mc.player.getX()), (int) Math.floor(mc.player.getY()), (int) Math.floor(mc.player.getZ()));
+    }
+
+    public List<BlockPos> getSphere(BlockPos blockPos, float n, int n2, boolean b,  boolean b2, int n3) {
+        final ArrayList<BlockPos> list = new ArrayList<BlockPos>();
+        final int getX = blockPos.getX();
+        final int getY = blockPos.getY();
+        final int getZ = blockPos.getZ();
+        for (int n4 = getX - (int)n; n4 <= getX + n; ++n4) {
+            for (int n5 = getZ - (int)n; n5 <= getZ + n; ++n5) {
+                for (int n6 = b2 ? (getY - (int)n) : getY; n6 < (b2 ? (getY + n) : ((float)(getY + n2))); ++n6) {
+                    final double n7 = (getX - n4) * (getX - n4) + (getZ - n5) * (getZ - n5) + (b2 ? ((getY - n6) * (getY - n6)) : 0);
+                    if (n7 < n * n && (!b || n7 >= (n - 1.0f) * (n - 1.0f))) {
+                        list.add(new BlockPos(n4, n6 + n3, n5));
+                    }
+                }
+            }
+        }
+        return list;
     }
 
 }
