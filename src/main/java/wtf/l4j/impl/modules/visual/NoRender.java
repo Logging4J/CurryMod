@@ -22,9 +22,10 @@ public class NoRender extends Module implements EffectListener {
     public static OptionBoolean dark = new OptionBoolean("NoDarkEffect", true);
     public static OptionBoolean blind = new OptionBoolean("NoBlindEffect", true);
     public static OptionBoolean nausea = new OptionBoolean("NoNauseaEffect", true);
+    public static OptionBoolean arrows = new OptionBoolean("NoArrows", true);
 
     public NoRender(){
-        addOptions(fire, liquid, portal, snow, hurt, pumpkin, fog, potion, dark, blind, nausea);
+        addOptions(fire, liquid, portal, snow, hurt, pumpkin, fog, potion, dark, blind, nausea, arrows);
     }
 
     @Override

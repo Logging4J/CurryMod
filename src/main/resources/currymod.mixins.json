@@ -17,6 +17,7 @@
     "mixins.MixinClientConnection",
     "mixins.MixinClientPlayNetworkHandler",
     "mixins.MixinEntity",
+    "mixins.MixinEntityRenderer",
     "mixins.MixinGameOptions",
     "mixins.MixinGameRenderer",
     "mixins.MixinIcons",
