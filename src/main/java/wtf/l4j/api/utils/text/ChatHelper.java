@@ -14,7 +14,7 @@ public class ChatHelper implements IGlobals {
     }
 
     public void basicMessage(String text){
-        mc.inGameHud.getChatHud().addToMessageHistory(GRAY + "[" + PURPLE +"CurryMod" + GRAY + "] " + WHITE + text);
+        mc.player.sendMessage(Text.of(GRAY + "[" + PURPLE +"CurryMod" + GRAY + "] " + WHITE + text));
     }
 
     public void toggleMessage(Module module){
