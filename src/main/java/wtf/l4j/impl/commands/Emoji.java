@@ -1,8 +1,10 @@
 package wtf.l4j.impl.commands;
 
 import wtf.l4j.api.command.Command;
+import wtf.l4j.api.command.CommandInfo;
 import wtf.l4j.api.utils.text.TextUtil;
 
+@CommandInfo(name = "Emoji", desc = "Emoji", alais = "emoji")
 public class Emoji extends Command {
 
     @Override
