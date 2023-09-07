@@ -4,10 +4,7 @@ import lombok.Getter;
 
 import wtf.l4j.api.command.Command;
 import wtf.l4j.api.utils.text.ChatHelper;
-import wtf.l4j.impl.commands.FakeGM;
-import wtf.l4j.impl.commands.SilentLeave;
-import wtf.l4j.impl.commands.StealSkin;
-import wtf.l4j.impl.commands.UUID;
+import wtf.l4j.impl.commands.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +21,7 @@ public class CommandManager extends ChatHelper {
         commands.add(new SilentLeave());
         commands.add(new StealSkin());
         commands.add(new UUID());
+        commands.add(new Emoji());
     }
 
     public void runCommand(String args) {
