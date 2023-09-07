@@ -19,13 +19,13 @@ featuring - qq rat and the boat dupe
 - [@justletmehavethisusername](https://www.github.com/justletmehavethisusername)
 - [@baitpl](https://www.github.com/baitpl)
 - [@cixy](https://github.com/Mika1805)
-
+- [@cheerios](https://github.com/limping4jamal)
 ---
 
 ## Installation
 
 Requirements:
-- A Brain except baitpl he dont need a brain
+- A Brain except baitpl he dont need a brain (he does need one hes getting fucking booted off)
 
 put in mods folder
 
@@ -34,7 +34,7 @@ put in mods folder
 ## Building
 
 Requirements:
-- Also a Brain except baitpl he dont need a brain
+- Also a Brain except baitpl he dont need a brain (he does need one hes getting fucking booted off)
 
 build like other projects :)
 yes
