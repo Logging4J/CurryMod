@@ -19,7 +19,7 @@ featuring - qq rat and the boat dupe
 - [@justletmehavethisusername](https://www.github.com/justletmehavethisusername)
 - [@baitpl](https://www.github.com/baitpl)
 - [@cixy](https://github.com/Mika1805)
-- [@cheerios](https://github.com/limping4jamal)
+- [@cheerios](https://github.com/limping4jamal) <-- Tuco asked for this
 ---
 
 ## Installation
