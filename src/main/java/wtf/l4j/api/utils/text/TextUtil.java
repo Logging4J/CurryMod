@@ -26,6 +26,7 @@ public class TextUtil {
     public final String WHITE = "§f";
     public final String GREEN = "§a";
     public final String RED = "§c";
+    public final String DARK_RED = "§4";
 
     public final Set<String> SEX_SCRIPT = Sets.newHashSet(
             "Implant the seed and then get the need for speed",

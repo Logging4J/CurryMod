@@ -13,7 +13,7 @@ public class ChatHelper implements IGlobals {
         mc.player.networkHandler.sendChatMessage(message);
     }
 
-    public void basicMessage(String text){
+    public static void basicMessage(String text){
         mc.player.sendMessage(Text.of(GRAY + "[" + PURPLE +"CurryMod" + GRAY + "] " + WHITE + text));
     }
 

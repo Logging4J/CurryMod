@@ -63,6 +63,7 @@ public class ModuleManager {
         modules.add(new StorageESP());
         modules.add(new EntityControl());
         modules.add(new FakePlayer());
+        modules.add(new VisualRange());
     }
 
     public Optional<Module> getModule(Class<?> module) {
