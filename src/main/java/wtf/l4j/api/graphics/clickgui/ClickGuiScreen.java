@@ -7,12 +7,13 @@ import wtf.l4j.CurryMod;
 import wtf.l4j.api.graphics.Constants;
 import wtf.l4j.api.manager.Managers;
 import wtf.l4j.api.module.Category;
+import wtf.l4j.api.utils.IGlobals;
 import wtf.l4j.impl.modules.client.ClickGui;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ClickGuiScreen extends Screen {
+public class ClickGuiScreen extends Screen implements IGlobals {
     List<Window> windows;
 
     public ClickGuiScreen(){
@@ -27,6 +28,7 @@ public class ClickGuiScreen extends Screen {
 
     @Override
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
+        context.fill(0,0,mc.getWindow().getScaledWidth(), mc.getWindow().getScaledHeight(), Integer.MIN_VALUE);
         for (Window w : windows){
             w.render(context,mouseX,mouseY,delta);
             w.updatePosition(mouseX,mouseY);

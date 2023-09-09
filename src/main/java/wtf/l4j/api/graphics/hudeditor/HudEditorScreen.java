@@ -5,9 +5,10 @@ import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.text.Text;
 import wtf.l4j.CurryMod;
 import wtf.l4j.api.manager.Managers;
+import wtf.l4j.api.utils.IGlobals;
 import wtf.l4j.impl.modules.client.HudEditor;
 
-public class HudEditorScreen extends Screen {
+public class HudEditorScreen extends Screen implements IGlobals {
     private Panel panel;
 
     public HudEditorScreen() {
@@ -17,6 +18,7 @@ public class HudEditorScreen extends Screen {
 
     @Override
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
+        context.fill(0,0,mc.getWindow().getScaledWidth(), mc.getWindow().getScaledHeight(), Integer.MIN_VALUE);
         panel.render(context,mouseX,mouseY,delta);
         panel.updatePosition(mouseX,mouseY);
     }
