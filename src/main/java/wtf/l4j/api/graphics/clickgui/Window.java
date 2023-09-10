@@ -41,7 +41,7 @@ public class Window implements IGlobals {
     }
 
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
-        context.fill(x, y, x + WIDTH, y + HEIGHT, Managers.getColorManager().getRGBA());
+        context.fillGradient(x, y, x + WIDTH, y + HEIGHT, Managers.getColorManager().getRGBA(), Managers.getColorManager().getRGBA());
         context.drawTextWithShadow(mc.textRenderer, category.getName(),x + 1, y + 1, -1);
         context.drawTextWithShadow(mc.textRenderer, visible ? "∨" : "∧",x  + WIDTH - 8, y + 1, -1);
 

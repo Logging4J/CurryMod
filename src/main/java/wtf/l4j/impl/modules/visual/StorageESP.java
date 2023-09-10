@@ -24,6 +24,7 @@ public class StorageESP extends Module implements WorldRenderListener {
     public static OptionBoolean shulkerbox = new OptionBoolean("ShulkerBox", true);
     public static OptionBoolean furnace = new OptionBoolean("Furnace", true);
     public static OptionBoolean hopper = new OptionBoolean("Hopper", true);
+    public static OptionBoolean spawner = new OptionBoolean("Spawner", true);
 
 
     public StorageESP(){
@@ -58,6 +59,8 @@ public class StorageESP extends Module implements WorldRenderListener {
                 RenderUtils.draw3DBox(event.getStack(), box, new Color(157, 203, 197, 255), 0.2f);
             } else if(blockEntity instanceof HopperBlockEntity && hopper.isEnabled()){
                 RenderUtils.draw3DBox(event.getStack(), box, new Color(157, 203, 197, 255), 0.2f);
+            } else if(blockEntity instanceof MobSpawnerBlockEntity && spawner.isEnabled()){
+                RenderUtils.draw3DBox(event.getStack(), box, new Color(0, 51, 255, 255), 0.2f);
             }
 
         }

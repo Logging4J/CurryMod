@@ -41,6 +41,7 @@ public class ModuleManager {
         modules.add(new AutoJQQ());
         modules.add(new AutoTool());
         modules.add(new AutoWalk());
+        modules.add(new Blink());
         modules.add(new Flight());
         modules.add(new NoFall());
         modules.add(new NoSlow());
