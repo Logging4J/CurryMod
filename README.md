@@ -9,7 +9,7 @@ featuring - qq rat and the boat dupe
 ---
 
 ## Current Release
-- [v0.0.8](https://github.com/Logging4J/CurryMod/releases/)
+- [v0.0.9](https://github.com/Logging4J/CurryMod/releases/)
 
 ---
 
