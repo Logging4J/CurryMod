@@ -38,14 +38,13 @@ public class Window implements IGlobals {
             modules.add(new ModuleButton(this, module, offset));
             offset += Constants.HEIGHT;
         }
+
     }
 
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
         context.fillGradient(x, y, x + WIDTH, y + HEIGHT, Managers.getColorManager().getRGBA(), Managers.getColorManager().getRGBA());
         context.drawTextWithShadow(mc.textRenderer, category.getName(),x + 1, y + 1, -1);
         context.drawTextWithShadow(mc.textRenderer, visible ? "∨" : "∧",x  + WIDTH - 8, y + 1, -1);
-
-
         if(visible){
             for (ModuleButton moduleButton : modules) {
                 moduleButton.render(context,mouseX,mouseY,delta);

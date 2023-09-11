@@ -64,7 +64,7 @@ public class MixinMinecraftClient {
 
     @ModifyArg(method = "updateWindowTitle", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/util/Window;setTitle(Ljava/lang/String;)V"))
     public String modifyUpdateWindowTitle(String title){
-        return "CurryMod.club v" + CurryMod.VERSION;
+        return "CurryMod.club b" + CurryMod.VERSION + " | BITCOIN MINER EDITION :D";
     }
 
     @Inject(method = "close", at= @At("HEAD"))

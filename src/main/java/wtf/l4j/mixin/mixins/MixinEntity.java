@@ -8,9 +8,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import wtf.l4j.CurryMod;
 import wtf.l4j.api.manager.Managers;
-import wtf.l4j.impl.modules.combat.PlayerModifier;
+import wtf.l4j.impl.modules.combat.Velocity;
 import wtf.l4j.impl.modules.visual.FreeLook;
 
 @Mixin(Entity.class)
@@ -29,7 +28,7 @@ public class MixinEntity {
 
     @Inject(method = "pushAwayFrom", at = @At("HEAD"), cancellable = true)
     public void pushAwayFrom(Entity entity, CallbackInfo ci) {
-        if(Managers.getModuleManager().getModule(PlayerModifier.class).orElseThrow().isEnabled() && PlayerModifier.push.isEnabled()){
+        if(Managers.getModuleManager().getModule(Velocity.class).orElseThrow().isEnabled() && Velocity.push.isEnabled()){
             ci.cancel();
         }
     }

@@ -6,9 +6,9 @@ import wtf.l4j.api.module.Module;
 import wtf.l4j.impl.modules.client.ClickGui;
 import wtf.l4j.impl.modules.client.Colors;
 import wtf.l4j.impl.modules.client.HudEditor;
-import wtf.l4j.impl.modules.combat.CurryAura;
+import wtf.l4j.impl.modules.combat.AutoCrystal;
 import wtf.l4j.impl.modules.combat.KillAura;
-import wtf.l4j.impl.modules.combat.PlayerModifier;
+import wtf.l4j.impl.modules.combat.Velocity;
 import wtf.l4j.impl.modules.crash.IntChatCrash;
 import wtf.l4j.impl.modules.exploit.BoatExecute;
 import wtf.l4j.impl.modules.exploit.ConsoleSpammer;
@@ -32,9 +32,9 @@ public class ModuleManager {
         modules.add(new ClickGui());
         modules.add(new Colors());
         modules.add(new HudEditor());
-        modules.add(new CurryAura());
+        modules.add(new AutoCrystal());
         modules.add(new KillAura());
-        modules.add(new PlayerModifier());
+        modules.add(new Velocity());
         modules.add(new IntChatCrash());
         modules.add(new BoatExecute());
         modules.add(new ConsoleSpammer());
@@ -65,6 +65,7 @@ public class ModuleManager {
         modules.add(new EntityControl());
         modules.add(new FakePlayer());
         modules.add(new VisualRange());
+        modules.add(new FastStop());
     }
 
     public Optional<Module> getModule(Class<?> module) {

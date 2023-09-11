@@ -5,6 +5,7 @@ import com.google.gson.JsonObject;
 import lombok.experimental.UtilityClass;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.client.network.PlayerListEntry;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.GameMode;
@@ -12,6 +13,11 @@ import net.minecraft.world.GameMode;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.util.Collection;
+import java.util.List;
+import java.util.Objects;
+import java.util.Random;
+import java.util.stream.Collectors;
 
 @UtilityClass
 public class PlayerUtils implements IGlobals{
@@ -29,6 +35,17 @@ public class PlayerUtils implements IGlobals{
             e.printStackTrace();
         }
         return null;
+    }
+
+    public static String getRandomOnline() {
+        List<String> validNames = mc.getNetworkHandler().getPlayerList().stream()
+                .map(entry -> entry.getProfile().getName())
+                .filter(name -> !Objects.equals(name, mc.player.getName().getString()))
+                .collect(Collectors.toList());
+
+        int randomIndex = new Random().nextInt(validNames.size());
+
+        return validNames.get(randomIndex);
     }
 
     public float[] getRotationToEntity(Entity target) {

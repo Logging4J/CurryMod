@@ -1,27 +1,22 @@
 package wtf.l4j.impl.modules.combat;
 
 import de.florianmichael.dietrichevents2.DietrichEvents2;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.decoration.EndCrystalEntity;
-import net.minecraft.util.Hand;
 import wtf.l4j.api.event.GameTickListener;
 import wtf.l4j.api.module.Category;
 import wtf.l4j.api.module.Module;
 import wtf.l4j.api.module.ModuleInfo;
 import wtf.l4j.api.module.option.options.OptionSlider;
-import wtf.l4j.api.utils.TimerUtil;
 
 import java.util.Comparator;
-import java.util.List;
-import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
-@ModuleInfo(name = "CurryAura", desc = "Curry Crystal", category = Category.COMBAT)
-public class CurryAura extends Module implements GameTickListener {
+@ModuleInfo(name = "AutoCrystal(WIP)", desc = "Crystal go boob boob", category = Category.COMBAT)
+public class AutoCrystal extends Module implements GameTickListener {
 
     private OptionSlider range = new OptionSlider("Range", 1, 10, 1, 3);
 
-    public CurryAura(){
+    public AutoCrystal(){
         addOptions(range);
     }
 
