@@ -28,7 +28,7 @@ public class StorageESP extends Module implements WorldRenderListener {
 
 
     public StorageESP(){
-        addOptions(chest, barrel, enderchest, shulkerbox, furnace, hopper);
+        addOptions(chest, barrel, enderchest, shulkerbox, furnace, hopper, spawner);
     }
 
     @Override
