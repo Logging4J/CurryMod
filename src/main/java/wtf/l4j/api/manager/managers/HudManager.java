@@ -20,6 +20,7 @@ public class HudManager {
         hudElements.add(new Version());
         hudElements.add(new WaterMark());
         hudElements.add(new XYZ());
+        hudElements.add(new Welcomer());
     }
 
 }
