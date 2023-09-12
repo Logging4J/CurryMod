@@ -21,6 +21,7 @@ public class HudManager {
         hudElements.add(new WaterMark());
         hudElements.add(new XYZ());
         hudElements.add(new Welcomer());
+        hudElements.add(new Direction());
     }
 
 }

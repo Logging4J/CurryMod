@@ -32,6 +32,7 @@ public class AutoTool extends Module implements PacketListener {
         if (packetEvent.getType() == Type.OUTGOING) {
             if (packetEvent.getPacket() instanceof PlayerActionC2SPacket packet) {
                 if (packet.getAction() == PlayerActionC2SPacket.Action.START_DESTROY_BLOCK) {
+                    assert mc.player != null;
                     mc.player.getInventory().selectedSlot = ItemUtils.getBestAvailableToolSlot(packet.getPos());
                     sendPacket(new UpdateSelectedSlotC2SPacket(mc.player.getInventory().selectedSlot));
                 }
