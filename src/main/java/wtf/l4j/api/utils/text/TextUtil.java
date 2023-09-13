@@ -12,6 +12,8 @@ package wtf.l4j.api.utils.text;
 import com.google.common.collect.Sets;
 import lombok.experimental.UtilityClass;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 
 @UtilityClass
@@ -27,6 +29,7 @@ public class TextUtil {
     public final String GREEN = "§a";
     public final String RED = "§c";
     public final String DARK_RED = "§4";
+    public final String YELLOW = "§e";
 
     public final Set<String> SEX_SCRIPT = Sets.newHashSet(
             "Implant the seed and then get the need for speed",

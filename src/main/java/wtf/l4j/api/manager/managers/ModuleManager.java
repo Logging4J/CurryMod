@@ -9,6 +9,7 @@ import wtf.l4j.impl.modules.client.Colors;
 import wtf.l4j.impl.modules.client.HudEditor;
 import wtf.l4j.impl.modules.combat.AutoCrystal;
 import wtf.l4j.impl.modules.combat.KillAura;
+import wtf.l4j.impl.modules.combat.TotemPopCounter;
 import wtf.l4j.impl.modules.combat.Velocity;
 import wtf.l4j.impl.modules.crash.IntChatCrash;
 import wtf.l4j.impl.modules.exploit.BoatExecute;
@@ -37,6 +38,7 @@ public class ModuleManager {
         modules.add(new KillAura());
         modules.add(new Velocity());
         modules.add(new IntChatCrash());
+        modules.add(new TotemPopCounter());
         modules.add(new BoatExecute());
         modules.add(new ConsoleSpammer());
         modules.add(new AutoJQQ());
