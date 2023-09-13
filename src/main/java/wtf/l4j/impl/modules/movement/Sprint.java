@@ -34,10 +34,14 @@ public class Sprint extends Module implements GameTickListener {
     @Override
     public void onGameTick() {
         if (mode.isMode("Rage")) {
+            assert mc.player != null;
             mc.player.setSprinting(true);
         } else {
-            if(MovementUtils.isMoving() && !mc.player.isSneaking()){
-                mc.player.setSprinting(true);
+            if(MovementUtils.isMoving()) {
+                assert mc.player != null;
+                if (!mc.player.isSneaking()) {
+                    mc.player.setSprinting(true);
+                }
             }
         }
     }

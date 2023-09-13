@@ -3,6 +3,7 @@ package wtf.l4j.api.manager.managers;
 import lombok.Getter;
 import wtf.l4j.api.module.Category;
 import wtf.l4j.api.module.Module;
+import wtf.l4j.impl.modules.client.Capes;
 import wtf.l4j.impl.modules.client.ClickGui;
 import wtf.l4j.impl.modules.client.Colors;
 import wtf.l4j.impl.modules.client.HudEditor;
@@ -63,6 +64,7 @@ public class ModuleManager {
         modules.add(new XCarry());
         modules.add(new StorageESP());
         modules.add(new EntityControl());
+        modules.add(new Capes());
         modules.add(new FakePlayer());
         modules.add(new VisualRange());
         modules.add(new FastStop());

@@ -11,6 +11,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import wtf.l4j.api.auth.UserCapes;
+import wtf.l4j.api.manager.Managers;
+import wtf.l4j.impl.modules.client.Capes;
 
 @Mixin(AbstractClientPlayerEntity.class)
 public abstract class MixinAbstractClientPlayerEntity extends PlayerEntity {
@@ -21,11 +23,16 @@ public abstract class MixinAbstractClientPlayerEntity extends PlayerEntity {
 
     @Inject(method = "getCapeTexture", at = @At("HEAD"), cancellable = true)
     private void onGetCapeTexture(CallbackInfoReturnable<Identifier> info) {
-        if(UserCapes.FRIEND_UUIDS.contains(getUuid().toString())){
-            info.setReturnValue(UserCapes.FRIEND_CAPE);
-        }else {
-            info.setReturnValue(UserCapes.NN_CAPE);
+        if (Managers.getModuleManager().getModule(Capes.class).get().isEnabled()) {
+            if (Capes.mode.isMode("friend")) {
+                info.setReturnValue(UserCapes.FRIEND_CAPE);
+            }
+            if (Capes.mode.isMode("nn")) {
+                info.setReturnValue(UserCapes.NN_CAPE);
+            }
+            if (Capes.mode.isMode("wow")) {
+                info.setReturnValue(UserCapes.WOW_CAPE);
+            }
         }
     }
-
 }
