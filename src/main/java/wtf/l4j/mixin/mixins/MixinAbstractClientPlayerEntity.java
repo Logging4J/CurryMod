@@ -24,13 +24,13 @@ public abstract class MixinAbstractClientPlayerEntity extends PlayerEntity {
     @Inject(method = "getCapeTexture", at = @At("HEAD"), cancellable = true)
     private void onGetCapeTexture(CallbackInfoReturnable<Identifier> info) {
         if (Managers.getModuleManager().getModule(Capes.class).get().isEnabled()) {
-            if (Capes.mode.isMode("friend")) {
+            if (Capes.mode.isMode("cape1")) {
                 info.setReturnValue(UserCapes.FRIEND_CAPE);
             }
-            if (Capes.mode.isMode("nn")) {
+            if (Capes.mode.isMode("cape2")) {
                 info.setReturnValue(UserCapes.NN_CAPE);
             }
-            if (Capes.mode.isMode("wow")) {
+            if (Capes.mode.isMode("cape3")) {
                 info.setReturnValue(UserCapes.WOW_CAPE);
             }
         }

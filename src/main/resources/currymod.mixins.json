@@ -16,6 +16,7 @@
     "mixins.MixinCamera",
     "mixins.MixinChunkOcclusionDataBuilder",
     "mixins.MixinClientConnection",
+    "mixins.MixinClientPlayerEntity",
     "mixins.MixinClientPlayNetworkHandler",
     "mixins.MixinClientWorld",
     "mixins.MixinEntity",

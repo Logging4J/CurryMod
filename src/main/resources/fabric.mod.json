@@ -12,9 +12,12 @@
 		"sources": "https://bigrat.monster"
 	},
 	"license": "CC0-1.0",
-	"icon": "logo.jpg",
+	"icon": "assets/currymod/logo.jpg",
 	"environment": "*",
 	"entrypoints": {
+		"preLaunch": [
+			"com.llamalad7.mixinextras.MixinExtrasBootstrap::init"
+		],
 		"client": [
           "wtf.l4j.CurryMod"
 		]

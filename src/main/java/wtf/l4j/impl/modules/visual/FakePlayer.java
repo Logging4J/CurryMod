@@ -19,7 +19,9 @@ public class FakePlayer extends Module {
 
     @Override
     public void onDisable() {
-        fakePlayerEntity.remove();
+        if(fakePlayerEntity != null) {
+            fakePlayerEntity.remove();
+        }
         super.onDisable();
     }
 }

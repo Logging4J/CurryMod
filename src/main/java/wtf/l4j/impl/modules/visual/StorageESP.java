@@ -60,7 +60,7 @@ public class StorageESP extends Module implements WorldRenderListener {
             } else if(blockEntity instanceof HopperBlockEntity && hopper.isEnabled()){
                 RenderUtils.draw3DBox(event.getStack(), box, new Color(157, 203, 197, 255), 0.2f);
             } else if(blockEntity instanceof MobSpawnerBlockEntity && spawner.isEnabled()){
-                RenderUtils.draw3DBox(event.getStack(), box, new Color(0, 51, 255, 255), 0.2f);
+                RenderUtils.draw3DBox(event.getStack(), box, new Color(255, 0, 221, 255), 0.2f);
             }
 
         }

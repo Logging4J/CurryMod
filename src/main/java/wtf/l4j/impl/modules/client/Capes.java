@@ -9,7 +9,7 @@ import wtf.l4j.api.module.option.options.OptionMode;
 
 @ModuleInfo(name = "Capes", desc = "Cosmetic", category = Category.CLIENT)
 public class Capes extends Module {
-    public static OptionMode mode = new OptionMode("cape", "friend", "nn", "friend", "wow");
+    public static OptionMode mode = new OptionMode("cape", "cape1", "cape1", "cape2", "cape3");
 
     public Capes() {
         addOptions(mode);

@@ -4,6 +4,7 @@ import de.florianmichael.dietrichevents2.DietrichEvents2;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.c2s.play.*;
 import wtf.l4j.api.event.PacketListener;
+import wtf.l4j.api.event.Type;
 import wtf.l4j.api.module.Category;
 import wtf.l4j.api.module.ModuleInfo;
 import wtf.l4j.api.module.Module;
@@ -41,13 +42,17 @@ public class Blink extends Module implements PacketListener {
             mc.player.networkHandler.getConnection().send(pack, null);
         }
     }
-    public void onPacket(PacketEvent event) {
-        if (!isEnabled()) {
-            return;
-        }
 
-        if (isPacketDelayed(event.getPacket())) {
-            packetQueue.add(event.getPacket());
+    @Override
+    public void onPacket(PacketEvent event) {
+        if(event.getType() == Type.INCOMING) {
+            if (!isEnabled()) {
+                return;
+            }
+
+            if (isPacketDelayed(event.getPacket())) {
+                packetQueue.add(event.getPacket());
+            }
         }
 
     }

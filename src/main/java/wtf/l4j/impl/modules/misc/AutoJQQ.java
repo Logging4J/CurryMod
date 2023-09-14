@@ -35,7 +35,6 @@ public class AutoJQQ extends Module implements GameTickListener {
 
     @Override
     public void onGameTick() {
-        assert mc.player != null;
         if(mc.player.getHealth() < health.getFloatValue()){
             mc.player.networkHandler.getConnection().disconnect(Text.of("[AutoJQQ] Activated!?!?!?"));
             toggle();

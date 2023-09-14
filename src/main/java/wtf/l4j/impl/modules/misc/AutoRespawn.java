@@ -25,7 +25,6 @@ public class AutoRespawn extends Module implements GameTickListener {
     @Override
     public void onGameTick() {
         if(mc.currentScreen instanceof DeathScreen){
-            assert mc.player != null;
             mc.player.requestRespawn();
         }
     }

@@ -3,6 +3,7 @@ package wtf.l4j.api.module;
 import lombok.Getter;
 import lombok.Setter;
 
+import net.minecraft.data.DataGenerator;
 import net.minecraft.network.packet.Packet;
 
 import wtf.l4j.api.module.option.Option;
@@ -47,6 +48,10 @@ public class Module extends ChatHelper implements IGlobals {
 
     public void sendPacket(Packet<?> p){
         mc.getNetworkHandler().sendPacket(p);
+    }
+
+    public void sendPacketNoEvent(Packet<?> p){
+        mc.getNetworkHandler().getConnection().send(p);
     }
 
     public void onEnable(){}

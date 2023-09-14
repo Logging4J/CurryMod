@@ -9,9 +9,9 @@ import java.util.Set;
 @UtilityClass
 public class UserCapes {
 
-    public final CurryIdentifier FRIEND_CAPE = new CurryIdentifier("textures/cape/friend.png");
-    public final CurryIdentifier NN_CAPE = new CurryIdentifier("textures/cape/nn.png");
-    public final CurryIdentifier WOW_CAPE = new CurryIdentifier("textures/cape/wow.png");
+    public final CurryIdentifier FRIEND_CAPE = new CurryIdentifier("textures/cape/cape1.png");
+    public final CurryIdentifier NN_CAPE = new CurryIdentifier("textures/cape/cape2.png");
+    public final CurryIdentifier WOW_CAPE = new CurryIdentifier("textures/cape/cape3.png");
 
     public final Set<String> FRIEND_UUIDS = Sets.newHashSet(
             "7f0e7596-ddf9-455b-acdb-7bce54a953b3",
