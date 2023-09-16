@@ -70,6 +70,7 @@ public class ModuleManager {
         modules.add(new FakePlayer());
         modules.add(new VisualRange());
         modules.add(new FastStop());
+        modules.add(new ViewLock());
     }
 
     public Optional<Module> getModule(Class<?> module) {
