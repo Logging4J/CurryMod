@@ -3,6 +3,7 @@ package wtf.l4j.api.manager;
 import lombok.Getter;
 import lombok.experimental.UtilityClass;
 import wtf.l4j.api.manager.managers.*;
+import wtf.l4j.api.utils.Config;
 
 @UtilityClass
 public class Managers {

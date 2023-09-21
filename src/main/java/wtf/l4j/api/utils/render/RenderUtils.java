@@ -2,20 +2,18 @@ package wtf.l4j.api.utils.render;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import lombok.experimental.UtilityClass;
-import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.render.*;
 import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
 import org.joml.Matrix4f;
 import org.lwjgl.opengl.GL11;
-import wtf.l4j.api.utils.IGlobals;
+import wtf.l4j.api.utils.MinecraftInterface;
 
 import java.awt.*;
 
 @UtilityClass
-public class RenderUtils implements IGlobals {
+public class RenderUtils implements MinecraftInterface {
 
     public void setup(MatrixStack stack){
         GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);

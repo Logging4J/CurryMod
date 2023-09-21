@@ -4,7 +4,7 @@ import lombok.experimental.UtilityClass;
 import net.minecraft.util.math.MathHelper;
 
 @UtilityClass
-public class MovementUtils implements IGlobals{
+public class MovementUtils implements MinecraftInterface {
 
     public static boolean isMoving() {
         return mc.player.input.movementForward != 0F || mc.player.input.movementSideways != 0F;

@@ -3,24 +3,18 @@ package wtf.l4j.api.utils;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import lombok.experimental.UtilityClass;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.client.network.PlayerListEntry;
 import net.minecraft.entity.Entity;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.GameMode;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
-import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 import java.util.Random;
 import java.util.stream.Collectors;
 
 @UtilityClass
-public class PlayerUtils implements IGlobals{
+public class PlayerUtils implements MinecraftInterface {
 
     public String getUUIDFromName(String name) {
         try{

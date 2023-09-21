@@ -4,9 +4,9 @@ import net.minecraft.client.gui.DrawContext;
 import wtf.l4j.api.graphics.Constants;
 import wtf.l4j.api.hudelement.HudElement;
 import wtf.l4j.api.manager.Managers;
-import wtf.l4j.api.utils.IGlobals;
+import wtf.l4j.api.utils.MinecraftInterface;
 
-public class Button implements IGlobals {
+public class Button implements MinecraftInterface {
 
     public Panel panel;
     public HudElement element;

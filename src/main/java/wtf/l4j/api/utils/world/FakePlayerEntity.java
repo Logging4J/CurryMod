@@ -1,11 +1,11 @@
 package wtf.l4j.api.utils.world;
 
 import net.minecraft.client.network.OtherClientPlayerEntity;
-import wtf.l4j.api.utils.IGlobals;
+import wtf.l4j.api.utils.MinecraftInterface;
 
 import java.util.UUID;
 
-public class FakePlayerEntity extends OtherClientPlayerEntity implements IGlobals {
+public class FakePlayerEntity extends OtherClientPlayerEntity implements MinecraftInterface {
 
     public FakePlayerEntity() {
         super(mc.world, mc.player.getGameProfile());

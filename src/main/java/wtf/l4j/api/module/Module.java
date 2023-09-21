@@ -3,18 +3,17 @@ package wtf.l4j.api.module;
 import lombok.Getter;
 import lombok.Setter;
 
-import net.minecraft.data.DataGenerator;
 import net.minecraft.network.packet.Packet;
 
 import wtf.l4j.api.module.option.Option;
 import wtf.l4j.api.utils.text.ChatHelper;
-import wtf.l4j.api.utils.IGlobals;
+import wtf.l4j.api.utils.MinecraftInterface;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Module extends ChatHelper implements IGlobals {
+public class Module extends ChatHelper implements MinecraftInterface {
 
     private final ModuleInfo module = getClass().getAnnotation(ModuleInfo.class);
     @Getter private List<Option> options = new ArrayList<>();

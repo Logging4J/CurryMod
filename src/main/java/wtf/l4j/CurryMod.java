@@ -20,9 +20,9 @@ public class CurryMod implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
 		discordRP.start();
-		Runtime.getRuntime().addShutdownHook(new Config());
 		Managers.init();
 		Config.load();
+		Runtime.getRuntime().addShutdownHook(new Config());
 	}
 
 	public void shutdown(){

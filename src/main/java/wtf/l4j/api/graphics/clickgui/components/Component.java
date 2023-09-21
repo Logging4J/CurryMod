@@ -4,9 +4,9 @@ import net.minecraft.client.gui.DrawContext;
 import wtf.l4j.api.graphics.Constants;
 import wtf.l4j.api.graphics.clickgui.ModuleButton;
 import wtf.l4j.api.module.option.Option;
-import wtf.l4j.api.utils.IGlobals;
+import wtf.l4j.api.utils.MinecraftInterface;
 
-public class Component implements IGlobals {
+public class Component implements MinecraftInterface {
 
     public Option option;
     public ModuleButton moduleButton;

@@ -2,11 +2,11 @@ package wtf.l4j.api.utils.text;
 
 import net.minecraft.text.Text;
 import wtf.l4j.api.module.Module;
-import wtf.l4j.api.utils.IGlobals;
+import wtf.l4j.api.utils.MinecraftInterface;
 
 import static wtf.l4j.api.utils.text.TextUtil.*;
 
-public class ChatHelper implements IGlobals {
+public class ChatHelper implements MinecraftInterface {
 
     public static void playerMsg(String message) {
         mc.inGameHud.getChatHud().addToMessageHistory(message);

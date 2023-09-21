@@ -22,7 +22,7 @@ public class StealSkin extends Command {
             String uuid = PlayerUtils.getUUIDFromName(name);
             (new Thread(() -> {
                 try (InputStream in = new URL("https://skinmc.net/api/v1/skins/uuid/" + uuid).openStream()) {
-                    Files.copy(in, Paths.get(Config.getSkinPath() + "\\" + uuid + ".jpg"));
+                    Files.copy(in, Paths.get(Config.getStolenSkinsPath() + "\\" + uuid + ".jpg"));
                     basicMessage("Image Saved as " + uuid + ".jpg");
                 } catch (IOException e) {
                     e.printStackTrace();

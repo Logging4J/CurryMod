@@ -6,11 +6,10 @@ import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.util.math.BlockPos;
 
 @UtilityClass
-public class ItemUtils implements IGlobals{
+public class ItemUtils implements MinecraftInterface {
 
     public int getSlot(Item item) {
         int slot = -1;

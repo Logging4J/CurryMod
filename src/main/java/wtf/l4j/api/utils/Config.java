@@ -18,17 +18,18 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-public class Config extends Thread{
+public class Config extends Thread implements MinecraftInterface{
 
-    private static final File mainFolder = new File("CurryMod");
-    @Getter private static final String skinPath = mainFolder.getAbsolutePath() + "/skins";
-    private static final String modulePath = mainFolder.getAbsolutePath() + "/module";
-    private static final String hudPath = mainFolder.getAbsolutePath() + "/hud";
+    private static final File mainFolder = new File(mc.runDirectory,"NoRatRealCurryMod");
+    @Getter private static final File stolenSkinsPath = new File(mainFolder, "StolenSkins");
+    private static final File modulePath = new File(mainFolder, "Module");
+    private static final File hudPath = new File(mainFolder, "Hud");
 
     public static void load(){
-        if ((!new File(skinPath).exists() && !new File(skinPath).mkdirs()) && (!new File(modulePath).exists() && !new File(modulePath).mkdirs()) && (!new File(hudPath).exists() && !new File(hudPath).mkdirs())) {
-            System.out.println("Failed to create CurryMod dir");
-        }
+        if(!mainFolder.exists()) mainFolder.mkdir();
+        if(!stolenSkinsPath.exists()) stolenSkinsPath.mkdir();
+        if(!modulePath.exists()) modulePath.mkdir();
+        if(!hudPath.exists()) hudPath.mkdir();
         loadModules();
         loadHudElements();
     }
@@ -41,7 +42,7 @@ public class Config extends Thread{
 
     private static void loadHudElement(HudElement hudElement) {
         try {
-            Path path = Paths.get(hudPath, hudElement.getName() + ".json");
+            Path path = Paths.get(hudPath.getAbsolutePath(), hudElement.getName() + ".json");
             if (!path.toFile().exists()) return;
             String rawJson = loadFile(path.toFile());
             JsonObject jsonObject = JsonParser.parseString(rawJson).getAsJsonObject();
@@ -66,7 +67,7 @@ public class Config extends Thread{
 
     private static void loadModule(Module module) {
         try {
-            Path path = Paths.get(modulePath, module.getName() + ".json");
+            Path path = Paths.get(modulePath.getAbsolutePath(), module.getName() + ".json");
             if (!path.toFile().exists()) return;
             String rawJson = loadFile(path.toFile());
             JsonObject jsonObject = JsonParser.parseString(rawJson).getAsJsonObject();
@@ -112,6 +113,7 @@ public class Config extends Thread{
     public void save(){
         saveModules();
         saveHudElements();
+
     }
 
 
@@ -129,7 +131,7 @@ public class Config extends Thread{
 
     private static void saveModule(Module module) {
         try {
-            Path path = Paths.get(modulePath, module.getName() + ".json");
+            Path path = Paths.get(modulePath.getAbsolutePath(), module.getName() + ".json");
             createFile(path);
             JsonObject jsonObject = new JsonObject();
             jsonObject.add("Enabled", new JsonPrimitive(module.isEnabled()));
@@ -156,7 +158,7 @@ public class Config extends Thread{
 
     private static void saveHudElement(HudElement h) {
         try {
-            Path path = Paths.get(hudPath, h.getName() + ".json");
+            Path path = Paths.get(hudPath.getAbsolutePath(), h.getName() + ".json");
             createFile(path);
             JsonObject jsonObject = new JsonObject();
             jsonObject.add("Enabled", new JsonPrimitive(h.isEnabled()));

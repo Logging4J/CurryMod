@@ -9,13 +9,13 @@ import wtf.l4j.api.module.option.Option;
 import wtf.l4j.api.module.option.options.OptionBoolean;
 import wtf.l4j.api.module.option.options.OptionMode;
 import wtf.l4j.api.module.option.options.OptionSlider;
-import wtf.l4j.api.utils.IGlobals;
+import wtf.l4j.api.utils.MinecraftInterface;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class ModuleButton implements IGlobals {
+public class ModuleButton implements MinecraftInterface {
 
     List<Component> options;
     public Window window;

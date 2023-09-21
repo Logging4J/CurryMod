@@ -1,16 +1,15 @@
 package wtf.l4j.api.graphics.hudeditor;
 
 import net.minecraft.client.gui.DrawContext;
-import wtf.l4j.CurryMod;
 import wtf.l4j.api.graphics.Constants;
 import wtf.l4j.api.hudelement.HudElement;
 import wtf.l4j.api.manager.Managers;
-import wtf.l4j.api.utils.IGlobals;
+import wtf.l4j.api.utils.MinecraftInterface;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Panel implements IGlobals {
+public class Panel implements MinecraftInterface {
 
     List<Button> elements;
     public int x,y,dragX,dragY;

@@ -4,9 +4,9 @@ import lombok.Getter;
 import lombok.Setter;
 
 import net.minecraft.client.gui.DrawContext;
-import wtf.l4j.api.utils.IGlobals;
+import wtf.l4j.api.utils.MinecraftInterface;
 
-public abstract class HudElement implements IGlobals {
+public abstract class HudElement implements MinecraftInterface {
 
     private final HudElementInfo hudElementInfo = getClass().getAnnotation(HudElementInfo.class);
     @Getter @Setter private String name = hudElementInfo.name();

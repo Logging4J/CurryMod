@@ -2,13 +2,12 @@ package wtf.l4j.api.graphics.clickgui;
 
 import lombok.Getter;
 import net.minecraft.client.gui.DrawContext;
-import wtf.l4j.CurryMod;
 import wtf.l4j.api.graphics.Constants;
 import wtf.l4j.api.graphics.clickgui.components.Component;
 import wtf.l4j.api.manager.Managers;
 import wtf.l4j.api.module.Category;
 import wtf.l4j.api.module.Module;
-import wtf.l4j.api.utils.IGlobals;
+import wtf.l4j.api.utils.MinecraftInterface;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +15,7 @@ import java.util.List;
 import static wtf.l4j.api.graphics.Constants.*;
 
 @Getter
-public class Window implements IGlobals {
+public class Window implements MinecraftInterface {
 
     private List<ModuleButton> modules;
     private Category category;
