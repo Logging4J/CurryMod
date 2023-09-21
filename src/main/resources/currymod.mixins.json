@@ -23,6 +23,7 @@
     "mixins.MixinEntityRenderer",
     "mixins.MixinGameOptions",
     "mixins.MixinGameRenderer",
+    "mixins.MixinHeldItemRenderer",
     "mixins.MixinIcons",
     "mixins.MixinInGameHud",
     "mixins.MixinInGameOverlayRenderer",

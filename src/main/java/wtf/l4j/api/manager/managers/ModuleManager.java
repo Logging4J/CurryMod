@@ -71,6 +71,7 @@ public class ModuleManager {
         modules.add(new VisualRange());
         modules.add(new FastStop());
         modules.add(new ViewLock());
+        modules.add(new ViewModel());
     }
 
     public Optional<Module> getModule(Class<?> module) {
