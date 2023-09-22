@@ -10,16 +10,13 @@ import org.slf4j.LoggerFactory;
 import wtf.l4j.api.manager.*;
 import wtf.l4j.api.utils.Config;
 
-public class CurryMod implements ClientModInitializer{
+public class CurryMod {
 	@Getter private final Logger logger = LoggerFactory.getLogger("currymod");
 	@Getter private Managers managers;
 	private static CurryMod instance;
 
 	private final DiscordRP discordRP = new DiscordRP();
 
-	@Override
-	public void onInitializeClient() {
-	}
 
 	public void startup(){
 		this.discordRP.start();

@@ -19,7 +19,7 @@
 			"com.llamalad7.mixinextras.MixinExtrasBootstrap::init"
 		],
 		"client": [
-          "wtf.l4j.CurryMod"
+          "wtf.l4j.CurryClientModInit"
 		]
 	},
 	"mixins": [
