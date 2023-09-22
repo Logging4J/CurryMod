@@ -3,6 +3,7 @@ package wtf.l4j.api.graphics.clickgui;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.text.Text;
+import wtf.l4j.CurryMod;
 import wtf.l4j.api.graphics.Constants;
 import wtf.l4j.api.manager.Managers;
 import wtf.l4j.api.module.Category;
@@ -27,7 +28,7 @@ public class ClickGuiScreen extends Screen implements MinecraftInterface {
 
     @Override
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
-        context.fillGradient(mc.getWindow().getScaledWidth(),mc.getWindow().getScaledHeight(),0, 0, Managers.getColorManager().getRGBA(), Integer.MIN_VALUE);
+        context.fillGradient(mc.getWindow().getScaledWidth(),mc.getWindow().getScaledHeight(),0, 0, CurryMod.getInstance().getManagers().getColorManager().getRGBA(), Integer.MIN_VALUE);
         for (Window w : windows){
             w.render(context,mouseX,mouseY,delta);
             w.updatePosition(mouseX,mouseY);
@@ -60,7 +61,7 @@ public class ClickGuiScreen extends Screen implements MinecraftInterface {
 
     @Override
     public void close() {
-        Managers.getModuleManager().getModule(ClickGui.class).get().toggle();
+        CurryMod.getInstance().getManagers().getModuleManager().getModule(ClickGui.class).get().toggle();
         super.close();
     }
 

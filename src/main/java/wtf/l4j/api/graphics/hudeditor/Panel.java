@@ -1,6 +1,7 @@
 package wtf.l4j.api.graphics.hudeditor;
 
 import net.minecraft.client.gui.DrawContext;
+import wtf.l4j.CurryMod;
 import wtf.l4j.api.graphics.Constants;
 import wtf.l4j.api.hudelement.HudElement;
 import wtf.l4j.api.manager.Managers;
@@ -25,14 +26,14 @@ public class Panel implements MinecraftInterface {
 
         int offset = Constants.HEIGHT;
 
-        for(HudElement h : Managers.getHudManager().getHudElements()){
+        for(HudElement h : CurryMod.getInstance().getManagers().getHudManager().getHudElements()){
             elements.add(new Button(this,h,offset));
             offset += Constants.HEIGHT;
         }
     }
 
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
-        context.fill(x,y,x + Constants.WIDTH,y + Constants.HEIGHT, Managers.getColorManager().getRGBA());
+        context.fill(x,y,x + Constants.WIDTH,y + Constants.HEIGHT, CurryMod.getInstance().getManagers().getColorManager().getRGBA());
         context.drawTextWithShadow(mc.textRenderer, "Hud Editor",x + 1, y + 1, -1);
         context.drawTextWithShadow(mc.textRenderer, visible ? "∨" : "∧",x  + Constants.WIDTH - 8, y + 1, -1);
         if(visible){

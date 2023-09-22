@@ -1,5 +1,6 @@
 package wtf.l4j;
 
+import lombok.Getter;
 import net.fabricmc.api.ClientModInitializer;
 
 import net.minecraft.client.render.entity.EntityRenderer;
@@ -9,24 +10,34 @@ import org.slf4j.LoggerFactory;
 import wtf.l4j.api.manager.*;
 import wtf.l4j.api.utils.Config;
 
-public class CurryMod implements ClientModInitializer {
+public class CurryMod implements ClientModInitializer{
+	@Getter private final Logger logger = LoggerFactory.getLogger("currymod");
+	@Getter private Managers managers;
+	private static CurryMod instance;
 
-	public static final CurryMod INSTANCE = new CurryMod();
-	public static final String VERSION = "0.0.9";
-	public static final Logger LOGGER = LoggerFactory.getLogger("currymod");
-
-	public DiscordRP discordRP = new DiscordRP();
+	private final DiscordRP discordRP = new DiscordRP();
 
 	@Override
 	public void onInitializeClient() {
-		discordRP.start();
-		Managers.init();
+	}
+
+	public void startup(){
+		this.discordRP.start();
+		managers = new Managers();
 		Config.load();
 		Runtime.getRuntime().addShutdownHook(new Config());
+
 	}
 
 	public void shutdown(){
-		LOGGER.info("Client Shutdown");
-		discordRP.stop();
+		this.logger.info("Client Shutdown");
+		this.discordRP.stop();
+	}
+
+	public static CurryMod getInstance(){
+		if(instance == null){
+			instance = new CurryMod();
+		}
+		return instance;
 	}
 }

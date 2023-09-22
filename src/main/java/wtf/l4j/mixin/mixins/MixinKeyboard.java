@@ -24,7 +24,7 @@ public class MixinKeyboard {
     public void onKey(long window, int key, int scancode, int action, int modifiers, CallbackInfo ci) {
         if(client.currentScreen == null) {
             if (action == GLFW.GLFW_PRESS) {
-                for (Module module : Managers.getModuleManager().getModules()) {
+                for (Module module : CurryMod.getInstance().getManagers().getModuleManager().getModules()) {
                     if (key == module.getKey()) {
                         module.toggle();
                     }

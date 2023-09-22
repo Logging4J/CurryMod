@@ -18,7 +18,7 @@ public class MixinBackgroundRenderer {
 
     @Inject(method = "applyFog", at = @At("TAIL"))
     private static void applyFog(Camera camera, BackgroundRenderer.FogType fogType, float viewDistance, boolean thickFog, float tickDelta, CallbackInfo ci) {
-        if (Managers.getModuleManager().getModule(NoRender.class).orElseThrow().isEnabled() && NoRender.fog.isEnabled()) {
+        if (CurryMod.getInstance().getManagers().getModuleManager().getModule(NoRender.class).orElseThrow().isEnabled() && NoRender.fog.isEnabled()) {
             if (fogType == BackgroundRenderer.FogType.FOG_TERRAIN) {
                 RenderSystem.setShaderFogStart(viewDistance * 4);
                 RenderSystem.setShaderFogEnd(viewDistance * 4.25f);

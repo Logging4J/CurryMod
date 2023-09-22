@@ -5,6 +5,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import wtf.l4j.CurryMod;
 import wtf.l4j.api.manager.Managers;
 import wtf.l4j.impl.modules.misc.EntityControl;
 
@@ -13,7 +14,7 @@ public class MixinPigEntity {
 
     @Inject(method = "isSaddled", at = @At("HEAD"), cancellable = true)
     public void isSaddled(CallbackInfoReturnable<Boolean> cir) {
-        if(Managers.getModuleManager().getModule(EntityControl.class).get().isEnabled()){
+        if(CurryMod.getInstance().getManagers().getModuleManager().getModule(EntityControl.class).get().isEnabled()){
             cir.setReturnValue(true);
         }
     }

@@ -10,6 +10,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import wtf.l4j.CurryMod;
 import wtf.l4j.api.manager.Managers;
 import wtf.l4j.api.utils.world.BlockUtils;
 import wtf.l4j.impl.modules.visual.Xray;
@@ -19,7 +20,7 @@ public class MixinBlock {
 
     @Inject(method = "shouldDrawSide", at = @At("HEAD"), cancellable = true)
     private static void shouldDrawSide(BlockState state, BlockView world, BlockPos pos, Direction side, BlockPos otherPos, CallbackInfoReturnable<Boolean> cir) {
-        if(Managers.getModuleManager().getModule(Xray.class).orElseThrow().isEnabled()){
+        if(CurryMod.getInstance().getManagers().getModuleManager().getModule(Xray.class).orElseThrow().isEnabled()){
             boolean val = BlockUtils.ORE_BLOCKS.contains(state.getBlock());
             cir.setReturnValue(val);
         }

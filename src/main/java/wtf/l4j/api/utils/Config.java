@@ -5,6 +5,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.JsonPrimitive;
 import lombok.Getter;
+import wtf.l4j.CurryMod;
 import wtf.l4j.api.hudelement.HudElement;
 import wtf.l4j.api.manager.Managers;
 import wtf.l4j.api.module.Module;
@@ -35,7 +36,7 @@ public class Config extends Thread implements MinecraftInterface{
     }
 
     private static void loadHudElements() {
-        for (HudElement h : Managers.getHudManager().getHudElements()) {
+        for (HudElement h : CurryMod.getInstance().getManagers().getHudManager().getHudElements()) {
             loadHudElement(h);
         }
     }
@@ -60,7 +61,7 @@ public class Config extends Thread implements MinecraftInterface{
     }
 
     private static void loadModules() {
-        for (Module module : Managers.getModuleManager().getModules()) {
+        for (Module module : CurryMod.getInstance().getManagers().getModuleManager().getModules()) {
             loadModule(module);
         }
     }
@@ -118,13 +119,13 @@ public class Config extends Thread implements MinecraftInterface{
 
 
     private static void saveModules() {
-        for (Module module : Managers.getModuleManager().getModules()) {
+        for (Module module : CurryMod.getInstance().getManagers().getModuleManager().getModules()) {
             saveModule(module);
         }
     }
 
     private static void saveHudElements() {
-        for (HudElement h : Managers.getHudManager().getHudElements()) {
+        for (HudElement h : CurryMod.getInstance().getManagers().getHudManager().getHudElements()) {
             saveHudElement(h);
         }
     }

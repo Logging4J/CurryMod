@@ -2,6 +2,7 @@ package wtf.l4j.api.graphics.clickgui;
 
 import lombok.Getter;
 import net.minecraft.client.gui.DrawContext;
+import wtf.l4j.CurryMod;
 import wtf.l4j.api.graphics.Constants;
 import wtf.l4j.api.graphics.clickgui.components.Component;
 import wtf.l4j.api.manager.Managers;
@@ -33,7 +34,7 @@ public class Window implements MinecraftInterface {
 
         int offset = Constants.HEIGHT;
 
-        for(Module module : Managers.getModuleManager().getModulesInCategory(category).get()){
+        for(Module module : CurryMod.getInstance().getManagers().getModuleManager().getModulesInCategory(category).get()){
             modules.add(new ModuleButton(this, module, offset));
             offset += Constants.HEIGHT;
         }
@@ -41,7 +42,7 @@ public class Window implements MinecraftInterface {
     }
 
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
-        context.fillGradient(x, y, x + WIDTH, y + HEIGHT, Managers.getColorManager().getRGBA(), Managers.getColorManager().getRGBA());
+        context.fillGradient(x, y, x + WIDTH, y + HEIGHT, CurryMod.getInstance().getManagers().getColorManager().getRGBA(), CurryMod.getInstance().getManagers().getColorManager().getRGBA());
 
         context.drawTextWithShadow(mc.textRenderer, category.getName(), WIDTH / 2 - (mc.textRenderer.getWidth(category.name()) / 2) + x, y + 1, -1);
         context.drawTextWithShadow(mc.textRenderer, visible ? "∨" : "∧",x  + WIDTH - 8, y + 1, -1);

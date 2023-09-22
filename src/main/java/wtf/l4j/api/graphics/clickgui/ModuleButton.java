@@ -1,6 +1,7 @@
 package wtf.l4j.api.graphics.clickgui;
 
 import net.minecraft.client.gui.DrawContext;
+import wtf.l4j.CurryMod;
 import wtf.l4j.api.graphics.Constants;
 import wtf.l4j.api.graphics.clickgui.components.*;
 import wtf.l4j.api.manager.Managers;
@@ -12,6 +13,7 @@ import wtf.l4j.api.module.option.options.OptionSlider;
 import wtf.l4j.api.utils.MinecraftInterface;
 
 import java.util.ArrayList;
+import java.util.Currency;
 import java.util.List;
 
 
@@ -52,7 +54,7 @@ public class ModuleButton implements MinecraftInterface {
 
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
         context.fill(window.getX(),window.getY() + yOffset,window.getX() + Constants.WIDTH,window.getY() + yOffset + Constants.HEIGHT, Constants.BACKGROUND_COLOR);
-        context.drawTextWithShadow(mc.textRenderer, module.getName(), window.getX() + 1, window.getY() + yOffset + 1,  module.isEnabled() ? Managers.getColorManager().getRGBA() : -1);
+        context.drawTextWithShadow(mc.textRenderer, module.getName(), window.getX() + 1, window.getY() + yOffset + 1,  module.isEnabled() ? CurryMod.getInstance().getManagers().getColorManager().getRGBA() : -1);
         context.drawTextWithShadow(mc.textRenderer, visible ? "-" : "+", window.getX() +  Constants.WIDTH - 8, window.getY() + yOffset + 1, -1);
         if(visible) {
             for (Component comp : options) {

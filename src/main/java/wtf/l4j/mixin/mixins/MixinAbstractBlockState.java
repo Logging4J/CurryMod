@@ -19,7 +19,7 @@ public class MixinAbstractBlockState {
 
     @Inject(method = "getAmbientOcclusionLightLevel", at = @At("TAIL"), cancellable = true)
     public void getAmbientOcclusionLightLevel(BlockView world, BlockPos pos, CallbackInfoReturnable<Float> cir) {
-        if(Managers.getModuleManager().getModule(Xray.class).orElseThrow().isEnabled()){
+        if(CurryMod.getInstance().getManagers().getModuleManager().getModule(Xray.class).orElseThrow().isEnabled()){
             cir.setReturnValue(1.0f);
         }
     }

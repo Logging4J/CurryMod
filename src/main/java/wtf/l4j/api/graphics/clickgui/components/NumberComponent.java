@@ -1,6 +1,7 @@
 package wtf.l4j.api.graphics.clickgui.components;
 
 import net.minecraft.client.gui.DrawContext;
+import wtf.l4j.CurryMod;
 import wtf.l4j.api.graphics.Constants;
 import wtf.l4j.api.graphics.clickgui.ModuleButton;
 import wtf.l4j.api.manager.Managers;
@@ -33,7 +34,7 @@ public class NumberComponent extends Component{
             }
         }
 
-        context.fill(moduleButton.window.getX(), moduleButton.window.getY() + moduleButton.yOffset + yOffset + Constants.HEIGHT - 1,moduleButton.window.getX() + renderWidth,moduleButton.window.getY() + moduleButton.yOffset + yOffset + Constants.HEIGHT, Managers.getColorManager().getRGBA());
+        context.fill(moduleButton.window.getX(), moduleButton.window.getY() + moduleButton.yOffset + yOffset + Constants.HEIGHT - 1,moduleButton.window.getX() + renderWidth,moduleButton.window.getY() + moduleButton.yOffset + yOffset + Constants.HEIGHT, CurryMod.getInstance().getManagers().getColorManager().getRGBA());
         context.drawTextWithShadow(mc.textRenderer, option.getName() + " : " + roundToPlace(((OptionSlider) option).getValue(),2),moduleButton.window.getX() + 1, moduleButton.window.getY() + moduleButton.yOffset + yOffset + 1, -1);
     }
 

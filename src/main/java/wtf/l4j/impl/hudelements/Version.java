@@ -12,7 +12,7 @@ public class Version extends HudElement {
 
     @Override
     public void onRender(DrawContext context, float tickDelta) {
-        String s = "Version " + TextUtil.GRAY + CurryMod.VERSION;
-        context.drawTextWithShadow(mc.textRenderer, s, mc.getWindow().getScaledWidth() - mc.textRenderer.getWidth(s), mc.getWindow().getScaledHeight() - mc.textRenderer.fontHeight, Managers.getColorManager().getRGBA());
+        String s = "Version " + TextUtil.GRAY + version;
+        context.drawTextWithShadow(mc.textRenderer, s, mc.getWindow().getScaledWidth() - mc.textRenderer.getWidth(s), mc.getWindow().getScaledHeight() - mc.textRenderer.fontHeight, CurryMod.getInstance().getManagers().getColorManager().getRGBA());
     }
 }

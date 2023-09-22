@@ -3,6 +3,7 @@ package wtf.l4j.api.graphics.hudeditor;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.text.Text;
+import wtf.l4j.CurryMod;
 import wtf.l4j.api.manager.Managers;
 import wtf.l4j.api.utils.MinecraftInterface;
 import wtf.l4j.impl.modules.client.HudEditor;
@@ -18,7 +19,7 @@ public class HudEditorScreen extends Screen implements MinecraftInterface {
     @Override
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
         context.fill(0,0,mc.getWindow().getScaledWidth(), mc.getWindow().getScaledHeight(), Integer.MIN_VALUE);
-        context.fillGradient(mc.getWindow().getScaledWidth(),mc.getWindow().getScaledHeight(),0, 0, Managers.getColorManager().getRGBA(), Integer.MIN_VALUE);
+        context.fillGradient(mc.getWindow().getScaledWidth(),mc.getWindow().getScaledHeight(),0, 0, CurryMod.getInstance().getManagers().getColorManager().getRGBA(), Integer.MIN_VALUE);
         panel.render(context,mouseX,mouseY,delta);
         panel.updatePosition(mouseX,mouseY);
     }
@@ -37,7 +38,7 @@ public class HudEditorScreen extends Screen implements MinecraftInterface {
 
     @Override
     public void close() {
-        Managers.getModuleManager().getModule(HudEditor.class).get().toggle();
+        CurryMod.getInstance().getManagers().getModuleManager().getModule(HudEditor.class).get().toggle();
         super.close();
     }
 

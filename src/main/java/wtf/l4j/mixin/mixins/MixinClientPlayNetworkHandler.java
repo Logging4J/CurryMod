@@ -15,16 +15,18 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import wtf.l4j.CurryMod;
 import wtf.l4j.api.manager.managers.CommandManager;
 import wtf.l4j.api.manager.Managers;
 import wtf.l4j.api.event.ChatListener;
 import wtf.l4j.api.event.PacketListener;
 import wtf.l4j.api.event.Type;
+import wtf.l4j.api.utils.ClientInfoInterface;
 
 import static wtf.l4j.api.utils.text.TextUtil.*;
 
 @Mixin(ClientPlayNetworkHandler.class)
-public abstract class MixinClientPlayNetworkHandler {
+public abstract class MixinClientPlayNetworkHandler implements ClientInfoInterface {
 
     @Shadow public abstract void sendChatMessage(String content);
 
@@ -34,7 +36,7 @@ public abstract class MixinClientPlayNetworkHandler {
 
     @Inject(method = "onGameJoin", at = @At("TAIL"))
     public void onGameJoin(GameJoinS2CPacket packet, CallbackInfo ci) {
-        client.player.sendMessage(Text.of(GRAY + "[" + PURPLE +"CurryMod" + GRAY + "] " + WHITE + "Welcome to " + PURPLE + "CurryMod" + WHITE + " the default prefix is " + GREEN + "';'" + WHITE +" and default bind for ClickGui is "+GREEN+"RSHIFT"));
+        client.player.sendMessage(Text.of(GRAY + "[" + PURPLE + clientName + GRAY + "] " + WHITE + "Welcome to " + PURPLE + clientName + WHITE + " the default prefix is " + GREEN + "';'" + WHITE +" and default bind for ClickGui is "+GREEN+"RSHIFT"));
     }
 
     @Inject(method = "sendPacket", at = @At("HEAD"), cancellable = true)
@@ -65,7 +67,7 @@ public abstract class MixinClientPlayNetworkHandler {
             return;
         }
         if(content.startsWith(CommandManager.PREFIX)) {
-            Managers.getCommandManager().runCommand(content);
+            CurryMod.getInstance().getManagers().getCommandManager().runCommand(content);
             client.inGameHud.getChatHud().addToMessageHistory(content);
             ci.cancel();
         }

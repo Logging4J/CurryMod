@@ -10,10 +10,11 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import wtf.l4j.CurryMod;
 import wtf.l4j.api.manager.Managers;
+import wtf.l4j.api.utils.ClientInfoInterface;
 import wtf.l4j.api.utils.text.TextUtil;
 
 @Mixin(TitleScreen.class)
-public class MixinTitleScreen extends Screen {
+public class MixinTitleScreen extends Screen implements ClientInfoInterface {
 
     protected MixinTitleScreen(Text title) {
         super(title);
@@ -21,6 +22,6 @@ public class MixinTitleScreen extends Screen {
 
     @Inject(method = "render", at = @At("TAIL"))
     public void render(DrawContext context, int mouseX, int mouseY, float delta, CallbackInfo cl) {
-        context.drawTextWithShadow(textRenderer, "CurryMod.Club " + TextUtil.WHITE + "b" + CurryMod.VERSION + " By Logging4J :^)", 0, 1, Managers.getColorManager().getRGBA());
+        context.drawTextWithShadow(textRenderer, clientName + " " + TextUtil.WHITE + "b" + version + " By Logging4J :^)", 0, 1, CurryMod.getInstance().getManagers().getColorManager().getRGBA());
     }
 }

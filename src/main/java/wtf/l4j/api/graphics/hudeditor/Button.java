@@ -1,6 +1,7 @@
 package wtf.l4j.api.graphics.hudeditor;
 
 import net.minecraft.client.gui.DrawContext;
+import wtf.l4j.CurryMod;
 import wtf.l4j.api.graphics.Constants;
 import wtf.l4j.api.hudelement.HudElement;
 import wtf.l4j.api.manager.Managers;
@@ -22,7 +23,7 @@ public class Button implements MinecraftInterface {
 
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
         context.fill(panel.x, panel.y + yOffset, panel.x + Constants.WIDTH, panel.y + yOffset + Constants.HEIGHT, Constants.BACKGROUND_COLOR);
-        context.drawTextWithShadow(mc.textRenderer, element.getName(), panel.x + 1, panel.y + yOffset + 1, element.isEnabled() ? Managers.getColorManager().getRGBA() : -1);
+        context.drawTextWithShadow(mc.textRenderer, element.getName(), panel.x + 1, panel.y + yOffset + 1, element.isEnabled() ? CurryMod.getInstance().getManagers().getColorManager().getRGBA() : -1);
         context.drawTextWithShadow(mc.textRenderer, visible ? "-" : "+", panel.x + Constants.WIDTH - 8, panel.y + yOffset + 1, -1);
     }
 

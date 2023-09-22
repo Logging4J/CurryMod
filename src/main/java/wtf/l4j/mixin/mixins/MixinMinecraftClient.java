@@ -24,10 +24,11 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import wtf.l4j.CurryMod;
 import wtf.l4j.api.manager.Managers;
 import wtf.l4j.api.event.GameTickListener;
+import wtf.l4j.api.utils.ClientInfoInterface;
 import wtf.l4j.impl.modules.client.Colors;
 
 @Mixin(MinecraftClient.class)
-public class MixinMinecraftClient {
+public class MixinMinecraftClient implements ClientInfoInterface {
     @Shadow @Final private Window window;
 
     @Shadow @Final private DefaultResourcePack defaultResourcePack;
@@ -43,10 +44,10 @@ public class MixinMinecraftClient {
             DietrichEvents2.global().postInternal(GameTickListener.GameTickEvent.ID, new GameTickListener.GameTickEvent());
             //@formatter:on
         }
-        if(Managers.getModuleManager().getModule(Colors.class).orElseThrow().isEnabled()) {
-            Managers.getColorManager().setRed(Colors.red.getIntValue());
-            Managers.getColorManager().setGreen(Colors.green.getIntValue());
-            Managers.getColorManager().setBlue(Colors.blue.getIntValue());
+        if(CurryMod.getInstance().getManagers().getModuleManager().getModule(Colors.class).orElseThrow().isEnabled()) {
+            CurryMod.getInstance().getManagers().getColorManager().setRed(Colors.red.getIntValue());
+            CurryMod.getInstance().getManagers().getColorManager().setGreen(Colors.green.getIntValue());
+            CurryMod.getInstance().getManagers().getColorManager().setBlue(Colors.blue.getIntValue());
         }
     }
 
@@ -55,21 +56,22 @@ public class MixinMinecraftClient {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void init1(RunArgs args, CallbackInfo ci) {
+        CurryMod.getInstance().startup();
         try {
             window.setIcon(defaultResourcePack, SharedConstants.getGameVersion().isStable() ? Icons.RELEASE : Icons.SNAPSHOT);
         } catch (Exception e) {
-            CurryMod.LOGGER.error("Couldn't set icon", e);
+            CurryMod.getInstance().getLogger().error("Couldn't set icon", e);
         }
     }
 
     @ModifyArg(method = "updateWindowTitle", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/util/Window;setTitle(Ljava/lang/String;)V"))
     public String modifyUpdateWindowTitle(String title){
-        return "CurryMod.club b" + CurryMod.VERSION + " | BITCOIN MINER EDITION :D";
+        return "CurryMod.club b" + version + " | BITCOIN MINER EDITION :D";
     }
 
     @Inject(method = "close", at= @At("HEAD"))
     public void close(CallbackInfo ci) {
-        CurryMod.INSTANCE.shutdown();
+        CurryMod.getInstance().shutdown();
     }
 
 }

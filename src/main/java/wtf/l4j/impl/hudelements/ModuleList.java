@@ -18,14 +18,14 @@ public class ModuleList extends HudElement {
     @Override
     public void onRender(DrawContext context, float tickDelta) {
         ArrayList<String> list = new ArrayList<>();
-        for (Module module : Managers.getModuleManager().getEnabledModules().get()) {
+        for (Module module : CurryMod.getInstance().getManagers().getModuleManager().getEnabledModules().get()) {
             list.add(module.getName() + (module.getContent() != null ? " " + TextUtil.WHITE + module.getContent() : ""));
         }
         list.sort(Comparator.comparingInt(mc.textRenderer::getWidth));
         Collections.reverse(list);
         int y = 2;
         for (final String name : list) {
-            context.drawTextWithShadow(mc.textRenderer, name, (mc.getWindow().getScaledWidth() - mc.textRenderer.getWidth(name)) - 1, y + 2, Managers.getColorManager().getRGBA());
+            context.drawTextWithShadow(mc.textRenderer, name, (mc.getWindow().getScaledWidth() - mc.textRenderer.getWidth(name)) - 1, y + 2, CurryMod.getInstance().getManagers().getColorManager().getRGBA());
             y += 10;
         }
     }

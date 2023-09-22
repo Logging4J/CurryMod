@@ -12,6 +12,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import wtf.l4j.CurryMod;
 import wtf.l4j.api.manager.Managers;
 import wtf.l4j.api.utils.text.ChatHelper;
 import wtf.l4j.impl.modules.misc.VisualRange;
@@ -25,7 +26,7 @@ public abstract class MixinClientWorld {
 
     @Inject(method = "addEntityPrivate", at = @At("HEAD"))
     private void addEntityPrivate(int id, Entity entity, CallbackInfo ci) {
-        if(Managers.getModuleManager().getModule(VisualRange.class).get().isEnabled()){
+        if(CurryMod.getInstance().getManagers().getModuleManager().getModule(VisualRange.class).get().isEnabled()){
             if(entity instanceof PlayerEntity && entity != client.player){
                 ChatHelper.basicMessage(GRAY + "[" + DARK_RED + "WARNING" + GRAY + "] "+ WHITE + entity.getName().getString() + " has entered your visual range");
             }
