@@ -31,8 +31,8 @@ public class MixinLivingEntity {
             cir.setReturnValue(false);
         }
     }
-    @Inject(method = "onDeath", at = @At("HEAD"))
-    public void death(DamageSource damageSource, CallbackInfo ci) {
+    @Inject(method = "onDeath", at = @At("HEAD"), cancellable = true)
+    public void onDeath(DamageSource damageSource, CallbackInfo ci) {
         DeathListener.LivingDeathEvent deathEvent = new DeathListener.LivingDeathEvent(entity, damageSource);
         //@formatter:off
         DietrichEvents2.global().postInternal(DeathListener.LivingDeathEvent.ID, deathEvent);
