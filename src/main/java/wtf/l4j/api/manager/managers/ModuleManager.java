@@ -14,6 +14,7 @@ import wtf.l4j.impl.modules.combat.Velocity;
 import wtf.l4j.impl.modules.crash.IntChatCrash;
 import wtf.l4j.impl.modules.exploit.BoatExecute;
 import wtf.l4j.impl.modules.exploit.ConsoleSpammer;
+import wtf.l4j.impl.modules.exploit.PacketCanceller;
 import wtf.l4j.impl.modules.exploit.XCarry;
 import wtf.l4j.impl.modules.misc.*;
 import wtf.l4j.impl.modules.movement.*;
@@ -72,6 +73,7 @@ public class ModuleManager {
         modules.add(new FastStop());
         modules.add(new ViewLock());
         modules.add(new ViewModel());
+        modules.add(new PacketCanceller());
     }
 
     public Optional<Module> getModule(Class<?> module) {
