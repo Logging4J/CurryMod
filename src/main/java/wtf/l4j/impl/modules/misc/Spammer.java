@@ -16,14 +16,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+//TODO: Finish Spammer
 @ModuleInfo(name = "Spammer", desc = "Spam stuff", category = Category.MISC)
 public class Spammer extends Module implements GameTickListener {
 
     private OptionSlider delay = new OptionSlider("Delay",0 ,10000 ,10 ,9000);
+    private OptionMode mode = new OptionMode("Mode", "SexScript", "SexScript", "SpikeStinger");
     private TimerUtil timer = new TimerUtil();
 
     public Spammer(){
-        addOptions(delay);
+        addOptions(delay, mode);
     }
 
     @Override
@@ -41,10 +43,17 @@ public class Spammer extends Module implements GameTickListener {
     @Override
     public void onGameTick() {
         if(timer.passedMs(delay.getValue())){
-            List<String> phrases = new ArrayList<>(TextUtil.SEX_SCRIPT);
-            String randomPhrase = phrases.get(new Random().nextInt(phrases.size()));
-            playerMsg(randomPhrase);
-            timer.reset();
+            if(mode.isMode("SexScript")) {
+                List<String> phrases = new ArrayList<>(TextUtil.SEX_SCRIPT);
+                String randomPhrase = phrases.get(new Random().nextInt(phrases.size()));
+                playerMsg(randomPhrase);
+            }
         }
     }
+
+    @Override
+    public String getContent() {
+        return TextUtil.GRAY +"["+ TextUtil.WHITE + mode.getMode() + TextUtil.GRAY+"]";
+    }
+
 }
