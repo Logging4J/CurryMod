@@ -2,6 +2,7 @@ package wtf.l4j.impl.modules.combat;
 
 import de.florianmichael.dietrichevents2.DietrichEvents2;
 
+import net.minecraft.network.packet.c2s.common.KeepAliveC2SPacket;
 import net.minecraft.network.packet.s2c.play.EntityVelocityUpdateS2CPacket;
 import net.minecraft.network.packet.s2c.play.ExplosionS2CPacket;
 
@@ -48,10 +49,10 @@ public class Velocity extends Module implements PacketListener {
                     }
                 }
             }
-            /*if (packetEvent.getPacket() instanceof PlayPingS2CPacket && grimTicks > 0 && mode.isMode("OldGrim")) {
+            if (packetEvent.getPacket() instanceof KeepAliveC2SPacket && grimTicks > 0 && mode.isMode("OldGrim")) {
                 packetEvent.cancel();
                 grimTicks--;
-            }*/
+            }
             if(packetEvent.getPacket() instanceof ExplosionS2CPacket){
                 packetEvent.cancel();
             }
