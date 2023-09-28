@@ -22,32 +22,21 @@ import wtf.l4j.api.event.ChatListener;
 import wtf.l4j.api.event.PacketListener;
 import wtf.l4j.api.event.Type;
 import wtf.l4j.api.utils.ClientInfoInterface;
+import wtf.l4j.api.utils.MinecraftInterface;
 
 import static wtf.l4j.api.utils.text.TextUtil.*;
 
 @Mixin(ClientPlayNetworkHandler.class)
-public abstract class MixinClientPlayNetworkHandler implements ClientInfoInterface {
+public abstract class MixinClientPlayNetworkHandler implements ClientInfoInterface, MinecraftInterface {
 
     @Shadow public abstract void sendChatMessage(String content);
 
-    @Shadow @Final private MinecraftClient client;
 
     @Unique private boolean ignoreMsg;
 
     @Inject(method = "onGameJoin", at = @At("TAIL"))
     public void onGameJoin(GameJoinS2CPacket packet, CallbackInfo ci) {
-        client.player.sendMessage(Text.of(GRAY + "[" + PURPLE + clientName + GRAY + "] " + WHITE + "Welcome to " + PURPLE + clientName + WHITE + " the default prefix is " + GREEN + "';'" + WHITE +" and default bind for ClickGui is "+GREEN+"RSHIFT"));
-    }
-
-    @Inject(method = "sendPacket", at = @At("HEAD"), cancellable = true)
-    private void onSendPacket(Packet<?> packet, CallbackInfo ci){
-        PacketListener.PacketEvent packetEvent = new PacketListener.PacketEvent(packet, Type.OUTGOING);
-        //@formatter:off
-        DietrichEvents2.global().postInternal(PacketListener.PacketEvent.ID, packetEvent);
-        //@formatter:on
-        if(packetEvent.isCancelled()){
-            ci.cancel();
-        }
+        mc.player.sendMessage(Text.of(GRAY + "[" + PURPLE + clientName + GRAY + "] " + WHITE + "Welcome to " + PURPLE + clientName + WHITE + " the default prefix is " + GREEN + "';'" + WHITE +" and default bind for ClickGui is "+GREEN+"RSHIFT"));
     }
 
     @Inject(method = "sendChatMessage", at = @At("HEAD"), cancellable = true)
@@ -68,7 +57,7 @@ public abstract class MixinClientPlayNetworkHandler implements ClientInfoInterfa
         }
         if(content.startsWith(CommandManager.PREFIX)) {
             CurryMod.getInstance().getManagers().getCommandManager().runCommand(content);
-            client.inGameHud.getChatHud().addToMessageHistory(content);
+            mc.inGameHud.getChatHud().addToMessageHistory(content);
             ci.cancel();
         }
     }

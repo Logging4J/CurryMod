@@ -17,10 +17,12 @@ public class FakePlayerEntity extends OtherClientPlayerEntity implements Minecra
 
     public void add() {
         unsetRemoved();
-        mc.world.addEntity(this.getId(), this);
+        assert mc.world != null;
+        mc.world.addEntity(this);
     }
 
     public void remove() {
+        assert mc.world != null;
         mc.world.removeEntity(this.getId(), RemovalReason.DISCARDED);
     }
 

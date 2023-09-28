@@ -21,7 +21,7 @@ dependencies {
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-    include(implementation("com.github.FlorianMichael:DietrichEvents2:v1.0.2"))
+    include(implementation("com.github.FlorianMichael:DietrichEvents2:v1.0.3"))
     include(implementation("com.github.MinnDevelopment:java-discord-rpc:v2.0.2"))
     include(implementation("club.minnced:discord-rpc-release:v3.4.0"))
     include(implementation("com.github.LlamaLad7.MixinExtras:mixinextras-fabric:0.2.0-rc.2"))

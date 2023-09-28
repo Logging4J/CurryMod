@@ -5,7 +5,6 @@ import de.florianmichael.dietrichevents2.DietrichEvents2;
 import net.minecraft.network.packet.s2c.play.EntityVelocityUpdateS2CPacket;
 import net.minecraft.network.packet.s2c.play.ExplosionS2CPacket;
 
-import net.minecraft.network.packet.s2c.play.PlayPingS2CPacket;
 import wtf.l4j.api.module.Category;
 import wtf.l4j.api.module.Module;
 import wtf.l4j.api.module.ModuleInfo;
@@ -49,10 +48,10 @@ public class Velocity extends Module implements PacketListener {
                     }
                 }
             }
-            if (packetEvent.getPacket() instanceof PlayPingS2CPacket && grimTicks > 0 && mode.isMode("OldGrim")) {
+            /*if (packetEvent.getPacket() instanceof PlayPingS2CPacket && grimTicks > 0 && mode.isMode("OldGrim")) {
                 packetEvent.cancel();
                 grimTicks--;
-            }
+            }*/
             if(packetEvent.getPacket() instanceof ExplosionS2CPacket){
                 packetEvent.cancel();
             }

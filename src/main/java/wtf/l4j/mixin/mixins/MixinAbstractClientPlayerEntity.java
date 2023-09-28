@@ -21,8 +21,9 @@ public abstract class MixinAbstractClientPlayerEntity extends PlayerEntity {
     public MixinAbstractClientPlayerEntity(World world, BlockPos pos, float yaw, GameProfile gameProfile) {
         super(world, pos, yaw, gameProfile);
     }
+    //TODO: Fuck Mojang for moving everything including capes
 
-    @Inject(method = "getCapeTexture", at = @At("HEAD"), cancellable = true)
+    /*@Inject(method = "getCapeTexture", at = @At("HEAD"), cancellable = true)
     private void onGetCapeTexture(CallbackInfoReturnable<Identifier> info) {
         if (CurryMod.getInstance().getManagers().getModuleManager().getModule(Capes.class).get().isEnabled()) {
             if (Capes.mode.isMode("cape1")) {
@@ -35,5 +36,5 @@ public abstract class MixinAbstractClientPlayerEntity extends PlayerEntity {
                 info.setReturnValue(UserCapes.WOW_CAPE);
             }
         }
-    }
+    }*/
 }
