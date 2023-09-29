@@ -1,9 +1,9 @@
 {
 	"schemaVersion": 1,
 	"id": "currymod",
-	"version": "0.0.9",
+	"version": "0.1.0",
 	"name": "CurryMod",
-	"description": "A 1.20.1 Fabric Minecraft Sex Hack straight out of Mumbai India (TUCO APPROVED) (GONE SEXUAL AT 3AM) (GONE WRONG) (UP MY ASS) (WITH THE BOYS)",
+	"description": "A 1.20.2 Fabric Minecraft Sex Hack straight out of Mumbai India (TUCO APPROVED) (GONE SEXUAL AT 3AM) (GONE WRONG) (UP MY ASS) (WITH THE BOYS)",
 	"authors": [
 		"Logging4J"
 	],
@@ -27,7 +27,7 @@
 	],
 	"depends": {
 		"fabricloader": ">=0.14.21",
-		"minecraft": "~1.20.1",
+		"minecraft": "~1.20.2",
 		"java": ">=17",
 		"fabric-api": "*"
 	},
