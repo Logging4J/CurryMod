@@ -30,9 +30,18 @@ import static wtf.l4j.api.utils.text.TextUtil.*;
 public abstract class MixinClientPlayNetworkHandler implements ClientInfoInterface, MinecraftInterface {
 
     @Shadow public abstract void sendChatMessage(String content);
-
-
     @Unique private boolean ignoreMsg;
+
+    @Inject(method = "sendPacket(Lnet/minecraft/network/packet/Packet;)V", at = @At("HEAD"), cancellable = true)
+    public void sendPacket(Packet<?> packet, CallbackInfo ci){
+        PacketListener.PacketEvent packetEvent = new PacketListener.PacketEvent(packet, Type.OUTGOING);
+        //@formatter:off
+        DietrichEvents2.global().postInternal(PacketListener.PacketEvent.ID, packetEvent);
+        //@formatter:on
+        if(packetEvent.isCancelled()){
+            ci.cancel();
+        }
+    }
 
     @Inject(method = "onGameJoin", at = @At("TAIL"))
     public void onGameJoin(GameJoinS2CPacket packet, CallbackInfo ci) {

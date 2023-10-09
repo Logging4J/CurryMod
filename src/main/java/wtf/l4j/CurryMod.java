@@ -11,6 +11,7 @@ import wtf.l4j.api.manager.*;
 import wtf.l4j.api.utils.Config;
 
 public class CurryMod {
+
 	@Getter private final Logger logger = LoggerFactory.getLogger("currymod");
 	@Getter private Managers managers;
 	private static CurryMod instance;
