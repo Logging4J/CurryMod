@@ -7,7 +7,9 @@ import lombok.experimental.UtilityClass;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.entity.Entity;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.chunk.WorldChunk;
 import wtf.l4j.api.utils.MinecraftInterface;
 
@@ -51,8 +53,8 @@ public class BlockUtils implements MinecraftInterface {
     }
 
 
-    public BlockPos getPlayerPosFloored(){
-        return new BlockPos((int) Math.floor(mc.player.getX()), (int) Math.floor(mc.player.getY()), (int) Math.floor(mc.player.getZ()));
+    public BlockPos getPosFloored(Entity entity){
+        return new BlockPos((int) Math.floor(entity.getX()), (int) Math.floor(entity.getY()), (int) Math.floor(entity.getZ()));
     }
 
     public List<BlockPos> getSphere(BlockPos blockPos, float n, int n2, boolean b,  boolean b2, int n3) {

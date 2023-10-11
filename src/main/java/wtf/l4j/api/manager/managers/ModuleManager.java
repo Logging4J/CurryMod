@@ -9,10 +9,7 @@ import wtf.l4j.impl.modules.combat.KillAura;
 import wtf.l4j.impl.modules.combat.TotemPopCounter;
 import wtf.l4j.impl.modules.combat.Velocity;
 import wtf.l4j.impl.modules.crash.IntChatCrash;
-import wtf.l4j.impl.modules.exploit.BoatExecute;
-import wtf.l4j.impl.modules.exploit.ConsoleSpammer;
-import wtf.l4j.impl.modules.exploit.PacketCanceller;
-import wtf.l4j.impl.modules.exploit.XCarry;
+import wtf.l4j.impl.modules.exploit.*;
 import wtf.l4j.impl.modules.misc.*;
 import wtf.l4j.impl.modules.movement.*;
 import wtf.l4j.impl.modules.visual.*;
@@ -71,6 +68,10 @@ public class ModuleManager {
         modules.add(new ViewLock());
         modules.add(new ViewModel());
         modules.add(new PacketCanceller());
+        modules.add(new HighJump());
+        modules.add(new ElytraFly());
+        modules.add(new HitboxDesync());
+        modules.add(new FreeCam());
     }
 
     public Optional<Module> getModule(Class<?> module) {

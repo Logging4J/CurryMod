@@ -1,15 +1,30 @@
 package wtf.l4j.mixin.mixins;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
+import com.mojang.authlib.GameProfile;
+import de.florianmichael.dietrichevents2.DietrichEvents2;
+import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.client.network.ClientPlayerEntity;
+import net.minecraft.client.world.ClientWorld;
+import net.minecraft.entity.MovementType;
+import net.minecraft.util.math.Vec3d;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.Redirect;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import wtf.l4j.CurryMod;
-import wtf.l4j.api.manager.Managers;
+import wtf.l4j.impl.modules.combat.Velocity;
 import wtf.l4j.impl.modules.movement.NoSlow;
+import wtf.l4j.impl.modules.visual.FreeCam;
 
 @Mixin(ClientPlayerEntity.class)
-public class MixinClientPlayerEntity {
+public abstract class MixinClientPlayerEntity extends AbstractClientPlayerEntity {
+
+    public MixinClientPlayerEntity(ClientWorld world, GameProfile profile) {
+        super(world, profile);
+    }
 
     @ModifyExpressionValue(method = "tickMovement", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/network/ClientPlayerEntity;isUsingItem()Z"))
     private boolean redirectUsingItem(boolean isUsingItem) {
@@ -19,4 +34,10 @@ public class MixinClientPlayerEntity {
         return isUsingItem;
     }
 
+    @Inject(method = "pushOutOfBlocks", at = @At("HEAD"), cancellable = true)
+    private void pushOutOfBlocks(double x, double z, CallbackInfo ci) {
+        if (CurryMod.getInstance().getManagers().getModuleManager().getModule(Velocity.class).get().isEnabled() && Velocity.push.isEnabled()) {
+            ci.cancel();
+        }
+    }
 }

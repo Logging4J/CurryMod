@@ -27,8 +27,8 @@ public class NoFall extends Module implements PacketListener {
 
     @Override
     public void onPacket(PacketEvent packetEvent) {
-        if(packetEvent.getType() == Type.INCOMING) {
-            if (packetEvent.getPacket() instanceof PlayerMoveC2SPacket packet) {
+        if(packetEvent.getType() == Type.OUTGOING) {
+            if (packetEvent.getPacket() instanceof PlayerMoveC2SPacket packet && !mc.player.isFallFlying()) {
                 if (!packet.isOnGround()) {
                     ((PlayerMoveC2SPacketAccessor) packet).setOnGround(true);
                 }

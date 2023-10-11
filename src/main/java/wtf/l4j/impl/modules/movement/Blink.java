@@ -24,7 +24,9 @@ public class Blink extends Module implements PacketListener {
 
     public Blink(){
             addOptions(playermovec2s, playerinteractblockc2s, playerinteractentityc2s, playeractionc2s, playerinputc2s);
-        }private final Queue<Packet<?>> packetQueue = new ArrayDeque<>();
+    }
+
+    private final Queue<Packet<?>> packetQueue = new ArrayDeque<>();
 
 
     @Override
