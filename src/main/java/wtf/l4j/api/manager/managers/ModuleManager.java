@@ -68,7 +68,6 @@ public class ModuleManager {
         modules.add(new ViewLock());
         modules.add(new ViewModel());
         modules.add(new PacketCanceller());
-        modules.add(new HighJump());
         modules.add(new ElytraFly());
         modules.add(new HitboxDesync());
         modules.add(new FreeCam());

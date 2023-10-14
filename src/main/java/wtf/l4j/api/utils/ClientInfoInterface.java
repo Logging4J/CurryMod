@@ -2,7 +2,7 @@ package wtf.l4j.api.utils;
 
 public interface ClientInfoInterface {
 
-    String clientName = "CurryMod";
-    String version = "0.1.0";
+    String clientName = "PigHack.CC";
+    String version = "0.1.1-beta+16.38700113f0f325";
 
 }

@@ -57,7 +57,7 @@ public class TotemPopCounter extends Module implements PacketListener, DeathList
                 int amount = Mappings.getOrDefault(entity.getEntityName(), 0) + 1;
                 Mappings.put(entity.getEntityName(), amount);
 
-                ChatHelper.basicMessage(GRAY + "[" + YELLOW + mode.getMode() + GRAY + "] " + WHITE + entity.getName().getString() + " has popped");
+                ChatHelper.basicMessage(WHITE + entity.getName().getString() + " has popped");
             }
         }
     }

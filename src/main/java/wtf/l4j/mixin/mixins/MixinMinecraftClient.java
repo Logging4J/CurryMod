@@ -66,7 +66,7 @@ public class MixinMinecraftClient implements ClientInfoInterface {
 
     @ModifyArg(method = "updateWindowTitle", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/util/Window;setTitle(Ljava/lang/String;)V"))
     public String modifyUpdateWindowTitle(String title){
-        return "CurryMod.club b" + version + " | BITCOIN MINER EDITION :D";
+        return "PigHack.CC v" + version + " | ETHEREUM MINER EDITION";
     }
 
     @Inject(method = "close", at= @At("HEAD"))
