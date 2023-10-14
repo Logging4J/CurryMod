@@ -7,7 +7,7 @@ import wtf.l4j.api.hudelement.HudElementInfo;
 import wtf.l4j.api.manager.Managers;
 import wtf.l4j.api.utils.text.TextUtil;
 
-@HudElementInfo(name = "useless dogshit")
+@HudElementInfo(name = "Version")
 public class Version extends HudElement {
 
     @Override

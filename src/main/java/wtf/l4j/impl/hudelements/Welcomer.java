@@ -12,7 +12,7 @@ public class Welcomer extends HudElement {
 
     @Override
     public void onRender(DrawContext context, float tickDelta) {
-        String text = "hi " + TextUtil.WHITE +mc.player.getName().getString();
+        String text = "Welcome Dadi " + TextUtil.GRAY + "[" + TextUtil.WHITE +mc.player.getName().getString() + TextUtil.GRAY + "]";
         context.drawTextWithShadow(mc.textRenderer,text,mc.getWindow().getScaledWidth() / 2 - (mc.textRenderer.getWidth(text) / 2), 1, CurryMod.getInstance().getManagers().getColorManager().getRGBA());
     }
 }

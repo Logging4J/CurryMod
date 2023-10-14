@@ -8,12 +8,16 @@ import wtf.l4j.api.manager.Managers;
 import wtf.l4j.api.utils.ClientInfoInterface;
 import wtf.l4j.api.utils.text.TextUtil;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @HudElementInfo(name = "WaterMark")
 public class WaterMark extends HudElement {
 
     @Override
     public void onRender(DrawContext context, float tickDelta) {
-        context.drawTextWithShadow(mc.textRenderer,  clientName +" " + TextUtil.GRAY +"[" +TextUtil.WHITE + "v" + version + TextUtil.GRAY +"]" , 0, 1, CurryMod.getInstance().getManagers().getColorManager().getRGBA());
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm");
+        LocalDateTime now = LocalDateTime.now();
+        context.drawTextWithShadow(mc.textRenderer,  clientName +" " + TextUtil.GRAY +"["+TextUtil.WHITE + dtf.format(now) + TextUtil.GRAY +"]" , 0, 1, CurryMod.getInstance().getManagers().getColorManager().getRGBA());
     }
 }

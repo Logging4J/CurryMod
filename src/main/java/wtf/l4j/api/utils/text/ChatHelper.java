@@ -14,7 +14,7 @@ public class ChatHelper implements MinecraftInterface {
     }
 
     public static void basicMessage(String text){
-        mc.player.sendMessage(Text.of(GRAY + "[" + PURPLE +"PigHack" + GRAY + "] " + WHITE + text));
+        mc.player.sendMessage(Text.of(GRAY + "[" + PURPLE +"CurryMod" + GRAY + "] " + WHITE + text));
     }
 
     public void toggleMessage(Module module){

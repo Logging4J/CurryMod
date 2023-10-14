@@ -22,6 +22,6 @@ public class MixinTitleScreen extends Screen implements ClientInfoInterface {
 
     @Inject(method = "render", at = @At("TAIL"))
     public void render(DrawContext context, int mouseX, int mouseY, float delta, CallbackInfo cl) {
-        context.drawTextWithShadow(textRenderer, clientName + " " + TextUtil.WHITE + "v" + version, 0, 1, CurryMod.getInstance().getManagers().getColorManager().getRGBA());
+        context.drawTextWithShadow(textRenderer, clientName + " " + TextUtil.WHITE + "b" + version + " By Logging4J :^)", 0, 1, CurryMod.getInstance().getManagers().getColorManager().getRGBA());
     }
 }

@@ -28,9 +28,7 @@ public class ClickGuiScreen extends Screen implements MinecraftInterface {
 
     @Override
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
-        if(ClickGui.noGradient.isEnabled()) {
-            context.fillGradient(mc.getWindow().getScaledWidth(), mc.getWindow().getScaledHeight(), 0, 0, CurryMod.getInstance().getManagers().getColorManager().getRGBA(), Integer.MIN_VALUE);
-        }
+        context.fillGradient(mc.getWindow().getScaledWidth(),mc.getWindow().getScaledHeight(),0, 0, CurryMod.getInstance().getManagers().getColorManager().getRGBA(), Integer.MIN_VALUE);
         for (Window w : windows){
             w.render(context,mouseX,mouseY,delta);
             w.updatePosition(mouseX,mouseY);

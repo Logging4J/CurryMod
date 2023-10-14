@@ -15,9 +15,6 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import wtf.l4j.CurryMod;
-import wtf.l4j.api.event.ChatListener;
-import wtf.l4j.api.event.DismountListener;
-import wtf.l4j.api.event.Type;
 import wtf.l4j.impl.modules.combat.Velocity;
 import wtf.l4j.impl.modules.movement.NoSlow;
 import wtf.l4j.impl.modules.visual.FreeCam;
@@ -43,13 +40,4 @@ public abstract class MixinClientPlayerEntity extends AbstractClientPlayerEntity
             ci.cancel();
         }
     }
-
-    @Inject(method = "dismountVehicle", at = @At("TAIL"))
-    public void dismountVehicle(CallbackInfo ci) {
-        DismountListener.DismountEvent dismountEvent = new DismountListener.DismountEvent();
-        //@formatter:off
-        DietrichEvents2.global().postInternal(DismountListener.DismountEvent.ID, dismountEvent);
-        //@formatter:on
-    }
-
 }
