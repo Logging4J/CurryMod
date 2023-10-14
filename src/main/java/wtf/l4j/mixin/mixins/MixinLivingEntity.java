@@ -20,7 +20,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 import wtf.l4j.api.event.DeathListener;
 import wtf.l4j.api.event.EffectListener;
-import wtf.l4j.mixin.invokers.EntityInvoker;
 
 @Mixin(LivingEntity.class)
 public abstract class MixinLivingEntity {
