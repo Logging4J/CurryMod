@@ -18,8 +18,9 @@ public class HudEditorScreen extends Screen implements MinecraftInterface {
 
     @Override
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
-        context.fill(0,0,mc.getWindow().getScaledWidth(), mc.getWindow().getScaledHeight(), Integer.MIN_VALUE);
-        context.fillGradient(mc.getWindow().getScaledWidth(),mc.getWindow().getScaledHeight(),0, 0, CurryMod.getInstance().getManagers().getColorManager().getRGBA(), Integer.MIN_VALUE);
+        if(HudEditor.noGradient.isEnabled()) {
+            context.fillGradient(mc.getWindow().getScaledWidth(), mc.getWindow().getScaledHeight(), 0, 0, CurryMod.getInstance().getManagers().getColorManager().getRGBA(), Integer.MIN_VALUE);
+        }
         panel.render(context,mouseX,mouseY,delta);
         panel.updatePosition(mouseX,mouseY);
     }

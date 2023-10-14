@@ -25,20 +25,6 @@ import wtf.l4j.mixin.invokers.EntityInvoker;
 @Mixin(LivingEntity.class)
 public abstract class MixinLivingEntity {
     @Unique private final LivingEntity entity = ((LivingEntity) (Object) this);
-    @Unique private int bounceTimer;
-
-    @Redirect(method = "travel", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;setFlag(IZ)V"))
-    public void travel(LivingEntity instance, int i, boolean b){}
-
-    @Redirect(method = "tickFallFlying", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;setFlag(IZ)V"))
-    public void tickFallFlying(LivingEntity instance, int i, boolean b){
-        if(instance.getVelocity().y == 0){
-            if(bounceTimer > 1) ((EntityInvoker) instance).callSetFlag(7, b);
-            bounceTimer += 1;
-        }else {
-            bounceTimer = 0;
-        }
-    }
 
     @Inject(method = "hasStatusEffect", at = @At("RETURN"), cancellable = true)
     public void hasStatusEffect(StatusEffect effect, CallbackInfoReturnable<Boolean> cir) {

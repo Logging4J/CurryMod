@@ -7,7 +7,6 @@
   },
   "client": [
     "accessors.PlayerMoveC2SPacketAccessor",
-    "invokers.EntityInvoker",
     "mixins.MixinAbstractBlockState",
     "mixins.MixinAbstractClientPlayerEntity",
     "mixins.MixinAbstractHorseEntity",
