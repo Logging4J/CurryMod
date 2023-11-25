@@ -20,9 +20,14 @@ import java.util.Random;
 @ModuleInfo(name = "Spammer", desc = "Spam stuff", category = Category.MISC)
 public class Spammer extends Module implements GameTickListener {
 
-    private OptionSlider delay = new OptionSlider("Delay",0 ,10000 ,10 ,9000);
+    private OptionSlider delay = new OptionSlider("Delay",0 ,10 ,0.25 ,2);
     private OptionMode mode = new OptionMode("Mode", "SexScript", "SexScript", "SpikeStinger");
+    private final List<String> sexscript = new ArrayList<>(TextUtil.SEX_SCRIPT);
+    private final List<String> spike = new ArrayList<>(TextUtil.SPIKE_AND_KIDS);
     private TimerUtil timer = new TimerUtil();
+    int index;
+
+
 
     public Spammer(){
         addOptions(delay, mode);
@@ -31,22 +36,33 @@ public class Spammer extends Module implements GameTickListener {
     @Override
     public void onEnable() {
         DietrichEvents2.global().subscribe(GameTickEvent.ID, this);
+        index = 0;
         super.onEnable();
     }
 
     @Override
     public void onDisable() {
+        index = 0;
         DietrichEvents2.global().unsubscribe(GameTickEvent.ID, this);
         super.onDisable();
     }
 
     @Override
     public void onGameTick() {
-        if(timer.passedMs(delay.getValue())){
-            if(mode.isMode("SexScript")) {
-                List<String> phrases = new ArrayList<>(TextUtil.SEX_SCRIPT);
-                String randomPhrase = phrases.get(new Random().nextInt(phrases.size()));
-                playerMsg(randomPhrase);
+        if(nullCheck()) toggle();
+        String phrase;
+        if(mode.isMode("SexScript")) {
+            phrase = sexscript.get(new Random().nextInt(sexscript.size()));
+        }else {
+            phrase = spike.get(index);
+        }
+
+        if(timer.passedS(delay.getValue())) {
+            playerMsg(phrase);
+            timer.reset();
+            index++;
+            if(index >= spike.size()){
+                index = 0;
             }
         }
     }

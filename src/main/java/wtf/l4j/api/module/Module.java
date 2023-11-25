@@ -37,6 +37,10 @@ public class Module extends ChatHelper implements MinecraftInterface {
         else onDisable();
     }
 
+    public boolean nullCheck(){
+        return mc.player == null || mc.world == null;
+    }
+
     public void addOptions(Option... options){
         this.options.addAll(Arrays.asList(options));
     }

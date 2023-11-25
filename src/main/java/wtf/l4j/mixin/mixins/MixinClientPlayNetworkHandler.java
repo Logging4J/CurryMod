@@ -30,6 +30,7 @@ import static wtf.l4j.api.utils.text.TextUtil.*;
 public abstract class MixinClientPlayNetworkHandler implements ClientInfoInterface, MinecraftInterface {
 
     @Shadow public abstract void sendChatMessage(String content);
+
     @Unique private boolean ignoreMsg;
 
     @Inject(method = "sendPacket(Lnet/minecraft/network/packet/Packet;)V", at = @At("HEAD"), cancellable = true)

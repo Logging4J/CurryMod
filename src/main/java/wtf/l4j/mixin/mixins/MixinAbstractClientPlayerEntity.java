@@ -11,8 +11,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import wtf.l4j.CurryMod;
-import wtf.l4j.api.auth.UserCapes;
-import wtf.l4j.impl.modules.client.Capes;
+import wtf.l4j.api.utils.Capes;
 
 @Mixin(AbstractClientPlayerEntity.class)
 public abstract class MixinAbstractClientPlayerEntity extends PlayerEntity {
@@ -23,15 +22,15 @@ public abstract class MixinAbstractClientPlayerEntity extends PlayerEntity {
 
     @Inject(method = "getCapeTexture", at = @At("HEAD"), cancellable = true)
     private void onGetCapeTexture(CallbackInfoReturnable<Identifier> info) {
-        if (CurryMod.getInstance().getManagers().getModuleManager().getModule(Capes.class).get().isEnabled()) {
-            if (Capes.mode.isMode("cape1")) {
-                info.setReturnValue(UserCapes.FRIEND_CAPE);
+        if (CurryMod.getInstance().getManagers().getModuleManager().getModule(wtf.l4j.impl.modules.client.Capes.class).get().isEnabled()) {
+            if (wtf.l4j.impl.modules.client.Capes.mode.isMode("cape1")) {
+                info.setReturnValue(Capes.FRIEND_CAPE);
             }
-            if (Capes.mode.isMode("cape2")) {
-                info.setReturnValue(UserCapes.NN_CAPE);
+            if (wtf.l4j.impl.modules.client.Capes.mode.isMode("cape2")) {
+                info.setReturnValue(Capes.NN_CAPE);
             }
-            if (Capes.mode.isMode("cape3")) {
-                info.setReturnValue(UserCapes.WOW_CAPE);
+            if (wtf.l4j.impl.modules.client.Capes.mode.isMode("cape3")) {
+                info.setReturnValue(Capes.WOW_CAPE);
             }
         }
     }

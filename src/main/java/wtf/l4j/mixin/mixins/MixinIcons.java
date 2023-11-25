@@ -18,7 +18,8 @@ import java.io.InputStream;
 @Mixin(Icons.class)
 public class MixinIcons implements MinecraftInterface {
 
-    @Inject(method = "getIcon(Lnet/minecraft/resource/ResourcePack;Ljava/lang/String;)Lnet/minecraft/resource/InputSupplier;", at = @At("RETURN"), locals = LocalCapture.CAPTURE_FAILHARD, cancellable = true)
+
+    @Inject(method = "getIcon", at = @At("RETURN"), locals = LocalCapture.CAPTURE_FAILHARD, cancellable = true)
     private void GetIcon(ResourcePack resourcePack, String string, CallbackInfoReturnable<InputSupplier<InputStream>> cir, String[] strings, InputSupplier<InputStream> inputSupplier) {
         if(strings.length == 2) {
             cir.setReturnValue(() -> mc.getResourceManager().getResourceOrThrow(new CurryIdentifier("icons/"+string)).getInputStream());
