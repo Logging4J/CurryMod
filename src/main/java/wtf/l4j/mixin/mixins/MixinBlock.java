@@ -20,7 +20,7 @@ public class MixinBlock {
 
     @Inject(method = "shouldDrawSide", at = @At("HEAD"), cancellable = true)
     private static void shouldDrawSide(BlockState state, BlockView world, BlockPos pos, Direction side, BlockPos otherPos, CallbackInfoReturnable<Boolean> cir) {
-        if(CurryMod.getInstance().getManagers().getModuleManager().getModule(Xray.class).orElseThrow().isEnabled()){
+        if(CurryMod.getInstance().getManagers().getModuleManager().getModule(Xray.class).isEnabled()){
             boolean val = BlockUtils.ORE_BLOCKS.contains(state.getBlock());
             cir.setReturnValue(val);
         }

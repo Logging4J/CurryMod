@@ -18,7 +18,7 @@ public class MixinEntity {
 
     @Inject(method = "changeLookDirection", at = @At("HEAD"), cancellable = true)
     public void changeLookDirection(double cursorDeltaX, double cursorDeltaY, CallbackInfo ci) {
-        if(CurryMod.getInstance().getManagers().getModuleManager().getModule(FreeLook.class).orElseThrow().isEnabled()) {
+        if(CurryMod.getInstance().getManagers().getModuleManager().getModule(FreeLook.class).isEnabled()) {
             double pitchDelta = (cursorDeltaY * 0.15);
             double yawDelta = (cursorDeltaX * 0.15);
             FreeLook.cameraPitch = MathHelper.clamp(FreeLook.cameraPitch + (float) pitchDelta, -90.0f, 90.0f);
@@ -29,7 +29,7 @@ public class MixinEntity {
 
     @Inject(method = "pushAwayFrom", at = @At("HEAD"), cancellable = true)
     public void pushAwayFrom(Entity entity, CallbackInfo ci) {
-        if(CurryMod.getInstance().getManagers().getModuleManager().getModule(Velocity.class).orElseThrow().isEnabled() && Velocity.push.isEnabled()){
+        if(CurryMod.getInstance().getManagers().getModuleManager().getModule(Velocity.class).isEnabled() && Velocity.push.isEnabled()){
             ci.cancel();
         }
     }

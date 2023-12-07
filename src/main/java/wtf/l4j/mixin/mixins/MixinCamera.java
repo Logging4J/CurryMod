@@ -26,14 +26,14 @@ public abstract class MixinCamera {
 
     @Inject(method = "update", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/render/Camera;setRotation(FF)V", ordinal = 0, shift = At.Shift.AFTER))
     public void update(BlockView area, Entity focusedEntity, boolean thirdPerson, boolean inverseView, float tickDelta, CallbackInfo ci) {
-        if (CurryMod.getInstance().getManagers().getModuleManager().getModule(FreeLook.class).orElseThrow().isEnabled() && focusedEntity instanceof ClientPlayerEntity p) {
+        if (CurryMod.getInstance().getManagers().getModuleManager().getModule(FreeLook.class).isEnabled() && focusedEntity instanceof ClientPlayerEntity p) {
             setRotation(FreeLook.cameraYaw, FreeLook.cameraPitch);
         }
     }
 
     @Inject(method = "update", at = @At(value = "TAIL"))
     public void outOfBody(BlockView area, Entity focusedEntity, boolean thirdPerson, boolean inverseView, float tickDelta, CallbackInfo ci) {
-        if (CurryMod.getInstance().getManagers().getModuleManager().getModule(FreeLook.class).orElseThrow().isEnabled() && focusedEntity instanceof ClientPlayerEntity) {
+        if (CurryMod.getInstance().getManagers().getModuleManager().getModule(FreeLook.class).isEnabled() && focusedEntity instanceof ClientPlayerEntity) {
             MinecraftClient mc = MinecraftClient.getInstance();
             mc.options.setPerspective(Perspective.THIRD_PERSON_BACK);
         }
@@ -41,7 +41,7 @@ public abstract class MixinCamera {
 
     @Inject(method = "clipToSpace", at = @At("HEAD"), cancellable = true)
     private void onClipToSpace(double desiredCameraDistance, CallbackInfoReturnable<Double> info) {
-        if (CurryMod.getInstance().getManagers().getModuleManager().getModule(CameraClip.class).get().isEnabled()) {
+        if (CurryMod.getInstance().getManagers().getModuleManager().getModule(CameraClip.class).isEnabled()) {
             info.setReturnValue(CameraClip.distance.getValue());
         }
     }

@@ -13,4 +13,5 @@ public class MixinScreen {
 
     @Shadow @Final public static Identifier OPTIONS_BACKGROUND_TEXTURE = new CurryIdentifier("textures/gui/options_background.png");
 
+
 }

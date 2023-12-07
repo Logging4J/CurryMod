@@ -2,7 +2,6 @@ package wtf.l4j.impl.modules.combat;
 
 import de.florianmichael.dietrichevents2.DietrichEvents2;
 
-import net.minecraft.network.packet.c2s.play.KeepAliveC2SPacket;
 import net.minecraft.network.packet.s2c.play.EntityVelocityUpdateS2CPacket;
 import net.minecraft.network.packet.s2c.play.ExplosionS2CPacket;
 

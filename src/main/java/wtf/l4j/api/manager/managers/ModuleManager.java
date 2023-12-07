@@ -61,7 +61,7 @@ public class ModuleManager {
         modules.add(new XCarry());
         modules.add(new StorageESP());
         modules.add(new EntityControl());
-        modules.add(new Capes());
+        modules.add(new CapesModule());
         modules.add(new FakePlayer());
         modules.add(new VisualRange());
         modules.add(new FastStop());
@@ -70,14 +70,14 @@ public class ModuleManager {
         modules.add(new PacketCanceller());
         modules.add(new HitboxDesync());
         modules.add(new FreeCam());
+        modules.add(new HighJump());
     }
 
-    public Optional<Module> getModule(Class<?> module) {
-        return Optional.ofNullable(this.modules.stream()
+    public Module getModule(Class<?> module) {
+        return this.modules.stream()
                 .filter(mod -> mod.getClass().equals(module))
                 .findFirst()
-                .orElse(null)
-        );
+                .orElse(null);
     }
 
     public Optional<List<Module>> getModulesInCategory(Category category) {

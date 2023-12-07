@@ -33,17 +33,6 @@ public abstract class MixinClientPlayNetworkHandler implements ClientInfoInterfa
 
     @Unique private boolean ignoreMsg;
 
-    @Inject(method = "sendPacket(Lnet/minecraft/network/packet/Packet;)V", at = @At("HEAD"), cancellable = true)
-    public void sendPacket(Packet<?> packet, CallbackInfo ci){
-        PacketListener.PacketEvent packetEvent = new PacketListener.PacketEvent(packet, Type.OUTGOING);
-        //@formatter:off
-        DietrichEvents2.global().postInternal(PacketListener.PacketEvent.ID, packetEvent);
-        //@formatter:on
-        if(packetEvent.isCancelled()){
-            ci.cancel();
-        }
-    }
-
     @Inject(method = "onGameJoin", at = @At("TAIL"))
     public void onGameJoin(GameJoinS2CPacket packet, CallbackInfo ci) {
         mc.player.sendMessage(Text.of(GRAY + "[" + PURPLE + clientName + GRAY + "] " + WHITE + "Welcome to " + PURPLE + clientName + WHITE + " the default prefix is " + GREEN + "';'" + WHITE +" and default bind for ClickGui is "+GREEN+"RSHIFT"));

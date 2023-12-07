@@ -24,7 +24,7 @@ public class MixinBlockModelRenderer {
 
     @Inject(method = "renderSmooth", at = @At("HEAD"), cancellable = true)
     public void renderSmooth(BlockRenderView world, BakedModel model, BlockState state, BlockPos pos, MatrixStack matrices, VertexConsumer vertexConsumer, boolean cull, Random random, long seed, int overlay, CallbackInfo ci) {
-        if(CurryMod.getInstance().getManagers().getModuleManager().getModule(Xray.class).orElseThrow().isEnabled()){
+        if(CurryMod.getInstance().getManagers().getModuleManager().getModule(Xray.class).isEnabled()){
             if(BlockUtils.ORE_BLOCKS.contains(state.getBlock())){
                 ci.cancel();
             }

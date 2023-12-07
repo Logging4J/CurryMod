@@ -16,7 +16,7 @@ public class MixinLightmapTextureManager {
 
     @ModifyArgs(method = "update", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/texture/NativeImage;setColor(III)V"))
     private void update(Args args) {
-        if (CurryMod.getInstance().getManagers().getModuleManager().getModule(FullBright.class).orElseThrow().isEnabled()) {
+        if (CurryMod.getInstance().getManagers().getModuleManager().getModule(FullBright.class).isEnabled()) {
             args.set(2, 0xFFFFFFFF);
         }
     }

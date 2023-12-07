@@ -17,7 +17,7 @@ public class MixinEntityRenderer<T extends Entity> {
 
     @Inject(method = "shouldRender", at = @At("HEAD"), cancellable = true)
     private void shouldRender(T entity, Frustum frustum, double x, double y, double z, CallbackInfoReturnable<Boolean> cir) {
-        if(CurryMod.getInstance().getManagers().getModuleManager().getModule(NoRender.class).get().isEnabled() && NoRender.arrows.isEnabled()){
+        if(CurryMod.getInstance().getManagers().getModuleManager().getModule(NoRender.class).isEnabled() && NoRender.arrows.isEnabled()){
             if(entity instanceof ArrowEntity) {
                 cir.cancel();
             }

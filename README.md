@@ -2,7 +2,7 @@
 
 [![Downloads](https://img.shields.io/github/downloads/Logging4J/Currymod/total)](https://github.com/Logging4J/CurryMod/releases/)
 
-A 1.20.2 Fabric Minecraft Sex Hack straight out of Mumbai India (TUCO APPROVED) (GONE SEXUAL AT 3AM) (GONE WRONG) (IN DA HOOD) (WITH THE BOYS)
+A 1.20.3 Fabric Minecraft Sex Hack straight out of Mumbai India (TUCO APPROVED) (GONE SEXUAL AT 3AM) (GONE WRONG) (IN DA HOOD) (WITH THE BOYS)
 
 featuring - qq rat and the boat dupe
 

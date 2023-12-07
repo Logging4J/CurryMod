@@ -36,28 +36,28 @@ public class MixinInGameHud {
 
     @ModifyArgs(method = "render", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/hud/InGameHud;renderOverlay(Lnet/minecraft/client/gui/DrawContext;Lnet/minecraft/util/Identifier;F)V", ordinal = 0))
     private void onRenderPumpkinOverlay(Args args) {
-        if (CurryMod.getInstance().getManagers().getModuleManager().getModule(NoRender.class).get().isEnabled() && NoRender.pumpkin.isEnabled()){
+        if (CurryMod.getInstance().getManagers().getModuleManager().getModule(NoRender.class).isEnabled() && NoRender.pumpkin.isEnabled()){
             args.set(2, 0f);
         }
     }
 
     @ModifyArgs(method = "render", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/hud/InGameHud;renderOverlay(Lnet/minecraft/client/gui/DrawContext;Lnet/minecraft/util/Identifier;F)V", ordinal = 1))
     private void onRenderPowderedSnowOverlay(Args args) {
-        if (CurryMod.getInstance().getManagers().getModuleManager().getModule(NoRender.class).get().isEnabled() && NoRender.snow.isEnabled()) {
+        if (CurryMod.getInstance().getManagers().getModuleManager().getModule(NoRender.class).isEnabled() && NoRender.snow.isEnabled()) {
             args.set(2, 0f);
         }
     }
 
     @Inject(method = "renderPortalOverlay", at = @At("HEAD"), cancellable = true)
     private void onRenderPortalOverlay(DrawContext context, float f, CallbackInfo info) {
-        if (CurryMod.getInstance().getManagers().getModuleManager().getModule(NoRender.class).orElseThrow().isEnabled() && NoRender.portal.isEnabled()) {
+        if (CurryMod.getInstance().getManagers().getModuleManager().getModule(NoRender.class).isEnabled() && NoRender.portal.isEnabled()) {
             info.cancel();
         }
     }
 
     @Inject(method = "renderStatusEffectOverlay", at = @At("HEAD"), cancellable = true)
     protected void renderStatusEffectOverlay(DrawContext context, CallbackInfo ci) {
-        if(CurryMod.getInstance().getManagers().getModuleManager().getModule(NoRender.class).orElseThrow().isEnabled() && NoRender.potion.isEnabled()){
+        if(CurryMod.getInstance().getManagers().getModuleManager().getModule(NoRender.class).isEnabled() && NoRender.potion.isEnabled()){
             ci.cancel();
         }
     }

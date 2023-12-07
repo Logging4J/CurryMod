@@ -63,7 +63,7 @@ public class ClickGuiScreen extends Screen implements MinecraftInterface {
 
     @Override
     public void close() {
-        CurryMod.getInstance().getManagers().getModuleManager().getModule(ClickGui.class).get().toggle();
+        CurryMod.getInstance().getManagers().getModuleManager().getModule(ClickGui.class).toggle();
         super.close();
     }
 

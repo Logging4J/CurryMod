@@ -5,5 +5,5 @@ import wtf.l4j.api.module.Module;
 import wtf.l4j.api.module.ModuleInfo;
 
 @ModuleInfo(name = "NoSlow", desc = "NoSlowin", category = Category.MOVEMENT)
-public class NoSlow extends Module{
+public class NoSlow extends Module {
 }

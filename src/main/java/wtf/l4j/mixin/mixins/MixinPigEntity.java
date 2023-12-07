@@ -14,7 +14,7 @@ public class MixinPigEntity {
 
     @Inject(method = "isSaddled", at = @At("HEAD"), cancellable = true)
     public void isSaddled(CallbackInfoReturnable<Boolean> cir) {
-        if(CurryMod.getInstance().getManagers().getModuleManager().getModule(EntityControl.class).get().isEnabled()){
+        if(CurryMod.getInstance().getManagers().getModuleManager().getModule(EntityControl.class).isEnabled()){
             cir.setReturnValue(true);
         }
     }

@@ -18,7 +18,7 @@ public class MixinRenderTickCounter {
 
     @Inject(method = "beginRenderTick", at = @At(value = "FIELD", target = "Lnet/minecraft/client/render/RenderTickCounter;prevTimeMillis:J", opcode = Opcodes.PUTFIELD))
     public void beginRenderTick(long timeMillis, CallbackInfoReturnable<Integer> ci) {
-        if(CurryMod.getInstance().getManagers().getModuleManager().getModule(Timer.class).get().isEnabled()) {
+        if(CurryMod.getInstance().getManagers().getModuleManager().getModule(Timer.class).isEnabled()) {
             lastFrameDuration *= Timer.speed.getFloatValue();
         }
     }

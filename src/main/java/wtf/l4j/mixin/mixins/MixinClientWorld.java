@@ -25,8 +25,8 @@ public abstract class MixinClientWorld {
     @Shadow @Final private MinecraftClient client;
 
     @Inject(method = "addEntity", at = @At("HEAD"))
-    private void addEntity(int id, Entity entity, CallbackInfo ci) {
-        if(CurryMod.getInstance().getManagers().getModuleManager().getModule(VisualRange.class).get().isEnabled()){
+    private void addEntity(Entity entity, CallbackInfo ci) {
+        if(CurryMod.getInstance().getManagers().getModuleManager().getModule(VisualRange.class).isEnabled()){
             if(entity instanceof PlayerEntity && entity != client.player){
                 ChatHelper.basicMessage(GRAY + "[" + DARK_RED + "WARNING" + GRAY + "] "+ WHITE + entity.getName().getString() + " has entered your visual range");
             }

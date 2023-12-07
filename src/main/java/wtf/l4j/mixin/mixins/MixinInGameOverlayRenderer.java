@@ -18,14 +18,14 @@ public class MixinInGameOverlayRenderer {
 
     @Inject(method = "renderFireOverlay", at = @At("HEAD"), cancellable = true)
     private static void renderFireOverlay(MinecraftClient client, MatrixStack matrices, CallbackInfo ci) {
-        if (CurryMod.getInstance().getManagers().getModuleManager().getModule(NoRender.class).orElseThrow().isEnabled() && NoRender.fire.isEnabled()) {
+        if (CurryMod.getInstance().getManagers().getModuleManager().getModule(NoRender.class).isEnabled() && NoRender.fire.isEnabled()) {
             ci.cancel();
         }
     }
 
     @Inject(method = "renderUnderwaterOverlay", at = @At("HEAD"), cancellable = true)
     private static void renderUnderwaterOverlay(MinecraftClient client, MatrixStack matrices, CallbackInfo ci) {
-        if(CurryMod.getInstance().getManagers().getModuleManager().getModule(NoRender.class).orElseThrow().isEnabled() && NoRender.liquid.isEnabled()){
+        if(CurryMod.getInstance().getManagers().getModuleManager().getModule(NoRender.class).isEnabled() && NoRender.liquid.isEnabled()){
             ci.cancel();
         }
     }

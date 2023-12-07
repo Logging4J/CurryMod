@@ -13,7 +13,7 @@ public class MixinPlayerListHud {
 
     @ModifyArg(method = "collectPlayerEntries", at = @At(value = "INVOKE", target = "Ljava/util/stream/Stream;limit(J)Ljava/util/stream/Stream;"))
     private long modifyCollectPlayerEntries(long maxSize){
-        if(CurryMod.getInstance().getManagers().getModuleManager().getModule(ExtraTab.class).get().isEnabled()){
+        if(CurryMod.getInstance().getManagers().getModuleManager().getModule(ExtraTab.class).isEnabled()){
             return 500L;
         }
         return maxSize;

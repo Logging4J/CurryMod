@@ -19,7 +19,7 @@ public class MixinHeldItemRenderer {
 
     @Inject(method = "renderFirstPersonItem", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/render/item/HeldItemRenderer;renderItem(Lnet/minecraft/entity/LivingEntity;Lnet/minecraft/item/ItemStack;Lnet/minecraft/client/render/model/json/ModelTransformationMode;ZLnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;I)V"), cancellable = true)
     private void renderFirstPersonItem(AbstractClientPlayerEntity player, float tickDelta, float pitch, Hand hand, float swingProgress, ItemStack item, float equipProgress, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, CallbackInfo ci) {
-        if(CurryMod.getInstance().getManagers().getModuleManager().getModule(ViewModel.class).get().isEnabled()){
+        if(CurryMod.getInstance().getManagers().getModuleManager().getModule(ViewModel.class).isEnabled()){
             if(hand == Hand.MAIN_HAND) {
                 matrices.translate(ViewModel.mPosX.getFloatValue(), ViewModel.mPosY.getFloatValue(), ViewModel.mPosZ.getFloatValue());
             }else {

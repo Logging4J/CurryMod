@@ -31,7 +31,7 @@ public abstract class MixinClientPlayerEntity extends AbstractClientPlayerEntity
 
     @ModifyExpressionValue(method = "tickMovement", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/network/ClientPlayerEntity;isUsingItem()Z"))
     private boolean redirectUsingItem(boolean isUsingItem) {
-        if (CurryMod.getInstance().getManagers().getModuleManager().getModule(NoSlow.class).get().isEnabled()){
+        if (CurryMod.getInstance().getManagers().getModuleManager().getModule(NoSlow.class).isEnabled()){
             return false;
         }
         return isUsingItem;
@@ -39,7 +39,7 @@ public abstract class MixinClientPlayerEntity extends AbstractClientPlayerEntity
 
     @Inject(method = "pushOutOfBlocks", at = @At("HEAD"), cancellable = true)
     private void pushOutOfBlocks(double x, double z, CallbackInfo ci) {
-        if (CurryMod.getInstance().getManagers().getModuleManager().getModule(Velocity.class).get().isEnabled() && Velocity.push.isEnabled()) {
+        if (CurryMod.getInstance().getManagers().getModuleManager().getModule(Velocity.class).isEnabled() && Velocity.push.isEnabled()) {
             ci.cancel();
         }
     }

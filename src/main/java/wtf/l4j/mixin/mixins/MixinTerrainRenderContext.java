@@ -19,7 +19,7 @@ public class MixinTerrainRenderContext {
 
     @Inject(method = "tessellateBlock", at = @At("HEAD"), cancellable = true)
     public void tessellateBlock(BlockState blockState, BlockPos blockPos, BakedModel model, MatrixStack matrixStack, CallbackInfo ci) {
-        if(CurryMod.getInstance().getManagers().getModuleManager().getModule(Xray.class).orElseThrow().isEnabled()){
+        if(CurryMod.getInstance().getManagers().getModuleManager().getModule(Xray.class).isEnabled()){
             if(!BlockUtils.ORE_BLOCKS.contains(blockState.getBlock())){
                 ci.cancel();
             }

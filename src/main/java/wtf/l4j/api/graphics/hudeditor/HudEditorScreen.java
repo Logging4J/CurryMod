@@ -39,7 +39,7 @@ public class HudEditorScreen extends Screen implements MinecraftInterface {
 
     @Override
     public void close() {
-        CurryMod.getInstance().getManagers().getModuleManager().getModule(HudEditor.class).get().toggle();
+        CurryMod.getInstance().getManagers().getModuleManager().getModule(HudEditor.class).toggle();
         super.close();
     }
 

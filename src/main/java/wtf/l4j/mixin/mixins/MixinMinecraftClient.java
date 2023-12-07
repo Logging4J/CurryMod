@@ -44,7 +44,7 @@ public class MixinMinecraftClient implements ClientInfoInterface {
             DietrichEvents2.global().postInternal(GameTickListener.GameTickEvent.ID, new GameTickListener.GameTickEvent());
             //@formatter:on
         }
-        if(CurryMod.getInstance().getManagers().getModuleManager().getModule(Colors.class).orElseThrow().isEnabled()) {
+        if(CurryMod.getInstance().getManagers().getModuleManager().getModule(Colors.class).isEnabled()) {
             CurryMod.getInstance().getManagers().getColorManager().setRed(Colors.red.getIntValue());
             CurryMod.getInstance().getManagers().getColorManager().setGreen(Colors.green.getIntValue());
             CurryMod.getInstance().getManagers().getColorManager().setBlue(Colors.blue.getIntValue());

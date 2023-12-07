@@ -17,7 +17,7 @@ public class MixinChunkOcclusionDataBuilder {
 
     @Inject(method = "markClosed", at = @At("HEAD"), cancellable = true)
     public void markClosed(BlockPos pos, CallbackInfo ci) {
-        if(CurryMod.getInstance().getManagers().getModuleManager().getModule(Xray.class).orElseThrow().isEnabled()){
+        if(CurryMod.getInstance().getManagers().getModuleManager().getModule(Xray.class).isEnabled()){
             ci.cancel();
         }
     }
