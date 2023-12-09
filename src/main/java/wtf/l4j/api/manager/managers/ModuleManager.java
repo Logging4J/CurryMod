@@ -71,6 +71,7 @@ public class ModuleManager {
         modules.add(new HitboxDesync());
         modules.add(new FreeCam());
         modules.add(new HighJump());
+        modules.add(new InventoryMove());
     }
 
     public Module getModule(Class<?> module) {

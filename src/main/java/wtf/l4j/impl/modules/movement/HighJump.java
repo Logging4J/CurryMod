@@ -45,12 +45,10 @@ public class HighJump extends Module implements GameTickListener, JumpListener {
         if (ticks <= 7) {
             ticks++;
             mc.player.setVelocity(mc.player.getVelocity().x, yVelo.getValue(), mc.player.getVelocity().z);
-            MovementUtils.strafe(0.875);
             if (ticks <= 2) {
                 mc.player.setVelocity(mc.player.getVelocity().x, yVelo.getValue() + 0.05, mc.player.getVelocity().z);
-                MovementUtils.strafe(0.9);
             }
-        } else if (ticks == 8) {
+        } else {
             toggle();
         }
     }
