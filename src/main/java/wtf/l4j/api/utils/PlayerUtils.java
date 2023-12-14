@@ -31,17 +31,6 @@ public class PlayerUtils implements MinecraftInterface {
         return null;
     }
 
-    public static String getRandomOnline() {
-        List<String> validNames = mc.getNetworkHandler().getPlayerList().stream()
-                .map(entry -> entry.getProfile().getName())
-                .filter(name -> !Objects.equals(name, mc.player.getName().getString()))
-                .collect(Collectors.toList());
-
-        int randomIndex = new Random().nextInt(validNames.size());
-
-        return validNames.get(randomIndex);
-    }
-
     public float[] getRotationToEntity(Entity target) {
         double deltaX = target.getX() - mc.player.getX();
         double deltaZ = target.getZ() - mc.player.getZ();

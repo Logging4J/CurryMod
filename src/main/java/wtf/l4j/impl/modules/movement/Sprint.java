@@ -5,6 +5,7 @@ import de.florianmichael.dietrichevents2.DietrichEvents2;
 import wtf.l4j.api.module.Category;
 import wtf.l4j.api.module.Module;
 import wtf.l4j.api.module.ModuleInfo;
+import wtf.l4j.api.module.option.options.OptionBoolean;
 import wtf.l4j.api.module.option.options.OptionMode;
 import wtf.l4j.api.event.GameTickListener;
 import wtf.l4j.api.utils.MovementUtils;
@@ -13,10 +14,11 @@ import wtf.l4j.api.utils.text.TextUtil;
 @ModuleInfo(name = "Sprint", desc = "Auto run", category = Category.MOVEMENT)
 public class Sprint extends Module implements GameTickListener {
 
-    public OptionMode mode = new OptionMode("Mode", "Rage", "Rage", "Legit");
+    private OptionMode mode = new OptionMode("Mode", "Rage", "Rage", "Legit");
+    private OptionBoolean inWater = new OptionBoolean("InWater", true);
 
     public Sprint() {
-        addOptions(mode);
+        addOptions(mode, inWater);
     }
 
     @Override
@@ -33,6 +35,7 @@ public class Sprint extends Module implements GameTickListener {
 
     @Override
     public void onGameTick() {
+        if(mc.player.isInFluid() && !inWater.isEnabled()) return;
         if (mode.isMode("Rage")) {
             mc.player.setSprinting(true);
         } else {

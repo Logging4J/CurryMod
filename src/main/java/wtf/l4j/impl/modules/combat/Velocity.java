@@ -2,6 +2,7 @@ package wtf.l4j.impl.modules.combat;
 
 import de.florianmichael.dietrichevents2.DietrichEvents2;
 
+import net.minecraft.network.packet.s2c.common.CommonPingS2CPacket;
 import net.minecraft.network.packet.s2c.play.EntityVelocityUpdateS2CPacket;
 import net.minecraft.network.packet.s2c.play.ExplosionS2CPacket;
 
@@ -17,6 +18,7 @@ import wtf.l4j.api.module.option.options.OptionMode;
 public class Velocity extends Module implements PacketListener {
 
     public static OptionBoolean push = new OptionBoolean("NoPush", true);
+
 
     public Velocity(){
         addOptions(push);
@@ -36,6 +38,7 @@ public class Velocity extends Module implements PacketListener {
 
     @Override
     public void onPacket(PacketEvent packetEvent) {
+        if(nullCheck()){return;}
         if(packetEvent.getType() ==  Type.INCOMING) {
             if (packetEvent.getPacket() instanceof EntityVelocityUpdateS2CPacket packet) {
                 if (packet.getId() == mc.player.getId()) {

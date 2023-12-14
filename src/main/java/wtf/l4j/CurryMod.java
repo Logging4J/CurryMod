@@ -13,18 +13,14 @@ import wtf.l4j.api.utils.Config;
 public class CurryMod {
 
 	@Getter private final Logger logger = LoggerFactory.getLogger("currymod");
+	@Getter private final DiscordRP discordRP = new DiscordRP();
 	@Getter private Managers managers;
 	private static CurryMod instance;
 
-	private final DiscordRP discordRP = new DiscordRP();
-
-
 	public void startup(){
-		this.discordRP.start();
 		managers = new Managers();
 		Config.load();
 		Runtime.getRuntime().addShutdownHook(new Config());
-
 	}
 
 	public void shutdown(){

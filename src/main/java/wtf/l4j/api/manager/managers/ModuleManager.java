@@ -15,6 +15,7 @@ import wtf.l4j.impl.modules.movement.*;
 import wtf.l4j.impl.modules.visual.*;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -25,7 +26,8 @@ public class ModuleManager {
     private List<Module> modules;
 
     public void init() {
-        modules = new ArrayList<>();
+        modules = new LinkedList<>();
+
         modules.add(new ClickGui());
         modules.add(new Colors());
         modules.add(new HudEditor());
@@ -72,6 +74,8 @@ public class ModuleManager {
         modules.add(new FreeCam());
         modules.add(new HighJump());
         modules.add(new InventoryMove());
+        modules.add(new DiscordRPC());
+        modules.add(new NameProtect());
     }
 
     public Module getModule(Class<?> module) {

@@ -1,6 +1,7 @@
 package wtf.l4j.api.graphics.clickgui;
 
 import lombok.Getter;
+import lombok.Setter;
 import net.minecraft.client.gui.DrawContext;
 import wtf.l4j.CurryMod;
 import wtf.l4j.api.graphics.Constants;
@@ -20,7 +21,9 @@ public class Window implements MinecraftInterface {
 
     private List<ModuleButton> modules;
     private Category category;
-    private int x,y,dragX,dragY;
+    private int x;
+    @Setter private int y;
+    private int dragX, dragY;
     private boolean visible, dragging;
 
     public Window(Category category, int x, int y){

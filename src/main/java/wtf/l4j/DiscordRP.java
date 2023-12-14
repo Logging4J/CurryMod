@@ -3,8 +3,9 @@ package wtf.l4j;
 import club.minnced.discord.rpc.DiscordEventHandlers;
 import club.minnced.discord.rpc.DiscordRPC;
 import club.minnced.discord.rpc.DiscordRichPresence;
+import wtf.l4j.api.utils.MinecraftInterface;
 
-public class DiscordRP {
+public class DiscordRP implements MinecraftInterface {
 
     public DiscordRichPresence discordRichPresence = new DiscordRichPresence();
 
@@ -16,7 +17,7 @@ public class DiscordRP {
         discordRichPresence.details = "Straight out of Mumbai India";
         discordRichPresence.largeImageKey = "edpcurrymodlarge";
         discordRichPresence.smallImageKey = "edpcurrymodsmall";
-        discordRichPresence.largeImageText = "slappin nn's";
+        discordRichPresence.largeImageText = "slappin nn's" + (!mc.isInSingleplayer() ? "on " + mc.player.getServer().getServerIp() : "in singleplayer");
         discordRichPresence.state = null;
         DiscordRPC.INSTANCE.Discord_UpdatePresence(discordRichPresence);
     }

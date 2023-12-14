@@ -1,7 +1,16 @@
 package wtf.l4j.api.graphics.clickgui;
 
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.Mouse;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.client.gui.screen.multiplayer.MultiplayerScreen;
+import net.minecraft.client.gui.screen.option.MouseOptionsScreen;
+import net.minecraft.client.gui.screen.option.OptionsScreen;
+import net.minecraft.client.gui.screen.world.WorldListWidget;
+import net.minecraft.client.gui.widget.EntryListWidget;
+import net.minecraft.client.gui.widget.ScrollableWidget;
+import net.minecraft.client.util.InputUtil;
 import net.minecraft.text.Text;
 import wtf.l4j.CurryMod;
 import wtf.l4j.api.graphics.Constants;
@@ -70,5 +79,21 @@ public class ClickGuiScreen extends Screen implements MinecraftInterface {
     @Override
     public boolean shouldPause() {
         return false;
+    }
+
+
+    @Override
+    public boolean mouseScrolled(double mouseX, double mouseY, double horizontalAmount, double verticalAmount) {
+        if (verticalAmount < 0) {
+            for (Window window : windows) {
+                window.setY(window.getY() - 8);
+            }
+        }
+        else if (verticalAmount > 0) {
+            for (Window window : windows) {
+                window.setY(window.getY() + 8);
+            }
+        }
+        return super.mouseScrolled(mouseX, mouseY, horizontalAmount, verticalAmount);
     }
 }

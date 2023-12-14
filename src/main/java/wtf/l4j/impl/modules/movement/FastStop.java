@@ -1,14 +1,17 @@
 package wtf.l4j.impl.modules.movement;
 
+import com.ibm.icu.util.CodePointTrie;
 import de.florianmichael.dietrichevents2.DietrichEvents2;
 import wtf.l4j.api.event.GameTickListener;
 import wtf.l4j.api.module.Category;
 import wtf.l4j.api.module.Module;
 import wtf.l4j.api.module.ModuleInfo;
+import wtf.l4j.api.module.option.options.OptionBoolean;
 import wtf.l4j.api.utils.MovementUtils;
 
 @ModuleInfo(name = "FastStop", desc = "like csgo", category = Category.MOVEMENT)
 public class FastStop extends Module implements GameTickListener {
+
 
     @Override
     public void onEnable() {

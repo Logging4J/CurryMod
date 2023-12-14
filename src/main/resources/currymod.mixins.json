@@ -6,6 +6,7 @@
     "defaultRequire": 1
   },
   "client": [
+    "accessors.ClientWorldAccessor",
     "accessors.PlayerMoveC2SPacketAccessor",
     "mixins.MixinAbstractBlockState",
     "mixins.MixinAbstractHorseEntity",
@@ -41,7 +42,10 @@
     "mixins.MixinSplashTextResourceSupplier",
     "mixins.MixinStriderEntity",
     "mixins.MixinTerrainRenderContext",
+    "mixins.MixinTextVistFactory",
     "mixins.MixinTitleScreen",
     "mixins.MixinWorldRenderer"
+  ],
+  "mixins": [
   ]
 }

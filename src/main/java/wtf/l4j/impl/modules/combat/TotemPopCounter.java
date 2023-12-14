@@ -28,7 +28,7 @@ public class TotemPopCounter extends Module implements PacketListener, DeathList
     public TotemPopCounter() {
         addOptions(mode);
     }
-    private final Map<String, Integer> Mappings = new HashMap<>();
+    private final Map<String, Integer> mappings = new HashMap<>();
 
     @Override
     public void onEnable() {
@@ -49,22 +49,22 @@ public class TotemPopCounter extends Module implements PacketListener, DeathList
 
     @Override
     public void onPacket(PacketListener.PacketEvent packetEvent) {
-        if(mc.player != null && packetEvent.getPacket() instanceof EntityStatusS2CPacket status) {
-            if(status.getStatus() == 35) {
-                Entity entity = status.getEntity(mc.world);
+        if(!nullCheck() && packetEvent.getPacket() instanceof EntityStatusS2CPacket packet) {
+            if(packet.getStatus() == 35) {
+                Entity entity = packet.getEntity(mc.world);
                 if(!(entity instanceof PlayerEntity) || entity == mc.player) return;
 
-                int amount = Mappings.getOrDefault(entity.getName().getString(), 0) + 1;
-                Mappings.put(entity.getName().getString(), amount);
+                int amount = mappings.getOrDefault(entity.getName().getString(), 0) + 1;
+                mappings.put(entity.getName().getString(), amount);
 
-                ChatHelper.basicMessage(GRAY + "[" + YELLOW + mode.getMode() + GRAY + "] " + WHITE + entity.getName().getString() + " has popped");
+                ChatHelper.basicMessage(GRAY + "[" + YELLOW + mode.getMode() + GRAY + "] " + WHITE + entity.getName().getString() + " has popped %s totems".formatted(amount));
             }
         }
     }
 
     @Override
     public void onDeath(DeathListener.LivingDeathEvent deathEvent) {
-        if(Mappings.containsKey(deathEvent.getEntity().getName().getString())) Mappings.put(deathEvent.getEntity().getName().getString(), 0);
+        if(mappings.containsKey(deathEvent.getEntity().getName().getString())) mappings.put(deathEvent.getEntity().getName().getString(), 0);
     }
 
     @Override
@@ -72,12 +72,12 @@ public class TotemPopCounter extends Module implements PacketListener, DeathList
         assert mc.player != null;
         if(mc.player.age % 10 != 0) return;
 
-        Mappings.keySet().forEach(entity -> {
+        mappings.keySet().forEach(entity -> {
             assert mc.world != null;
             Optional<AbstractClientPlayerEntity> optionalPlayerEntity = mc.world.getPlayers().stream().filter(playerEntity -> playerEntity.getName().getString().equals(entity)).findFirst();
             if(optionalPlayerEntity.isPresent()) {
                 PlayerEntity player = optionalPlayerEntity.get();
-                if(player.isDead() || player.getHealth() <= 0) Mappings.put(entity, 0);
+                if(player.isDead() || player.getHealth() <= 0) mappings.put(entity, 0);
             }
         });
     }

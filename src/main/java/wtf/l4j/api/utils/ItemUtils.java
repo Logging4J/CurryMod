@@ -11,18 +11,6 @@ import net.minecraft.util.math.BlockPos;
 @UtilityClass
 public class ItemUtils implements MinecraftInterface {
 
-    public int getSlot(Item item) {
-        int slot = -1;
-        for (int i = 0; i < 9; i++) {
-            Item it = mc.player.getInventory().getStack(i).getItem();
-            if (it == item) {
-                slot = i;
-                break;
-            }
-        }
-        return slot;
-    }
-
     public int getBestAvailableToolSlot(BlockPos p) {
         BlockState blockState = mc.world.getBlockState(p);
         int bestSlot = mc.player.getInventory().selectedSlot;
