@@ -35,9 +35,7 @@ public class ModuleManager {
         modules.add(new AutoCrystal());
         modules.add(new KillAura());
         modules.add(new Velocity());
-        modules.add(new IntChatCrash());
         modules.add(new TotemPopCounter());
-        modules.add(new BoatExecute());
         modules.add(new ConsoleSpammer());
         modules.add(new AutoJQQ());
         modules.add(new AutoTool());
@@ -77,7 +75,6 @@ public class ModuleManager {
         modules.add(new InventoryMove());
         modules.add(new DiscordRPC());
         modules.add(new NameProtect());
-        modules.add(new CompletionCrash());
     }
 
     public Module getModule(Class<?> module) {

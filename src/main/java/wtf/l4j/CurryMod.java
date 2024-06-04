@@ -10,11 +10,12 @@ import org.slf4j.LoggerFactory;
 import wtf.l4j.api.manager.*;
 import wtf.l4j.api.utils.Config;
 
+@Getter
 public class CurryMod {
 
-	@Getter private final Logger logger = LoggerFactory.getLogger("currymod");
-	@Getter private final DiscordRP discordRP = new DiscordRP();
-	@Getter private Managers managers;
+	private final Logger logger = LoggerFactory.getLogger("currymod");
+	private final DiscordRP discordRP = new DiscordRP();
+	private Managers managers;
 	private static CurryMod instance;
 
 	public void startup(){

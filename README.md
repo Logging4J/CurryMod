@@ -1,6 +1,11 @@
 # Currymod.club
 
+# [WARNING]
+### high amounts of autism went into this. 
+
 [![Downloads](https://img.shields.io/github/downloads/Logging4J/Currymod/total)](https://github.com/Logging4J/CurryMod/releases/)
+
+### [Disclaimer] This client is so fucking shitcoded. Releasing this now cus re writen and better feel free to skid.
 
 A 1.20.4 Fabric Minecraft Sex Hack straight out of Mumbai India (TUCO APPROVED) (GONE SEXUAL AT 3AM) (GONE WRONG) (IN DA HOOD) (WITH THE BOYS)
 
