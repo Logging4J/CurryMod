@@ -8,8 +8,6 @@ import wtf.l4j.impl.modules.combat.AutoCrystal;
 import wtf.l4j.impl.modules.combat.KillAura;
 import wtf.l4j.impl.modules.combat.TotemPopCounter;
 import wtf.l4j.impl.modules.combat.Velocity;
-import wtf.l4j.impl.modules.crash.CompletionCrash;
-import wtf.l4j.impl.modules.crash.IntChatCrash;
 import wtf.l4j.impl.modules.exploit.*;
 import wtf.l4j.impl.modules.misc.*;
 import wtf.l4j.impl.modules.movement.*;
