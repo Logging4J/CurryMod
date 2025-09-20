@@ -1,37 +1,25 @@
 {
-	"schemaVersion": 1,
-	"id": "currymod",
-	"version": "0.1.3",
-	"name": "CurryMod",
-	"description": "A 1.20.4 Fabric Minecraft Sex Hack straight out of Mumbai India (TUCO APPROVED) (GONE SEXUAL AT 3AM) (GONE WRONG) (UP MY ASS) (WITH THE BOYS)",
-	"authors": [
-		"Logging4J"
-	],
-	"contact": {
-		"homepage": "https://pornhub.com/",
-		"sources": "https://bigrat.monster"
-	},
-	"license": "CC0-1.0",
-	"icon": "assets/currymod/logo.jpg",
-	"environment": "*",
-	"entrypoints": {
-		"preLaunch": [
-			"com.llamalad7.mixinextras.MixinExtrasBootstrap::init"
-		],
-		"client": [
-          "wtf.l4j.CurryClientModInit"
-		]
-	},
-	"mixins": [
-		"currymod.mixins.json"
-	],
-	"depends": {
-		"fabricloader": ">=0.15.0",
-		"minecraft": "~1.20.3",
-		"java": ">=17",
-		"fabric-api": "*"
-	},
-	"suggests": {
-		"another-mod": "*"
-	}
+  "schemaVersion": 1,
+  "id": "currymod",
+  "version": "${version}",
+  "name": "CurryMod",
+  "description": "Block game weapon",
+  "authors": ["Logging4J"],
+  "contact": {},
+  "license": "All-Rights-Reserved",
+  "icon": "assets/currymod/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "dev.l4j.currymod.CurryMod"
+    ]
+  },
+  "mixins": [
+    "currymod.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
 }
