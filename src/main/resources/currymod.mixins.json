@@ -13,6 +13,7 @@
     "ItemStackMixin",
     "KeyboardMixin",
     "LightmapTextureManagerMixin",
+    "LivingEntityMixin",
     "LogoDrawerMixin",
     "MinecraftClientMixin",
     "PlayerListHudMixin",
@@ -21,6 +22,7 @@
     "SplashTextResourceSupplierMixin",
     "TitleScreenMixin",
     "accessor.GameRendererAccessor",
+    "accessor.PlayerMoveC2SPacketAccessor",
     "accessor.ProjectionMatrix2Accessor"
   ],
   "injectors": {

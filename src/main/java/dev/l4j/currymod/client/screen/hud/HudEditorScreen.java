@@ -1,8 +1,8 @@
-package dev.l4j.currymod.client.screen;
+package dev.l4j.currymod.client.screen.hud;
 
 import dev.l4j.currymod.CurryMod;
 import dev.l4j.currymod.client.module.modules.client.HudEditor;
-import dev.l4j.currymod.client.screen.components.HudComponent;
+import dev.l4j.currymod.client.screen.hud.components.HudComponent;
 import dev.l4j.currymod.util.RenderUtils;
 import lombok.Getter;
 import net.minecraft.client.gui.DrawContext;

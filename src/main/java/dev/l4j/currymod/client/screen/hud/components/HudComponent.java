@@ -1,12 +1,9 @@
-package dev.l4j.currymod.client.screen.components;
+package dev.l4j.currymod.client.screen.hud.components;
 
 import dev.l4j.currymod.client.hud.HudElement;
 import dev.l4j.currymod.util.MinecraftInterface;
 import dev.l4j.currymod.util.RenderUtils;
-import dev.l4j.currymod.util.ResourceBank;
-import net.minecraft.client.gl.RenderPipelines;
 import net.minecraft.client.gui.DrawContext;
-import net.minecraft.client.render.RenderLayer;
 import org.joml.Matrix3x2fStack;
 
 import java.awt.*;

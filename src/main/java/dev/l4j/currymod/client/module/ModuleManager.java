@@ -8,10 +8,8 @@ import dev.l4j.currymod.client.module.modules.fun.NaziClouds;
 import dev.l4j.currymod.client.module.modules.fun.TudouSky;
 import dev.l4j.currymod.client.module.modules.misc.AutoRespawn;
 import dev.l4j.currymod.client.module.modules.movement.Flight;
-import dev.l4j.currymod.client.module.modules.visual.Brightness;
-import dev.l4j.currymod.client.module.modules.visual.ExtraTab;
-import dev.l4j.currymod.client.module.modules.visual.KillEffects;
-import dev.l4j.currymod.client.module.modules.visual.ToolTips;
+import dev.l4j.currymod.client.module.modules.movement.NoFall;
+import dev.l4j.currymod.client.module.modules.visual.*;
 import dev.l4j.currymod.client.module.option.options.OptionKeybind;
 import dev.l4j.currymod.listener.IKeyListener;
 import dev.l4j.currymod.util.MinecraftInterface;
@@ -42,6 +40,8 @@ public class ModuleManager implements IKeyListener, MinecraftInterface {
         add(KillEffects.class);
         add(ExtraTab.class);
         add(ToolTips.class);
+        add(SwingSpeed.class);
+        add(NoFall.class);
 
         DietrichEvents2.global().subscribe(KeyEvent.ID, this);
     }

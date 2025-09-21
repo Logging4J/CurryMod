@@ -5,7 +5,7 @@ import dev.l4j.currymod.client.hud.elements.LocationElement;
 import dev.l4j.currymod.client.hud.elements.ModuleListElement;
 import dev.l4j.currymod.client.hud.elements.WatermarkElement;
 import dev.l4j.currymod.client.hud.elements.WelcomerElement;
-import dev.l4j.currymod.client.screen.HudEditorScreen;
+import dev.l4j.currymod.client.screen.hud.HudEditorScreen;
 import dev.l4j.currymod.listener.IRender2DListener;
 import dev.l4j.currymod.util.MinecraftInterface;
 import lombok.Getter;

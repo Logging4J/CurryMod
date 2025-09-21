@@ -1,16 +1,12 @@
 package dev.l4j.currymod.client.module.modules.client;
 
 import dev.l4j.currymod.client.module.Module;
-import dev.l4j.currymod.client.screen.HudEditorScreen;
+import dev.l4j.currymod.client.screen.hud.HudEditorScreen;
 import net.minecraft.client.util.InputUtil;
 import org.lwjgl.glfw.GLFW;
 
 @Module.Info(name = "HudEditor", description = "Hud Editor", category = Module.Category.CLIENT)
 public class HudEditor extends Module {
-
-    public HudEditor() {
-        getKeybind().setValue(InputUtil.fromKeyCode(GLFW.GLFW_KEY_RIGHT_SHIFT, 0));
-    }
 
     @Override
     protected void onEnable() {
