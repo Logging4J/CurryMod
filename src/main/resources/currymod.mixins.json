@@ -6,8 +6,11 @@
   "client": [
     "AbstractClientPlayerEntityMixin",
     "ChatInputSuggestorMixin",
+    "ClientConnectionMixin",
     "ClientPlayNetworkHandlerMixin",
     "CloudRendererMixin",
+    "EndermanEntityRendererMixin",
+    "EndermanEyesFeatureRendererMixin",
     "IconsMixin",
     "InGameHudMixin",
     "ItemStackMixin",
@@ -16,11 +19,13 @@
     "LivingEntityMixin",
     "LogoDrawerMixin",
     "MinecraftClientMixin",
+    "MobEntityMixin",
     "PlayerListHudMixin",
     "SkyRenderingMixin",
     "SplashOverlayMixin",
     "SplashTextResourceSupplierMixin",
     "TitleScreenMixin",
+    "accessor.ClientPlayerEntityAccessor",
     "accessor.GameRendererAccessor",
     "accessor.PlayerMoveC2SPacketAccessor",
     "accessor.ProjectionMatrix2Accessor"
@@ -30,8 +35,5 @@
   },
   "overwrites": {
     "requireAnnotations": true
-  },
-  "mixins": [
-    "ClientConnectionMixin"
-  ]
+  }
 }

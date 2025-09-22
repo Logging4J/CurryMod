@@ -10,6 +10,6 @@ public interface PlayerMoveC2SPacketAccessor {
 
     @Mutable
     @Accessor("onGround")
-    void access$setOnGround(boolean onGround);
+    void access$onGround(boolean onGround);
 
 }

@@ -16,7 +16,7 @@ public class LivingEntityMixin {
             at = @At("HEAD"),
             cancellable = true
     )
-    public void getHandSwingDurationInject(CallbackInfoReturnable<Integer> cir) {
+    public void getHandSwingDurationInjectHEAD(CallbackInfoReturnable<Integer> cir) {
         SwingSpeed swingSpeed = CurryMod.INSTANCE.moduleManager.getModule(SwingSpeed.class);
         if (swingSpeed.isEnabled()) {
             cir.setReturnValue(swingSpeed.getSpeed().getValue());

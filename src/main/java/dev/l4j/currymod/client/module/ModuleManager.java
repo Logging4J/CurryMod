@@ -3,10 +3,12 @@ package dev.l4j.currymod.client.module;
 import de.florianmichael.dietrichevents2.DietrichEvents2;
 import dev.l4j.currymod.client.module.modules.client.HudEditor;
 import dev.l4j.currymod.client.module.modules.combat.Offhand;
+import dev.l4j.currymod.client.module.modules.fun.BasketBallPeople;
 import dev.l4j.currymod.client.module.modules.fun.Jew;
 import dev.l4j.currymod.client.module.modules.fun.NaziClouds;
 import dev.l4j.currymod.client.module.modules.fun.TudouSky;
 import dev.l4j.currymod.client.module.modules.misc.AutoRespawn;
+import dev.l4j.currymod.client.module.modules.movement.EntityControl;
 import dev.l4j.currymod.client.module.modules.movement.Flight;
 import dev.l4j.currymod.client.module.modules.movement.NoFall;
 import dev.l4j.currymod.client.module.modules.visual.*;
@@ -42,6 +44,8 @@ public class ModuleManager implements IKeyListener, MinecraftInterface {
         add(ToolTips.class);
         add(SwingSpeed.class);
         add(NoFall.class);
+        add(EntityControl.class);
+        add(BasketBallPeople.class);
 
         DietrichEvents2.global().subscribe(KeyEvent.ID, this);
     }

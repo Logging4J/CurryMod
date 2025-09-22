@@ -32,7 +32,13 @@ public class NoFall extends Module implements IPacketSendListener {
         if (mc.player.getAbilities().creativeMode || !mode.getValue().equals("SetGround")) return;
 
         if (event.getPacket() instanceof PlayerMoveC2SPacket packet) {
-            ((PlayerMoveC2SPacketAccessor) packet).access$setOnGround(true);
+            ((PlayerMoveC2SPacketAccessor) packet).access$onGround(true);
         }
     }
+
+    @Override
+    public String getDisplayInfo() {
+        return mode.getValue();
+    }
+
 }
