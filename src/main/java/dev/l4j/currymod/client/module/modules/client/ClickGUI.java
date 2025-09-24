@@ -8,6 +8,7 @@ public class ClickGUI extends Module {
 
     @Override
     protected void onEnable() {
+        if (nullCheck()) return;
         mc.setScreen(ClickGUIScreen.getInstance());
     }
 

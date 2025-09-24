@@ -1,6 +1,7 @@
 package dev.l4j.currymod.client.module;
 
 import de.florianmichael.dietrichevents2.DietrichEvents2;
+import dev.l4j.currymod.client.module.modules.client.ClickGUI;
 import dev.l4j.currymod.client.module.modules.client.HudEditor;
 import dev.l4j.currymod.client.module.modules.combat.Offhand;
 import dev.l4j.currymod.client.module.modules.fun.BasketBallPeople;
@@ -35,6 +36,7 @@ public class ModuleManager implements IKeyListener, MinecraftInterface {
         add(NaziClouds.class);
         add(TudouSky.class);
         add(HudEditor.class);
+        add(ClickGUI.class);
         add(Brightness.class);
         add(Flight.class);
         add(AutoRespawn.class);
