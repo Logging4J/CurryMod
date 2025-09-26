@@ -80,4 +80,17 @@ public class Panel implements MinecraftInterface {
     private boolean isHovered(double mouseX, double mouseY, double x, double y, double width, double height) {
         return mouseX >= x && mouseX - width <= x && mouseY >= y && mouseY - height <= y;
     }
+
+    public void updateButtons() {
+        int offset = height;
+        for(ModuleComponent moduleComponent : moduleComponents) {
+            moduleComponent.setYOffset(offset);
+            offset += height;
+            if(moduleComponent.isOpen()) {
+                for(OptionComponent comp : moduleComponent.getOptionComponents()) {
+                    offset += height;
+                }
+            }
+        }
+    }
 }
