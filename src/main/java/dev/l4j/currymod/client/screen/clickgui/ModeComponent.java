@@ -1,16 +1,15 @@
 package dev.l4j.currymod.client.screen.clickgui;
 
-import dev.l4j.currymod.client.module.Module;
-import dev.l4j.currymod.client.module.option.Option;
 import dev.l4j.currymod.client.module.option.options.OptionBoolean;
+import dev.l4j.currymod.client.module.option.options.OptionMode;
 import dev.l4j.currymod.util.RenderUtils;
 import net.minecraft.client.gui.DrawContext;
 
 import java.awt.*;
 
-public class ToggleComponent extends OptionComponent {
+public class ModeComponent extends OptionComponent {
 
-    public ToggleComponent(ModuleComponent parent, OptionBoolean option, int yOffset) {
+    public ModeComponent(ModuleComponent parent, OptionMode option, int yOffset) {
         super(parent, option, yOffset);
     }
 

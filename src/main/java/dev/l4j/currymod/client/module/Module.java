@@ -1,7 +1,9 @@
 package dev.l4j.currymod.client.module;
 
+import dev.l4j.currymod.CurryMod;
 import dev.l4j.currymod.client.module.option.Option;
 import dev.l4j.currymod.client.module.option.options.OptionKeybind;
+import dev.l4j.currymod.client.screen.hud.HudEditorScreen;
 import dev.l4j.currymod.util.MinecraftInterface;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

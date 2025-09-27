@@ -40,6 +40,7 @@ public class HudManager implements IRender2DListener, MinecraftInterface {
     public void onRender2D(Render2DEvent event) {
         if (mc.currentScreen instanceof HudEditorScreen) return;
         hudElements.forEach(hudElement -> {
+            hudElement.clampHudElement();
             if (hudElement.isShown()) {
                 Matrix3x2fStack stack = event.getContext().getMatrices();
 

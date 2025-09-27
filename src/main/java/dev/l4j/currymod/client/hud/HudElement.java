@@ -27,6 +27,21 @@ public abstract class HudElement implements MinecraftInterface {
         this.scale = 1.0f;
     }
 
+    public void toggle() {
+        this.setShown(!shown);
+    }
+
+    public void clampHudElement() {
+        int scaledWidth = (int) (width * scale);
+        int scaledHeight = (int) (height * scale);
+
+        int maxX = mc.getWindow().getScaledWidth() - scaledWidth;
+        int maxY = mc.getWindow().getScaledHeight() - scaledHeight;
+
+        x = Math.max(0, Math.min(x, (int)(maxX / scale)));
+        y = Math.max(0, Math.min(y, (int)(maxY / scale)));
+    }
+
     public abstract void render(DrawContext context);
 
     public Info getConstructor() {

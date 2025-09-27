@@ -21,6 +21,8 @@ public class ModuleComponent implements MinecraftInterface {
     @Getter
     private final List<OptionComponent> optionComponents;
     private final Panel parent;
+
+    @Getter
     private final Module module;
 
     @Setter
@@ -48,19 +50,20 @@ public class ModuleComponent implements MinecraftInterface {
         this.open = false;
         this.optionComponents = new ArrayList<>();
 
-        int optionYOffset = height;
+        int optionYOffset = parent.getHeight();
         for (Option<?> option : module.getOptions()) {
             if (option instanceof OptionBoolean optionBoolean) {
-                optionComponents.add(new ToggleComponent(this, option, optionYOffset));
+                optionComponents.add(new ToggleComponent(this, optionBoolean, optionYOffset));
+                optionYOffset += parent.getHeight();
             } else if (option instanceof OptionNumber<?> optionNumber) {
-
+                optionComponents.add(new SliderComponent(this, optionNumber, optionYOffset));
+                optionYOffset += parent.getHeight();
             } else if (option instanceof OptionMode optionMode) {
-
-            } else if (option instanceof OptionKeybind optionKeyBind) {
-
+                optionComponents.add(new ModeComponent(this, optionMode, optionYOffset));
+                optionYOffset += parent.getHeight();
             }
-            optionYOffset += height;
         }
+        optionComponents.add(new KeybindComponent(this, module.getKeybind(), optionYOffset));
     }
 
     public void render(DrawContext context, int mouseX, int mouseY, float deltaTicks) {
@@ -75,7 +78,11 @@ public class ModuleComponent implements MinecraftInterface {
         context.drawText(mc.textRenderer, module.getName(),x + 5, y + (height / 2) - (mc.textRenderer.fontHeight / 2), Color.WHITE.getRGB(), true);
         context.drawText(mc.textRenderer, openString, x + width - mc.textRenderer.getWidth(openString) - 5, y + (height / 2) - (mc.textRenderer.fontHeight / 2), Color.WHITE.getRGB(), true);
 
-        if (open) optionComponents.forEach(optionComponent -> optionComponent.render(context, mouseX, mouseY, deltaTicks));
+        if (open) {
+            context.drawBorder( x, y, width, height, Color.WHITE.getRGB());
+            optionComponents.forEach(optionComponent -> optionComponent.render(context, mouseX, mouseY, deltaTicks));
+            context.drawBorder( x, y, width, height * (optionComponents.size() + 1), Color.WHITE.getRGB());
+        }
     }
 
     public void mouseClicked(double mouseX, double mouseY, int button) {

@@ -2,9 +2,10 @@ package dev.l4j.currymod.client.screen.clickgui;
 
 import dev.l4j.currymod.client.module.Module;
 import dev.l4j.currymod.client.module.option.Option;
+import dev.l4j.currymod.util.MinecraftInterface;
 import net.minecraft.client.gui.DrawContext;
 
-public abstract class OptionComponent {
+public abstract class OptionComponent implements MinecraftInterface {
 
     protected int x;
     protected int y;
@@ -13,7 +14,7 @@ public abstract class OptionComponent {
     protected int yOffset;
 
     protected ModuleComponent parent;
-    private Option<?> option;
+    protected Option<?> option;
 
     public OptionComponent(ModuleComponent parent, Option<?> option, int yOffset) {
         this.parent = parent;

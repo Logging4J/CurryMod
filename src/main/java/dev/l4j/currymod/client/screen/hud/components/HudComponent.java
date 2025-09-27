@@ -28,7 +28,7 @@ public class HudComponent implements MinecraftInterface {
             hudElement.y = (int) ((mouseY - dragY) / hudElement.scale);
         }
 
-        clampHudElement();
+        hudElement.clampHudElement();
 
         stack.pushMatrix();
 
@@ -73,7 +73,7 @@ public class HudComponent implements MinecraftInterface {
                 dragX = (int) ((mouseX - scaledX));
                 dragY = (int) ((mouseY - scaledY));
             } else if (button == 1) {
-                hudElement.setShown(!hudElement.isShown());
+                hudElement.toggle();
             }
         }
     }
@@ -96,16 +96,5 @@ public class HudComponent implements MinecraftInterface {
     }
     private boolean isHovered(double mouseX, double mouseY, double x, double y, double width, double height) {
         return mouseX >= x && mouseX - width <= x && mouseY >= y && mouseY - height <= y;
-    }
-
-    public void clampHudElement() {
-        int scaledWidth = (int) (hudElement.width * hudElement.scale);
-        int scaledHeight = (int) (hudElement.height * hudElement.scale);
-
-        int maxX = mc.getWindow().getScaledWidth() - scaledWidth;
-        int maxY = mc.getWindow().getScaledHeight() - scaledHeight;
-
-        hudElement.x = Math.max(0, Math.min(hudElement.x, (int)(maxX / hudElement.scale)));
-        hudElement.y = Math.max(0, Math.min(hudElement.y, (int)(maxY / hudElement.scale)));
     }
 }
