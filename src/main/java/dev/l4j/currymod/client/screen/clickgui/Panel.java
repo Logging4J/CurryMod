@@ -77,6 +77,10 @@ public class Panel implements MinecraftInterface {
         if (open) moduleComponents.forEach(moduleComponent -> moduleComponent.mouseReleased(mouseX, mouseY, button));
     }
 
+    public void keyPressed(int keyCode, int scanCode, int modifiers) {
+        if (open) moduleComponents.forEach(moduleComponent -> moduleComponent.keyPressed(keyCode, scanCode, modifiers));
+    }
+
     private boolean isHovered(double mouseX, double mouseY, double x, double y, double width, double height) {
         return mouseX >= x && mouseX - width <= x && mouseY >= y && mouseY - height <= y;
     }

@@ -56,6 +56,12 @@ public class ClickGUIScreen extends Screen {
     }
 
     @Override
+    public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
+        panels.forEach(panel -> panel.keyPressed(keyCode, scanCode, modifiers));
+        return super.keyPressed(keyCode, scanCode, modifiers);
+    }
+
+    @Override
     public boolean shouldPause() {
         return false;
     }

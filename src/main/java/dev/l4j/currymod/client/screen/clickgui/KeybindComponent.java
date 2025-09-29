@@ -4,6 +4,7 @@ import dev.l4j.currymod.client.module.option.options.OptionKeybind;
 import dev.l4j.currymod.client.module.option.options.OptionMode;
 import dev.l4j.currymod.util.RenderUtils;
 import net.minecraft.client.gui.DrawContext;
+import net.minecraft.client.util.InputUtil;
 import org.lwjgl.glfw.GLFW;
 
 import java.awt.*;
@@ -34,12 +35,26 @@ public class KeybindComponent extends OptionComponent {
 
     @Override
     public void mouseClicked(double mouseX, double mouseY, int button) {
-
+        if (isHovered(mouseX, mouseY, x, y, width, height)) {
+            binding = !binding;
+        }
     }
 
     @Override
     public void mouseReleased(double mouseX, double mouseY, int button) {
 
+    }
+
+    @Override
+    public void keyPressed(int keyCode, int scanCode, int modifiers) {
+        if(binding){
+            if (keyCode == GLFW.GLFW_KEY_DELETE || keyCode == GLFW.GLFW_KEY_ESCAPE || keyCode == GLFW.GLFW_KEY_UNKNOWN) {
+                this.parent.getModule().getKeybind().setValue(InputUtil.fromKeyCode(GLFW.GLFW_KEY_UNKNOWN, 0));
+            } else {
+                this.parent.getModule().getKeybind().setValue(InputUtil.fromKeyCode(keyCode, 0));
+            }
+            binding = false;
+        }
     }
 
     private String getKeyName(int key) {

@@ -34,4 +34,9 @@ public class ModeComponent extends OptionComponent {
     public void mouseReleased(double mouseX, double mouseY, int button) {
 
     }
+
+    @Override
+    public void keyPressed(int keyCode, int scanCode, int modifiers) {
+
+    }
 }

@@ -14,6 +14,7 @@ public class ClickGUI extends Module {
 
     @Override
     protected void onDisable() {
-
+        if (nullCheck()) return;
+        mc.setScreen(null);
     }
 }

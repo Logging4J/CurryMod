@@ -23,6 +23,14 @@ public abstract class OptionComponent implements MinecraftInterface {
     }
 
     public abstract void render(DrawContext context, int mouseX, int mouseY, float deltaTicks);
+
     public abstract void mouseClicked(double mouseX, double mouseY, int button);
-    public abstract void mouseReleased(double mouseX, double mouseY, int button) ;
+
+    public abstract void mouseReleased(double mouseX, double mouseY, int button);
+
+    public abstract void keyPressed(int keyCode, int scanCode, int modifiers);
+
+    protected boolean isHovered(double mouseX, double mouseY, double x, double y, double width, double height) {
+        return mouseX >= x && mouseX - width <= x && mouseY >= y && mouseY - height <= y;
+    }
 }

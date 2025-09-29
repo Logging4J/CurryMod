@@ -102,6 +102,10 @@ public class ModuleComponent implements MinecraftInterface {
         if (open) optionComponents.forEach(optionComponent -> optionComponent.mouseReleased(mouseX, mouseY, button));
     }
 
+    public void keyPressed(int keyCode, int scanCode, int modifiers) {
+        if (open) optionComponents.forEach(optionComponent -> optionComponent.keyPressed(keyCode, scanCode, modifiers));
+    }
+
     private boolean isHovered(double mouseX, double mouseY, double x, double y, double width, double height) {
         return mouseX >= x && mouseX - width <= x && mouseY >= y && mouseY - height <= y;
     }
