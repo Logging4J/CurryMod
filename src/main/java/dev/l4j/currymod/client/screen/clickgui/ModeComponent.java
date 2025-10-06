@@ -27,7 +27,43 @@ public class ModeComponent extends OptionComponent {
 
     @Override
     public void mouseClicked(double mouseX, double mouseY, int button) {
-
+        if (isHovered(mouseX, mouseY, x, y, width, height)) {
+            if(button == 0){
+                int i = 0;
+                int enumIndex = 0;
+                for (String enumName : ((OptionMode) option).getModes()) {
+                    if (enumName.equals(option.getValue())) enumIndex = i;
+                    i++;
+                }
+                if (enumIndex == ((OptionMode) option).getModes().size() - 1) {
+                    ((OptionMode) option).setValue(((OptionMode) option).getModes().get(0));
+                } else {
+                    enumIndex++;
+                    i = 0;
+                    for (String enumName : ((OptionMode) option).getModes()) {
+                        if (i == enumIndex) ((OptionMode) option).setValue(enumName);
+                        i++;
+                    }
+                }
+            } else if (button == 1) {
+                int i = 0;
+                int enumIndex = 0;
+                for (String enumName : ((OptionMode) option).getModes()) {
+                    if (enumName.equals(((OptionMode) option).getValue())) enumIndex = i;
+                    i++;
+                }
+                if (enumIndex == 0) {
+                    ((OptionMode) option).setValue(((OptionMode) option).getModes().get(((OptionMode) option).getModes().size() - 1));
+                } else {
+                    enumIndex--;
+                    i = 0;
+                    for (String enumName : ((OptionMode) option).getModes()) {
+                        if (i == enumIndex) ((OptionMode) option).setValue(enumName);
+                        i++;
+                    }
+                }
+            }
+        }
     }
 
     @Override

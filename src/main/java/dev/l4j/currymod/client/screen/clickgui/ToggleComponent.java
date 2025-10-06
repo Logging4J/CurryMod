@@ -28,13 +28,13 @@ public class ToggleComponent extends OptionComponent {
 
     @Override
     public void mouseClicked(double mouseX, double mouseY, int button) {
-
+        if(isHovered(mouseX, mouseY, x, y, width, height) && button == 0) {
+            ((OptionBoolean) this.option).toggle();
+        }
     }
 
     @Override
-    public void mouseReleased(double mouseX, double mouseY, int button) {
-
-    }
+    public void mouseReleased(double mouseX, double mouseY, int button) {}
 
     @Override
     public void keyPressed(int keyCode, int scanCode, int modifiers) {

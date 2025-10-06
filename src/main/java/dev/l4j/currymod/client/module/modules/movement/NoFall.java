@@ -11,7 +11,7 @@ import net.minecraft.network.packet.c2s.play.PlayerMoveC2SPacket;
 @Module.Info(name = "NoFall", description = "Prevents fall damage", category = Module.Category.MOVEMENT)
 public class NoFall extends Module implements IPacketSendListener {
 
-    private final OptionMode mode = new OptionMode("Mode", "SetGround", "SetGround");
+    private final OptionMode mode = new OptionMode("Mode", "Packet", "Packet");
 
     public NoFall() {
         addOptions(mode);

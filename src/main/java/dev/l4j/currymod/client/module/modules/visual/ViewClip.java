@@ -4,14 +4,14 @@ import dev.l4j.currymod.client.module.Module;
 import dev.l4j.currymod.client.module.option.options.OptionNumber;
 import lombok.Getter;
 
-@Module.Info(name = "SwingSpeed", description = "Change swing speed.", category = Module.Category.VISUAL)
-public class SwingSpeed extends Module {
+@Getter
+@Module.Info(name = "ViewClip", description = "Camera can now clip through blocks in F5", category = Module.Category.VISUAL)
+public class ViewClip extends Module {
 
-    @Getter
-    private final OptionNumber<Integer> speed = new OptionNumber<>("Speed", 6, 1, 20, 1);
+    private final OptionNumber<Integer> distance = new OptionNumber<>("Distance", 7, 0, 20, 1);
 
-    public SwingSpeed() {
-        addOptions(speed);
+    public ViewClip() {
+        addOptions(distance);
     }
 
     @Override
@@ -26,6 +26,6 @@ public class SwingSpeed extends Module {
 
     @Override
     public String getDisplayInfo() {
-        return speed.getValue().toString();
+        return distance.getValue().toString();
     }
 }
