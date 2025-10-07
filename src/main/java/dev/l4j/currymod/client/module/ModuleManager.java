@@ -12,10 +12,7 @@ import dev.l4j.currymod.client.module.modules.fun.Jew;
 import dev.l4j.currymod.client.module.modules.fun.NaziClouds;
 import dev.l4j.currymod.client.module.modules.fun.TudouSky;
 import dev.l4j.currymod.client.module.modules.misc.AutoRespawn;
-import dev.l4j.currymod.client.module.modules.movement.EntityControl;
-import dev.l4j.currymod.client.module.modules.movement.Flight;
-import dev.l4j.currymod.client.module.modules.movement.NoFall;
-import dev.l4j.currymod.client.module.modules.movement.Sprint;
+import dev.l4j.currymod.client.module.modules.movement.*;
 import dev.l4j.currymod.client.module.modules.visual.*;
 import dev.l4j.currymod.client.module.option.options.OptionKeybind;
 import dev.l4j.currymod.listener.IKeyListener;
@@ -58,6 +55,7 @@ public class ModuleManager implements IKeyListener, MinecraftInterface {
         add(AntiVanish.class);
         add(GreenText.class);
         add(Sprint.class);
+        add(AutoWalk.class);
 
         DietrichEvents2.global().subscribe(KeyEvent.ID, this);
     }
