@@ -1,6 +1,4 @@
-<p align="center">
-    <img src="https://raw.githubusercontent.com/Logging4J/CurryMod/refs/heads/main/src/main/resources/assets/currymod/textures/gui/title.png" alt="CurryMod" width="1024" height="128">
-</p>
+<img src="https://raw.githubusercontent.com/Logging4J/CurryMod/refs/heads/main/src/main/resources/assets/currymod/textures/gui/title.png" alt="CurryMod" width="1024" height="256">
 
 # CurryMod.Dev
 
