@@ -21,14 +21,24 @@ public abstract class PlayerListHudMixin {
 
     @Shadow protected abstract List<PlayerListEntry> collectPlayerEntries();
 
-    @ModifyConstant(constant = @Constant(longValue = 80L), method = "collectPlayerEntries")
+    @ModifyConstant(
+            constant = @Constant(longValue = 80L),
+            method = "collectPlayerEntries"
+    )
     private long modifyConstant$collectPlayerEntries(long count) {
         ExtraTab extraTab = CurryMod.INSTANCE.moduleManager.getModule(ExtraTab.class);
 
         return extraTab.isEnabled() ? extraTab.getSize().getValue() : count;
     }
 
-    @Inject(method = "render", at = @At(value = "INVOKE", target = "Ljava/lang/Math;min(II)I", shift = At.Shift.BEFORE))
+    @Inject(
+            method = "render",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Ljava/lang/Math;min(II)I",
+                    shift = At.Shift.BEFORE
+            )
+    )
     private void renderINVOKE$min(CallbackInfo ci,  @Local(ordinal = 5) LocalIntRef o, @Local(ordinal = 6)LocalIntRef p) {
         ExtraTab extraTab = CurryMod.INSTANCE.moduleManager.getModule(ExtraTab.class);
 
@@ -37,6 +47,7 @@ public abstract class PlayerListHudMixin {
         int newO;
         int newP = 1;
         int totalPlayers = newO = this.collectPlayerEntries().size();
+
         while (newO > extraTab.getHeight().getValue()) {
             newO = (totalPlayers + ++newP - 1) / newP;
         }
