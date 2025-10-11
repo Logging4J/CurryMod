@@ -24,7 +24,8 @@ public abstract class PlayerListEntryMixin {
     )
     private void getSkinTexturesHEAD(CallbackInfoReturnable<SkinTextures> cir) {
         PlayerProtect playerProtect = CurryMod.INSTANCE.moduleManager.getModule(PlayerProtect.class);
-        if (playerProtect.isEnabled() && playerProtect.getHideSkin().getValue()) {
+
+        if (playerProtect != null && playerProtect.isEnabled() && playerProtect.getHideSkin().getValue()) {
             cir.setReturnValue(DefaultSkinHelper.getSkinTextures(getProfile()));
         }
     }

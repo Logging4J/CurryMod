@@ -1,7 +1,5 @@
 package dev.l4j.currymod.client.screen.clickgui;
 
-import dev.l4j.currymod.client.module.Module;
-import dev.l4j.currymod.client.module.option.Option;
 import dev.l4j.currymod.client.module.option.options.OptionBoolean;
 import dev.l4j.currymod.util.RenderUtils;
 import net.minecraft.client.gui.DrawContext;

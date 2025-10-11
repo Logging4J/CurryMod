@@ -23,6 +23,7 @@ public class ResourceBank {
     public final Identifier NICKEL_PINCHER = of("textures/cape/nickelpincher.png");
     public final Identifier BASKETBALL_PERSON = of("textures/entity/enderman/enderman.png");
     public final Identifier BASKETBALL_PERSON_EYES = of("textures/entity/enderman/enderman_eyes.png");
+    public final Identifier RETARDATION = of("textures/retardation.png");
 
 
     public Identifier of(String path) {

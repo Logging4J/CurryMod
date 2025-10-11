@@ -5,7 +5,6 @@ import dev.l4j.currymod.CurryMod;
 import dev.l4j.currymod.client.module.modules.fun.BasketBallPeople;
 import dev.l4j.currymod.util.ResourceBank;
 import net.minecraft.client.render.entity.EndermanEntityRenderer;
-import net.minecraft.client.render.entity.feature.EndermanEyesFeatureRenderer;
 import net.minecraft.util.Identifier;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

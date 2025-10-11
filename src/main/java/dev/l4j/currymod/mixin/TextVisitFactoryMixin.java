@@ -21,7 +21,7 @@ public class TextVisitFactoryMixin implements MinecraftInterface {
     private static String visitFormattedINVOKE$visitFormatted(String text) {
         PlayerProtect playerProtect = CurryMod.INSTANCE.moduleManager.getModule(PlayerProtect.class);
 
-        if (playerProtect.isEnabled() && playerProtect.getHideName().getValue()) {
+        if (playerProtect != null && playerProtect.isEnabled() && playerProtect.getHideName().getValue()) {
             return text.replace(mc.getSession().getUsername(), "CurryModUser");
         } else {
             return text;

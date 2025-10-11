@@ -23,6 +23,9 @@ public class AutoWalk extends Module implements ITickListener {
     @Override
     protected void onDisable() {
         DietrichEvents2.global().unsubscribe(TickEvent.ID, this);
+
+        if (nullCheck()) return;
+
         KeyBinding.setKeyPressed(mc.options.forwardKey.getDefaultKey(), false);
         KeyBinding.setKeyPressed(mc.options.jumpKey.getDefaultKey(), false);
     }
