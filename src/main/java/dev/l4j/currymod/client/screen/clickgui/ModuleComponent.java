@@ -1,6 +1,8 @@
 package dev.l4j.currymod.client.screen.clickgui;
 
+import dev.l4j.currymod.CurryMod;
 import dev.l4j.currymod.client.module.Module;
+import dev.l4j.currymod.client.module.modules.client.ClickGUI;
 import dev.l4j.currymod.client.module.option.Option;
 import dev.l4j.currymod.client.module.option.options.OptionBoolean;
 import dev.l4j.currymod.client.module.option.options.OptionKeybind;
@@ -82,6 +84,10 @@ public class ModuleComponent implements MinecraftInterface {
             context.drawBorder( x, y, width, height, Color.WHITE.getRGB());
             optionComponents.forEach(optionComponent -> optionComponent.render(context, mouseX, mouseY, deltaTicks));
             context.drawBorder( x, y, width, height * (optionComponents.size() + 1), Color.WHITE.getRGB());
+        }
+
+        if (isHovered(mouseX, mouseY, x, y, width, height) && CurryMod.INSTANCE.moduleManager.getModule(ClickGUI.class).getDescriptionNigger().getValue()) {
+            RenderUtils.drawNiggerPointingAtWords(context, module.getDescription(), mc.getWindow().getScaledWidth() - 260, mc.getWindow().getScaledHeight() - 230);
         }
     }
 

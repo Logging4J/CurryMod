@@ -1,6 +1,8 @@
 package dev.l4j.currymod.util;
 
 import lombok.experimental.UtilityClass;
+import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.Vec3d;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -17,12 +19,11 @@ public class MathUtils {
         return bd.doubleValue();
     }
 
-    public float roundToPlace(float value, int place, RoundingMode roundingMode){
-        if(place < 0){
-            return value;
-        }
-        BigDecimal bd = new BigDecimal(value);
-        bd = bd.setScale(place, roundingMode);
-        return bd.floatValue();
+    public static float[] calcAngle(Vec3d from, Vec3d to) {
+        double difX = to.x - from.x;
+        double difY = (to.y - from.y) * -1.0;
+        double difZ = to.z - from.z;
+        double dist = Math.sqrt(difX * difX + difZ * difZ);
+        return new float[]{(float) MathHelper.wrapDegrees(Math.toDegrees(Math.atan2(difZ, difX)) - 90.0), (float) MathHelper.wrapDegrees(Math.toDegrees(Math.atan2(difY, dist)))};
     }
 }

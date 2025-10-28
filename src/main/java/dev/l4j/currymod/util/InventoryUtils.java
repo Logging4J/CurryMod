@@ -65,10 +65,6 @@ public class InventoryUtils implements MinecraftInterface {
         mc.getNetworkHandler().sendPacket(new UpdateSelectedSlotC2SPacket(slot));
     }
 
-    public void windowClick(ScreenHandler container, int slot, SlotActionType action, int clickData) {
-        mc.interactionManager.clickSlot(container.syncId, slot, clickData, action, mc.player);
-    }
-
     public static Object2IntMap<RegistryEntry<Enchantment>> getEnchantments(ItemStack stack) {
         Object2IntMap<RegistryEntry<Enchantment>> enchantments = new Object2IntOpenHashMap<>();
 

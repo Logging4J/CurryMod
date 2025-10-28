@@ -13,9 +13,14 @@ import java.util.Properties;
 
 public class HudConfig extends Config {
 
+
+    public HudConfig() {
+        super(new File(CurryMod.FOLDER, "hud"));
+    }
+
     @Override
     public void write() {
-        HUD_CONFIG_FOLDER.mkdirs();
+        configFiles.getFirst().mkdirs();
 
         for (HudElement hudElement : CurryMod.INSTANCE.hudManager.getHudElements()) {
             writeHudElementConfig(hudElement);
@@ -25,13 +30,13 @@ public class HudConfig extends Config {
 
     @Override
     public void read() {
-        if (!HUD_CONFIG_FOLDER.exists()) {
+        if (!configFiles.getFirst().exists()) {
             write();
             return;
         }
 
         for (HudElement hudElement : CurryMod.INSTANCE.hudManager.getHudElements()) {
-            File hudConfig = new File(HUD_CONFIG_FOLDER, String.format("%s.properties", hudElement.getName()));
+            File hudConfig = new File(configFiles.getFirst(), String.format("%s.properties", hudElement.getName()));
 
             if (!hudConfig.exists()) {
                 writeHudElementConfig(hudElement);
@@ -60,7 +65,7 @@ public class HudConfig extends Config {
     }
 
     public void writeHudElementConfig(HudElement hudElement) {
-        File hudConfig = new File(HUD_CONFIG_FOLDER, String.format("%s.properties", hudElement.getName()));
+        File hudConfig = new File(configFiles.getFirst(), String.format("%s.properties", hudElement.getName()));
         Properties config = new Properties();
 
         config.setProperty("shown", String.valueOf(hudElement.isShown()));

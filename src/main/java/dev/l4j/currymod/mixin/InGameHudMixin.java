@@ -2,6 +2,7 @@ package dev.l4j.currymod.mixin;
 
 import de.florianmichael.dietrichevents2.DietrichEvents2;
 import dev.l4j.currymod.CurryMod;
+import dev.l4j.currymod.client.module.modules.misc.ChatModifier;
 import dev.l4j.currymod.client.module.modules.visual.NoRender;
 import dev.l4j.currymod.listener.IRender2DListener;
 import dev.l4j.currymod.util.RenderUtils;
@@ -82,6 +83,34 @@ public class InGameHudMixin {
 
         if (noRender.isEnabled() && noRender.getPowderSnow().getValue()) {
             args.set(2, 0f);
+        }
+    }
+
+    @Inject(
+            method = "clear",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/client/gui/hud/ChatHud;clear(Z)V"),
+            cancellable = true
+    )
+    private void clearINVOKE$clear(CallbackInfo ci) {
+        ChatModifier chatModifier = CurryMod.INSTANCE.moduleManager.getModule(ChatModifier.class);
+
+        if (chatModifier.isEnabled() && chatModifier.getKeepHistory().getValue()) {
+            ci.cancel();
+        }
+    }
+
+    @Inject(
+            method = "renderSpyglassOverlay",
+            at = @At("HEAD"),
+            cancellable = true
+    )
+    private void renderSpyglassOverlayHEAD(DrawContext context, float scale, CallbackInfo ci) {
+        NoRender noRender = CurryMod.INSTANCE.moduleManager.getModule(NoRender.class);
+
+        if (noRender.isEnabled() && noRender.getSpyGlass().getValue()) {
+            ci.cancel();
         }
     }
 }

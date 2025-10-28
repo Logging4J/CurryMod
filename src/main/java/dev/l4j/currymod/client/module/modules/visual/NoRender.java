@@ -13,12 +13,14 @@ public class NoRender extends Module {
     private final OptionBoolean pumpkin = new OptionBoolean("Pumpkin Overlay", true);
     private final OptionBoolean powderSnow = new OptionBoolean("PowderSnow Overlay", true);
     private final OptionBoolean liquid = new OptionBoolean("Liquid Overlay", true);
+    private final OptionBoolean spyGlass = new OptionBoolean("SpyGlass Overlay", true);
     private final OptionBoolean wall = new OptionBoolean("Wall Overlay", true);
     private final OptionBoolean portal = new OptionBoolean("Portal Overlay", true);
     private final OptionBoolean guiBackground = new OptionBoolean("GUI Background", true);
+    private final OptionBoolean armor = new OptionBoolean("Armor", true);
 
     public NoRender() {
-        addOptions(hurtCam, fire, pumpkin, powderSnow, liquid, wall, portal, guiBackground);
+        addOptions(hurtCam, fire, pumpkin, powderSnow, liquid, wall, spyGlass, portal, guiBackground, armor);
     }
 
     @Override

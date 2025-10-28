@@ -3,11 +3,11 @@ package dev.l4j.currymod.client.module.modules.movement;
 import de.florianmichael.dietrichevents2.DietrichEvents2;
 import dev.l4j.currymod.client.module.Module;
 import dev.l4j.currymod.client.module.option.options.OptionBoolean;
-import dev.l4j.currymod.listener.ITickListener;
+import dev.l4j.currymod.listener.IGameTickListener;
 import net.minecraft.client.option.KeyBinding;
 
 @Module.Info(name = "AutoWalk", description = "Auto walk", category = Module.Category.MOVEMENT)
-public class AutoWalk extends Module implements ITickListener {
+public class AutoWalk extends Module implements IGameTickListener {
 
     private final OptionBoolean jump = new OptionBoolean("Jump", true);
 
@@ -17,12 +17,12 @@ public class AutoWalk extends Module implements ITickListener {
 
     @Override
     protected void onEnable() {
-        DietrichEvents2.global().subscribe(TickEvent.ID, this);
+        DietrichEvents2.global().subscribe(GameTickEvent.ID, this);
     }
 
     @Override
     protected void onDisable() {
-        DietrichEvents2.global().unsubscribe(TickEvent.ID, this);
+        DietrichEvents2.global().unsubscribe(GameTickEvent.ID, this);
 
         if (nullCheck()) return;
 
@@ -31,7 +31,7 @@ public class AutoWalk extends Module implements ITickListener {
     }
 
     @Override
-    public void onTick() {
+    public void onGameTick() {
         KeyBinding.setKeyPressed(mc.options.forwardKey.getDefaultKey(), true);
         if (jump.getValue()) {
             KeyBinding.setKeyPressed(mc.options.jumpKey.getDefaultKey(), true);

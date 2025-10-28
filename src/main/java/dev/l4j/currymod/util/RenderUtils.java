@@ -47,7 +47,7 @@ public class RenderUtils implements MinecraftInterface{
         context.fill(x, y, x + w, y + h, color);
     }
 
-    public static void drawNegroPointingAtDescription(DrawContext context, String description, int x, int y) {
+    public static void drawNiggerPointingAtWords(DrawContext context, String description, int x, int y) {
         int textureWidth = 255;
         int textureHeight = 231;
 
@@ -59,8 +59,8 @@ public class RenderUtils implements MinecraftInterface{
         int boxWidth = textWidth + 8;
         int boxHeight = textHeight + 4;
 
-        if (boxX + boxWidth > mc.getWindow().getScaledWidth() - 10) {
-            boxX -= boxX + boxWidth - mc.getWindow().getScaledWidth() - 10;
+        if (boxX + boxWidth > mc.getWindow().getScaledWidth()) {
+            boxX -= boxX + boxWidth - mc.getWindow().getScaledWidth();
         }
 
         context.drawTexture(RenderPipelines.GUI_TEXTURED, ResourceBank.DESCRIPTION_POINT, x, y, 0, 0, textureWidth, textureHeight, textureWidth, textureHeight);

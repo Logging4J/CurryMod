@@ -18,11 +18,19 @@ import java.util.Properties;
 
 public class ModuleConfig extends Config {
 
+    public ModuleConfig() {
+        super(
+                new File(CurryMod.FOLDER, "module"),
+                new File(CurryMod.FOLDER, "module/save"),
+                new File(CurryMod.FOLDER, "module/load")
+        );
+    }
+
     @Override
     public void write() {
-        MODULE_CONFIG_FOLDER.mkdirs();
-        MODULE_CONFIG_SAVE_FOLDER.mkdirs();
-        MODULE_CONFIG_LOAD_FOLDER.mkdirs();
+        for (File file : configFiles) {
+            file.mkdirs();
+        }
 
         for (Module module : CurryMod.INSTANCE.moduleManager.getModules()) {
             writeModuleConfig(module);
@@ -31,13 +39,13 @@ public class ModuleConfig extends Config {
 
     @Override
     public void read() {
-        if (!MODULE_CONFIG_SAVE_FOLDER.exists()) {
+        if (!configFiles.getFirst().exists()) {
             write();
             return;
         }
 
         for (Module module : CurryMod.INSTANCE.moduleManager.getModules()) {
-            File moduleConfig = new File(MODULE_CONFIG_SAVE_FOLDER, String.format("%s.properties", module.getName()));
+            File moduleConfig = new File(configFiles.get(1), String.format("%s.properties", module.getName()));
 
             if (!moduleConfig.exists()) {
                 writeModuleConfig(module);
@@ -98,7 +106,7 @@ public class ModuleConfig extends Config {
     }
 
     public void writeModuleConfig(Module module) {
-        File moduleConfig = new File(MODULE_CONFIG_SAVE_FOLDER, String.format("%s.properties", module.getName()));
+        File moduleConfig = new File(configFiles.get(1), String.format("%s.properties", module.getName()));
         Properties config = new Properties();
 
         config.setProperty("enabled", String.valueOf(module.isEnabled()));

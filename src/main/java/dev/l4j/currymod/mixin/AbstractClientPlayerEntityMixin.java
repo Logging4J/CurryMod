@@ -1,7 +1,7 @@
 package dev.l4j.currymod.mixin;
 
 import dev.l4j.currymod.CurryMod;
-import dev.l4j.currymod.client.cape.CapeManager;
+import dev.l4j.currymod.client.module.modules.client.Capes;
 import dev.l4j.currymod.client.module.modules.fun.Jew;
 import dev.l4j.currymod.util.ResourceBank;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
@@ -21,14 +21,13 @@ public class AbstractClientPlayerEntityMixin {
     private void getSkinTexturesRETURN(CallbackInfoReturnable<SkinTextures> cir) {
         SkinTextures textures = cir.getReturnValue();
 
-        boolean customCape = CurryMod.INSTANCE.capeManager.customCape;
-        CapeManager.Cape cape = CurryMod.INSTANCE.capeManager.currentCape;
+        Capes capes = CurryMod.INSTANCE.moduleManager.getModule(Capes.class);
         Jew jew = CurryMod.INSTANCE.moduleManager.getModule(Jew.class);
 
         cir.setReturnValue(new SkinTextures(
                 jew.isEnabled() ? ResourceBank.JEW_SKIN : textures.texture(),
                 textures.textureUrl(),
-                customCape ? cape == null ? textures.capeTexture() : cape.identifier() : textures.capeTexture(),
+                capes.isEnabled() ? capes.getCapeMap().get(capes.getMode().getValue()) : textures.capeTexture(),
                 textures.elytraTexture(),
                 textures.model(),
                 textures.secure()

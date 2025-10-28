@@ -11,6 +11,10 @@ import java.util.Properties;
 
 public class PrefixConfig extends Config {
 
+    public PrefixConfig() {
+        super(new File(CurryMod.FOLDER, "prefix.properties"));
+    }
+
     @Override
     public void write() {
         Properties config = new Properties();
@@ -18,7 +22,7 @@ public class PrefixConfig extends Config {
 
         config.setProperty("prefix", prefix);
 
-        try (FileOutputStream output = new FileOutputStream(PREFIX_CONFIG_FILE)) {
+        try (FileOutputStream output = new FileOutputStream(configFiles.getFirst())) {
             config.store(output, "Prefix config");
         } catch (IOException e) {
             CurryMod.LOGGER.error("Prefix config Failed to write");
@@ -27,13 +31,13 @@ public class PrefixConfig extends Config {
 
     @Override
     public void read() {
-        if (!PREFIX_CONFIG_FILE.exists()) {
+        if (!configFiles.getFirst().exists()) {
             write();
             return;
         }
 
         Properties config = new Properties();
-        try (FileInputStream input = new FileInputStream(PREFIX_CONFIG_FILE)) {
+        try (FileInputStream input = new FileInputStream(configFiles.getFirst())) {
             config.load(input);
 
             String prefix = config.getProperty("prefix");

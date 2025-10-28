@@ -1,6 +1,8 @@
 package dev.l4j.currymod.client.screen.hud.components;
 
+import dev.l4j.currymod.CurryMod;
 import dev.l4j.currymod.client.hud.HudElement;
+import dev.l4j.currymod.client.module.modules.client.HudEditor;
 import dev.l4j.currymod.util.MinecraftInterface;
 import dev.l4j.currymod.util.RenderUtils;
 import net.minecraft.client.gui.DrawContext;
@@ -57,7 +59,9 @@ public class HudComponent implements MinecraftInterface {
                     Color.WHITE.getRGB()
             );
 
-            RenderUtils.drawNegroPointingAtDescription(context, hudElement.getDescription(), mc.getWindow().getScaledWidth() - 260, mc.getWindow().getScaledHeight() - 230);
+            if (CurryMod.INSTANCE.moduleManager.getModule(HudEditor.class).getDescriptionNigger().getValue()){
+                RenderUtils.drawNiggerPointingAtWords(context, hudElement.getDescription(), mc.getWindow().getScaledWidth() - 260, mc.getWindow().getScaledHeight() - 230);
+            }
         }
     }
 

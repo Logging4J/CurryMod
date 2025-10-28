@@ -1,19 +1,15 @@
 package dev.l4j.currymod.client.module;
 
 import de.florianmichael.dietrichevents2.DietrichEvents2;
-import dev.l4j.currymod.client.module.modules.chat.GreenText;
-import dev.l4j.currymod.client.module.modules.client.ClickGUI;
-import dev.l4j.currymod.client.module.modules.client.HudEditor;
-import dev.l4j.currymod.client.module.modules.combat.Offhand;
-import dev.l4j.currymod.client.module.modules.exploit.AntiVanish;
-import dev.l4j.currymod.client.module.modules.exploit.BoatExecute;
-import dev.l4j.currymod.client.module.modules.fun.BasketBallPeople;
-import dev.l4j.currymod.client.module.modules.fun.Jew;
-import dev.l4j.currymod.client.module.modules.fun.NaziClouds;
-import dev.l4j.currymod.client.module.modules.fun.TudouSky;
-import dev.l4j.currymod.client.module.modules.misc.AutoRespawn;
+
+import dev.l4j.currymod.client.module.modules.client.*;
+import dev.l4j.currymod.client.module.modules.combat.*;
+import dev.l4j.currymod.client.module.modules.exploit.*;
+import dev.l4j.currymod.client.module.modules.fun.*;
+import dev.l4j.currymod.client.module.modules.misc.*;
 import dev.l4j.currymod.client.module.modules.movement.*;
 import dev.l4j.currymod.client.module.modules.visual.*;
+
 import dev.l4j.currymod.client.module.option.options.OptionKeybind;
 import dev.l4j.currymod.listener.IKeyListener;
 import dev.l4j.currymod.util.MinecraftInterface;
@@ -53,9 +49,12 @@ public class ModuleManager implements IKeyListener, MinecraftInterface {
         add(ViewClip.class);
         add(BoatExecute.class);
         add(AntiVanish.class);
-        add(GreenText.class);
         add(Sprint.class);
         add(AutoWalk.class);
+        add(Capes.class);
+        add(Twerk.class);
+        add(ChatModifier.class);
+        add(PlayerProtect.class);
 
         DietrichEvents2.global().subscribe(KeyEvent.ID, this);
     }

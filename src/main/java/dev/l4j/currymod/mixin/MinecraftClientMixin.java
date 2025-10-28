@@ -2,7 +2,7 @@ package dev.l4j.currymod.mixin;
 
 import de.florianmichael.dietrichevents2.DietrichEvents2;
 import dev.l4j.currymod.CurryMod;
-import dev.l4j.currymod.listener.ITickListener;
+import dev.l4j.currymod.listener.IGameTickListener;
 import dev.l4j.currymod.util.RenderUtils;
 import net.minecraft.SharedConstants;
 import net.minecraft.client.MinecraftClient;
@@ -19,8 +19,6 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-
-import java.awt.*;
 
 @Mixin(MinecraftClient.class)
 public class MinecraftClientMixin {
@@ -86,7 +84,7 @@ public class MinecraftClientMixin {
             at = @At("HEAD")
     )
     public void tickHEAD(CallbackInfo ci) {
-        ITickListener.TickEvent event = new ITickListener.TickEvent();
-        DietrichEvents2.global().call(ITickListener.TickEvent.ID, event);
+        IGameTickListener.GameTickEvent event = new IGameTickListener.GameTickEvent();
+        DietrichEvents2.global().call(IGameTickListener.GameTickEvent.ID, event);
     }
 }

@@ -102,7 +102,6 @@ public abstract class Module implements MinecraftInterface {
         EXPLOIT("Exploit"),
         MISC("Misc"),
         CLIENT("Client"),
-        CHAT("Chat"),
         FUN("Fun");
 
         final String name;

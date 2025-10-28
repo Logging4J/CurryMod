@@ -28,7 +28,6 @@ public class CommandManager implements IMessageSendListener {
         commands = new CopyOnWriteArrayList<>();
 
         add(PrefixCommand.class);
-        add(CapeCommand.class);
         add(ToggleCommand.class);
         add(BindCommand.class);
         add(ModuleCommand.class);
