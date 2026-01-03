@@ -1,6 +1,6 @@
 plugins {
     id "com.peterabeles.gversion" version "1.10.2"
-    id 'fabric-loom' version '1.11-SNAPSHOT'
+    id 'fabric-loom' version '1.14-SNAPSHOT'
     id "io.freefair.lombok" version "8.6"
     id 'maven-publish'
 }
@@ -9,11 +9,20 @@ version = project.mod_version
 group = project.maven_group
 
 base {
-    archivesName.set(project.archives_base_name)
+    archivesName = project.archives_base_name
 }
 
+
 repositories {
-    maven { url = 'https://jitpack.io/' }
+    maven {
+        name = 'Ladysnake Mods'
+        url = 'https://maven.ladysnake.org/releases'
+        content {
+            includeGroup 'io.github.ladysnake'
+            includeGroup 'org.ladysnake'
+            includeGroupByRegex 'dev\\.onyxstudios.*'
+        }
+    }
 }
 
 dependencies {
@@ -23,51 +32,29 @@ dependencies {
 
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-    implementation "com.github.FlorianMichael:DietrichEvents2:v${project.dietrichevents2_version}"
-    include "com.github.FlorianMichael:DietrichEvents2:v${project.dietrichevents2_version}"
+    implementation "de.florianmichael:DietrichEvents2:${project.dietrichevents2_version}"
+    include "de.florianmichael:DietrichEvents2:${project.dietrichevents2_version}"
 
+    modImplementation "org.ladysnake:satin:${satin_version}"
+    include "org.ladysnake:satin:${satin_version}"
 }
 
 processResources {
-    inputs.property("version", project.version)
-    inputs.property("minecraft_version", project.minecraft_version)
-    inputs.property("loader_version", project.loader_version)
-    filteringCharset = "UTF-8"
+    inputs.property "version", project.version
+    inputs.property "minecraft_version", project.minecraft_version
+    inputs.property "loader_version", project.loader_version
+    filteringCharset "UTF-8"
 
     filesMatching("fabric.mod.json") {
-        expand(
-                "version": project.version,
+        expand "version": project.version,
                 "minecraft_version": project.minecraft_version,
                 "loader_version": project.loader_version
-        )
-    }
-}
-
-def targetJavaVersion = 21
-tasks.withType(JavaCompile).configureEach {
-    options.encoding = "UTF-8"
-    if (targetJavaVersion >= 10 || JavaVersion.current().isJava10Compatible()) {
-        options.release.set(targetJavaVersion)
-    }
-}
-
-java {
-    def javaVersion = JavaVersion.toVersion(targetJavaVersion)
-    if (JavaVersion.current() < javaVersion) {
-        toolchain.languageVersion.set(JavaLanguageVersion.of(targetJavaVersion))
-    }
-    withSourcesJar()
-}
-
-jar {
-    from("LICENSE") {
-        rename { "${it}_${project.archives_base_name}" }
     }
 }
 
 gversion {
     srcDir       = "src/main/java/"
-    classPackage = "dev.l4j.currymod"
+    classPackage = "dev.logging4j.currymod"
     className    = "GitInfo"
     dateFormat   = "yyyy-MM-dd'T'HH:mm:ss'Z'"
     timeZone     = "EST"
@@ -78,6 +65,28 @@ gversion {
     annotate     = false
 }
 
+def targetJavaVersion = 21
+tasks.withType(JavaCompile).configureEach {
+    it.options.encoding = "UTF-8"
+    if (targetJavaVersion >= 10 || JavaVersion.current().isJava10Compatible()) {
+        it.options.release.set(targetJavaVersion)
+    }
+}
+
+java {
+    def javaVersion = JavaVersion.toVersion(targetJavaVersion)
+    if (JavaVersion.current() < javaVersion) {
+        toolchain.languageVersion = JavaLanguageVersion.of(targetJavaVersion)
+    }
+    withSourcesJar()
+}
+
+jar {
+    from("LICENSE") {
+        rename { "${it}_${project.archivesBaseName}" }
+    }
+}
+
 publishing {
     publications {
         create("mavenJava", MavenPublication) {
@@ -86,8 +95,7 @@ publishing {
         }
     }
 
-    repositories {
-    }
+    repositories {}
 }
 
 project.compileJava.dependsOn(createVersionFile)

@@ -1,0 +1,52 @@
+package dev.logging4j.currymod.command.commands;
+
+import com.mojang.brigadier.CommandDispatcher;
+import com.mojang.brigadier.arguments.StringArgumentType;
+import com.mojang.brigadier.context.CommandContext;
+import com.mojang.brigadier.suggestion.SuggestionProvider;
+import dev.logging4j.currymod.CurryMod;
+import dev.logging4j.currymod.command.Command;
+import dev.logging4j.currymod.module.Module;
+import dev.logging4j.currymod.util.ChatUtils;
+import net.fabricmc.fabric.api.client.command.v2.ClientCommandManager;
+import net.fabricmc.fabric.api.client.command.v2.FabricClientCommandSource;
+import net.minecraft.util.Formatting;
+
+import java.util.concurrent.CompletableFuture;
+
+@Command.Info(name = "toggle", usage = "toggle <module>")
+public class ToggleCommand extends Command {
+    @Override
+    public void register(CommandDispatcher<FabricClientCommandSource> dispatcher) {
+        dispatcher.register(ClientCommandManager.literal(this.getName())
+                .executes(context -> sendUsageInstructions())
+                .then(ClientCommandManager.argument("module", StringArgumentType.string())
+                        .suggests(suggestModules())
+                        .executes(this::handleCommand)
+                )
+        );
+    }
+
+    private int handleCommand(CommandContext<FabricClientCommandSource> context) {
+        String name = StringArgumentType.getString(context, "module");
+        Module module = CurryMod.getModuleManager().getModule(name);
+        if (module == null) {
+            return ChatUtils.sendClientMessage("That module doesn't exist.", 0);
+        } else {
+            module.toggle();
+            return ChatUtils.sendClientMessage("Module " + name + Formatting.WHITE + " ["+(module.isEnabled() ? Formatting.GREEN+ "Enabled" : Formatting.RED + "Disabled") + Formatting.WHITE + "]", 1);
+        }
+    }
+
+    private SuggestionProvider<FabricClientCommandSource> suggestModules() {
+        return (context, builder) -> {
+            String input = builder.getRemaining().toLowerCase();
+            CurryMod.getModuleManager().getModules().stream()
+                    .map(Module::getName)
+                    .filter(name -> name.toLowerCase().startsWith(input))
+                    .forEach(builder::suggest);
+            return CompletableFuture.supplyAsync(builder::build);
+        };
+    }
+
+}

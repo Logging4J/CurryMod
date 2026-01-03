@@ -1,0 +1,2 @@
+Copyright (c) 2025 Logging4J
+All rights reserved.

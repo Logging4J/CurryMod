@@ -3,15 +3,15 @@
   "id": "currymod",
   "version": "${version}",
   "name": "CurryMod",
-  "description": "Block game weapon",
-  "authors": ["Logging4J"],
+  "description": "block game mod",
+  "authors": [],
   "contact": {},
   "license": "All-Rights-Reserved",
   "icon": "assets/currymod/icon.png",
-  "environment": "client",
+  "environment": "*",
   "entrypoints": {
     "client": [
-      "dev.l4j.currymod.CurryMod"
+      "dev.logging4j.currymod.CurryMod"
     ]
   },
   "mixins": [
@@ -19,7 +19,7 @@
   ],
   "depends": {
     "fabricloader": ">=${loader_version}",
-    "fabric": "*",
+    "fabric-api": "*",
     "minecraft": "${minecraft_version}"
   }
 }
