@@ -17,9 +17,9 @@ jobs:
         with:
           distribution: temurin
           java-version: 21
-
-      - name: Set up Gradle
-        uses: gradle/gradle-build-action@v3
+          cache: gradle
 
       - name: Build with Gradle
-        run: ./gradlew build
+        uses: gradle/gradle-build-action@v3
+        with:
+          arguments: build
