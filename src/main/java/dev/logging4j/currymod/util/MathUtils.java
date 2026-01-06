@@ -4,9 +4,16 @@ import lombok.experimental.UtilityClass;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.Random;
 
 @UtilityClass
 public class MathUtils {
+
+    public static final Random RANDOM = new Random();
+
+    public static int random(int min, int max) {
+        return RANDOM.nextInt(max - min) + min;
+    }
 
     public double roundToPlace(double value, int place, RoundingMode roundingMode){
         if(place < 0){
