@@ -81,11 +81,12 @@ java {
     withSourcesJar()
 }
 
-jar {
+tasks.named("jar") {
     from("LICENSE") {
-        rename { "${it}_${project.archivesBaseName}" }
+        rename { "${it}_${archiveBaseName.get()}" }
     }
 }
+
 
 publishing {
     publications {
