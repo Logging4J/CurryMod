@@ -15,6 +15,7 @@ public class ResourceBank {
     public final Identifier LONG_NOSE = of("textures/cape/longnose.png");
     public final Identifier PROF_FLOYDE = of("textures/cape/proffloyde.png");
     public final Identifier NICKEL_PINCHER = of("textures/cape/nickelpincher.png");
+    public final Identifier LARPGOD_CC = of("textures/cape/larpgodcape.png");
 
     public final Identifier JEW_SKIN = of("textures/skins/jew.png");
 
