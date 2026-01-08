@@ -25,6 +25,7 @@
     "LogoDrawerMixin",
     "MinecraftClientMixin",
     "PigEntityMixin",
+    "PlayerEntityMixin",
     "PlayerListEntryMixin",
     "ScreenMixin",
     "SplashOverlayMixin",
@@ -32,7 +33,9 @@
     "TextVisitFactoryMixin",
     "TitleScreenMixin",
     "ToastManagerMixin",
-    "accessor.ClientPlayerEntityAccessor"
+    "accessor.ClientPlayerEntityAccessor",
+    "accessor.EntityVelocityUpdateS2CPacketAccessor",
+    "accessor.ExplosionS2CPacketAccessor"
   ],
   "injectors": {
     "defaultRequire": 1

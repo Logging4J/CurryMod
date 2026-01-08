@@ -13,6 +13,7 @@ import dev.logging4j.currymod.module.modules.misc.ChatModifier;
 import dev.logging4j.currymod.module.modules.misc.PlayerProtect;
 import dev.logging4j.currymod.module.modules.movement.AutoWalk;
 import dev.logging4j.currymod.module.modules.movement.EntityControl;
+import dev.logging4j.currymod.module.modules.movement.Velocity;
 import dev.logging4j.currymod.module.modules.visual.*;
 import dev.logging4j.currymod.module.option.options.OptionKeybind;
 import dev.logging4j.currymod.util.MinecraftInterface;
@@ -58,6 +59,7 @@ public class ModuleManager implements IKeyListener, MinecraftInterface {
         add(Twerk.class);
         add(ChatModifier.class);
         add(PlayerProtect.class);
+        add(Velocity.class);
 
         DietrichEvents2.global().subscribe(KeyEvent.ID, this);
     }
