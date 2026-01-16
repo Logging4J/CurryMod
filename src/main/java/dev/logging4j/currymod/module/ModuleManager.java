@@ -5,6 +5,7 @@ import dev.logging4j.currymod.listener.IKeyListener;
 import dev.logging4j.currymod.module.modules.client.Capes;
 import dev.logging4j.currymod.module.modules.client.ClickGUI;
 import dev.logging4j.currymod.module.modules.client.HudEditor;
+import dev.logging4j.currymod.module.modules.exploit.XCarry;
 import dev.logging4j.currymod.module.modules.fun.BasketBallPeople;
 import dev.logging4j.currymod.module.modules.fun.Jew;
 import dev.logging4j.currymod.module.modules.fun.Twerk;
@@ -60,6 +61,7 @@ public class ModuleManager implements IKeyListener, MinecraftInterface {
         add(ChatModifier.class);
         add(PlayerProtect.class);
         add(Velocity.class);
+        add(XCarry.class);
 
         DietrichEvents2.global().subscribe(KeyEvent.ID, this);
     }
