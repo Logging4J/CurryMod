@@ -26,6 +26,7 @@ public class HudManager implements IRender2DListener, MinecraftInterface {
         add(LocationElement.class);
         add(WelcomerElement.class);
         add(TextRadarElement.class);
+        add(InfoElement.class);
 
         DietrichEvents2.global().subscribe(Render2DEvent.ID, this);
         CurryMod.LOGGER.info("HudManager Initialized");
