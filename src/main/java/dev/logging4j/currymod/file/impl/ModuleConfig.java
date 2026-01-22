@@ -1,17 +1,16 @@
 package dev.logging4j.currymod.file.impl;
 
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import dev.logging4j.currymod.CurryMod;
 import dev.logging4j.currymod.file.Config;
 import dev.logging4j.currymod.module.Module;
 import dev.logging4j.currymod.module.option.Option;
-import dev.logging4j.currymod.module.option.options.OptionBoolean;
-import dev.logging4j.currymod.module.option.options.OptionKeybind;
-import dev.logging4j.currymod.module.option.options.OptionMode;
-import dev.logging4j.currymod.module.option.options.OptionNumber;
+import dev.logging4j.currymod.module.option.options.*;
 import net.minecraft.client.util.InputUtil;
 
+import java.awt.*;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -63,49 +62,12 @@ public class ModuleConfig extends Config {
                 JsonObject options = json.getAsJsonObject("options");
                 if (options == null) continue;
 
-                for (Option<?> option : module.getOptions()) {
-                    JsonElement element = options.get(option.getName());
-                    if (element == null) continue;
-
-                    if (option instanceof OptionBoolean optionBoolean) {
-                        optionBoolean.setValue(element.getAsBoolean());
-
-                    } else if (option instanceof OptionKeybind optionKeybind) {
-                        optionKeybind.setValue(
-                                InputUtil.fromTranslationKey(element.getAsString())
-                        );
-
-                    } else if (option instanceof OptionMode optionMode) {
-                        optionMode.setValue(element.getAsString());
-
-                    } else if (option instanceof OptionNumber<?> optionNumber) {
-                        Number defaultValue = optionNumber.getDefaultValue();
-
-                        Object value = null;
-
-                        if (defaultValue instanceof Integer) {
-                            value = element.getAsInt();
-                        } else if (defaultValue instanceof Float) {
-                            value = element.getAsFloat();
-                        } else if (defaultValue instanceof Double) {
-                            value = element.getAsDouble();
-                        }
-
-                        if (value != null) {
-                            setOptionNumber(optionNumber, value);
-                        }
-                    }
-                }
+                readOptions(options, module);
 
             } catch (Exception e) {
                 CurryMod.LOGGER.error("Module config [{}] failed to read", module.getName(), e);
             }
         }
-    }
-
-    @SuppressWarnings({ "unchecked", "rawtypes" })
-    private static void setOptionNumber(OptionNumber option, Object value) {
-        option.setValue(value);
     }
 
     private void writeModuleConfig(Module module) {
@@ -123,6 +85,13 @@ public class ModuleConfig extends Config {
                         option.getName(),
                         keybind.getValue().getTranslationKey()
                 );
+            } else if (option instanceof OptionColor color) {
+                JsonArray colorValues = new JsonArray();
+                colorValues.add(color.getValue().getRed());
+                colorValues.add(color.getValue().getGreen());
+                colorValues.add(color.getValue().getBlue());
+                colorValues.add(color.getValue().getAlpha());
+                options.add(option.getName(), colorValues);
             } else {
                 options.add(option.getName(), GSON.toJsonTree(option.getValue()));
             }
@@ -135,5 +104,62 @@ public class ModuleConfig extends Config {
         } catch (IOException e) {
             CurryMod.LOGGER.error("Module config [{}] failed to write", module.getName(), e);
         }
+    }
+
+    private void readOptions(JsonObject options, Module module) {
+        for (Option<?> option : module.getOptions()) {
+            JsonElement element = options.get(option.getName());
+            if (element == null) continue;
+
+            switch (option) {
+                case OptionBoolean optionBoolean -> readBooleanOption(optionBoolean, element);
+                case OptionKeybind optionKeybind -> readKeyBindOption(optionKeybind, element);
+                case OptionMode optionMode -> readModeOption(optionMode, element);
+                case OptionNumber<?> optionNumber -> readNumberOption(optionNumber, element);
+                case OptionColor optionColor -> readColorOption(optionColor, element);
+                default -> throw new IllegalStateException("Unexpected value: " + option);
+            }
+        }
+    }
+
+    private void readBooleanOption(OptionBoolean optionBoolean, JsonElement element) {
+        optionBoolean.setValue(element.getAsBoolean());
+    }
+
+    private void readKeyBindOption(OptionKeybind optionKeybind, JsonElement element) {
+        optionKeybind.setValue(InputUtil.fromTranslationKey(element.getAsString()));
+    }
+
+    private void readModeOption(OptionMode optionMode, JsonElement element) {
+        optionMode.setValue(element.getAsString());
+    }
+
+    private void readColorOption(OptionColor optionColor, JsonElement element) {
+        JsonArray rgbaValues = element.getAsJsonArray();
+        Color color = new Color(rgbaValues.get(0).getAsInt(), rgbaValues.get(1).getAsInt(), rgbaValues.get(2).getAsInt(), rgbaValues.get(3).getAsInt());
+        optionColor.setValue(color);
+    }
+
+    private void readNumberOption(OptionNumber<?> optionNumber, JsonElement element) {
+        Number defaultValue = optionNumber.getDefaultValue();
+
+        Object value = null;
+
+        if (defaultValue instanceof Integer) {
+            value = element.getAsInt();
+        } else if (defaultValue instanceof Float) {
+            value = element.getAsFloat();
+        } else if (defaultValue instanceof Double) {
+            value = element.getAsDouble();
+        }
+
+        if (value != null) {
+            setOptionNumber(optionNumber, value);
+        }
+    }
+
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+    private void setOptionNumber(OptionNumber option, Object value) {
+        option.setValue(value);
     }
 }

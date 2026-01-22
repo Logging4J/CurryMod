@@ -59,7 +59,7 @@ public class TitleScreenMixin extends Screen implements MinecraftInterface {
         homieTexts = new ArrayList<>();
         Window window = client.getWindow();
         String[] homies = {
-                "Logging4J", "_WMS", "Audsis", "Tuco", "TudouCat", "Slimmask", "Fuzse",
+                "Logging4J", "_WMS", "CatGirlLana", "Audsis", "Tuco", "TudouCat", "Slimmask", "Fuzse",
                 "NewHag", "SpikeStinger", "DevOfDeath", "Baitpl",
                 "dogbat", "3958", "Anthhurs", "BossStack", "Troppy"
         };

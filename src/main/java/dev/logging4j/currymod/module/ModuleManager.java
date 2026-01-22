@@ -4,6 +4,7 @@ import de.florianmichael.dietrichevents2.DietrichEvents2;
 import dev.logging4j.currymod.listener.IKeyListener;
 import dev.logging4j.currymod.module.modules.client.Capes;
 import dev.logging4j.currymod.module.modules.client.ClickGUI;
+import dev.logging4j.currymod.module.modules.client.Colors;
 import dev.logging4j.currymod.module.modules.client.HudEditor;
 import dev.logging4j.currymod.module.modules.exploit.XCarry;
 import dev.logging4j.currymod.module.modules.fun.BasketBallPeople;
@@ -35,6 +36,7 @@ public class ModuleManager implements IKeyListener, MinecraftInterface {
         modules = new CopyOnWriteArrayList<>();
 
         add(Jew.class);
+        add(Colors.class);
 //        add(NaziClouds.class);
 //        add(TudouSky.class);
         add(HudEditor.class);
@@ -62,6 +64,7 @@ public class ModuleManager implements IKeyListener, MinecraftInterface {
         add(PlayerProtect.class);
         add(Velocity.class);
         add(XCarry.class);
+        add(NameTags.class);
 
         DietrichEvents2.global().subscribe(KeyEvent.ID, this);
     }
