@@ -18,7 +18,7 @@ public class ToggleComponent extends OptionComponent {
         this.width = this.parent.getWidth();
         this.height = this.parent.getHeight();
 
-        RenderUtils.drawRect(context, x + 3, y, width - 6, height, ((OptionBoolean) option).getValue() ? parent.getParent().getCategory().getColor().getRGB() : new Color(37, 37, 37).getRGB());
+        RenderUtils.drawRect(context, x + 3, y, width - 6, height, ((OptionBoolean) option).getValue() ? parent.getParent().getCategory().getColor().getRGB() : ClickGUIScreen.BG_PANEL);
         context.drawTextWithShadow(mc.textRenderer, option.getName(), x + 5, y + (height - mc.textRenderer.fontHeight) / 2, Color.WHITE.getRGB());
     }
 

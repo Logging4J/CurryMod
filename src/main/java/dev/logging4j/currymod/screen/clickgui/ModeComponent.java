@@ -1,5 +1,6 @@
 package dev.logging4j.currymod.screen.clickgui;
 
+import dev.logging4j.currymod.module.modules.client.ClickGUI;
 import dev.logging4j.currymod.module.option.options.OptionMode;
 import dev.logging4j.currymod.util.RenderUtils;
 import net.minecraft.client.gui.DrawContext;
@@ -19,7 +20,7 @@ public class ModeComponent extends OptionComponent {
         this.width = this.parent.getWidth();
         this.height = this.parent.getHeight();
 
-        RenderUtils.drawRect(context, x + 3, y, width - 6, height, new Color(37, 37, 37).getRGB());
+        RenderUtils.drawRect(context, x + 3, y, width - 6, height, ClickGUIScreen.BG_PANEL);
         context.drawText(mc.textRenderer, option.getName() + ": ", x + 5, y + (height / 2) - (mc.textRenderer.fontHeight / 2), Color.WHITE.getRGB(), true);
         context.drawText(mc.textRenderer, String.valueOf(option.getValue()), x + width - mc.textRenderer.getWidth(String.valueOf(option.getValue())) - 5, y + (height / 2) - (mc.textRenderer.fontHeight / 2), Color.WHITE.getRGB(), true);
     }
@@ -28,39 +29,9 @@ public class ModeComponent extends OptionComponent {
     public void mouseClicked(double mouseX, double mouseY, int button) {
         if (isHovered(mouseX, mouseY, x, y, width, height)) {
             if(button == 0){
-                int i = 0;
-                int enumIndex = 0;
-                for (String enumName : ((OptionMode) option).getModes()) {
-                    if (enumName.equals(option.getValue())) enumIndex = i;
-                    i++;
-                }
-                if (enumIndex == ((OptionMode) option).getModes().size() - 1) {
-                    ((OptionMode) option).setValue(((OptionMode) option).getModes().get(0));
-                } else {
-                    enumIndex++;
-                    i = 0;
-                    for (String enumName : ((OptionMode) option).getModes()) {
-                        if (i == enumIndex) ((OptionMode) option).setValue(enumName);
-                        i++;
-                    }
-                }
+                handleLeftClick();
             } else if (button == 1) {
-                int i = 0;
-                int enumIndex = 0;
-                for (String enumName : ((OptionMode) option).getModes()) {
-                    if (enumName.equals(((OptionMode) option).getValue())) enumIndex = i;
-                    i++;
-                }
-                if (enumIndex == 0) {
-                    ((OptionMode) option).setValue(((OptionMode) option).getModes().get(((OptionMode) option).getModes().size() - 1));
-                } else {
-                    enumIndex--;
-                    i = 0;
-                    for (String enumName : ((OptionMode) option).getModes()) {
-                        if (i == enumIndex) ((OptionMode) option).setValue(enumName);
-                        i++;
-                    }
-                }
+                handleRightClick();
             }
         }
     }
@@ -73,5 +44,43 @@ public class ModeComponent extends OptionComponent {
     @Override
     public void keyPressed(int keyCode, int scanCode, int modifiers) {
 
+    }
+
+    private void handleLeftClick() {
+        int i = 0;
+        int enumIndex = 0;
+        for (String enumName : ((OptionMode) option).getModes()) {
+            if (enumName.equals(option.getValue())) enumIndex = i;
+            i++;
+        }
+        if (enumIndex == ((OptionMode) option).getModes().size() - 1) {
+            ((OptionMode) option).setValue(((OptionMode) option).getModes().get(0));
+        } else {
+            enumIndex++;
+            i = 0;
+            for (String enumName : ((OptionMode) option).getModes()) {
+                if (i == enumIndex) ((OptionMode) option).setValue(enumName);
+                i++;
+            }
+        }
+    }
+
+    private void handleRightClick() {
+        int i = 0;
+        int enumIndex = 0;
+        for (String enumName : ((OptionMode) option).getModes()) {
+            if (enumName.equals(((OptionMode) option).getValue())) enumIndex = i;
+            i++;
+        }
+        if (enumIndex == 0) {
+            ((OptionMode) option).setValue(((OptionMode) option).getModes().get(((OptionMode) option).getModes().size() - 1));
+        } else {
+            enumIndex--;
+            i = 0;
+            for (String enumName : ((OptionMode) option).getModes()) {
+                if (i == enumIndex) ((OptionMode) option).setValue(enumName);
+                i++;
+            }
+        }
     }
 }

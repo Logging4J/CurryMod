@@ -59,7 +59,7 @@ public class Panel implements MinecraftInterface {
         }
 
         RenderUtils.drawRect(context, x, y, width, (int) animatedHeight, category.getColor().getRGB());
-        RenderUtils.drawRect(context, x + 1, y + 1, width - 2, (int) animatedHeight - 2, new Color(26, 26, 26).getRGB());
+        RenderUtils.drawRect(context, x + 1, y + 1, width - 2, (int) animatedHeight - 2, ClickGUIScreen.BG_PANEL_DARK);
         context.drawTextWithShadow(mc.textRenderer, category.getName(), x + 5, y + (height - mc.textRenderer.fontHeight) / 2, -1);
 
         String openString = open ? "∨" : "∧" ;
@@ -113,6 +113,6 @@ public class Panel implements MinecraftInterface {
     }
 
     private boolean isHovered(double mouseX, double mouseY, double x, double y, double width, double height) {
-        return mouseX >= x && mouseX - width <= x && mouseY >= y && mouseY - height <= y;
+        return mouseX >= x && mouseX <= x + width && mouseY >= y && mouseY <= y + height;
     }
 }

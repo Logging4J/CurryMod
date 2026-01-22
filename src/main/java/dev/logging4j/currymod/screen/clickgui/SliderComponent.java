@@ -1,5 +1,6 @@
 package dev.logging4j.currymod.screen.clickgui;
 
+import dev.logging4j.currymod.module.modules.client.ClickGUI;
 import dev.logging4j.currymod.module.option.options.OptionNumber;
 import dev.logging4j.currymod.util.MathUtils;
 import dev.logging4j.currymod.util.RenderUtils;
@@ -28,7 +29,7 @@ public class SliderComponent extends OptionComponent {
         double val = ((OptionNumber<?>) option).getValue().doubleValue();
         int filled = (int) ((val - min) / (max - min) * (width - 6));
 
-        RenderUtils.drawRect(context, x + 3, y, width - 6, height, new Color(37, 37, 37).getRGB());
+        RenderUtils.drawRect(context, x + 3, y, width - 6, height, ClickGUIScreen.BG_PANEL);
 
         RenderUtils.drawRect(context, x + 3, y + height - 2, filled, 2, parent.getParent().getCategory().getColor().getRGB());
 

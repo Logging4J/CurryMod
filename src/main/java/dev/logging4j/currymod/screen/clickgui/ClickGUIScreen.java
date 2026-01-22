@@ -12,10 +12,14 @@ import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.RotationAxis;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ClickGUIScreen extends Screen implements MinecraftInterface {
+
+    public static final int BG_PANEL = new Color(37, 37, 37).getRGB();
+    public static final int BG_PANEL_DARK = new Color(26, 26, 26).getRGB();
 
     @Getter
     private static ClickGUIScreen instance = new ClickGUIScreen();
@@ -94,6 +98,6 @@ public class ClickGUIScreen extends Screen implements MinecraftInterface {
     }
 
     private boolean isHovered(double mouseX, double mouseY, double x, double y, double width, double height) {
-        return mouseX >= x && mouseX - width <= x && mouseY >= y && mouseY - height <= y;
+        return mouseX >= x && mouseX <= x + width && mouseY >= y && mouseY <= y + height;
     }
 }

@@ -65,7 +65,7 @@ public class ModuleComponent implements MinecraftInterface {
             animatedHeight = target;
         }
 
-        RenderUtils.drawRect(context, x + 3, y, width - 6, height, module.isEnabled() ? parent.getCategory().getColor().getRGB() : new Color(37, 37, 37).getRGB());
+        RenderUtils.drawRect(context, x + 3, y, width - 6, height, module.isEnabled() ? parent.getCategory().getColor().getRGB() : ClickGUIScreen.BG_PANEL);
         context.drawTextWithShadow(mc.textRenderer, module.getName(), x + 5, y + (height - mc.textRenderer.fontHeight) / 2, -1);
 
         String openString = open ? "-" : "+";
